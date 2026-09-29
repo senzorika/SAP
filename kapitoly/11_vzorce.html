@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vzorce a parametre v senzorickej analýze</title>
+    <style>
+        :root {
+            --primary: #00695c;
+            --primary-light: #439889;
+            --primary-dark: #003d33;
+            --secondary: #004d40;
+            --accent: #00897b;
+            --bg: #f5f9f8;
+            --bg-card: #ffffff;
+            --text: #1a2b28;
+            --text-light: #4a635e;
+            --border: #d4e4e0;
+            --success: #2e7d32;
+            --warning: #e65100;
+            --danger: #c62828;
+            --info: #1565c0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 32px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: #fff;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .card p { margin-bottom: 12px; }
+
+        .callout {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 16px 0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p { margin-bottom: 4px; }
+
+        .formula-box {
+            background: #f0f7f5;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 12px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .formula-box .formula-label {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+
+        th {
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:nth-child(even) { background: #f5faf9; }
+        tbody tr:hover { background: #e0f2f1; }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin: 24px 0;
+            padding: 16px;
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 16px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 1px solid #a5d6a7;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .highlight-box .hb-title {
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 8px 0 12px 24px;
+        }
+
+        li { margin-bottom: 4px; }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
+        .tag-red { background: #ffebee; color: #c62828; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-teal { background: #e0f2f1; color: #00695c; }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .section-nav a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        footer {
+            background: #1a2b28;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 24px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            nav .nav-container { flex-direction: column; height: auto; padding: 12px; }
+            nav ul { justify-content: center; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/sap.css">
+    <script src="../assets/sap.js" defer></script>
+</head>
+<body class="sap">
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">SAP Vzorce</div>
+        <ul>
+            <li><a href="#zakladne">Základné</a></li>
+            <li><a href="#rozlišovacie">Rozlišovacie</a></li>
+            <li><a href="#anova">ANOVA</a></li>
+            <li><a href="#korelacia">Korelácia</a></li>
+            <li><a href="#shelf-life">Shelf-life</a></li>
+            <li><a href="#parametre">Parametre</a></li>
+            <li><a href="#vypocty">Výpočty</a></li>
+        <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Vzorce a parametre v senzorickej analýze</h1>
+    <p>Komplexný sprievodca matematickými vzorcami, štatistickými parametrami a praktickými výpočtami</p>
+</div>
+
+<div class="container">
+
+    <div class="section-nav">
+        <a href="#zakladne">1. Základné vzorce</a>
+        <a href="#rozlišovacie">2. Rozlišovacie testy</a>
+        <a href="#anova">3. ANOVA</a>
+        <a href="#korelacia">4. Korelácia</a>
+        <a href="#shelf-life">5. Shelf-life</a>
+        <a href="#parametre">6. Senzorické parametre</a>
+        <a href="#vypocty">7. Praktické výpočty</a>
+    </div>
+
+    <!-- SECTION 1: ZÁKLADNÉ VZORCE -->
+    <div class="card" id="zakladne">
+        <h2>1. Základné štatistické vzorce</h2>
+
+        <h3>1.1 Priemer (aritmetický priemer)</h3>
+        <div class="callout">
+            <div class="callout-title">Vzorec priemeru</div>
+            <div class="formula-box">x̄ = (1/n) × Σ(xᵢ)
+
+Kde:
+• x̄ = aritmetický priemer
+• n = počet pozorovaní
+• xᵢ = hodnota i-tého pozorovania
+• Σ = suma</div>
+        </div>
+        <p><strong>Praktické využitie:</strong> Priemerné hodnotenie intenzity chuti panelistami na 9-bodovej hedonickej škále.</p>
+
+        <h3>1.2 Štandardná odchýlka</h3>
+        <div class="callout">
+            <div class="callout-title">Vzorec štandardnej odchýlky</div>
+            <div class="formula-box">s = √[(1/(n-1)) × Σ(xᵢ - x̄)²]
+
+Kde:
+• s = štandardná odchýlka
+• n-1 = stupne voľnosti
+• xᵢ - x̄ = odchýlka od priemeru</div>
+        </div>
+        <p><strong>Poznámka:</strong> Používa sa n-1 (Besselova korekcia), pretože pracujeme s vzorkou, nie s celou populáciou.</p>
+
+        <h3>1.3 Konfidenčný interval</h3>
+        <div class="callout">
+            <div class="callout-title">Vzorec konfidenčného intervalu</div>
+            <div class="formula-box">CI = x̄ ± t(α/2, n-1) × (s/√n)
+
+Kde:
+• t(α/2, n-1) = kritická hodnota t-rozdelenia
+• α = hladina významnosti (typicky 0.05)
+• s/√n = štandardná chyba priemeru</div>
+        </div>
+        <p><strong>Interpretácia:</strong> Postup konštrukcie intervalu zachytí skutočný priemer populácie v 95 % opakovaní experimentu (pre jeden konkrétny interval to nie je „95 % pravdepodobnosť“).</p>
+        <div class="callout"><div class="callout-title">🧪 SaIT</div><p><strong>Precvič v R (<a href="https://github.com/senzorika/SaIT">SaIT</a>):</strong> interval spoľahlivosti priemeru panelu — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie02.html">cvičenie 2</a></p></div>
+
+        <div class="svg-container">
+            <svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="300" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Konfidenčný interval — vizualizácia</text>
+                <!-- Normal distribution curve -->
+                <path d="M50,250 C100,250 120,240 150,220 C180,200 200,170 220,140 C240,110 260,80 280,65 C300,50 320,45 340,45 C360,45 380,50 400,65 C420,80 440,110 460,140 C480,170 500,200 520,220 C540,240 560,250 570,250" fill="none" stroke="#00695c" stroke-width="2.5"/>
+                <!-- Mean line -->
+                <line x1="300" y1="45" x2="300" y2="250" stroke="#e65100" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="300" y="35" text-anchor="middle" font-size="12" fill="#e65100" font-weight="bold">x̄</text>
+                <!-- CI bounds -->
+                <line x1="220" y1="140" x2="220" y2="250" stroke="#1565c0" stroke-width="2"/>
+                <line x1="380" y1="140" x2="380" y2="250" stroke="#1565c0" stroke-width="2"/>
+                <text x="220" y="265" text-anchor="middle" font-size="11" fill="#1565c0">CI dolný</text>
+                <text x="380" y="265" text-anchor="middle" font-size="11" fill="#1565c0">CI horný</text>
+                <!-- CI bracket -->
+                <line x1="220" y1="275" x2="380" y2="275" stroke="#1565c0" stroke-width="1.5"/>
+                <line x1="220" y1="270" x2="220" y2="280" stroke="#1565c0" stroke-width="1.5"/>
+                <line x1="380" y1="270" x2="380" y2="280" stroke="#1565c0" stroke-width="1.5"/>
+                <text x="300" y="290" text-anchor="middle" font-size="11" fill="#1565c0">95% CI</text>
+                <!-- Shaded CI region -->
+                <path d="M220,250 C240,250 260,240 280,220 C300,200 320,190 340,190 C360,190 380,200 380,250 Z" fill="#e0f2f1" opacity="0.5"/>
+            </svg>
+        </div>
+
+        <h3>1.4 Variabilita (CV — koeficient variácie)</h3>
+        <div class="callout">
+            <div class="callout-title">Vzorec CV</div>
+            <div class="formula-box">CV = (s / x̄) × 100%</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>CV hodnota</th><th>Interpretácia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>&lt; 10%</td><td>Nízka variabilita (konzistentné hodnotenie)</td></tr>
+                <tr><td>10-20%</td><td>Mierna variabilita</td></tr>
+                <tr><td>20-30%</td><td>Vysoká variabilita</td></tr>
+                <tr><td>&gt; 30%</td><td>Veľmi vysoká variabilita (problém s panelom)</td></tr>
+            </tbody>
+        </table>
+        <p><em>Orientačné pásma (konvencia). CV je citlivé na polohu na škále — pri priemeroch blízko nuly je zavádzajúce; výkonnosť panelu sa preto hodnotí skôr podľa ISO 11132 (diskriminácia, zhoda, opakovateľnosť) — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">SaIT cvičenie 15</a>.</em></p>
+    </div>
+
+    <!-- SECTION 2: ROZLIŠOVACIE TESTY -->
+    <div class="card" id="rozlišovacie">
+        <h2>2. Rozlišovacie testy</h2>
+
+        <h3>2.1 Binomická pravdepodobnosť</h3>
+        <div class="callout">
+            <div class="callout-title">Binomická pravdepodobnosť</div>
+            <div class="formula-box">P(X = k) = C(n,k) × p^k × (1-p)^(n-k)
+
+Kde:
+• n = počet pokusov (panelistov)
+• k = počet úspešných identifikácií
+• p = pravdepodobnosť úspechu pri náhodnom výbere
+• C(n,k) = binomický koeficient
+
+Pre trojuholníkový test: p = 1/3 (tri vzorky, z toho jedna odlišná — pravdepodobnosť uhádnutia)</div>
+        </div>
+
+        <h3>2.2 Kritické hodnoty pre trojuholníkový test</h3>
+        <table>
+            <thead>
+                <tr><th>Počet panelistov (n)</th><th>α = 0.05</th><th>α = 0.01</th><th>α = 0.001</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>10</td><td>7</td><td>8</td><td>9</td></tr>
+                <tr><td>15</td><td>9</td><td>10</td><td>12</td></tr>
+                <tr><td>20</td><td>11</td><td>13</td><td>14</td></tr>
+                <tr><td>25</td><td>13</td><td>15</td><td>17</td></tr>
+                <tr><td>30</td><td>15</td><td>17</td><td>19</td></tr>
+                <tr><td>35</td><td>17</td><td>19</td><td>22</td></tr>
+                <tr><td>40</td><td>19</td><td>21</td><td>24</td></tr>
+                <tr><td>50</td><td>23</td><td>26</td><td>28</td></tr>
+                <tr><td>60</td><td>27</td><td>30</td><td>33</td></tr>
+            </tbody>
+        </table>
+        <p>Minimálny počet správnych odpovedí pre štatistickú významnosť (presný jednostranný binomický test).</p>
+        <p><em>Prepočítané v Pythone (<code>scipy.stats.binom</code>); zhodné s tabuľkou v ISO 4120:2021. Predošlá verzia mala hodnoty posunuté o 1–2 nahor (príliš konzervatívne) a odkazovala na neaktuálne vydanie 2004.</em></p>
+
+        <h3>2.3 Výpočet počtu panelistov</h3>
+        <div class="callout">
+            <div class="callout-title">Vzorec pre počet panelistov</div>
+            <div class="formula-box">n = [Z(α)·√(p₀(1−p₀)) + Zβ·√(p(1−p))]² / (p − p₀)²
+
+Kde:
+• Z(α) = kritická hodnota pre hladinu významnosti (jednostranne 1.645 pre α = 0.05)
+• Zβ = kritická hodnota pre silu testu (power)
+• p = očakávaná úspešnosť panelistov
+• p₀ = náhodná úspešnosť (1/3 pre trojuholníkový test)</div>
+        </div>
+        <p>Vzorec platí pre jednostranný rozlišovací test (normálna aproximácia). Rozlišovacie testy sú <strong>jednostranné</strong> (H₁: p &gt; p₀), preto sa používa Z(α), nie Z(α/2). Presnejší je priamy binomický výpočet (napr. <code>sensR::discrimSS()</code>).</p>
+
+        <table>
+            <thead>
+                <tr><th>Parameter</th><th>Hodnota</th><th>Význam</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Z(α/2) (α=0.05)</td><td>1.96</td><td>Dvojstranný test</td></tr>
+                <tr><td>Z(α) (α=0.05)</td><td>1.645</td><td>Jednostranný test</td></tr>
+                <tr><td>Zβ (power=0.80)</td><td>0.84</td><td>80% sila testu</td></tr>
+                <tr><td>Zβ (power=0.90)</td><td>1.28</td><td>90% sila testu</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2.4 Power analysis (Sila testu)</h3>
+        <p>Sila testu = 1 − β = pravdepodobnosť správneho zamietnutia nulovej hypotézy, keď je neplatná.</p>
+        <table>
+            <thead>
+                <tr><th>Sila testu</th><th>Zβ</th><th>Význam</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0.70</td><td>0.52</td><td>Minimálna</td></tr>
+                <tr><td>0.80</td><td>0.84</td><td>Štandardná</td></tr>
+                <tr><td>0.90</td><td>1.28</td><td>Vysoká</td></tr>
+                <tr><td>0.95</td><td>1.645</td><td>Veľmi vysoká</td></tr>
+            </tbody>
+        </table>
+        <div class="callout"><div class="callout-title">🧪 SaIT</div><p><strong>SaIT:</strong> sila testu a veľkosť panelu — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">cvičenie 14</a> · binomický test — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">cvičenie 5a</a></p></div>
+    </div>
+
+    <!-- SECTION 3: ANOVA -->
+    <div class="card" id="anova">
+        <h2>3. ANOVA a post-hoc testy</h2>
+
+        <h3>3.1 F-statistika</h3>
+        <div class="callout">
+            <div class="callout-title">F-statistika</div>
+            <div class="formula-box">F = MS(between) / MS(within)
+F = [SS(between) / df(between)] / [SS(within) / df(within)]
+
+Kde:
+• MS(between) = stredný štvorcový rozptyl medzi skupinami
+• MS(within) = stredný štvorcový rozptyl v rámci skupín
+• SS = suma štvorcov
+• df = stupne voľnosti
+
+df(between) = k - 1 (k = počet skupín)
+df(within) = N - k (N = celkový počet pozorovaní)</div>
+        </div>
+
+        <div class="svg-container">
+            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="350" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">ANOVA — porovnanie skupín (box ploty)</text>
+                <!-- Y axis -->
+                <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
+                <text x="20" y="170" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90, 20, 170)">Hodnotenie</text>
+                <!-- Y labels -->
+                <text x="50" y="305" text-anchor="end" font-size="10" fill="#666">0</text>
+                <text x="50" y="245" text-anchor="end" font-size="10" fill="#666">2</text>
+                <text x="50" y="185" text-anchor="end" font-size="10" fill="#666">4</text>
+                <text x="50" y="125" text-anchor="end" font-size="10" fill="#666">6</text>
+                <text x="50" y="65" text-anchor="end" font-size="10" fill="#666">8</text>
+                <!-- X axis -->
+                <line x1="60" y1="300" x2="560" y2="300" stroke="#333" stroke-width="1.5"/>
+                <!-- Group 1 -->
+                <rect x="100" y="120" width="60" height="120" fill="#e0f2f1" stroke="#00695c" stroke-width="1.5" rx="3"/>
+                <line x1="100" y1="180" x2="160" y2="180" stroke="#00695c" stroke-width="2"/>
+                <line x1="130" y1="120" x2="130" y2="60" stroke="#00695c" stroke-width="1.5"/>
+                <line x1="130" y1="240" x2="130" y2="280" stroke="#00695c" stroke-width="1.5"/>
+                <line x1="115" y1="60" x2="145" y2="60" stroke="#00695c" stroke-width="1.5"/>
+                <line x1="115" y1="280" x2="145" y2="280" stroke="#00695c" stroke-width="1.5"/>
+                <text x="130" y="320" text-anchor="middle" font-size="11" fill="#333">Skupina A</text>
+                <!-- Group 2 -->
+                <rect x="220" y="100" width="60" height="140" fill="#fff3e0" stroke="#e65100" stroke-width="1.5" rx="3"/>
+                <line x1="220" y1="170" x2="280" y2="170" stroke="#e65100" stroke-width="2"/>
+                <line x1="250" y1="100" x2="250" y2="40" stroke="#e65100" stroke-width="1.5"/>
+                <line x1="250" y1="240" x2="250" y2="290" stroke="#e65100" stroke-width="1.5"/>
+                <line x1="235" y1="40" x2="265" y2="40" stroke="#e65100" stroke-width="1.5"/>
+                <line x1="235" y1="290" x2="265" y2="290" stroke="#e65100" stroke-width="1.5"/>
+                <text x="250" y="320" text-anchor="middle" font-size="11" fill="#333">Skupina B</text>
+                <!-- Group 3 -->
+                <rect x="340" y="140" width="60" height="100" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5" rx="3"/>
+                <line x1="340" y1="190" x2="400" y2="190" stroke="#1565c0" stroke-width="2"/>
+                <line x1="370" y1="140" x2="370" y2="80" stroke="#1565c0" stroke-width="1.5"/>
+                <line x1="370" y1="240" x2="370" y2="270" stroke="#1565c0" stroke-width="1.5"/>
+                <line x1="355" y1="80" x2="385" y2="80" stroke="#1565c0" stroke-width="1.5"/>
+                <line x1="355" y1="270" x2="385" y2="270" stroke="#1565c0" stroke-width="1.5"/>
+                <text x="370" y="320" text-anchor="middle" font-size="11" fill="#333">Skupina C</text>
+                <!-- Group 4 -->
+                <rect x="460" y="160" width="60" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5" rx="3"/>
+                <line x1="460" y1="200" x2="520" y2="200" stroke="#7b1fa2" stroke-width="2"/>
+                <line x1="490" y1="160" x2="490" y2="100" stroke="#7b1fa2" stroke-width="1.5"/>
+                <line x1="490" y1="240" x2="490" y2="260" stroke="#7b1fa2" stroke-width="1.5"/>
+                <line x1="475" y1="100" x2="505" y2="100" stroke="#7b1fa2" stroke-width="1.5"/>
+                <line x1="475" y1="260" x2="505" y2="260" stroke="#7b1fa2" stroke-width="1.5"/>
+                <text x="490" y="320" text-anchor="middle" font-size="11" fill="#333">Skupina D</text>
+                <!-- Significance indicator -->
+                <line x1="130" y1="35" x2="490" y2="35" stroke="#c62828" stroke-width="1.5"/>
+                <line x1="130" y1="30" x2="130" y2="40" stroke="#c62828" stroke-width="1.5"/>
+                <line x1="490" y1="30" x2="490" y2="40" stroke="#c62828" stroke-width="1.5"/>
+                <text x="310" y="28" text-anchor="middle" font-size="11" fill="#c62828" font-weight="bold">p &lt; 0.05</text>
+            </svg>
+        </div>
+
+        <h3>3.2 Tukey HSD (Honestly Significant Difference)</h3>
+        <div class="callout">
+            <div class="callout-title">Tukey HSD</div>
+            <div class="formula-box">HSD = q(α, k, N-k) × √(MS(within) / n)
+
+Kde:
+• q(α, k, N-k) = študentizovaný rozsah
+• k = počet skupín
+• N-k = stupne voľnosti reziduá
+• n = počet pozorovaní na skupinu</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>k (skupiny)</th><th>df = 10</th><th>df = 20</th><th>df = 30</th><th>df = 60</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2</td><td>3.15</td><td>2.95</td><td>2.89</td><td>2.83</td></tr>
+                <tr><td>3</td><td>3.88</td><td>3.58</td><td>3.49</td><td>3.40</td></tr>
+                <tr><td>4</td><td>4.33</td><td>3.96</td><td>3.85</td><td>3.74</td></tr>
+                <tr><td>5</td><td>4.65</td><td>4.23</td><td>4.10</td><td>3.98</td></tr>
+                <tr><td>6</td><td>4.91</td><td>4.45</td><td>4.30</td><td>4.16</td></tr>
+            </tbody>
+        </table>
+        <p><em>Kritické hodnoty q (α = 0.05). Prepočítané (<code>scipy.stats.studentized_range</code>); predošlá verzia mala pre k ≥ 3 hodnoty podhodnotené.</em></p>
+
+        <h3>3.3 Dunnettov test</h3>
+        <p>Používa sa pri porovnaní viacerých experimentálnych skupín s jednou kontrolnou skupinou.</p>
+        <div class="callout">
+            <div class="callout-title">Dunnettov test</div>
+            <div class="formula-box">tD = (x̄ᵢ - x̄(control)) / √[MS(within) × (1/nᵢ + 1/nc)]</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Vlastnosť</th><th>Dunnett</th><th>Tukey</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Porovnávanie</td><td>vs. kontrola</td><td>Všetky páry</td></tr>
+                <tr><td>Sila testu</td><td>Vyššia</td><td>Nižšia</td></tr>
+                <tr><td>Použitie</td><td>Preferované pri dizajne s kontrolou</td><td>Exploratívna analýza</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3.4 Bonferroni korekcia</h3>
+        <div class="callout">
+            <div class="callout-title">Bonferroni korekcia</div>
+            <div class="formula-box">α(adjusted) = α / m
+
+Kde:
+• α = pôvodná hladina významnosti
+• m = počet porovnaní
+
+Príklad: Pri α = 0.05 a 6 porovnaniach:
+α(adj) = 0.05/6 = 0.0083</div>
+        </div>
+        <div class="callout"><div class="callout-title">🧪 SaIT</div><p><strong>SaIT:</strong> ANOVA a viacnásobné porovnania — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">cvičenie 5b</a> · hodnotiteľ ako náhodný efekt — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">cvičenie 16</a></p></div>
+    </div>
+
+    <!-- SECTION 4: KORELÁCIA -->
+    <div class="card" id="korelacia">
+        <h2>4. Korelácia a regresia</h2>
+
+        <h3>4.1 Pearsonov korelačný koeficient</h3>
+        <div class="callout">
+            <div class="callout-title">Pearsonov korelačný koeficient</div>
+            <div class="formula-box">r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √[Σ(xᵢ - x̄)² × Σ(yᵢ - ȳ)²]</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Hodnota r</th><th>Sila korelácie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0.00-0.19</td><td>Veľmi slabá</td></tr>
+                <tr><td>0.20-0.39</td><td>Slabá</td></tr>
+                <tr><td>0.40-0.59</td><td>Mierna</td></tr>
+                <tr><td>0.60-0.79</td><td>Silná</td></tr>
+                <tr><td>0.80-1.00</td><td>Veľmi silná</td></tr>
+            </tbody>
+        </table>
+        <p><em>Konvenčné slovné pásma (platia pre |r|); v literatúre existujú rôzne varianty.</em></p>
+        <div class="callout"><div class="callout-title">🧪 SaIT</div><p><strong>SaIT:</strong> korelácia a lineárna regresia senzorických a inštrumentálnych dát — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie06.html">cvičenie 6</a></p></div>
+
+        <div class="svg-container">
+            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="350" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Korelačný scatter plot</text>
+                <!-- Axes -->
+                <line x1="60" y1="300" x2="560" y2="300" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
+                <text x="310" y="325" text-anchor="middle" font-size="12" fill="#333">X (atribút A)</text>
+                <text x="20" y="170" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90, 20, 170)">Y (atribút B)</text>
+                <!-- Grid -->
+                <line x1="60" y1="240" x2="560" y2="240" stroke="#eee" stroke-width="1"/>
+                <line x1="60" y1="180" x2="560" y2="180" stroke="#eee" stroke-width="1"/>
+                <line x1="60" y1="120" x2="560" y2="120" stroke="#eee" stroke-width="1"/>
+                <line x1="60" y1="60" x2="560" y2="60" stroke="#eee" stroke-width="1"/>
+                <line x1="160" y1="40" x2="160" y2="300" stroke="#eee" stroke-width="1"/>
+                <line x1="260" y1="40" x2="260" y2="300" stroke="#eee" stroke-width="1"/>
+                <line x1="360" y1="40" x2="360" y2="300" stroke="#eee" stroke-width="1"/>
+                <line x1="460" y1="40" x2="460" y2="300" stroke="#eee" stroke-width="1"/>
+                <!-- Regression line -->
+                <line x1="80" y1="270" x2="540" y2="70" stroke="#e65100" stroke-width="2.5"/>
+                <!-- Data points -->
+                <circle cx="120" cy="250" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="150" cy="230" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="180" cy="240" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="200" cy="210" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="230" cy="200" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="250" cy="180" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="280" cy="190" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="300" cy="160" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="330" cy="150" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="350" cy="130" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="380" cy="140" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="400" cy="110" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="430" cy="100" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="450" cy="80" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="480" cy="90" r="5" fill="#00695c" opacity="0.7"/>
+                <circle cx="500" cy="70" r="5" fill="#00695c" opacity="0.7"/>
+                <!-- r value -->
+                <text x="480" y="55" text-anchor="middle" font-size="14" fill="#e65100" font-weight="bold">r = 0.92</text>
+            </svg>
+        </div>
+
+        <h3>4.2 Lineárna regresia</h3>
+        <div class="callout">
+            <div class="callout-title">Lineárna regresia</div>
+            <div class="formula-box">y = β₀ + β₁x + ε
+
+Odhad parametrov:
+β̂₁ = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / Σ(xᵢ - x̄)²
+β̂₀ = ȳ - β̂₁x̄
+
+Kde:
+• β₀ = intercept (posunutie)
+• β₁ = sklon (slope)
+• ε = chyba (reziduum)</div>
+        </div>
+
+        <h3>4.3 Determinačný koeficient (R²)</h3>
+        <div class="callout">
+            <div class="callout-title">R²</div>
+            <div class="formula-box">R² = 1 - SS(residual) / SS(total)
+R² = Σ(ŷᵢ - ȳ)² / Σ(yᵢ - ȳ)²</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>R²</th><th>Interpretácia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0.0-0.3</td><td>Nízka vysvetľovacia schopnosť</td></tr>
+                <tr><td>0.3-0.5</td><td>Mierna vysvetľovacia schopnosť</td></tr>
+                <tr><td>0.5-0.7</td><td>Dobrá vysvetľovacia schopnosť</td></tr>
+                <tr><td>0.7-0.9</td><td>Vysoká vysvetľovacia schopnosť</td></tr>
+                <tr><td>0.9-1.0</td><td>Výborná vysvetľovacia schopnosť</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: SHELF-LIFE -->
+    <div class="card" id="shelf-life">
+        <h2>5. Shelf-life vzorce</h2>
+
+        <h3>5.1 Q10 model</h3>
+        <div class="callout">
+            <div class="callout-title">Q10 model</div>
+            <div class="formula-box">Q10 = k(T+10) / k(T)
+
+Kde:
+• k(T+10) = rýchlosť degradácie o 10°C vyššej teploty
+• k(T) = rýchlosť degradácie pri teplote T</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Proces</th><th>Q10 hodnota</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Enzymatická degradácia</td><td>2-3</td></tr>
+                <tr><td>Oxidácia lipidov</td><td>2-4</td></tr>
+                <tr><td>Reakcie Maillardovej</td><td>3-5</td></tr>
+                <tr><td>Mikrobiálny rast</td><td>2-5</td></tr>
+                <tr><td>Strata vitamínov</td><td>2-10</td></tr>
+            </tbody>
+        </table>
+        <p><em>Orientačné hodnoty — silno závisia od matrice, a<sub>w</sub> a teplotného rozsahu.</em></p>
+
+        <h3>5.2 Arrheniusov model</h3>
+        <div class="callout">
+            <div class="callout-title">Arrheniusov model</div>
+            <div class="formula-box">k = A × e^(-Ea/RT)
+
+Kde:
+• k = konštanta rýchlosti reakcie (s⁻¹)
+• A = preexponenciálny faktor (s⁻¹)
+• Ea = aktivačná energia (J/mol)
+• R = univerzálny plynový konštanta (8.314 J/(mol·K))
+• T = absolútna teplota (K)
+
+Lineárna forma:
+ln(k) = ln(A) - (Ea/R) × (1/T)</div>
+        </div>
+
+        <h3>5.3 Weibull distribúcia</h3>
+        <div class="callout">
+            <div class="callout-title">Weibull distribúcia</div>
+            <div class="formula-box">F(t) = 1 - e^(-(t/η)^β)
+
+Kde:
+• F(t) = kumulatívna distribúcia poruchy
+• t = čas
+• η = charakteristický čas (scale parameter)
+• β = tvarový parameter (shape parameter)</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>β</th><th>Význam</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>β &lt; 1</td><td>Klesajúca intenzita poruchy (early failures)</td></tr>
+                <tr><td>β = 1</td><td>Exponenciálne rozdelenie (konštantná intenzita)</td></tr>
+                <tr><td>β &gt; 1</td><td>Rastúca intenzita poruchy (wear-out failures)</td></tr>
+            </tbody>
+        </table>
+        <p><em>Predošlá verzia mala interpretáciu β &lt; 1 a β &gt; 1 obrátenú.</em></p>
+
+        <h3>5.4 Median survival time (t₅₀)</h3>
+        <div class="callout">
+            <div class="callout-title">Median survival time</div>
+            <div class="formula-box">t₅₀ = η × (ln 2)^(1/β)</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>β</th><th>t₅₀/η pomer</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0.5</td><td>0.480</td></tr>
+                <tr><td>1.0</td><td>0.693</td></tr>
+                <tr><td>1.5</td><td>0.783</td></tr>
+                <tr><td>2.0</td><td>0.833</td></tr>
+                <tr><td>3.0</td><td>0.885</td></tr>
+            </tbody>
+        </table>
+        <div class="callout"><div class="callout-title">🧪 SaIT</div><p><strong>SaIT:</strong> analýza prežitia a senzorická trvanlivosť — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">cvičenie 10</a></p></div>
+
+        <div class="svg-container">
+            <svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="300" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Weibull S(t) pri rôznych teplotách (β = 2, η = 195 / 65 / 22 d, Q10 = 3)</text>
+                <!-- Axes -->
+                <line x1="60" y1="260" x2="560" y2="260" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="260" x2="60" y2="30" stroke="#333" stroke-width="1.5"/>
+                <text x="310" y="285" text-anchor="middle" font-size="12" fill="#333">Čas (dni)</text>
+                <text x="20" y="145" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90, 20, 145)">Akceptabilita (%)</text>
+                <!-- Y labels -->
+                <text x="50" y="265" text-anchor="end" font-size="10" fill="#666">0</text>
+                <text x="50" y="150" text-anchor="end" font-size="10" fill="#666">50</text>
+                <text x="50" y="35" text-anchor="end" font-size="10" fill="#666">100</text>
+                <!-- X labels -->
+                <text x="60" y="275" text-anchor="middle" font-size="10" fill="#666">0</text>
+                <text x="185" y="275" text-anchor="middle" font-size="10" fill="#666">30</text>
+                <text x="310" y="275" text-anchor="middle" font-size="10" fill="#666">60</text>
+                <text x="435" y="275" text-anchor="middle" font-size="10" fill="#666">90</text>
+                <text x="560" y="275" text-anchor="middle" font-size="10" fill="#666">120</text>
+                <!-- Grid -->
+                <line x1="60" y1="145" x2="560" y2="145" stroke="#eee" stroke-width="1"/>
+                <line x1="60" y1="30" x2="560" y2="30" stroke="#eee" stroke-width="1"/>
+                <!-- 25°C curve (slowest degradation) -->
+                <path d="M60,30 L81,30 L102,31 L122,31 L143,32 L164,34 L185,35 L206,37 L227,39 L248,42 L268,45 L289,48 L310,51 L331,54 L352,58 L372,62 L393,66 L414,70 L435,74 L456,79 L477,83 L498,88 L518,93 L539,98 L560,103" fill="none" stroke="#00695c" stroke-width="2.5"/>
+                <!-- 35°C curve -->
+                <path d="M60,30 L81,31 L102,35 L122,42 L143,51 L164,62 L185,74 L206,88 L227,103 L248,118 L268,133 L289,148 L310,162 L331,175 L352,188 L372,199 L393,209 L414,218 L435,226 L456,233 L477,238 L498,243 L518,247 L539,250 L560,252" fill="none" stroke="#e65100" stroke-width="2.5"/>
+                <!-- 45°C curve (fastest degradation) -->
+                <path d="M60,30 L81,42 L102,74 L122,118 L143,162 L164,199 L185,226 L206,243 L227,252 L248,257 L268,259 L289,260 L310,260 L331,260 L352,260 L372,260 L393,260 L414,260 L435,260 L456,260 L477,260 L498,260 L518,260 L539,260 L560,260" fill="none" stroke="#c62828" stroke-width="2.5"/>
+                <!-- Legend -->
+                <rect x="350" y="40" width="180" height="60" fill="#fff" stroke="#ddd" rx="4"/>
+                <line x1="360" y1="55" x2="390" y2="55" stroke="#00695c" stroke-width="2.5"/>
+                <text x="395" y="59" font-size="11" fill="#333">25°C (Q10=3)</text>
+                <line x1="360" y1="75" x2="390" y2="75" stroke="#e65100" stroke-width="2.5"/>
+                <text x="395" y="79" font-size="11" fill="#333">35°C</text>
+                <line x1="360" y1="95" x2="390" y2="95" stroke="#c62828" stroke-width="2.5"/>
+                <text x="395" y="99" font-size="11" fill="#333">45°C</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- SECTION 6: SENZORICKÉ PARAMETRE -->
+    <div class="card" id="parametre">
+        <h2>6. Senzorické parametre</h2>
+
+        <h3>6.1 Threshold (prah)</h3>
+        <table>
+            <thead>
+                <tr><th>Typ prahu</th><th>Definícia</th><th>Typická hodnota</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Detection threshold</td><td>Najnižšia koncentrácia odlíšiteľná od blanku (ISO 13301, 3-AFC)</td><td>Látkovo špecifická: sacharóza ~10⁻² mol/L, chinín ~10⁻⁵–10⁻⁶ mol/L</td></tr>
+                <tr><td>Recognition threshold</td><td>Najnižšia koncentrácia, pri ktorej subjekt rozpozná kvalitu vnemu</td><td>Vyššia ako detekčný prah (pomer závisí od látky)</td></tr>
+                <tr><td>Difference threshold</td><td>Minimálna zmena stimulu, ktorú subjekt vníma</td><td>Závisí od Weberovho zákona</td></tr>
+                <tr><td>Terminal threshold</td><td>Koncentrácia, pri ktorej už nie je možné vnímať zvýšenie</td><td>Produktovo špecifická</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Just Noticeable Difference (JND)</h3>
+        <p>JND je najmenšia zmena intenzity stimulu, ktorú subjekt dokáže zaznamenať. Vzťah k Weberovmu zákonu:</p>
+        <div class="callout">
+            <div class="callout-title">JND a Weberov zákon</div>
+            <div class="formula-box">JND = k × I
+
+Kde:
+• k = Weberov zlomok
+• I = intenzita stimulu</div>
+        </div>
+
+        <h3>6.3 Weberov zákon</h3>
+        <div class="callout">
+            <div class="callout-title">Weberov zákon</div>
+            <div class="formula-box">ΔI / I = k
+
+Kde:
+• ΔI = JND (minimálna zmena)
+• I = počiatočná intenzita
+• k = Weberov zlomok (konštanta)</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Stimul</th><th>Weberov zlomok (k)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Hmotnosť (záťaž)</td><td>~0.02</td></tr>
+                <tr><td>Hlasitosť (intenzita zvuku)</td><td>~0.1</td></tr>
+                <tr><td>Chuťové podnety (sacharóza, NaCl, kyseliny)</td><td>~0.1–0.3</td></tr>
+                <tr><td>Horkosť (chinín, kofeín)</td><td>~0.2–0.3</td></tr>
+                </tbody>
+        </table>
+        <p><em>Orientačné hodnoty; chuťové Weberove zlomky sa v literatúre značne líšia podľa metódy a koncentrácie (Lawless &amp; Heymann, 2010). Kapsaicín nie je horká látka — vyvoláva pálivosť (chemestéza, receptor TRPV1).</em></p>
+
+        <h3>6.4 Stevensov zákon</h3>
+        <div class="callout">
+            <div class="callout-title">Stevensov zákon</div>
+            <div class="formula-box">ψ = k × I^n
+
+Kde:
+• ψ = subjektívna intenzita
+• k = konštanta
+• I = fyzikálna intenzita
+• n = exponent (špecifický pre každý stimul)</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Stimul</th><th>n</th><th>Vzťah</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Hlasitosť (akustický tlak, tón 3 kHz)</td><td>0.67</td><td>Podlineárny (kompresívny)</td></tr>
+                <tr><td>Sladkosť (sacharóza)</td><td>1.3</td><td>Nadlineárny</td></tr>
+                <tr><td>Sladkosť (sacharín)</td><td>0.8</td><td>Podlineárny</td></tr>
+                <tr><td>Slanosť (NaCl)</td><td>1.3</td><td>Nadlineárny</td></tr>
+                <tr><td>Dĺžka čiary</td><td>1.0</td><td>Lineárny</td></tr>
+                <tr><td>Hmotnosť (tiaž)</td><td>1.45</td><td>Nadlineárny</td></tr>
+            </tbody>
+        </table>
+        <p><em>Hodnoty podľa S. S. Stevensa (1957, 1975); exponent je &lt; 1 kompresívny, &gt; 1 expanzívny. Konkrétne hodnoty závisia od metódy a rozsahu podnetov.</em></p>
+    </div>
+
+    <!-- SECTION 7: PRAKTICKÉ VÝPOČTY -->
+    <div class="card" id="vypocty">
+        <h2>7. Praktické výpočty</h2>
+
+        <h3>7.1 Výpočet konfidenčného intervalu pre senzorický profil</h3>
+        <p><strong>Dáta:</strong> 12 panelistov hodnotilo intenzitu sladkosti na škále 0-10:</p>
+
+        <table>
+            <thead>
+                <tr><th>Panelista</th><th>Hodnotenie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>6.2</td></tr>
+                <tr><td>2</td><td>5.8</td></tr>
+                <tr><td>3</td><td>6.5</td></tr>
+                <tr><td>4</td><td>6.0</td></tr>
+                <tr><td>5</td><td>5.5</td></tr>
+                <tr><td>6</td><td>6.3</td></tr>
+                <tr><td>7</td><td>5.9</td></tr>
+                <tr><td>8</td><td>6.1</td></tr>
+                <tr><td>9</td><td>6.4</td></tr>
+                <tr><td>10</td><td>5.7</td></tr>
+                <tr><td>11</td><td>6.0</td></tr>
+                <tr><td>12</td><td>6.2</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Krok 1: Výpočet priemeru</h4>
+        <div class="formula-box">x̄ = (6.2 + 5.8 + 6.5 + 6.0 + 5.5 + 6.3 + 5.9 + 6.1 + 6.4 + 5.7 + 6.0 + 6.2) / 12 = 72.6 / 12 = 6.05</div>
+        <h4>Krok 2: Výpočet štandardnej odchýlky</h4>
+        <div class="formula-box">s = √[ Σ(xᵢ − 6.05)² / 11 ] = √(0.950 / 11) = √0.0864 = 0.294</div>
+        <h4>Krok 3: Výpočet štandardnej chyby</h4>
+        <div class="formula-box">SE = s / √n = 0.294 / √12 = 0.294 / 3.464 = 0.085</div>
+        <h4>Krok 4: Nájdenie t-hodnoty</h4>
+        <p>Pre α = 0.05 (dvojstranný) a df = 11: t(0.025, 11) = 2.201</p>
+        <h4>Krok 5: Výpočet konfidenčného intervalu</h4>
+        <div class="formula-box">CI = 6.05 ± 2.201 × 0.085 = 6.05 ± 0.187</div>
+
+        <div class="highlight-box">
+            <div class="hb-title">Výsledok: 95% CI = [5.86, 6.24]</div>
+            <p>x̄ = 6.05 | SS = 0.950 | s = 0.294 | SE = 0.085 | t(0.025, 11) = 2.201</p>
+            <p>CI = 6.05 ± 2.201 × 0.085 = 6.05 ± 0.187</p>
+            <p><strong>Interpretácia:</strong> Na 95 % hladine spoľahlivosti leží priemerná intenzita sladkosti produktu (v populácii hodnotení tohto panelu) medzi 5.86 a 6.24 na škále 0–10. (Predošlá verzia mala chybný súčet štvorcov 0.825.)</p>
+        </div>
+
+        <h3>7.2 Výpočet Q10 pre produkt</h3>
+        <p><strong>Dáta:</strong> Mliečny produkt, meranie rýchlosti oxidácie lipidov:</p>
+        <table>
+            <thead>
+                <tr><th>Teplota (°C)</th><th>Konštanta rýchlosti k (deň⁻¹)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>25</td><td>0.015</td></tr>
+                <tr><td>35</td><td>0.045</td></tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="hb-title">Výsledok: Q10 = 3.0</div>
+            <p>Q10 = k₃₅ / k₂₅ = 0.045 / 0.015 = 3.0</p>
+            <p><strong>Interpretácia:</strong> Pri zvýšení teploty o 10°C sa rýchlosť oxidácie strojnásobí.</p>
+            <p><strong>Výpočet shelf-life:</strong> Ak je pri 25°C trvanlivosť 30 dní, pri 35°C: t₃₅ = t₂₅ / Q10 = 30 / 3.0 = 10 dní</p>
+        </div>
+
+        <h3>7.3 Výpočet počtu panelistov pre trojuholníkový test</h3>
+        <p><strong>Podmienky:</strong></p>
+        <ul>
+            <li>Očakávaná úspešnosť panelistov: p = 0.50 (50 % správnych odpovedí)</li>
+            <li>Náhodná úspešnosť: p₀ = 1/3 = 0.333</li>
+            <li>Hladina významnosti: α = 0.05 (<strong>jednostranný</strong> — rozlišovací test testuje H₁: p &gt; 1/3)</li>
+            <li>Sila testu: 1 − β = 0.80</li>
+        </ul>
+
+        <div class="highlight-box">
+            <div class="hb-title">Výsledok: 52 (aproximácia) / 60 (presný binomický výpočet)</div>
+            <p>n = [1.645·√(0.333·0.667) + 0.842·√(0.5·0.5)]² / (0.50 − 0.333)²</p>
+            <p>n = (0.776 + 0.421)² / 0.0278 = 1.433 / 0.0278 = 51.5 → 52; presne 60 panelistov</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Očakávaná úspešnosť (p)</th><th>p_d</th><th>n – aproximácia</th><th>n – presne</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0.40</td><td>10 %</td><td>318</td><td>349</td></tr>
+                <tr><td>0.45</td><td>17.5 %</td><td>105</td><td>121</td></tr>
+                <tr><td>0.50</td><td>25 %</td><td>52</td><td>60</td></tr>
+                <tr><td>0.55</td><td>32.5 %</td><td>31</td><td>39</td></tr>
+                <tr><td>0.60</td><td>40 %</td><td>20</td><td>25</td></tr>
+            </tbody>
+        </table>
+        <p><em>Predošlá verzia používala obojstranné z = 1.96 a nesprávny tvar vzorca, preto boli počty nadhodnotené pri veľkých a podhodnotené pri malých rozdieloch.</em></p>
+
+        <h3>7.4 Výpočet Weibullových parametrov</h3>
+        <p><strong>Dáta:</strong> Doba do degradácie vitamínu C v ovocnej šťave (dni):</p>
+
+        <table>
+            <thead>
+                <tr><th>Vzorka</th><th>Čas do degradácie (dni)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>45</td></tr>
+                <tr><td>2</td><td>52</td></tr>
+                <tr><td>3</td><td>48</td></tr>
+                <tr><td>4</td><td>55</td></tr>
+                <tr><td>5</td><td>50</td></tr>
+                <tr><td>6</td><td>47</td></tr>
+                <tr><td>7</td><td>53</td></tr>
+                <tr><td>8</td><td>49</td></tr>
+                <tr><td>9</td><td>51</td></tr>
+                <tr><td>10</td><td>46</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Krok 1: Triedenie a kumulatívna pravdepodobnosť</h4>
+        <table>
+            <thead>
+                <tr><th>i</th><th>tᵢ (dni)</th><th>F(tᵢ) = (i-0.3)/(n+0.4)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>45</td><td>0.067</td></tr>
+                <tr><td>2</td><td>46</td><td>0.161</td></tr>
+                <tr><td>3</td><td>47</td><td>0.255</td></tr>
+                <tr><td>4</td><td>48</td><td>0.349</td></tr>
+                <tr><td>5</td><td>49</td><td>0.443</td></tr>
+                <tr><td>6</td><td>50</td><td>0.537</td></tr>
+                <tr><td>7</td><td>51</td><td>0.631</td></tr>
+                <tr><td>8</td><td>52</td><td>0.725</td></tr>
+                <tr><td>9</td><td>53</td><td>0.819</td></tr>
+                <tr><td>10</td><td>55</td><td>0.913</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Krok 2: Lineárna regresia pre Weibullov graf</h4>
+        <p>Transformácia: ln(−ln(1−F(t))) vs. ln(t)</p>
+        <table>
+            <thead>
+                <tr><th>ln(t)</th><th>ln(−ln(1−F))</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>3.807</td><td>−2.664</td></tr>
+                <tr><td>3.829</td><td>−1.723</td></tr>
+                <tr><td>3.850</td><td>−1.202</td></tr>
+                <tr><td>3.871</td><td>−0.822</td></tr>
+                <tr><td>3.892</td><td>−0.509</td></tr>
+                <tr><td>3.912</td><td>−0.230</td></tr>
+                <tr><td>3.932</td><td>0.033</td></tr>
+                <tr><td>3.951</td><td>0.299</td></tr>
+                <tr><td>3.970</td><td>0.594</td></tr>
+                <tr><td>4.007</td><td>0.993</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Krok 3: Odhad parametrov</h4>
+
+        <div class="highlight-box">
+            <div class="hb-title">Výsledok: β ≈ 16.9, η ≈ 51.1 dní</div>
+            <p>Z regresie ln(−ln(1−F)) na ln(t): sklon = β ≈ 16.9, intercept = −β·ln(η) ≈ −66.5</p>
+            <p>η = e^(66.5/16.9) = e^3.933 ≈ 51.1 dní (charakteristický čas; do η zlyhá 63.2 % vzoriek)</p>
+            <p>β ≈ 16.9 — veľmi úzke rozdelenie, všetky časy sú medzi 45 a 55 dňami.</p>
+            <p>t₅₀ = 51.1 × (0.693)^(1/16.9) = 51.1 × 0.978 ≈ 50.0 dní (medián dát 49.5 d)</p>
+            <p><em>Kontrola zmysluplnosti: medián dát je 49.5 dňa. Predošlá verzia uvádzala β ≈ 2.1, η = 44.7 a t₅₀ = 37.2 dňa — to je nemožné, keďže žiadna vzorka nezlyhala pred 45. dňom; chybné boli aj hodnoty v stĺpci ln(−ln(1−F)).</em></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Referencie</h2>
+        <ol>
+            <li>ISO 4120:2021 — Sensory analysis — Methodology — Triangle test</li>
+            <li>ISO 5495:2005 — Sensory analysis — Methodology — Paired comparison test</li>
+            <li>ISO 13299:2016 — Sensory analysis — Methodology — General guidance for establishing a sensory profile</li>
+            <li>ISO 13301:2018 — Sensory analysis — Methodology — General guidance for measuring odour, flavour and taste detection thresholds by a three-alternative forced-choice (3-AFC) procedure</li>
+            <li>Lawless, H.T. &amp; Heymann, H. (2010). <em>Sensory Evaluation of Food: Principles and Practices</em> (2nd ed.). Springer.</li>
+            <li>Stone, H. &amp; Sidel, J.L. (2004). <em>Sensory Evaluation Practices</em> (3rd ed.). Academic Press.</li>
+            <li>Meilgaard, M.C., Civille, G.V. &amp; Carr, B.T. (2016). <em>Sensory Evaluation Techniques</em> (5th ed.). CRC Press.</li>
+            <li>Stevens, S.S. (1957). On the psychophysical law. <em>Psychological Review</em> 64, 153–181.</li>
+            <li>Hough, G. (2010). <em>Sensory Shelf Life Estimation of Food Products</em>. CRC Press.</li>
+        </ol>
+    </div>
+
+</div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Priemer, SD, interval spoľahlivosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie02.html">2 – BCG matica a interval spoľahlivosti</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie2.R"><code>cvicenie2.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Binomický test, t-test, χ²</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">5a – Normalita a porovnanie dvoch vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R"><code>cvicenie5a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">ANOVA, Tukey, Bonferroni</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">5b – Porovnanie viacerých vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R"><code>cvicenie5b.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Korelácia, regresia, R²</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie06.html">6 – Korelácia a lineárna regresia</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie6.R"><code>cvicenie6.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kaplan-Meier, shelf-life</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">10 – Analýza prežitia a senzorická trvanlivosť</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie10.R"><code>cvicenie10.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Thurstonov d′</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Sila testu, počet panelistov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+</section>
+
+<footer>
+    <p>SAP — Senzorická Analýza Potravín | Vzorce a parametre | 2026</p>
+</footer>
+
+</body>
+</html>

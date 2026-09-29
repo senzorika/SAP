@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Škálovanie | SAP</title>
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-light: #14919b;
+            --primary-dark: #0a5c60;
+            --secondary: #1a9850;
+            --accent: #66bd63;
+            --bg: #f8fffe;
+            --bg-alt: #e8f5f5;
+            --text: #1a3c3c;
+            --text-light: #4a6c6c;
+            --white: #ffffff;
+            --border: #b2dfdb;
+            --shadow: rgba(13, 115, 119, 0.1);
+            --callout-bg: #e0f2f1;
+            --callout-border: #0d7377;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            display: block;
+            padding: 14px 20px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        nav a:hover { background: rgba(255,255,255,0.15); }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h3 { color: var(--primary); font-size: 1.3rem; margin: 30px 0 15px; }
+        h4 { color: var(--primary-dark); font-size: 1.1rem; margin: 20px 0 10px; }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px var(--shadow);
+            border-top: 3px solid var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        th { background: var(--primary); color: var(--white); padding: 12px 15px; text-align: left; font-weight: 600; }
+        td { padding: 10px 15px; border-bottom: 1px solid var(--border); }
+        tr:hover td { background: var(--bg-alt); }
+
+        .callout {
+            background: var(--callout-bg);
+            border-left: 4px solid var(--callout-border);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .callout-title { font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .callout-title::before { content: "📐 "; }
+
+        .formula {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+        }
+
+        .svg-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px var(--shadow);
+            text-align: center;
+        }
+
+        .svg-container h4 { margin-top: 0; color: var(--primary-dark); }
+        .svg-container svg { max-width: 100%; height: auto; }
+
+        .tag {
+            display: inline-block;
+            background: var(--bg-alt);
+            color: var(--primary-dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+        .pros, .cons { padding: 15px; border-radius: 8px; }
+        .pros { background: #e8f5e9; border-left: 3px solid var(--secondary); }
+        .cons { background: #fce4ec; border-left: 3px solid #c62828; }
+        .pros h5, .cons h5 { margin-bottom: 8px; font-size: 0.95rem; }
+        .pros h5 { color: #2e7d32; }
+        .cons h5 { color: #c62828; }
+        .pros ul, .cons ul { list-style: none; padding: 0; }
+        .pros li::before { content: "✓ "; color: #2e7d32; font-weight: bold; }
+        .cons li::before { content: "✗ "; color: #c62828; font-weight: bold; }
+
+        .step-list { counter-reset: step; list-style: none; padding: 0; }
+        .step-list li {
+            counter-increment: step;
+            padding: 12px 15px 12px 50px;
+            position: relative;
+            margin: 8px 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--accent);
+        }
+
+        .nav-toc {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .nav-toc h3 { margin-top: 0; color: var(--primary-dark); }
+        .nav-toc ol { padding-left: 20px; }
+        .nav-toc li { margin: 8px 0; }
+        .nav-toc a { color: var(--primary); text-decoration: none; }
+        .nav-toc a:hover { text-decoration: underline; }
+
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .pros-cons { grid-template-columns: 1fr; }
+            nav a { padding: 10px 12px; font-size: 0.8rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/sap.css">
+    <script src="../assets/sap.js" defer></script>
+</head>
+<body class="sap">
+    <nav>
+        <ul>
+            <li><a href="#uvod">Úvod</a></li>
+            <li><a href="#hedonicke">Hedonické škály</a></li>
+            <li><a href="#intenzitne">Intenzitné škály</a></li>
+            <li><a href="#wald">Waldova analýza</a></li>
+            <li><a href="#thurstone">Thurstone d'</a></li>
+            <li><a href="#jar">JAR škála</a></li>
+            <li><a href="#porovnanie">Porovnanie</a></li>
+        <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Škálovanie v senzorickej analýze</h1>
+        <p>Priradenie číselných hodnôt senzorickým vlastnostiam – od hedonických škál po Thurstone d-prime</p>
+    </div>
+
+    <div class="container">
+        <div class="nav-toc">
+            <h3>Obsah</h3>
+            <ol>
+                <li><a href="#uvod">Úvod do škálovania</a></li>
+                <li><a href="#hedonicke">Hedonické škály (Hedonic Scales)</a></li>
+                <li><a href="#intenzitne">Intenzitné škály (Intensity Scales)</a></li>
+                <li><a href="#wald">Waldova sekvenčná analýza</a></li>
+                <li><a href="#thurstone">Thurstone d-prime (d')</a></li>
+                <li><a href="#jar">Just-About-Right (JAR) škála</a></li>
+                <li><a href="#porovnanie">Porovnanie škál</a></li>
+            </ol>
+        </div>
+
+        <h2 id="uvod">1. Úvod do škálovania</h2>
+
+        <div class="card">
+            <h3>1.1 Čo je škálovanie?</h3>
+            <p>Škálovanie (scaling) je proces <strong>priradení číselných hodnôt</strong> senzorickým vlastnostiam alebo subjektívnym pocitom. V senzorickej analýze umožňuje kvantifikovať kvalitatívne vlastnosti produktov (napr. sladkosť, horkosť, príjemnosť) do <strong>kvantitatívnych dát</strong>, ktoré je možné štatisticky analyzovať.</p>
+        </div>
+
+        <div class="card">
+            <h3>1.2 Prečo je škálovanie dôležité?</h3>
+            <table>
+                <tr><th>Dôvod</th><th>Vysvetlenie</th></tr>
+                <tr><td><strong>Kvantifikácia</strong></td><td>Prevod subjektívnych pocitov na číselné hodnoty</td></tr>
+                <tr><td><strong>Štatistická analýza</strong></td><td>Umožňuje výpočet priemerov, smerodajných odchýlok, testov</td></tr>
+                <tr><td><strong>Porovnateľnosť</strong></td><td>Umožňuje porovnávať produkty, panely, časové body</td></tr>
+                <tr><td><strong>Komunikácia</strong></td><td>Objektívny spôsob prenosu senzorických výsledkov</td></tr>
+                <tr><td><strong>Vývoj produktu</strong></td><td>Sledovanie zmien v čase, optimalizácia receptúr</td></tr>
+                <tr><td><strong>Kontrola kvality</strong></td><td>Stanovenie akceptačných limitov</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>1.3 Typy škál</h3>
+            <div class="svg-container">
+                <h4>Typy škál v senzorickej analýze</h4>
+                <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="220" y="10" width="160" height="40" rx="8" fill="#0d7377"/>
+                    <text x="300" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Škály v senzorike</text>
+
+                    <line x1="300" y1="50" x2="120" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <line x1="300" y1="50" x2="300" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <line x1="300" y1="50" x2="480" y2="90" stroke="#0d7377" stroke-width="2"/>
+
+                    <rect x="40" y="90" width="160" height="35" rx="6" fill="#1a9850"/>
+                    <text x="120" y="112" text-anchor="middle" fill="white" font-size="11">Kvalitatívne</text>
+
+                    <rect x="220" y="90" width="160" height="35" rx="6" fill="#14919b"/>
+                    <text x="300" y="112" text-anchor="middle" fill="white" font-size="11">Kvantitatívne</text>
+
+                    <rect x="400" y="90" width="160" height="35" rx="6" fill="#66bd63"/>
+                    <text x="480" y="112" text-anchor="middle" fill="white" font-size="11">Špeciálne</text>
+
+                    <line x1="120" y1="125" x2="80" y2="165" stroke="#1a9850" stroke-width="1.5"/>
+                    <line x1="120" y1="125" x2="160" y2="165" stroke="#1a9850" stroke-width="1.5"/>
+                    <rect x="40" y="165" width="80" height="30" rx="5" fill="#e8f5e9" stroke="#1a9850"/>
+                    <text x="80" y="185" text-anchor="middle" fill="#1a9850" font-size="9">Nominálne</text>
+                    <rect x="120" y="165" width="80" height="30" rx="5" fill="#e8f5e9" stroke="#1a9850"/>
+                    <text x="160" y="185" text-anchor="middle" fill="#1a9850" font-size="9">Ordinálne</text>
+
+                    <line x1="300" y1="125" x2="260" y2="165" stroke="#14919b" stroke-width="1.5"/>
+                    <line x1="300" y1="125" x2="340" y2="165" stroke="#14919b" stroke-width="1.5"/>
+                    <rect x="220" y="165" width="80" height="30" rx="5" fill="#e0f2f1" stroke="#14919b"/>
+                    <text x="260" y="185" text-anchor="middle" fill="#14919b" font-size="9">Intervalové</text>
+                    <rect x="300" y="165" width="80" height="30" rx="5" fill="#e0f2f1" stroke="#14919b"/>
+                    <text x="340" y="185" text-anchor="middle" fill="#14919b" font-size="9">Poměrové</text>
+
+                    <line x1="480" y1="125" x2="420" y2="165" stroke="#66bd63" stroke-width="1.5"/>
+                    <line x1="480" y1="125" x2="480" y2="165" stroke="#66bd63" stroke-width="1.5"/>
+                    <line x1="480" y1="125" x2="540" y2="165" stroke="#66bd63" stroke-width="1.5"/>
+                    <rect x="380" y="165" width="80" height="30" rx="5" fill="#e8f5e9" stroke="#66bd63"/>
+                    <text x="420" y="185" text-anchor="middle" fill="#66bd63" font-size="9">Hedonické</text>
+                    <rect x="460" y="165" width="80" height="30" rx="5" fill="#e8f5e9" stroke="#66bd63"/>
+                    <text x="500" y="185" text-anchor="middle" fill="#66bd63" font-size="9">Intenzitné</text>
+                    <rect x="540" y="165" width="60" height="30" rx="5" fill="#e8f5e9" stroke="#66bd63"/>
+                    <text x="570" y="185" text-anchor="middle" fill="#66bd63" font-size="8">JAR</text>
+
+                    <line x1="480" y1="195" x2="480" y2="235" stroke="#66bd63" stroke-width="1" stroke-dasharray="3,3"/>
+                    <rect x="420" y="235" width="120" height="30" rx="5" fill="#fff8e1" stroke="#f9a825"/>
+                    <text x="480" y="255" text-anchor="middle" fill="#f57f17" font-size="9">Semantické</text>
+
+                    <line x1="480" y1="265" x2="480" y2="305" stroke="#66bd63" stroke-width="1" stroke-dasharray="3,3"/>
+                    <rect x="420" y="305" width="120" height="30" rx="5" fill="#e3f2fd" stroke="#1565c0"/>
+                    <text x="480" y="325" text-anchor="middle" fill="#1565c0" font-size="9">Lineárne (VAS)</text>
+                </svg>
+            </div>
+        </div>
+
+        <h2 id="hedonicke">2. Hedonické škály (Hedonic Scales)</h2>
+
+        <div class="card">
+            <h3>2.1 9-bodová hedonická škála (Peryam & Pilgrim)</h3>
+            <p>Najrozšírenejšia hedonická škála, predstavená Peryamom a Pilgrimom v roku 1957. Používa sa na meranie <strong>celkovej príjemnosti</strong> (overall liking) produktu.</p>
+
+            <div class="svg-container">
+                <h4>9-bodová hedonická škála</h4>
+                <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="100" x2="650" y2="100" stroke="#0d7377" stroke-width="3"/>
+
+                    <circle cx="50" cy="100" r="8" fill="#c62828"/>
+                    <text x="50" y="80" text-anchor="middle" fill="#c62828" font-size="11" font-weight="bold">1</text>
+                    <text x="50" y="130" text-anchor="middle" fill="#666" font-size="8">Extrémne</text>
+                    <text x="50" y="142" text-anchor="middle" fill="#666" font-size="8">nepáči</text>
+
+                    <circle cx="125" cy="100" r="8" fill="#e53935"/>
+                    <text x="125" y="80" text-anchor="middle" fill="#e53935" font-size="11" font-weight="bold">2</text>
+                    <text x="125" y="130" text-anchor="middle" fill="#666" font-size="8">Veľmi</text>
+                    <text x="125" y="142" text-anchor="middle" fill="#666" font-size="8">nepáči</text>
+
+                    <circle cx="200" cy="100" r="8" fill="#f4511e"/>
+                    <text x="200" y="80" text-anchor="middle" fill="#f4511e" font-size="11" font-weight="bold">3</text>
+                    <text x="200" y="130" text-anchor="middle" fill="#666" font-size="8">Mierne</text>
+                    <text x="200" y="142" text-anchor="middle" fill="#666" font-size="8">nepáči</text>
+
+                    <circle cx="275" cy="100" r="8" fill="#fb8c00"/>
+                    <text x="275" y="80" text-anchor="middle" fill="#fb8c00" font-size="11" font-weight="bold">4</text>
+                    <text x="275" y="130" text-anchor="middle" fill="#666" font-size="8">Trochu</text>
+                    <text x="275" y="142" text-anchor="middle" fill="#666" font-size="8">nepáči</text>
+
+                    <circle cx="350" cy="100" r="8" fill="#fdd835"/>
+                    <text x="350" y="80" text-anchor="middle" fill="#fdd835" font-size="11" font-weight="bold">5</text>
+                    <text x="350" y="130" text-anchor="middle" fill="#666" font-size="8">Neutrálne</text>
+
+                    <circle cx="425" cy="100" r="8" fill="#7cb342"/>
+                    <text x="425" y="80" text-anchor="middle" fill="#7cb342" font-size="11" font-weight="bold">6</text>
+                    <text x="425" y="130" text-anchor="middle" fill="#666" font-size="8">Trochu</text>
+                    <text x="425" y="142" text-anchor="middle" fill="#666" font-size="8">páči</text>
+
+                    <circle cx="500" cy="100" r="8" fill="#43a047"/>
+                    <text x="500" y="80" text-anchor="middle" fill="#43a047" font-size="11" font-weight="bold">7</text>
+                    <text x="500" y="130" text-anchor="middle" fill="#666" font-size="8">Mierne</text>
+                    <text x="500" y="142" text-anchor="middle" fill="#666" font-size="8">páči</text>
+
+                    <circle cx="575" cy="100" r="8" fill="#2e7d32"/>
+                    <text x="575" y="80" text-anchor="middle" fill="#2e7d32" font-size="11" font-weight="bold">8</text>
+                    <text x="575" y="130" text-anchor="middle" fill="#666" font-size="8">Veľmi</text>
+                    <text x="575" y="142" text-anchor="middle" fill="#666" font-size="8">páči</text>
+
+                    <circle cx="650" cy="100" r="8" fill="#1b5e20"/>
+                    <text x="650" y="80" text-anchor="middle" fill="#1b5e20" font-size="11" font-weight="bold">9</text>
+                    <text x="650" y="130" text-anchor="middle" fill="#666" font-size="8">Extrémne</text>
+                    <text x="650" y="142" text-anchor="middle" fill="#666" font-size="8">páči</text>
+
+                    <rect x="30" y="155" width="290" height="25" rx="4" fill="#fce4ec" stroke="#c62828"/>
+                    <text x="175" y="172" text-anchor="middle" fill="#c62828" font-size="10">Odmietnutie (1-4)</text>
+
+                    <rect x="320" y="155" width="60" height="25" rx="4" fill="#fff8e1" stroke="#f9a825"/>
+                    <text x="350" y="172" text-anchor="middle" fill="#f57f17" font-size="10">Neutrálne</text>
+
+                    <rect x="380" y="155" width="290" height="25" rx="4" fill="#e8f5e9" stroke="#1a9850"/>
+                    <text x="525" y="172" text-anchor="middle" fill="#1a9850" font-size="10">Prijatie (6-9)</text>
+                </svg>
+            </div>
+
+            <table>
+                <tr><th>Bod</th><th>Označenie</th><th>Popis</th></tr>
+                <tr><td>9</td><td>Mimoriadne sa mi páči</td><td>Najvyššia možná príjemnosť</td></tr>
+                <tr><td>8</td><td>Veľmi sa mi páči</td><td>Vysoká príjemnosť</td></tr>
+                <tr><td>7</td><td>Stredne sa mi páči</td><td>Stredne vysoká príjemnosť</td></tr>
+                <tr><td>6</td><td>Trochu sa mi páči</td><td>Mierna príjemnosť</td></tr>
+                <tr><td>5</td><td>Ani sa mi páči, ani sa mi nepáči</td><td>Neutrálna hodnota</td></tr>
+                <tr><td>4</td><td>Trochu sa mi nepáči</td><td>Mierna nepríjemnosť</td></tr>
+                <tr><td>3</td><td>Stredne sa mi nepáči</td><td>Stredne vysoká nepríjemnosť</td></tr>
+                <tr><td>2</td><td>Veľmi sa mi nepáči</td><td>Vysoká nepríjemnosť</td></tr>
+                <tr><td>1</td><td>Mimoriadne sa mi nepáči</td><td>Najnižšia možná príjemnosť</td></tr>
+            </table>
+            <p style="font-size:0.9em"><em>Originál (Peryam &amp; Pilgrim, 1957): like extremely / very much / moderately / slightly / neither like nor dislike / dislike slightly / … / dislike extremely.</em></p>
+        </div>
+
+        <div class="card">
+            <h3>2.2 7-bodová škála</h3>
+            <p>Kompaktná verzia 9-bodovej škály, vhodná pre <strong>rýchle testy</strong> alebo <strong>konzumentov</strong>.</p>
+            <table>
+                <tr><th>Bod</th><th>Označenie</th></tr>
+                <tr><td>7</td><td>Veľmi sa mi páči</td></tr>
+                <tr><td>6</td><td>Páči sa mi</td></tr>
+                <tr><td>5</td><td>Trochu sa mi páči</td></tr>
+                <tr><td>4</td><td>Neutrálne</td></tr>
+                <tr><td>3</td><td>Trochu sa mi nepáči</td></tr>
+                <tr><td>2</td><td>Nepáči sa mi</td></tr>
+                <tr><td>1</td><td>Veľmi sa mi nepáči</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>2.3 5-bodová škála</h3>
+            <p>Najjednoduchšia hedonická škála, vhodná pre <strong>rýchle screeningové testy</strong> alebo <strong>deti</strong>.</p>
+            <table>
+                <tr><th>Bod</th><th>Označenie</th></tr>
+                <tr><td>5</td><td>Veľmi dobré</td></tr>
+                <tr><td>4</td><td>Dobré</td></tr>
+                <tr><td>3</td><td>Priemerné</td></tr>
+                <tr><td>2</td><td>Zlé</td></tr>
+                <tr><td>1</td><td>Veľmi zlé</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>2.4 Výpočet prijatia a odmietnutia</h3>
+            <div class="callout">
+                <div class="callout-title">Výpočty</div>
+                <div class="formula">Priemerné skóre: x̄ = Σxi / n<br><br>% Prijatia = (počet so skóre ≥ 6) / n × 100<br><br>% Odmietnutia = (počet so skóre ≤ 4) / n × 100<br><br>Index prijatia: AI = (x̄ - 1) / 8 × 100<br><br>Kde x̄ je priemerné skóre na 9-bodovej škále.</div>
+            </div>
+            <p>V literatúre sa používa aj varianta AI = x̄ / 9 × 100 (s orientačnou hranicou ≥ 70 %); vždy uveďte, ktorú definíciu používate.</p>
+            <div class="callout">
+                <div class="callout-title">🧪 Precvič v R (<a href="https://github.com/senzorika/SaIT">SaIT</a>)</div>
+                <p>Interval spoľahlivosti priemeru — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie02.html">cvičenie 2</a> · grafy rozdelenia odpovedí — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie04.html">cvičenie 4</a> · porovnanie produktov (ANOVA / Friedman) — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">cvičenie 5b</a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>2.5 Kedy použiť ktorú</h3>
+            <table>
+                <tr><th>Škála</th><th>Odporúčané použitie</th></tr>
+                <tr><td><strong>9-bodová</strong></td><td>Výskum produktu, konzumentské testy, porovnanie produktov</td></tr>
+                <tr><td><strong>7-bodová</strong></td><td>Rýchle testy, konzumentské testy, deti</td></tr>
+                <tr><td><strong>5-bodová</strong></td><td>Screeningové testy, deti, rýchle kontroly</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>2.6 Výhody a nevýhody</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>Výhody</h5>
+                    <ul>
+                        <li>Jednoduchá na použitie</li>
+                        <li>Široko akceptovaná</li>
+                        <li>Vhodná pre konzumentov</li>
+                        <li>Jednoduchá interpretácia</li>
+                        <li>Umožňuje rýchle testy</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>Nevýhody</h5>
+                    <ul>
+                        <li>Subjektívne skóre (závisí od testovateľa)</li>
+                        <li>Menej citlivá ako intenzitné škály</li>
+                        <li>Nemožnosť kvantifikovať intenzitu rozdielu</li>
+                        <li>„Central tendency bias" (testovateľia sa vyhýbajú extrémom)</li>
+                        <li>Kultúrne rozdiely v používaní škál</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="intenzitne">3. Intenzitné škály (Intensity Scales)</h2>
+
+        <div class="card">
+            <h3>3.1 Kategorické škály (3, 5, 7, 9-bodové)</h3>
+            <p>Kategorické škály sa používajú na meranie <strong>intenzity</strong> konkrétneho senzorického atribútu (napr. sladkosť, horkosť, kyslosť).</p>
+
+            <h4>Príklad – 9-bodová intenzitná škála pre sladkosť</h4>
+            <table>
+                <tr><th>Bod</th><th>Označenie</th></tr>
+                <tr><td>9</td><td>Extrémne sladké</td></tr>
+                <tr><td>8</td><td>Veľmi sladké</td></tr>
+                <tr><td>7</td><td>Výrazne sladké</td></tr>
+                <tr><td>6</td><td>Stredne sladké</td></tr>
+                <tr><td>5</td><td>Mierne sladké</td></tr>
+                <tr><td>4</td><td>Trochu sladké</td></tr>
+                <tr><td>3</td><td>Slabo sladké</td></tr>
+                <tr><td>2</td><td>Veľmi slabo sladké</td></tr>
+                <tr><td>1</td><td>Nesladké</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>3.2 Lineárna škála (15 cm)</h3>
+            <p>Lineárna škála (tiež <strong>Visual Analogue Scale – VAS</strong>) je <strong>nepretržitá škála</strong>, v senzorike typicky 15 cm (kotvy často 1,25 cm od okrajov), kde testovateľ označí intenzitu atribútu čiarou.</p>
+
+            <div class="svg-container">
+                <h4>Lineárna škála (VAS) – 15 cm</h4>
+                <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="80" x2="550" y2="80" stroke="#0d7377" stroke-width="4"/>
+
+                    <line x1="50" y1="70" x2="50" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <text x="50" y="110" text-anchor="middle" fill="#666" font-size="10">0 cm</text>
+                    <text x="50" y="130" text-anchor="middle" fill="#666" font-size="9">Najslabšie</text>
+
+                    <line x1="175" y1="70" x2="175" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <text x="175" y="110" text-anchor="middle" fill="#666" font-size="10">3.75 cm</text>
+
+                    <line x1="300" y1="70" x2="300" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <text x="300" y="110" text-anchor="middle" fill="#666" font-size="10">7.5 cm</text>
+
+                    <line x1="425" y1="70" x2="425" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <text x="425" y="110" text-anchor="middle" fill="#666" font-size="10">11.25 cm</text>
+
+                    <line x1="550" y1="70" x2="550" y2="90" stroke="#0d7377" stroke-width="2"/>
+                    <text x="550" y="110" text-anchor="middle" fill="#666" font-size="10">15 cm</text>
+                    <text x="550" y="130" text-anchor="middle" fill="#666" font-size="9">Najsilnejšie</text>
+
+                    <line x1="50" y1="80" x2="550" y2="80" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="5,5"/>
+
+                    <circle cx="350" cy="80" r="6" fill="#c62828"/>
+                    <text x="350" y="60" text-anchor="middle" fill="#c62828" font-size="10">Označenie</text>
+                    <text x="350" y="145" text-anchor="middle" fill="#c62828" font-size="9">Hodnota = (350-50)/500 × 100 = 60</text>
+                </svg>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet hodnoty</div>
+                <div class="formula">Hodnota = (Vzdialenosť od ľavého okraja (cm) / 15) × 100</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3.3 Semantická diferenciálna škála</h3>
+            <p>Semantická diferenciálna škála (Osgood, 1957) používa <strong>bipolárne adjektíva</strong> na meranie <strong>perceptuálnych</strong> a <strong>afektívnych</strong> reakcií.</p>
+
+            <div class="svg-container">
+                <h4>Semantická škála – Príklad</h4>
+                <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50" y="30" fill="#666" font-size="11">Nepríjemné</text>
+                    <line x1="130" y1="25" x2="370" y2="25" stroke="#0d7377" stroke-width="2"/>
+                    <text x="380" y="30" fill="#666" font-size="11">Príjemné</text>
+                    <circle cx="130" cy="25" r="5" fill="#0d7377"/>
+                    <circle cx="190" cy="25" r="5" fill="#0d7377"/>
+                    <circle cx="250" cy="25" r="5" fill="#0d7377"/>
+                    <circle cx="310" cy="25" r="5" fill="#0d7377"/>
+                    <circle cx="370" cy="25" r="5" fill="#0d7377"/>
+                    <text x="130" y="45" text-anchor="middle" fill="#666" font-size="9">1</text>
+                    <text x="190" y="45" text-anchor="middle" fill="#666" font-size="9">2</text>
+                    <text x="250" y="45" text-anchor="middle" fill="#666" font-size="9">3</text>
+                    <text x="310" y="45" text-anchor="middle" fill="#666" font-size="9">4</text>
+                    <text x="370" y="45" text-anchor="middle" fill="#666" font-size="9">5</text>
+
+                    <text x="50" y="80" fill="#666" font-size="11">Slabé</text>
+                    <line x1="130" y1="75" x2="370" y2="75" stroke="#1a9850" stroke-width="2"/>
+                    <text x="380" y="80" fill="#666" font-size="11">Silné</text>
+                    <circle cx="130" cy="75" r="5" fill="#1a9850"/>
+                    <circle cx="190" cy="75" r="5" fill="#1a9850"/>
+                    <circle cx="250" cy="75" r="5" fill="#1a9850"/>
+                    <circle cx="310" cy="75" r="5" fill="#1a9850"/>
+                    <circle cx="370" cy="75" r="5" fill="#1a9850"/>
+                    <text x="130" y="95" text-anchor="middle" fill="#666" font-size="9">1</text>
+                    <text x="190" y="95" text-anchor="middle" fill="#666" font-size="9">2</text>
+                    <text x="250" y="95" text-anchor="middle" fill="#666" font-size="9">3</text>
+                    <text x="310" y="95" text-anchor="middle" fill="#666" font-size="9">4</text>
+                    <text x="370" y="95" text-anchor="middle" fill="#666" font-size="9">5</text>
+
+                    <text x="50" y="130" fill="#666" font-size="11">Prírodné</text>
+                    <line x1="130" y1="125" x2="370" y2="125" stroke="#f9a825" stroke-width="2"/>
+                    <text x="380" y="130" fill="#666" font-size="11">Umelé</text>
+                    <circle cx="130" cy="125" r="5" fill="#f9a825"/>
+                    <circle cx="190" cy="125" r="5" fill="#f9a825"/>
+                    <circle cx="250" cy="125" r="5" fill="#f9a825"/>
+                    <circle cx="310" cy="125" r="5" fill="#f9a825"/>
+                    <circle cx="370" cy="125" r="5" fill="#f9a825"/>
+                    <text x="130" y="145" text-anchor="middle" fill="#666" font-size="9">1</text>
+                    <text x="190" y="145" text-anchor="middle" fill="#666" font-size="9">2</text>
+                    <text x="250" y="145" text-anchor="middle" fill="#666" font-size="9">3</text>
+                    <text x="310" y="145" text-anchor="middle" fill="#666" font-size="9">4</text>
+                    <text x="370" y="145" text-anchor="middle" fill="#666" font-size="9">5</text>
+
+                    <circle cx="250" cy="25" r="8" fill="none" stroke="#c62828" stroke-width="2"/>
+                    <circle cx="310" cy="75" r="8" fill="none" stroke="#c62828" stroke-width="2"/>
+                    <circle cx="190" cy="125" r="8" fill="none" stroke="#c62828" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3.4 Výpočet priemerov a CI</h3>
+            <div class="callout">
+                <div class="callout-title">Výpočty</div>
+                <div class="formula">Priemerné skóre: x̄ = Σxi / n<br><br>Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))<br><br>95% Interval spoľahlivosti: CI = x̄ ± t(0.025, n-1) × s/√n<br><br>Kde t(0.025, n-1) je kritická hodnota t-rozdelenia pre n-1 stupňov voľnosti.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>3.5 Kedy použiť ktorú</h3>
+            <table>
+                <tr><th>Škála</th><th>Odporúčané použitie</th></tr>
+                <tr><td><strong>3-bodová</strong></td><td>Rýchle screeningové testy, deti</td></tr>
+                <tr><td><strong>5-bodová</strong></td><td>Konzumentské testy, rýchle testy</td></tr>
+                <tr><td><strong>7-bodová</strong></td><td>Výskum produktu, porovnanie atribútov</td></tr>
+                <tr><td><strong>9-bodová</strong></td><td>Cvičený panel, detailná analýza</td></tr>
+                <tr><td><strong>Lineárna (VAS)</strong></td><td>Výskum, maximálna citlivosť</td></tr>
+                <tr><td><strong>Semantická</strong></td><td>Perceptuálna analýza, branding</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>3.6 Výhody a nevýhody</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>Výhody</h5>
+                    <ul>
+                        <li>Kvantifikuje intenzitu</li>
+                        <li>Vysoká citlivosť (VAS)</li>
+                        <li>Umožňuje štatistickú analýzu</li>
+                        <li>Vhodná pre cvičený panel</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>Nevýhody</h5>
+                    <ul>
+                        <li>Vyžaduje tréning (pre kategorické škály)</li>
+                        <li>„End-effect bias" (testovateľia sa vyhýbajú extrémom)</li>
+                        <li>Kultúrne rozdiely v používaní škál</li>
+                        <li>Menej vhodná pre konzumentov (VAS)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="wald">4. Waldova sekvenčná analýza (Wald's Sequential Analysis)</h2>
+
+        <div class="card">
+            <h3>4.1 Princíp</h3>
+            <p>Waldova sekvenčná analýza je <strong>adaptívny prístup</strong> k testovaniu, kde sa rozhodnutie prijíma <strong>postupne</strong> po každej odpovedi testovateľa. Na rozdiel od tradičných metód s fixným počtom testovateľov, sekvenčná analýza umožňuje <strong>skončiť test skôr</strong>, ak je výsledok jednoznačný.</p>
+
+            <h4>Kroky</h4>
+            <ol class="step-list">
+                <li><strong>Stanovenie hypotéz:</strong> H₀: Neexistuje rozdiel (p = p₀) | H₁: Existuje rozdiel (p = p₁)</li>
+                <li><strong>Stanovenie parametrov:</strong> α = pravdepodobnosť chyby I. typu (typicky 0.05), β = pravdepodobnosť chyby II. typu (typicky 0.20), p₀ = pravdepodobnosť úspechu pri H₀ (napr. 1/3 pre trojuholníkový test), p₁ = pravdepodobnosť úspechu pri H₁ (napr. 0.5)</li>
+                <li><strong>Výpočet hraníc</strong> (SPRT pre binomické dáta; ISO 16820:2019): D = ln(p₁/p₀) + ln((1−p₀)/(1−p₁)); sklon s = ln((1−p₀)/(1−p₁)) / D; horná hranica (prijmi H₁) a_n = ln((1−β)/α) / D + s·n; dolná hranica (prijmi H₀) b_n = −ln((1−α)/β) / D + s·n</li>
+                <li><strong>Pravidlá rozhodovania:</strong> počet správnych odpovedí ≥ a_n → zamietni H₀ (existuje rozdiel); ≤ b_n → prijmi H₀ (neexistuje rozdiel); b_n &lt; počet &lt; a_n → pokračuj v testovaní</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>4.2 Výpočet</h3>
+            <div class="callout">
+                <div class="callout-title">Hranice pre trojuholníkový test (p₀ = 1/3, p₁ = 0.5, α = 0.05, β = 0.20)</div>
+                <div class="formula">D = ln(p₁/p₀) + ln((1−p₀)/(1−p₁)) = 0.405 + 0.288 = 0.693<br>s = ln((1−p₀)/(1−p₁)) / D = 0.288 / 0.693 = 0.415<br><br>a_n = ln((1−β)/α) / D + s·n = 2.773/0.693 + 0.415n ≈ 4.00 + 0.415n<br>b_n = −ln((1−α)/β) / D + s·n = −1.558/0.693 + 0.415n ≈ −2.25 + 0.415n<br><br>Príklad n = 20: H₁ sa prijme pri ≥ 12.3 → 13 správnych odpovediach, H₀ pri ≤ 6.05 → 6 správnych; medzi tým sa pokračuje (ISO 16820:2019)</div>
+                <p style="font-size:0.9em">⚠️ Predošlá verzia mala chybný vzorec (ln(0.5/0.5) = 0, sklon 0.5) a v grafe prehodené hranice.</p>
+            </div>
+
+            <div class="svg-container">
+                <h4>Waldova sekvenčná analýza – Pravidlá rozhodovania</h4>
+                <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                <line x1="50" y1="250" x2="550" y2="250" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="250" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                <text x="300" y="285" text-anchor="middle" fill="#333" font-size="12">Počet hodnotení (n)</text>
+                <text x="18" y="140" text-anchor="middle" fill="#333" font-size="12" transform="rotate(-90, 18, 140)">Počet správnych odpovedí</text>
+                <line x1="50" y1="206" x2="550" y2="206" stroke="#e0e0e0" stroke-width="1"/>
+                <text x="45" y="209" text-anchor="end" fill="#666" font-size="9">5</text>
+                <line x1="50" y1="162" x2="550" y2="162" stroke="#e0e0e0" stroke-width="1"/>
+                <text x="45" y="165" text-anchor="end" fill="#666" font-size="9">10</text>
+                <line x1="50" y1="118" x2="550" y2="118" stroke="#e0e0e0" stroke-width="1"/>
+                <text x="45" y="121" text-anchor="end" fill="#666" font-size="9">15</text>
+                <line x1="50" y1="74" x2="550" y2="74" stroke="#e0e0e0" stroke-width="1"/>
+                <text x="45" y="77" text-anchor="end" fill="#666" font-size="9">20</text>
+                <line x1="50" y1="30" x2="550" y2="30" stroke="#e0e0e0" stroke-width="1"/>
+                <text x="45" y="33" text-anchor="end" fill="#666" font-size="9">25</text>
+                <text x="150" y="265" text-anchor="middle" fill="#666" font-size="9">10</text>
+                <text x="250" y="265" text-anchor="middle" fill="#666" font-size="9">20</text>
+                <text x="350" y="265" text-anchor="middle" fill="#666" font-size="9">30</text>
+                <text x="450" y="265" text-anchor="middle" fill="#666" font-size="9">40</text>
+                <text x="550" y="265" text-anchor="middle" fill="#666" font-size="9">50</text>
+                <polygon points="50,215 550,32 550,87 104,250 50,250" fill="#fff3e0" opacity="0.7"/>
+                <line x1="50" y1="215" x2="550" y2="32" stroke="#c62828" stroke-width="3"/>
+                <line x1="104" y1="250" x2="550" y2="87" stroke="#1a9850" stroke-width="3"/>
+                <text x="130" y="176" fill="#c62828" font-size="10">Horná hranica: a_n = 4.00 + 0.415·n → zamietni H₀ (rozdiel)</text>
+                <text x="270" y="207" fill="#1a9850" font-size="10">Dolná hranica: b_n = −2.25 + 0.415·n → prijmi H₀</text>
+                <text x="350" y="133" text-anchor="middle" fill="#f57f17" font-size="11" font-weight="bold">Pokračuj v testovaní</text>
+                </svg>
+            </div>
+
+            <h4>Kedy použiť</h4>
+            <ul style="margin-left: 20px;">
+                <li>Keď je <strong>čas obmedzený</strong></li>
+                <li>Keď je <strong>náročné získať testovateľov</strong></li>
+                <li>Pri <strong>drahých</strong> alebo <strong>vzácnych</strong> vzorkách</li>
+                <li>Keď je potrebné <strong>rýchlo rozhodnúť</strong></li>
+                <li>Pri <strong>pilotných</strong> testoch</li>
+            </ul>
+
+            <h4>Výhody a nevýhody</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>Výhody</h5>
+                    <ul>
+                        <li>Môže skrátiť test o 30–50%</li>
+                        <li>Flexibilný počet testovateľov</li>
+                        <li>Etický prístup (menej testovateľov)</li>
+                        <li>Vhodný pre drahé vzorky</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>Nevýhody</h5>
+                    <ul>
+                        <li>Zložitá interpretácia</li>
+                        <li>Vyžaduje počítačovú podporu</li>
+                        <li>Menej známa v praxi</li>
+                        <li>Nemožnosť presného plánovania</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="thurstone">5. Thurstone d-prime (d')</h2>
+
+        <div class="card">
+            <h3>5.1 Princíp signal detection theory</h3>
+            <p>Thurstone d-prime (d') je miera <strong>citlivosti</strong> (sensitivity) odvodená z <strong>teórie detekcie signálu</strong> (Signal Detection Theory – SDT). Meria schopnosť testovateľa <strong>rozlíšiť</strong> signál (rozdiel) od šumu (náhodná variabilita).</p>
+
+            <ul style="margin-left: 20px;">
+                <li><strong>Signál:</strong> skutočný rozdiel medzi vzorkami</li>
+                <li><strong>Šum:</strong> náhodná variabilita v percepcii</li>
+                <li><strong>d':</strong> vzdialenosť medzi distribúciou signálu a šumu (v jednotkách smerodajnej odchýlky)</li>
+            </ul>
+
+            <div class="svg-container">
+                <h4>Thurstone d' – Koncepcia</h4>
+                <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="200" x2="550" y2="200" stroke="#333" stroke-width="2"/>
+                    <text x="300" y="230" text-anchor="middle" fill="#333" font-size="12">Intenzita signálu</text>
+
+                    <path d="M 100 200 Q 175 50 250 200" fill="none" stroke="#999" stroke-width="2"/>
+                    <text x="175" y="40" text-anchor="middle" fill="#999" font-size="11">Šum (Noise)</text>
+
+                    <path d="M 250 200 Q 375 30 500 200" fill="none" stroke="#0d7377" stroke-width="3"/>
+                    <text x="375" y="25" text-anchor="middle" fill="#0d7377" font-size="11">Signál + Šum</text>
+
+                    <line x1="175" y1="200" x2="175" y2="50" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="375" y1="200" x2="375" y2="50" stroke="#0d7377" stroke-width="1" stroke-dasharray="3,3"/>
+
+                    <line x1="175" y1="200" x2="375" y2="200" stroke="#c62828" stroke-width="3"/>
+                    <text x="275" y="190" text-anchor="middle" fill="#c62828" font-size="12" font-weight="bold">d'</text>
+
+                    <text x="175" y="215" text-anchor="middle" fill="#666" font-size="9">μ_šum</text>
+                    <text x="375" y="215" text-anchor="middle" fill="#666" font-size="9">μ_signál</text>
+                </svg>
+            </div>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet d'</div>
+                <div class="formula">d' = z(Hit Rate) - z(False Alarm Rate)   (úloha A – nie A / yes-no)<br><br>Kde:<br>Hit Rate (H) = podiel odpovedí „nie A" pri vzorke „nie A"<br>False Alarm Rate (F) = podiel odpovedí „nie A" pri vzorke A<br>z = Inverzná kumulatívna funkcia štandardného normálneho rozdelenia<br><br>Pre same-different, trojuholník či duo-trio platia iné psychometrické funkcie.</div>
+            </div>
+
+            <h4>Výpočet krokov</h4>
+            <ol class="step-list">
+                <li>Vypočítaj Hit Rate: H = počet správnych identifikácií / celkový počet pokusov s odlišnou vzorkou</li>
+                <li>Vypočítaj False Alarm Rate: F = počet chybných identifikácií / celkový počet pokusov s rovnakými vzorkami</li>
+                <li>Prevod na z-skóre pomocou inverznej normálnej funkcie</li>
+                <li>Výpočet d' = z(H) − z(F)</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>5.3 Interpretácia d'</h3>
+            <table>
+                <tr><th>d' hodnota</th><th>Interpretácia</th><th>Úroveň citlivosti</th></tr>
+                <tr><td>0.0</td><td>Žiadna citlivosť</td><td>Náhodné hádanie</td></tr>
+                <tr><td>0.5</td><td>Veľmi slabá</td><td>Takmer neznáma</td></tr>
+                <tr><td>1.0</td><td>Slabá</td><td>Rozoznateľná</td></tr>
+                <tr><td>1.5</td><td>Stredná</td><td>Jasná</td></tr>
+                <tr><td>2.0</td><td>Dobrá</td><td>Veľmi jasná</td></tr>
+                <tr><td>2.5</td><td>Výborná</td><td>Takmer dokonalá</td></tr>
+                <tr><td>3.0+</td><td>Výborná</td><td>Takmer dokonalá</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>5.4 Tabuľka d' hodnôt</h3>
+            <table>
+                <tr><th>d'</th><th>A–nie A, nestranné kritérium Φ(d′/2)</th><th>2-AFC Φ(d′/√2)</th><th>Trojuholník</th><th>Význam v praxi</th></tr>
+                <tr><td>0.0</td><td>50%</td><td>50%</td><td>33%</td><td>Náhodné hádanie</td></tr>
+                <tr><td>0.5</td><td>60%</td><td>64%</td><td>36%</td><td>Subtilný rozdiel</td></tr>
+                <tr><td>1.0</td><td>69%</td><td>76%</td><td>42%</td><td>Mierny rozdiel</td></tr>
+                <tr><td>1.5</td><td>77%</td><td>86%</td><td>51%</td><td>Výrazný rozdiel</td></tr>
+                <tr><td>2.0</td><td>84%</td><td>92%</td><td>61%</td><td>Veľmi výrazný rozdiel</td></tr>
+                <tr><td>2.5</td><td>89%</td><td>96%</td><td>70%</td><td>Extrémne výrazný rozdiel</td></tr>
+                <tr><td>3.0</td><td>93%</td><td>98%</td><td>78%</td><td>Takmer dokonalé rozlíšenie</td></tr>
+            </table>
+            <p>Rovnaké d′ dáva v rôznych testoch rôzny podiel správnych odpovedí (psychometrické funkcie).</p>
+            <div class="callout">
+                <div class="callout-title">🧪 SaIT</div>
+                <p>Thurstonov model a d′ — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">cvičenie 13</a></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>5.5 Kedy použiť</h3>
+            <ul style="margin-left: 20px;">
+                <li>Keď je potrebné <strong>oddeliť</strong> citlivosť od response bias</li>
+                <li>Pri <strong>porovnaní</strong> citlivosti rôznych panelov</li>
+                <li>Keď sa testuje <strong>subtilný</strong> rozdiel</li>
+                <li>Pri <strong>výskumných</strong> štúdiách senzorického vnímania</li>
+                <li>Keď je potrebné <strong>korigovať</strong> za guessing strategy</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>5.6 Praktický príklad s výpočtom</h3>
+            <div class="highlight-box">
+                <p><strong>Scénár:</strong> Testuje sa schopnosť panelu rozlíšiť dve vzorky kávy úlohou <strong>A – nie A</strong>. Panel má 20 testovateľov, každý vykoná 10 pokusov (5 × vzorka „nie A" = odlišná, 5 × vzorka A = štandard).</p>
+                <p>Poznámka: vzorec d′ = z(H) − z(F) platí pre úlohu A – nie A (yes/no). Pri teste <strong>same-different</strong> (páry rovnaké/odlišné) treba iný Thurstonov model (sensR::samediff) — preto bol pôvodný scenár upravený.</p>
+                <p><strong>Výsledky:</strong> Pri vzorke „nie A": 85 odpovedí „nie A" zo 100 (hit rate). Pri vzorke A: 15 chybných odpovedí „nie A" zo 100 (false alarm).</p>
+            </div>
+            <div class="callout">
+                <div class="callout-title">Výpočet</div>
+                <div class="formula">Hit Rate (H) = 85/100 = 0.85<br>False Alarm Rate (F) = 15/100 = 0.15<br><br>z(H) = z(0.85) ≈ 1.036<br>z(F) = z(0.15) ≈ -1.036<br><br>d' = 1.036 - (-1.036) = 2.072</div>
+            </div>
+            <div class="highlight-box">
+                <p><strong>Interpretácia:</strong> d' = 2.072 → <strong>Dobrá citlivosť</strong>. Panel je schopný spoľahlivo rozlíšiť dve vzorky kávy (pri nestrannom kritériu ≈ 85 % správnych odpovedí; Φ(d′/2) = Φ(1.036) ≈ 0.85). Pozn.: 100 pokusov pochádza od 20 hodnotiteľov — pokusy nie sú úplne nezávislé, čo treba zohľadniť pri intervale spoľahlivosti d′.</p>
+            </div>
+        </div>
+
+        <h2 id="jar">6. Just-About-Right (JAR) škála</h2>
+
+        <div class="card">
+            <h3>6.1 Princíp</h3>
+            <p>JAR škála je <strong>špeciálna senzorická škála</strong> používaná na meranie <strong>optimálnej intenzity</strong> atribútu. Testovateľ hodnotí, či je intenzita atribútu <strong>príliš nízka</strong>, <strong>práve správna</strong> alebo <strong>príliš vysoká</strong>.</p>
+
+            <div class="svg-container">
+                <h4>JAR škála – 5-bodová</h4>
+                <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="80" x2="550" y2="80" stroke="#0d7377" stroke-width="3"/>
+
+                    <circle cx="50" cy="80" r="10" fill="#c62828"/>
+                    <text x="50" y="60" text-anchor="middle" fill="#c62828" font-size="12" font-weight="bold">1</text>
+                    <text x="50" y="110" text-anchor="middle" fill="#666" font-size="9">Príliš</text>
+                    <text x="50" y="122" text-anchor="middle" fill="#666" font-size="9">slabé</text>
+
+                    <circle cx="175" cy="80" r="10" fill="#fb8c00"/>
+                    <text x="175" y="60" text-anchor="middle" fill="#fb8c00" font-size="12" font-weight="bold">2</text>
+                    <text x="175" y="110" text-anchor="middle" fill="#666" font-size="9">Trochu</text>
+                    <text x="175" y="122" text-anchor="middle" fill="#666" font-size="9">slabé</text>
+
+                    <circle cx="300" cy="80" r="12" fill="#1a9850"/>
+                    <text x="300" y="58" text-anchor="middle" fill="#1a9850" font-size="14" font-weight="bold">3</text>
+                    <text x="300" y="110" text-anchor="middle" fill="#1a9850" font-size="9" font-weight="bold">Práve správne</text>
+                    <text x="300" y="122" text-anchor="middle" fill="#1a9850" font-size="9" font-weight="bold">(JAR)</text>
+
+                    <circle cx="425" cy="80" r="10" fill="#fb8c00"/>
+                    <text x="425" y="60" text-anchor="middle" fill="#fb8c00" font-size="12" font-weight="bold">4</text>
+                    <text x="425" y="110" text-anchor="middle" fill="#666" font-size="9">Trochu</text>
+                    <text x="425" y="122" text-anchor="middle" fill="#666" font-size="9">silné</text>
+
+                    <circle cx="550" cy="80" r="10" fill="#c62828"/>
+                    <text x="550" y="60" text-anchor="middle" fill="#c62828" font-size="12" font-weight="bold">5</text>
+                    <text x="550" y="110" text-anchor="middle" fill="#666" font-size="9">Príliš</text>
+                    <text x="550" y="122" text-anchor="middle" fill="#666" font-size="9">silné</text>
+
+                    <rect x="30" y="140" width="240" height="25" rx="4" fill="#fce4ec" stroke="#c62828"/>
+                    <text x="150" y="157" text-anchor="middle" fill="#c62828" font-size="10">Nízka intenzita (1-2)</text>
+
+                    <rect x="280" y="140" width="100" height="25" rx="4" fill="#e8f5e9" stroke="#1a9850"/>
+                    <text x="330" y="157" text-anchor="middle" fill="#1a9850" font-size="10">JAR (3)</text>
+
+                    <rect x="390" y="140" width="180" height="25" rx="4" fill="#fce4ec" stroke="#c62828"/>
+                    <text x="480" y="157" text-anchor="middle" fill="#c62828" font-size="10">Vysoká intenzita (4-5)</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>6.3 Penalty analysis</h3>
+            <p>Penalty analysis je <strong>kľúčová analýza</strong> pre JAR dáta. Vypočíta sa <strong>priemerné skóre</strong> pre každú kategóriu a <strong>penalty</strong> (trest) za odchýlku od optima.</p>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet penalty</div>
+                <div class="formula">Penalty = x̄_JAR - x̄_non-JAR  (zvlášť pre „málo" a „veľa")<br><br>Kde:<br>x̄_JAR = priemerné skóre príjemnosti pre testovateľov, ktorí označili atribút ako JAR<br>x̄_non-JAR = priemerné skóre príjemnosti pre testovateľov, ktorí označili atribút ako príliš slabý/silný<br><br>Vážený pokles = penalty × podiel skupiny; interpretovať skupiny ≥ 20 %</div>
+            </div>
+            <p><strong>Vážený pokles (weighted penalty)</strong> = penalty × podiel respondentov v skupine. Skupiny s &lt; 20 % respondentov sa zvyčajne neinterpretujú (Rothman &amp; Parker, 2009, ASTM MNL 63). Štatistickú významnosť poklesu možno overiť t-testom alebo bootstrapom.</p>
+
+            <h4>Orientačná interpretácia penalty (konvencia, nie norma)</h4>
+            <table>
+                <tr><th>Penalty</th><th>Význam</th></tr>
+                <tr><td>< 0.5</td><td>Zanedbateľný</td></tr>
+                <tr><td>0.5 – 1.0</td><td>Malý</td></tr>
+                <tr><td>1.0 – 1.5</td><td>Stredný</td></tr>
+                <tr><td>> 1.5</td><td>Významný</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>6.4 Výpočet – Príklad</h3>
+            <table>
+                <tr><th>Kategória</th><th>Počet</th><th>Priemerné skóre</th></tr>
+                <tr><td>Príliš slabé (1)</td><td>15</td><td>5.2</td></tr>
+                <tr><td>Trochu slabé (2)</td><td>25</td><td>6.1</td></tr>
+                <tr><td>JAR (3)</td><td>40</td><td>7.8</td></tr>
+                <tr><td>Trochu silné (4)</td><td>18</td><td>6.3</td></tr>
+                <tr><td>Príliš silné (5)</td><td>12</td><td>5.5</td></tr>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet penalty</div>
+                <div class="formula">Penalty za "príliš slabé" = 7.8 - [(15×5.2 + 25×6.1) / 40]<br>                         = 7.8 - 5.76 = 2.04<br><br>Penalty za "príliš silné" = 7.8 - [(18×6.3 + 12×5.5) / 30]<br>                         = 7.8 - 5.98 = 1.82</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>6.5 Kedy použiť</h3>
+            <ul style="margin-left: 20px;">
+                <li>Pri <strong>optimalizácii</strong> receptúr</li>
+                <li>Keď je potrebná <strong>maximálna</strong> príjemnosť</li>
+                <li>Pri <strong>vývoji</strong> nových produktov</li>
+                <li>Keď sa testuje <strong>konkrétny atribút</strong> (napr. sladkosť, horkosť)</li>
+                <li>Pri <strong>konzumentských</strong> testoch</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>6.6 Výhody a nevýhody</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>Výhody</h5>
+                    <ul>
+                        <li>Identifikuje smer úpravy</li>
+                        <li>Jednoduchá interpretácia</li>
+                        <li>Vhodná pre optimalizáciu</li>
+                        <li>Kvantifikuje penalty</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>Nevýhody</h5>
+                    <ul>
+                        <li>Kombinuje intenzitu a hodnotenie v jednej otázke</li>
+                        <li>Penalty vyžaduje súčasne zbierať celkovú obľúbenosť</li>
+                        <li>Menej vhodná pre porovnanie produktov</li>
+                        <li>Závisí od výberu atribútu; nie pre trénovaný panel</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="callout">
+                <div class="callout-title">🧪 SaIT</div>
+                <p>JAR škála a penalty analýza — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">cvičenie 12</a></p>
+            </div>
+        </div>
+
+        <h2 id="porovnanie">7. Porovnanie škál</h2>
+
+        <div class="card">
+            <h3>7.1 Komparatívna tabuľka</h3>
+            <table>
+                <tr><th>Škála</th><th>Typ</th><th>Citlivosť</th><th>Jednoduchosť</th><th>Konzumenti</th><th>Cvičený panel</th></tr>
+                <tr><td><strong>9-bodová hedonicka</strong></td><td>Kategorická</td><td>Stredná</td><td>Vysoká</td><td>Vysoká</td><td>Vysoká</td></tr>
+                <tr><td><strong>7-bodová hedonicka</strong></td><td>Kategorická</td><td>Stredná</td><td>Vysoká</td><td>Vysoká</td><td>Vysoká</td></tr>
+                <tr><td><strong>5-bodová hedonicka</strong></td><td>Kategorická</td><td>Nízka</td><td>Vysoká</td><td>Vysoká</td><td>Stredná</td></tr>
+                <tr><td><strong>9-bodová intenzitná</strong></td><td>Kategorická</td><td>Vysoká</td><td>Stredná</td><td>Nízka</td><td>Vysoká</td></tr>
+                <tr><td><strong>Lineárna (VAS)</strong></td><td>Kontinuálna</td><td>Vysoká</td><td>Stredná</td><td>Nízka</td><td>Vysoká</td></tr>
+                <tr><td><strong>Semantická</strong></td><td>Kategorická</td><td>Stredná</td><td>Stredná</td><td>Stredná</td><td>Vysoká</td></tr>
+                <tr><td><strong>JAR</strong></td><td>Kategorická (bipolárna)</td><td>Stredná</td><td>Vysoká</td><td>Vysoká</td><td>Nevhodná</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>7.2 Výhody a nevýhody podľa typu</h3>
+            <table>
+                <tr><th>Typ škály</th><th>Výhody</th><th>Nevýhody</th></tr>
+                <tr><td><strong>Hedonické</strong></td><td>Jednoduché, rýchle, vhodné pre konzumentov</td><td>Nekvantifikuje intenzitu</td></tr>
+                <tr><td><strong>Intenzitné</strong></td><td>Kvantifikujú intenzitu, vysoká citlivosť</td><td>Vyžadujú tréning</td></tr>
+                <tr><td><strong>Semantické</strong></td><td>Komplexný obraz, perceptuálne dimenzie</td><td>Zložitá interpretácia</td></tr>
+                <tr><td><strong>JAR</strong></td><td>Identifikuje smer úpravy, praktické</td><td>Spája intenzitu a hodnotenie v jednej otázke</td></tr>
+            </table>
+        </div>
+
+        <h2>8. Výber správnej škály</h2>
+
+        <div class="card">
+            <h3>8.1 Rozhodovacie kritériá</h3>
+            <table>
+                <tr><th>Kritérium</th><th>Odporúčaná škála</th></tr>
+                <tr><td>Celková príjemnosť</td><td>9-bodová hedonická</td></tr>
+                <tr><td>Intenzita atribútu</td><td>9-bodová intenzitná</td></tr>
+                <tr><td>Maximálna citlivosť</td><td>Lineárna (VAS)</td></tr>
+                <tr><td>Optimalizácia produktu</td><td>JAR škála</td></tr>
+                <tr><td>Rýchly screening</td><td>5-bodová hedonická</td></tr>
+                <tr><td>Konzumentský test</td><td>9-bodová hedonická</td></tr>
+                <tr><td>Perceptuálna analýza</td><td>Semantická škála</td></tr>
+                <tr><td>Výskum vnímania</td><td>Thurstone d'</td></tr>
+            </table>
+
+            <h4>Podľa cieľa merania a typu panelu</h4>
+            <table>
+                <tr><th>Cieľ merania</th><th>Škála</th><th>Kto testuje</th></tr>
+                <tr><td rowspan="2">Príjemnosť</td><td>Hedonická škála</td><td>Konzument → 9-bodová</td></tr>
+                <tr><td>Hedonická škála</td><td>Cvičený → 9-bodová</td></tr>
+                <tr><td rowspan="2">Intenzita</td><td>Intenzitná škála</td><td>Cvičený → 9-bodová intenzitná</td></tr>
+                <tr><td>Intenzitná škála</td><td>Konzument → 5-bodová</td></tr>
+                <tr><td>Optimalizácia</td><td>JAR škála</td><td>—</td></tr>
+            </table>
+        </div>
+
+        <h2>9. Praktické príklady</h2>
+
+        <div class="card">
+            <h3>Príklad 1: 9-bodová hedonická škála – Test príjemnosti jogurta</h3>
+            <div class="highlight-box">
+                <p><strong>Scénár:</strong> Testuje sa príjemnosť nového jogurta s nízkym obsahom cukru. Vzorka: 50 konzumentov.</p>
+            </div>
+
+            <h4>Výsledky</h4>
+            <table>
+                <tr><th>Skóre</th><th>Počet testovateľov</th></tr>
+                <tr><td>9</td><td>5</td></tr>
+                <tr><td>8</td><td>12</td></tr>
+                <tr><td>7</td><td>15</td></tr>
+                <tr><td>6</td><td>10</td></tr>
+                <tr><td>5</td><td>5</td></tr>
+                <tr><td>4</td><td>2</td></tr>
+                <tr><td>3</td><td>1</td></tr>
+                <tr><td>2</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td></tr>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet</div>
+                <div class="formula">Priemerné skóre = (9×5 + 8×12 + 7×15 + 6×10 + 5×5 + 4×2 + 3×1) / 50<br>               = 342 / 50 = 6.84<br><br>% Prijatia (≥ 6) = 42/50 × 100 = 84%<br>% Odmietnutia (≤ 4) = 3/50 × 100 = 6%<br><br>Index prijatia = (6.84 - 1) / 8 × 100 = 73%</div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Záver:</strong> Jogurt má <strong>vysokú príjemnosť</strong> (84% prijatia, index 73%). Produkt je vhodný pre trh.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Príklad 2: Thurstone d' – Citlivosť panelu</h3>
+            <div class="highlight-box">
+                <p><strong>Scénár:</strong> Testuje sa schopnosť panelu rozlíšiť dve vzorky syra úlohou A – nie A. Panel má 20 testovateľov, každý vykoná 10 pokusov (5 × A, 5 × „nie A").</p>
+                <p><strong>Výsledky:</strong> Hit rate 80/100, false alarm 20/100.</p>
+            </div>
+            <div class="callout">
+                <div class="callout-title">Výpočet</div>
+                <div class="formula">Hit Rate (H) = 80/100 = 0.80<br>False Alarm Rate (F) = 20/100 = 0.20<br><br>z(H) = z(0.80) ≈ 0.842<br>z(F) = z(0.20) ≈ -0.842<br><br>d' = 0.842 - (-0.842) = 1.684</div>
+            </div>
+            <div class="highlight-box">
+                <p><strong>Interpretácia:</strong> d' = 1.684 → <strong>Stredná citlivosť</strong>. Panel je schopný rozlíšiť vzorky, ale existuje priestor pre zlepšenie. Odporúča sa ďalší tréning.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Príklad 3: JAR škála – Optimalizácia sladkosti limonády</h3>
+            <div class="highlight-box">
+                <p><strong>Scénár:</strong> Testuje sa sladkosť limonády s rôznym obsahom cukru. Vzorka: 80 konzumentov.</p>
+            </div>
+
+            <h4>Výsledky</h4>
+            <table>
+                <tr><th>Kategória</th><th>Počet</th><th>Priemerné skóre</th></tr>
+                <tr><td>Oveľa menej sladká, ako by mala byť (1)</td><td>10</td><td>4.5</td></tr>
+                <tr><td>Trochu málo sladká (2)</td><td>20</td><td>6.2</td></tr>
+                <tr><td>JAR (3)</td><td>35</td><td>7.9</td></tr>
+                <tr><td>Trochu príliš sladká (4)</td><td>12</td><td>6.5</td></tr>
+                <tr><td>Oveľa sladšia, ako by mala byť (5)</td><td>3</td><td>4.8</td></tr>
+            </table>
+
+            <div class="callout">
+                <div class="callout-title">Výpočet penalty</div>
+                <div class="formula">Penalty za "málo sladké" = 7.9 - [(10×4.5 + 20×6.2) / 30]<br>                         = 7.9 - 5.63 = 2.27   (30/80 = 37.5 % → vážený pokles 0.85)<br><br>Penalty za "príliš sladké" = 7.9 - [(12×6.5 + 3×4.8) / 15]<br>                           = 7.9 - 6.16 = 1.74   (15/80 = 18.75 % → vážený pokles 0.33)</div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Záver:</strong> Rozhodujúca je skupina „málo sladké" (37.5 % respondentov, pokles 2.27); skupina „príliš sladké" je pod hranicou 20 %. Odporúča sa <strong>mierne zvýšiť sladkosť</strong> a overiť ďalším testom. (Predošlá verzia mala zle označené kategórie, chybu v menovateli a nesprávny záver o znížení cukru a kyslosti — kyslosť sa v teste vôbec nemerala.)</p>
+            </div>
+        </div>
+
+        <h2>Záver</h2>
+        <div class="highlight-box">
+            <p>Škálovanie je <strong>základný pilier</strong> senzorickej analýze. Výber správnej škály závisí od:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Cieľa merania</strong> (príjemnosť vs. intenzita vs. optimalizácia)</li>
+                <li><strong>Typu panelu</strong> (cvičený vs. konzument)</li>
+                <li><strong>Počtu atribútov</strong> (jeden vs. viacero)</li>
+                <li><strong>Dostupných zdrojov</strong> (čas, testovatelia)</li>
+            </ul>
+            <p style="margin-top: 15px;">Vždy je dôležité <strong>kombinovať</strong> rôzne škály pre kompletný obraz o senzorických vlastnostiach produktu. Moderná senzorická analýza často používa <strong>mix prístupov</strong> – hedonické škály pre celkovú príjemnosť, intenzitné škály pre jednotlivé atribúty a JAR škály pre optimalizáciu.</p>
+        </div>
+
+        <div class="card">
+            <h3>Referencie</h3>
+            <ul style="margin-left: 20px;">
+                <li>Lawless, H.T. &amp; Heymann, H. (2010). Sensory Evaluation of Food: Principles and Practices (2nd ed.). Springer.</li>
+                <li>Stone, H. &amp; Sidel, J.L. (2004). Sensory Evaluation Practices (3rd ed.). Elsevier.</li>
+                <li>Peryam, D.R. &amp; Pilgrim, F.J. (1957). Hedonic scale method of measuring food preferences. Food Technology 11(9), 9–14.</li>
+                <li>Osgood, C.E., Suci, G.J. &amp; Tannenbaum, P.H. (1957). The Measurement of Meaning. University of Illinois Press.</li>
+                <li>Wald, A. (1947). Sequential Analysis. Wiley.</li>
+                <li>Rothman, L. &amp; Parker, M.J. (Eds.) (2009). Just-About-Right (JAR) Scales: Design, Usage, Benefits, and Risks. ASTM MNL 63.</li>
+                <li>ISO 16820:2019.</li>
+            </ul>
+        </div>
+    </div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Priemer a interval spoľahlivosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie02.html">2 – BCG matica a interval spoľahlivosti</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie2.R"><code>cvicenie2.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Grafy škálových dát</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie04.html">4 – Grafy a vizualizácia dát</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie4.R"><code>cvicenie4.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">t-test vs. Wilcoxon, normalita</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">5a – Normalita a porovnanie dvoch vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R"><code>cvicenie5a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">ANOVA, Kruskal-Wallis, Friedman</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">5b – Porovnanie viacerých vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R"><code>cvicenie5b.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">JAR a penalty analýza</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">12 – JAR škála a radarový graf</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie12.R"><code>cvicenie12.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Thurstonov d′</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+</section>
+
+    <footer>
+        <p>Senzorická analýza potravín | SAP Repository</p>
+        <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 5px;">Škálovanie v senzorickej analýze</p>
+    </footer>
+</body>
+</html>

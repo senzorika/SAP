@@ -1,0 +1,397 @@
+---
+title: "Vzorce a parametre"
+subtitle: "Matematické vzorce a štatistické parametre v senzorickej analýze"
+author: "SAP — Senzorická Analýza Potravín"
+date: "September 2026"
+format:
+  revealjs:
+    theme: default
+    css: custom.css
+    slide-number: true
+    progress: true
+    transition: slide
+    width: 1280
+    height: 720
+---
+
+## Úvod
+
+### Prečo sú vzorce dôležité?
+
+Matematické vzorce a štatistické parametre sú **základný nástroj** senzorického analytika. Umožňujú:
+
+- Kvantifikovať senzorické vlastnosti
+- Overiť hypotézy
+- Porovnávať produkty
+- Stanoviť trvanlivosť
+- Komunikovať výsledky
+
+---
+
+## Agenda
+
+1. Základné štatistické vzorce
+2. Rozlišovacie testy
+3. ANOVA a post-hoc testy
+4. Korelácia a regresia
+5. Shelf-life vzorce
+6. Senzorické parametre
+7. Praktické výpočty
+
+---
+
+## Základné štatistické vzorce
+
+```mermaid
+graph TD
+    A[Štatistika] --> B[Priemer]
+    A --> C[Štandardná odchýlka]
+    A --> D[Konfidenčný interval]
+    A --> E[Variabilita CV]
+    
+    B --> B1[x̄ = Σxᵢ / n]
+    C --> C1[s = √(Σ(xᵢ-x̄)²/(n-1))]
+    D --> D1[x̄ ± t × s/√n]
+    E --> E1[CV = s/x̄ × 100%]
+```
+
+---
+
+## Priemer a odchýlka
+
+### Aritmetický priemer
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+
+### Štandardná odchýlka
+
+$$s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+
+### Konfidenčný interval
+
+$$\bar{x} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}$$
+
+---
+
+## Variabilita (CV)
+
+$$CV = \frac{s}{\bar{x}} \times 100\%$$
+
+| CV hodnota | Interpretácia |
+|------------|---------------|
+| < 10% | Nízka variabilita (konzistentné hodnotenie) |
+| 10–20% | Mierna variabilita |
+| 20–30% | Vysoká variabilita |
+| > 30% | Veľmi vysoká variabilita (problém s panelom) |
+
+---
+
+## Rozlišovacie testy
+
+### Binomická pravdepodobnosť
+
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+
+| Symbol | Význam |
+|--------|--------|
+| **n** | Počet pokusov (panelistov) |
+| **k** | Počet úspešných identifikácií |
+| **p** | Pravdepodobnosť úspechu pri náhodnom výbere |
+
+**Pre trojuholníkový test:** $p = 1/3$ (pravdepodobnosť uhádnutia)
+
+---
+
+## Kritické hodnoty
+
+### Trojuholníkový test (α = 0.05)
+
+| n (panelistov) | Kritický počet |
+|----------------|----------------|
+| 10 | 7 |
+| 15 | 9 |
+| 20 | 11 |
+| 25 | 13 |
+| 30 | 15 |
+| 35 | 17 |
+| 40 | 19 |
+| 50 | 23 |
+| 60 | 27 |
+
+*Presný binomický test (jednostranne), prepočítané; zhodné s ISO 4120:2021.*
+
+---
+
+## Výpočet počtu panelistov
+
+$$n = \frac{\left(Z_{\alpha}\sqrt{p_0(1-p_0)} + Z_\beta\sqrt{p(1-p)}\right)^2}{(p - p_0)^2}$$
+
+Rozlišovacie testy sú **jednostranné** → $Z_\alpha$ = 1.645 (α = 0.05).
+
+| Parameter | Hodnota | Význam |
+|-----------|---------|--------|
+| $Z_{\alpha/2}$ (α=0.05) | 1.96 | Dvojstranný test |
+| $Z_{\alpha}$ (α=0.05) | 1.645 | Jednostranný test |
+| $Z_\beta$ (power=0.80) | 0.84 | 80% sila testu |
+| $Z_\beta$ (power=0.90) | 1.28 | 90% sila testu |
+
+---
+
+## Power Analysis
+
+| Sila testu | $Z_\beta$ | Význam |
+|------------|-----------|--------|
+| 0.70 | 0.52 | Minimálna |
+| 0.80 | 0.84 | Štandardná |
+| 0.90 | 1.28 | Vysoká |
+| 0.95 | 1.645 | Veľmi vysoká |
+
+---
+
+## ANOVA
+
+### F-statistika
+
+$$F = \frac{MS_{between}}{MS_{within}} = \frac{SS_{between} / df_{between}}{SS_{within} / df_{within}}$$
+
+| Symbol | Význam |
+|--------|--------|
+| $MS_{between}$ | Stredný štvorcový rozptyl medzi skupinami |
+| $MS_{within}$ | Stredný štvorcový rozptyl v rámci skupín |
+| $df_{between}$ | $k - 1$ (k = počet skupín) |
+| $df_{within}$ | $N - k$ (N = celkový počet) |
+
+---
+
+## Tukey HSD
+
+$$HSD = q_{\alpha, k, N-k} \cdot \sqrt{\frac{MS_{within}}{n}}$$
+
+### Kritické hodnoty q (α = 0.05)
+
+| k (skupiny) | df = 10 | df = 20 | df = 30 | df = 60 |
+|-------------|---------|---------|---------|---------|
+| 2 | 3.15 | 2.95 | 2.89 | 2.83 |
+| 3 | 3.88 | 3.58 | 3.49 | 3.40 |
+| 4 | 4.33 | 3.96 | 3.85 | 3.74 |
+| 5 | 4.65 | 4.23 | 4.10 | 3.98 |
+| 6 | 4.91 | 4.45 | 4.30 | 4.16 |
+
+---
+
+## Korelácia a regresia
+
+### Pearsonov korelačný koeficient
+
+$$r = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}}$$
+
+| Hodnota r | Sila korelácie |
+|-----------|----------------|
+| 0.00–0.19 | Veľmi slabá |
+| 0.20–0.39 | Slabá |
+| 0.40–0.59 | Mierna |
+| 0.60–0.79 | Silná |
+| 0.80–1.00 | Veľmi silná |
+
+---
+
+## Lineárna regresia
+
+$$y = \beta_0 + \beta_1 x + \epsilon$$
+
+### Odhad parametrov
+
+$$\hat{\beta}_1 = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}$$
+
+$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$
+
+### Determinačný koeficient
+
+$$R^2 = 1 - \frac{SS_{residual}}{SS_{total}}$$
+
+---
+
+## Shelf-life vzorce
+
+```mermaid
+graph LR
+    A[Shelf-life] --> B[Q10 model]
+    A --> C[Arrhenius]
+    A --> D[Weibull]
+    
+    B --> B1[Q10 = k_T+10 / k_T]
+    C --> C1[k = A × e^(-Ea/RT)]
+    D --> D1[F(t) = 1 - e^-(t/η)^β]
+    
+    B1 --> E[t₅₀ = η × ln2^(1/β)]
+    C1 --> E
+    D1 --> E
+```
+
+---
+
+## Q10 Model
+
+$$Q_{10} = \frac{k_{T+10}}{k_T}$$
+
+| Proces | Q10 hodnota |
+|--------|-------------|
+| Enzymatická degradácia | 2–3 |
+| Oxidácia lipidov | 2–4 |
+| Reakcie Maillardovej | 3–5 |
+| Mikrobiálny rast | 2–5 |
+| Strata vitamínov | 2–10 |
+
+---
+
+## Weibull distribúcia
+
+$$F(t) = 1 - e^{-(t/\eta)^\beta}$$
+
+| β | Význam |
+|---|--------|
+| β < 1 | Klesajúca intenzita poruchy (early failures) |
+| β = 1 | Exponenciálne rozdelenie (konštantná) |
+| β > 1 | Rastúca intenzita poruchy (wear-out) |
+
+### Median survival time
+
+$$t_{50} = \eta \cdot (\ln 2)^{1/\beta}$$
+
+---
+
+## Senzorické parametre
+
+### Threshold (prah)
+
+| Typ prahu | Definícia | Typická hodnota |
+|-----------|-----------|-----------------|
+| Detection threshold | Najnižšia koncentrácia odlíšiteľná od blanku (ISO 13301) | Látkovo špecifická (sacharóza ~10⁻² M, chinín ~10⁻⁵–10⁻⁶ M) |
+| Recognition threshold | Rozpoznanie kvality vnemu | Vyššia ako detekčný prah |
+| Difference threshold | Minimálna zmena stimulu | Weberov zákon |
+| Terminal threshold | Koncentrácia, pri ktorej už nie je zvýšenie | Produktovo špecifická |
+
+---
+
+## Weberov zákon
+
+$$\frac{\Delta I}{I} = k$$
+
+| Stimul | Weberov zlomok (k) |
+|--------|-------------------|
+| Hmotnosť (záťaž) | ~0.02 |
+| Hlasitosť (intenzita zvuku) | ~0.1 |
+| Chuťové podnety (sacharóza, NaCl, kyseliny) | ~0.1–0.3 |
+| Horkosť (chinín, kofeín) | ~0.2–0.3 |
+
+*Kapsaicín nie je horký – spôsobuje pálivosť (TRPV1).*
+
+---
+
+## Stevensov zákon
+
+$$\psi = k \cdot I^n$$
+
+| Stimul | n | Vzťah |
+|--------|---|-------|
+| Hlasitosť (akustický tlak) | 0.67 | Podlineárny |
+| Sladkosť (sacharóza) | 1.3 | Nadlineárny |
+| Sladkosť (sacharín) | 0.8 | Podlineárny |
+| Slanosť (NaCl) | 1.3 | Nadlineárny |
+| Hmotnosť | 1.45 | Nadlineárny |
+
+---
+
+## Praktický výpočet: CI
+
+**Dáta:** 12 panelistov hodnotilo sladkosť na škále 0–10
+
+| Panelista | Hodnotenie |
+|-----------|------------|
+| 1 | 6.2 |
+| 2 | 5.8 |
+| 3 | 6.5 |
+| 4 | 6.0 |
+| 5 | 5.5 |
+| 6 | 6.3 |
+| 7 | 5.9 |
+| 8 | 6.1 |
+| 9 | 6.4 |
+| 10 | 5.7 |
+| 11 | 6.0 |
+| 12 | 6.2 |
+
+**Výsledok:** x̄ = 6.05, s = 0.294, 95% CI = [5.86, 6.24]
+
+---
+
+## Praktický výpočet: Q10
+
+**Dáta:** Mliečny produkt, oxidácia lipidov
+
+| Teplota (°C) | k (deň⁻¹) |
+|---------------|-----------|
+| 25 | 0.015 |
+| 35 | 0.045 |
+
+$$Q_{10} = \frac{0.045}{0.015} = 3.0$$
+
+**Interpretácia:** Pri zvýšení teploty o 10°C sa rýchlosť oxidácie strojnásobí.
+
+---
+
+## Praktický výpočet: Panelisti
+
+**Podmienky:**
+- Očakávaná úspešnosť: p = 0.50
+- Náhodná úspešnosť: p₀ = 1/3
+- α = 0.05 (jednostranný)
+- Power = 0.80
+
+$$n = \frac{\left(1.645\sqrt{0.333 \cdot 0.667} + 0.842\sqrt{0.25}\right)^2}{(0.50 - 0.333)^2} \approx 51.5$$
+
+**Výsledok:** ~**52** (aproximácia), presný binomický výpočet **60 panelistov**
+
+---
+
+## Záver
+
+Vzorce a parametre sú **nevyhnutný nástroj** pre senzorického analytika.
+
+### Kľúčové oblasti
+
+1. **Základná štatistika** — priemer, odchýlka, CI
+2. **Rozlišovacie testy** — binomické kritické hodnoty
+3. **ANOVA** — F-test, Tukey HSD
+4. **Korelácia a regresia** — Pearson, lineárna regresia
+5. **Shelf-life** — Q10, Arrhenius, Weibull
+6. **Senzorické parametre** — prahy, Weber, Stevens
+
+---
+
+## Ďakujem za pozornosť
+
+**Otázky?**
+
+*SAP — Senzorická Analýza Potravín*
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Priemer, SD, interval spoľahlivosti | [2 – BCG matica a interval spoľahlivosti](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) |
+| Binomický test, t-test, χ² | [5a – Normalita a porovnanie dvoch vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) |
+| ANOVA, Tukey, Bonferroni | [5b – Porovnanie viacerých vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) |
+| Korelácia, regresia, R² | [6 – Korelácia a lineárna regresia](https://senzorika.github.io/SaIT/teoria/cvicenie06.html) |
+| Kaplan-Meier, shelf-life | [10 – Analýza prežitia a senzorická trvanlivosť](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) |
+| Thurstonov d′ | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) |
+| Sila testu, počet panelistov | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) |
+| Zmiešané modely | [16 – Zmiešané modely](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) |
+
+Prednášky: [Testovanie hypotéz v senzorike](https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+:::

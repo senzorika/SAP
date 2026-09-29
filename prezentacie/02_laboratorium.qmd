@@ -1,0 +1,230 @@
+---
+title: "Podmienky senzorického laboratória"
+author: "SAP – Senzorická Analýza Potravín"
+date: "2026"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    chalkboard: true
+    preview-links: true
+---
+
+## Požiadavky ISO 8589
+
+Návrh laboratória upravuje **ISO 8589:2007 (+Amd 1:2014)**; ISO 8586:2023 sa týka hodnotiteľov. Laboratórium má spĺňať:
+
+- **Oddelenie** prípravnej zóny od hodnotiaceho priestoru
+- **Individuálne hodnotiace kabíny** pre každého panelistu
+- **Kontrolované environmentálne podmienky** (teplota, vlhkosť, osvetlenie, vzduch)
+- **Eliminácia rušivých vplyvov** (zápachy, hluk, vizuálny stres)
+- **Dostatok priestoru** pre pohodlné hodnotenie
+
+## Layout laboratória
+
+```mermaid
+graph TD
+    A[VSTUPNÁ ZÓNA<br/>registrácia, úloženie oblečenia] --> B[PRÍPRAVNÁ ZÓNA<br/>kuchyňa, skladovanie, chladničky]
+    B --> C[SENZORICKÁ HODNOTIACA ZÓNA<br/>Kabín 1-5+]
+    C --> D[ANALYTICKÁ ZÓNA<br/>textúra, farba, akustika]
+    D --> E[ADMINISTRATÍVNA ZÓNA<br/>riadenie, dokumentácia, IT]
+```
+
+### Oddelenie prípravnej a hodnotiacej zóny
+
+| Kritérium | Prípravná zóna | Hodnotiaca zóna |
+|-----------|---------------|-----------------|
+| Vzduchová výmena | Samostatná | Samostatná |
+| Zápachy | Pripustné | Neprípustné |
+| Osvetlenie | Funkčné | Kontrolované (biele) |
+| Teplota | 18–24°C | 20–22°C |
+| Hluk | Tolerovaný | Tlumený |
+
+## Podmienky prostredia
+
+### Teplota
+
+| Parameter | Hodnota | Tolerancia |
+|-----------|---------|------------|
+| Teplota vzduchu | 20–22°C | ±1°C |
+| Teplota pracovných plôch | 20–22°C | ±1°C |
+| Teplota vzoriek | Špecifická pre produkt | ±2°C |
+
+### Vlhkosť
+
+| Parameter | Hodnota | Tolerancia |
+|-----------|---------|------------|
+| Relatívna vlhkosť | 40–60% | ±5% |
+| Absolútna vlhkosť | 7–11 g/kg | — |
+
+### Osvetlenie
+
+| Parameter | Hodnota |
+|-----------|---------|
+| Osvetlenie na pracovnej ploche | ~300–1000 lux, rovnomerné, regulovateľné |
+| Farba osvetlenia | Denné svetlo D65 (~6500 K) pre hodnotenie farby (ISO 11037) |
+| Rovnomernosť | ≥ 0.7 |
+
+### Vzduchová výmena a akustika
+
+| Parameter | Hodnota |
+|-----------|---------|
+| Výmena vzduchu | 6–12 krát/hodinu |
+| Rýchlosť prúdenia | < 0.2 m/s |
+| Hladina hluku | < 40 dB(A) (odporúčanie) |
+| Reverberačný čas | < 0.5 s |
+
+## Senzorické kabíny
+
+| Parameter | Špecifikácia |
+|-----------|-------------|
+| Počet kabín | 5–15 (podľa veľkosti panelu) |
+| Rozstup medzi kabínami | ≥ 1.0 m |
+| Šírka kabíny | ≥ 0.9 m |
+| Hĺbka pracovnej plochy | ≥ 0.6 m |
+| Materiály | Bez zápachu, ľahko čistiteľné; steny neutrálne |
+| Povrch | Ľahko čistiteľný, odolný proti zápachom |
+| Osvetlenie | Regulovateľné, možnosť maskovacieho farebného svetla |
+| Komunikácia | Interkom alebo tablet |
+
+## Príprava vzoriek
+
+### Identifikácia a kódovanie
+
+| Parameter | Špecifikácia |
+|-----------|-------------|
+| Kódovanie | Náhodné trojciferné kódy |
+| Generovanie | Náhodný generátor (RAND) |
+| Unikátnosť | Každá vzorka má jedinečný kód |
+| Dvojité slepé kódovanie | Pre testy s kontrolou |
+
+### Porcie a podávanie
+
+| Typ produkt | Teplota podávania |
+|-------------|------------------|
+| Studené nápoje | 4–8°C |
+| Teplé nápoje | 60–65°C |
+| Mäsové produkty | 60–70°C |
+| Pečivo | 20–22°C |
+| Mliečne produkty | 4–8°C |
+| Sladkosti | 20–22°C |
+
+### Počet vzoriek na panelistu
+
+| Typ testu | Maximálny počet vzoriek |
+|-----------|------------------------|
+| Deskriptívna analýza | 4–6 na sedenie |
+| Hedonický test | 4–6 (max. ~8) |
+| Test rozdielov | 1–2 sady (napr. trojice) |
+| Časovo-intenzívna analýza | 3–4 |
+
+*Pri veľa vzorkách: vyvážené neúplné bloky (ISO 29842) – [SaIT 5d](https://senzorika.github.io/SaIT/teoria/cvicenie05d.html).*
+
+## Panelisti
+
+### Výber a tréning (ISO 8586)
+
+```mermaid
+graph LR
+    A[Rekrutácia] --> B[Screening]
+    B --> C[Tréning]
+    C --> D[Certifikácia]
+    D --> E[Monitorovanie]
+    E --> C
+```
+
+### Počet panelistov
+
+| Typ testu | Počet panelistov |
+|-----------|-----------------|
+| Trénovaný panel (deskriptívna) | 8–12 |
+| Vybraní hodnotitelia (test rozdielov) | ≥ 24; pri malých rozdieloch viac (sila testu) |
+| Spotrebiteľský test (hedonický) | ≥ 60 na skupinu, bežne 100+ |
+| Spotrebiteľský test (preferencie) | 100+ (podľa sily testu) |
+| Expertný panel | 3–5 |
+
+### Kalibrácia a monitorovanie
+
+| Parameter | Frekvencia |
+|-----------|-----------|
+| Test citlivosti | Každých 6 mesiacov |
+| Test opakovateľnosti (ISO 11132) | Každé 3 mesiace |
+| Test diskriminácie | Každých 6 mesiacov |
+| Kalibrácia s referenciami | Každý mesiac |
+| Spätná väzba | Po každom teste |
+
+## Hygiena a bezpečnosť
+
+### HACCP princípy
+
+1. Analýza nebezpečenstva
+2. Kritické kontrolné body (CCP)
+3. Kritické limity
+4. Monitorovanie
+5. Korekčné opatrenia
+6. Verifikácia
+7. Dokumentácia
+
+### Alergény
+
+| Alergén | Opatrenie |
+|---------|-----------|
+| Gluten | Samostatná príprava, označenie |
+| Mlieko | Samostatná príprava, označenie |
+| Vajce | Samostatná príprava, označenie |
+| Orechy, arašidy | Samostatná príprava, označenie |
+| … | Spolu 14 skupín alergénov (1169/2011, príloha II) |
+| Sója | Samostatná príprava, označenie |
+| Ryby | Samostatná príprava, označenie |
+
+## Dokumentácia
+
+### Protokoly a záznamy
+
+| Dokument | Frekvencia | Doba uchovania |
+|----------|-----------|----------------|
+| Testovací protokol | Každý test | 5 rokov |
+| Záznam z testu | Každý test | 5 rokov |
+| Záznam z prípravy | Každá príprava | 2 roky |
+| Záznam z čistenia | Každé čistenie | 2 roky |
+| Záznam z kalibrácie | Podľa plánu | 5 rokov |
+
+### Kalibrácia zariadení
+
+| Zariadenie | Frekvencia |
+|-----------|-----------|
+| Teplomery | Každých 6 mesiacov |
+| Váhy | Každých 6 mesiacov |
+| Meradlá | Každých 12 mesiacov |
+| Chladničky/mrazničky | Každý mesiac |
+| Osvetlenie | Každých 12 mesiacov |
+
+## Záver
+
+Dodržiavanie podmienok ISO 8589 (priestory), ISO 8586 (hodnotitelia), ISO 6658 a ISO 11132 je **nevyhnutné** pre:
+- Spoľahlivé výsledky
+- Reprodukovateľnosť
+- Validitu dát
+
+---
+
+*Dokument pripravený pre potreby SAP – Senzorická Analýza Potravín*
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Prostredie R pre spracovanie dát z laboratória | [1 – R, RStudio a spolupráca](https://senzorika.github.io/SaIT/teoria/cvicenie01.html) |
+| Import dát zo senzorického softvéru | [5c – Import dát z Excelu a postup analýzy](https://senzorika.github.io/SaIT/teoria/cvicenie05c.html) |
+| Veľa vzoriek – vyvážené neúplné bloky (ISO 29842) | [5d – Durbinov test a neúplné bloky](https://senzorika.github.io/SaIT/teoria/cvicenie05d.html) |
+| Počet hodnotiteľov | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) |
+| Monitorovanie výkonnosti panelu (ISO 11132) | [15 – Výkonnosť senzorického panelu](https://senzorika.github.io/SaIT/teoria/cvicenie15.html) |
+| Audit panelu a návrh experimentu | [20 – Kontrolné prípadové štúdie II](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) |
+
+Prednášky: [Senzorický panel ako merací prístroj](https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+:::

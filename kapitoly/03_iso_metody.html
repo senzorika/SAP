@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prehľad ISO metód pre senzorickú analýzu – SAP</title>
+<style>
+:root {
+--teal-900: #0d3b3b;
+--teal-800: #115e5e;
+--teal-700: #167878;
+--teal-600: #1a9494;
+--teal-500: #20b2aa;
+--teal-400: #4ecdc4;
+--teal-300: #7edfd8;
+--teal-200: #b0efeb;
+--teal-100: #d4f7f5;
+--teal-50: #effcfc;
+--blue-700: #1a5276;
+--blue-600: #2471a3;
+--blue-500: #2e86c1;
+--blue-100: #d6eaf8;
+--amber-600: #d4ac0d;
+--amber-100: #fcf3cf;
+--red-600: #c0392b;
+--red-100: #fadbd8;
+--green-600: #1e8449;
+--green-100: #d5f5e3;
+--gray-900: #1c2833;
+--gray-700: #2e4053;
+--gray-500: #5d6d7e;
+--gray-300: #aeb6bf;
+--gray-100: #e5e8e8;
+--white: #ffffff;
+--shadow: 0 2px 8px rgba(0,0,0,0.08);
+--shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+--radius: 8px;
+--radius-lg: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+line-height: 1.7;
+color: var(--gray-900);
+background: var(--gray-100);
+}
+nav {
+background: linear-gradient(135deg, var(--teal-800), var(--teal-600));
+padding: 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: var(--shadow-lg);
+}
+nav .nav-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 1.5rem;
+}
+nav .logo {
+color: var(--white);
+font-weight: 700;
+font-size: 1.1rem;
+padding: 1rem 0;
+}
+nav ul {
+list-style: none;
+display: flex;
+gap: 0.25rem;
+}
+nav ul li a {
+color: rgba(255,255,255,0.85);
+text-decoration: none;
+padding: 0.5rem 1rem;
+border-radius: var(--radius);
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+nav ul li a:hover, nav ul li a.active {
+background: rgba(255,255,255,0.15);
+color: var(--white);
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+.hero {
+background: linear-gradient(135deg, var(--teal-700), var(--teal-500));
+color: var(--white);
+padding: 3rem 2rem;
+border-radius: var(--radius-lg);
+margin-bottom: 2rem;
+text-align: center;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.1rem; opacity: 0.9; }
+.hero .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; }
+section {
+background: var(--white);
+border-radius: var(--radius-lg);
+padding: 2rem;
+margin-bottom: 1.5rem;
+box-shadow: var(--shadow);
+}
+section h2 {
+color: var(--teal-800);
+font-size: 1.5rem;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 3px solid var(--teal-200);
+}
+section h3 {
+color: var(--teal-700);
+font-size: 1.2rem;
+margin: 1.5rem 0 0.75rem;
+}
+section h4 {
+color: var(--gray-700);
+font-size: 1.05rem;
+margin: 1rem 0 0.5rem;
+}
+p { margin-bottom: 0.75rem; }
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1rem 0;
+font-size: 0.9rem;
+}
+thead th {
+background: var(--teal-700);
+color: var(--white);
+padding: 0.75rem 1rem;
+text-align: left;
+font-weight: 600;
+}
+thead th:first-child { border-radius: var(--radius) 0 0 0; }
+thead th:last-child { border-radius: 0 var(--radius) 0 0; }
+tbody tr:nth-child(even) { background: var(--teal-50); }
+tbody tr:nth-child(odd) { background: var(--white); }
+tbody td {
+padding: 0.65rem 1rem;
+border-bottom: 1px solid var(--gray-100);
+}
+tbody tr:hover { background: var(--teal-100); }
+.callout {
+padding: 1rem 1.25rem;
+border-radius: var(--radius);
+margin: 1rem 0;
+border-left: 4px solid;
+font-size: 0.92rem;
+}
+.callout-info {
+background: var(--blue-100);
+border-left-color: var(--blue-600);
+}
+.callout-warning {
+background: var(--amber-100);
+border-left-color: var(--amber-600);
+}
+.callout-success {
+background: var(--green-100);
+border-left-color: var(--green-600);
+}
+.callout-danger {
+background: var(--red-100);
+border-left-color: var(--red-600);
+}
+.callout strong { display: block; margin-bottom: 0.25rem; }
+.svg-container {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.5rem;
+margin: 1.5rem 0;
+text-align: center;
+}
+.svg-container svg {
+max-width: 100%;
+height: auto;
+}
+.svg-title {
+font-weight: 600;
+color: var(--teal-800);
+margin-bottom: 0.75rem;
+font-size: 0.95rem;
+}
+ul, ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+li { margin-bottom: 0.35rem; }
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+}
+.three-col {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1rem;
+}
+.card {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.25rem;
+border: 1px solid var(--teal-200);
+}
+.card h4 { color: var(--teal-800); margin-top: 0; }
+.tag {
+display: inline-block;
+background: var(--teal-600);
+color: var(--white);
+padding: 0.15rem 0.6rem;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 600;
+margin: 0.15rem;
+}
+.formula {
+background: var(--gray-100);
+border-radius: var(--radius);
+padding: 1rem 1.25rem;
+font-family: 'Consolas', 'Courier New', monospace;
+font-size: 0.88rem;
+margin: 0.75rem 0;
+overflow-x: auto;
+white-space: pre-wrap;
+border: 1px solid var(--gray-300);
+}
+.pros-cons {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+margin: 1rem 0;
+}
+.pros {
+background: var(--green-100);
+border-radius: var(--radius);
+padding: 1rem;
+}
+.cons {
+background: var(--red-100);
+border-radius: var(--radius);
+padding: 1rem;
+}
+.pros h4 { color: var(--green-600); margin-top: 0; }
+.cons h4 { color: var(--red-600); margin-top: 0; }
+footer {
+text-align: center;
+padding: 2rem;
+color: var(--gray-500);
+font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+.two-col, .three-col, .pros-cons { grid-template-columns: 1fr; }
+.hero h1 { font-size: 1.6rem; }
+nav .nav-container { flex-direction: column; padding: 0.5rem 1rem; }
+nav ul { flex-wrap: wrap; justify-content: center; }
+section { padding: 1.25rem; }
+}
+</style>
+    <link rel="stylesheet" href="../assets/sap.css">
+    <script src="../assets/sap.js" defer></script>
+</head>
+<body class="sap">
+<nav>
+<div class="nav-container">
+<div class="logo">SAP – Senzorická Analýza Potravín</div>
+<ul>
+<li><a href="#prehľad" class="active">Prehľad ISO</a></li>
+<li><a href="#trojuholnik">Trojuholníkový</a></li>
+<li><a href="#duotrio">Duo-trio</a></li>
+<li><a href="#parovy">Párový</a></li>
+<li><a href="#anie">A – nie A</a></li>
+<li><a href="#rovnakost">Rovnakosť</a></li>
+<li><a href="#skaly">Škály</a></li>
+<li><a href="#statistika">Štatistika</a></li>
+<li><a href="#aplikacie">Aplikácie</a></li>
+<li><a href="#zaver">Záver</a></li>
+<li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="hero">
+<h1>Prehľad ISO metód pre senzorickú analýzu</h1>
+<p>Komplexný sprievodca štandardmi a testami</p>
+<div class="meta">Repozitár: SAP – Senzorická Analýza Potravín | Aktualizované: 2026</div>
+</div>
+<section id="prehľad">
+<h2>1. Prehľad ISO štandardov</h2>
+<h3>1.1 Hlavné ISO štandardy pre senzorickú analýzu</h3>
+<div class="callout callout-info">
+<strong>Poznámka k aktuálnosti (overené 09/2026)</strong>
+Uvádzame posledné známe vydanie normy. Pred citovaním v protokole vždy over platnosť v <a href="https://www.iso.org/committee/47858/x/catalogue/">katalógu ISO/TC 34/SC 12</a>.
+</div>
+<table>
+<thead><tr><th>ISO Štandard</th><th>Názov</th><th>Hlavný účel</th></tr></thead>
+<tbody>
+<tr><td>ISO 8586:2023</td><td>Všeobecné pokyny na výber, výcvik a monitorovanie hodnotiteľov</td><td>Kvalifikácia a tréning senzorických panelistov (nahrádza vydanie 2012)</td></tr>
+<tr><td>ISO 8589:2007 (+Amd 1:2014)</td><td>Všeobecné pokyny na navrhovanie senzorických miestností</td><td>Senzorické laboratórium, kabíny, osvetlenie</td></tr>
+<tr><td>ISO 6658:2017</td><td>Metodológia — všeobecné pokyny</td><td>Prehľad metód a ich výber</td></tr>
+<tr><td>ISO 13299:2016</td><td>Metodológia — všeobecné pokyny na zostavenie senzorického profilu</td><td>Deskriptívna (profilová) analýza</td></tr>
+<tr><td>ISO 4120:2021</td><td>Trojuholníkový test</td><td>Rozlišovanie dvoch produktov (trojica vzoriek)</td></tr>
+<tr><td>ISO 5495:2005 (+Amd 1:2016)</td><td>Párový porovnávací test</td><td>Smerový rozdiel / preferencia medzi dvoma vzorkami</td></tr>
+<tr><td>ISO 10399:2017</td><td>Duo-trio test</td><td>Rozlišovanie dvoch produktov s referenčnou vzorkou</td></tr>
+<tr><td>ISO 8588:2017</td><td>Test „A" – „nie A"</td><td>Rozlišovanie pri nemožnosti priameho porovnania</td></tr>
+<tr><td>ISO 8587:2006 (+Amd 1:2013)</td><td>Poradový test (ranking)</td><td>Zoradenie vzoriek podľa intenzity / preferencie</td></tr>
+<tr><td>ISO 4121:2003</td><td>Pokyny na používanie kvantitatívnych škál odpovedí</td><td>Škály intenzity</td></tr>
+<tr><td>ISO 11035:1994</td><td>Identifikácia a výber deskriptorov (multidimenzionálny prístup)</td><td>Výber deskriptorov pre profil (starší dokument; over platnosť)</td></tr>
+<tr><td>ISO 11036:2020</td><td>Profil textúry</td><td>Metodológia hodnotenia textúry potravín</td></tr>
+<tr><td>ISO 11037:2011</td><td>Hodnotenie farby potravín</td><td>Vizuálne hodnotenie farby, osvetlenie</td></tr>
+<tr><td>ISO 11132:2021</td><td>Pokyny na meranie výkonnosti kvantitatívneho deskriptívneho panelu</td><td>Diskriminácia, zhoda a opakovateľnosť panelu</td></tr>
+<tr><td>ISO 11136:2014 (+Amd 1:2020)</td><td>Všeobecné pokyny na vykonávanie hedonických testov</td><td>Spotrebiteľské testy prijatia</td></tr>
+<tr><td>ISO 13301:2018</td><td>Metódy stanovenia prahov (3-AFC)</td><td>Detekčné prahy vôní, chutí</td></tr>
+<tr><td>ISO 16779:2015</td><td>Hodnotenie (stanovenie a overenie) trvanlivosti potravín</td><td>Senzorická trvanlivosť (shelf-life)</td></tr>
+<tr><td>ISO 16820:2019</td><td>Sekvenčná analýza</td><td>Sekvenčné rozlišovacie testy</td></tr>
+<tr><td>ISO 29842:2011</td><td>Vyvážené neúplné blokové usporiadania</td><td>Dizajn pri veľkom počte vzoriek</td></tr>
+<tr><td>ISO 22308-1:2021</td><td>Korok — senzorické hodnotenie (nahrádza ISO 22308:2005)</td><td>Cudzie pachy korkových zátok (nie káva)</td></tr>
+</tbody>
+</table>
+<h3>1.2 Doplnkové ISO / ASTM dokumenty</h3>
+<table>
+<thead><tr><th>Dokument</th><th>Názov</th><th>Hlavný účel</th></tr></thead>
+<tbody>
+<tr><td>ISO 5492:2008 (+Amd 2016)</td><td>Senzorická terminológia</td><td>Definície senzorických pojmov</td></tr>
+<tr><td>ISO 3972:2011</td><td>Metóda skúmania citlivosti chuti</td><td>Skríning hodnotiteľov</td></tr>
+<tr><td>ISO 5496:2006</td><td>Iniciácia a výcvik hodnotiteľov v detekcii a rozpoznávaní vôní</td><td>Tréning čuchu</td></tr>
+<tr><td>ASTM E1885</td><td>Triangle test (ASTM)</td><td>Alternatíva k ISO 4120</td></tr>
+<tr><td>ASTM E3009</td><td>Tetrad test</td><td>Tetrádový test (ISO norma pre tetrádu neexistuje)</td></tr>
+<tr><td>ASTM E1958</td><td>Sensory claim substantiation</td><td>Senzorické tvrdenia</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Opravy oproti predošlej verzii</strong>
+„ISO 16741:2015 (shelf-life)" a „ISO 20784:2005 (rýchle profily)" sa v katalógu ISO nenachádzajú; normou pre senzorickú trvanlivosť je <strong style="display:inline">ISO 16779:2015</strong> (nie časovo-intenzitná analýza — pre T-I samostatná ISO norma neexistuje). <strong style="display:inline">ISO 22308</strong> sa týka korkových zátok, nie kávy. <strong style="display:inline">ISO 11037</strong> rieši farbu, nie textúru. Tetrad test normalizuje ASTM E3009.
+</div>
+</section>
+<section id="trojuholnik">
+<h2>2. Trojuholníkový test (Triangle Test)</h2>
+<div class="svg-container">
+<div class="svg-title">Princíp trojuholníkového testu</div>
+<svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="30" text-anchor="middle" font-size="14" fill="#0d3b3b" font-weight="bold">Trojuholníkový test</text>
+<circle cx="150" cy="100" r="40" fill="#4ecdc4" stroke="#167878" stroke-width="2"/>
+<text x="150" y="95" text-anchor="middle" font-size="16" fill="#0d3b3b" font-weight="bold">A</text>
+<text x="150" y="112" text-anchor="middle" font-size="10" fill="#2e4053">Vzorka 1</text>
+<circle cx="300" cy="100" r="40" fill="#4ecdc4" stroke="#167878" stroke-width="2"/>
+<text x="300" y="95" text-anchor="middle" font-size="16" fill="#0d3b3b" font-weight="bold">A</text>
+<text x="300" y="112" text-anchor="middle" font-size="10" fill="#2e4053">Vzorka 2</text>
+<circle cx="450" cy="100" r="40" fill="#d4ac0d" stroke="#d4ac0d" stroke-width="2"/>
+<text x="450" y="95" text-anchor="middle" font-size="16" fill="#ffffff" font-weight="bold">B</text>
+<text x="450" y="112" text-anchor="middle" font-size="10" fill="#ffffff">Vzorka 3 (odlišná)</text>
+<text x="300" y="170" text-anchor="middle" font-size="11" fill="#2e4053">Panelista identifikuje odlišnú vzorku</text>
+<text x="300" y="190" text-anchor="middle" font-size="10" fill="#5d6d7e">Náhodná voľba: p = 1/3</text>
+<rect x="100" y="210" width="400" height="30" rx="4" fill="#effcfc" stroke="#167878" stroke-width="1"/>
+<text x="300" y="230" text-anchor="middle" font-size="10" fill="#0d3b3b">6 poradí: AAB, ABA, BAA, BBA, BAB, ABB (vyvážene)</text>
+</svg>
+</div>
+<p><strong>Princíp:</strong> Panelista dostane tri vzorky, z ktorých sú dve rovnaké a jedna odlišná. Úlohou je identifikovať odlišnú vzorku.</p>
+<h3>Postup</h3>
+<ol>
+<li>Podáva sa tri vzorky (napr. AAB, ABA, BAA v náhodnom poradí)</li>
+<li>Panelista identifikuje odlišnú vzorku</li>
+<li>Výsledky sa vyhodnotia pomocou binomického rozdelenia</li>
+</ol>
+<h3>Výpočet</h3>
+<div class="formula">H0: p = 1/3 (náhodná voľba)
+H1: p > 1/3 (schopnosť rozlišovať)
+
+Počet správnych odpovedí: k
+Počet panelistov: n
+
+P(X ≥ k) = Σ (n choose i) × p^i × (1-p)^(n-i) pre i = k až n</div>
+<h3>Kritické hodnoty (α = 0.05)</h3>
+<table>
+<thead><tr><th>n (panelistov)</th><th>Kritická hodnota (min. správnych)</th></tr></thead>
+<tbody>
+<tr><td>10</td><td>7</td></tr>
+<tr><td>15</td><td>9</td></tr>
+<tr><td>20</td><td>11</td></tr>
+<tr><td>25</td><td>13</td></tr>
+<tr><td>30</td><td>15</td></tr>
+<tr><td>36</td><td>18</td></tr>
+<tr><td>48</td><td>22</td></tr>
+<tr><td>60</td><td>27</td></tr>
+</tbody>
+</table>
+<p><em>Presné binomické hodnoty (jednostranný test, p₀ = 1/3), prepočítané; zhodujú sa s ISO 4120:2021.</em></p>
+<h3>Interpretácia</h3>
+<ul>
+<li>Ak počet správnych odpovedí ≥ kritická hodnota → produkty sa signifikantne líšia</li>
+<li>Ak počet správnych odpovedí &lt; kritická hodnota → rozdiel <strong>nebol preukázaný</strong> (to nie je dôkaz podobnosti — na ten treba test podobnosti s vopred zvoleným p_d a β, pozri <a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">SaIT cvičenie 13</a>)</li>
+</ul>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Jednoduchý na pochopenie</li>
+<li>Nevyžaduje poznať smer rozdielu</li>
+<li>Široko zavedený a normalizovaný (ISO 4120:2021)</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Pri danom d′ patrí medzi štatisticky najmenej účinné testy (menej účinný ako tetrad, 2-AFC či 3-AFC)</li>
+<li>Náročný na pamäť a únavu (3 vzorky na pokus)</li>
+<li>Vyvážené poradie vyžaduje 6 permutácií (AAB, ABA, BAA, BBA, BAB, ABB)</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-info">
+<strong>🧪 Precvič v R</strong>
+binomický test v rozlišovacích skúškach — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">SaIT cvičenie 5a</a> · Thurstonov model a d′ — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">cvičenie 13</a>
+</div>
+</section>
+<section id="duotrio">
+<h2>3. Duo-trio Test</h2>
+<div class="svg-container">
+<div class="svg-title">Princíp duo-trio testu</div>
+<svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+<text x="300" y="30" text-anchor="middle" font-size="14" fill="#0d3b3b" font-weight="bold">Duo-trio test</text>
+<rect x="80" y="70" width="120" height="50" rx="6" fill="#167878"/>
+<text x="140" y="90" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Referencia R</text>
+<text x="140" y="105" text-anchor="middle" font-size="9" fill="#ffffff">Najprv sa podáva</text>
+<line x1="200" y1="95" x2="250" y2="95" stroke="#167878" stroke-width="2" marker-end="url(#arr1)"/>
+<rect x="250" y="70" width="120" height="50" rx="6" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="310" y="90" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Vzorka X</text>
+<text x="310" y="105" text-anchor="middle" font-size="9" fill="#2e4053">R alebo ≠ R</text>
+<rect x="400" y="70" width="120" height="50" rx="6" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="460" y="90" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Vzorka Y</text>
+<text x="460" y="105" text-anchor="middle" font-size="9" fill="#2e4053">R alebo ≠ R</text>
+<text x="300" y="155" text-anchor="middle" font-size="11" fill="#2e4053">Panelista určí, ktorá vzorka je zhodná s referenciou</text>
+<text x="300" y="175" text-anchor="middle" font-size="10" fill="#5d6d7e">Náhodná voľba: p = 1/2</text>
+<defs><marker id="arr1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#167878"/></marker></defs>
+</svg>
+</div>
+<p><strong>Princíp:</strong> Panelista dostane referenčnú vzorku a dve neznáme vzorky (jedna rovná referencii, jedna odlišná). Úlohou je identifikovať vzorku, ktorá je <strong>zhodná s referenciou</strong> (ISO 10399:2017).</p>
+<h3>Postup</h3>
+<ol>
+<li>Podáva sa referenčná vzorka (R)</li>
+<li>Následne dve vzorky (jedna = R, jedna ≠ R)</li>
+<li>Panelista určí, ktorá vzorka zodpovedá referencii</li>
+</ol>
+<h3>Výpočet</h3>
+<div class="formula">H0: p = 1/2 (náhodná voľba)
+H1: p > 1/2 (schopnosť rozlišovať)
+
+Kritické hodnoty (α = 0.05, jednostranný test):</div>
+<h3>Kritické hodnoty (α = 0.05)</h3>
+<table>
+<thead><tr><th>n (panelistov)</th><th>Kritická hodnota (min. správnych)</th></tr></thead>
+<tbody>
+<tr><td>10</td><td>9</td></tr>
+<tr><td>15</td><td>12</td></tr>
+<tr><td>20</td><td>15</td></tr>
+<tr><td>25</td><td>18</td></tr>
+<tr><td>30</td><td>20</td></tr>
+<tr><td>36</td><td>24</td></tr>
+<tr><td>48</td><td>31</td></tr>
+<tr><td>60</td><td>37</td></tr>
+</tbody>
+</table>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Jednoduchšie na pochopenie ako trojuholníkový test</li>
+<li>Menej náročný na panelistov</li>
+<li>Vhodný pre menej skúsené panely</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Pri danom d′ štatisticky približne rovnako málo účinný ako trojuholníkový test (oba potrebujú veľa hodnotiteľov)</li>
+<li>Vyžaduje konzistentnú referenčnú vzorku</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="parovy">
+<h2>4. Párový porovnávací test</h2>
+<div class="svg-container">
+<div class="svg-title">Princíp párového porovnávacieho testu</div>
+<svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<text x="250" y="30" text-anchor="middle" font-size="14" fill="#0d3b3b" font-weight="bold">Párový porovnávací test</text>
+<circle cx="150" cy="100" r="45" fill="#4ecdc4" stroke="#167878" stroke-width="2"/>
+<text x="150" y="95" text-anchor="middle" font-size="18" fill="#0d3b3b" font-weight="bold">A</text>
+<text x="150" y="115" text-anchor="middle" font-size="10" fill="#2e4053">Vzorka A</text>
+<circle cx="350" cy="100" r="45" fill="#20b2aa" stroke="#167878" stroke-width="2"/>
+<text x="350" y="95" text-anchor="middle" font-size="18" fill="#ffffff" font-weight="bold">B</text>
+<text x="350" y="115" text-anchor="middle" font-size="10" fill="#ffffff">Vzorka B</text>
+<text x="250" y="170" text-anchor="middle" font-size="11" fill="#2e4053">Ktorá vzorka je intenzívnejšia? (p = 1/2)</text>
+</svg>
+</div>
+<p><strong>Princíp:</strong> Panelista dostane dve vzorky a vyberie tú, ktorá je viac intenzívna v konkrétnom atribute (napr. sladká, kyslá).</p>
+<h3>Postup</h3>
+<ol>
+<li>Podáva sa dve vzorky (A a B)</li>
+<li>Panelista vyberie vzorku s vyššou intenzitou zvoleného atribútu</li>
+<li>Výsledky sa vyhodnotia pomocou binomického rozdelenia</li>
+</ol>
+<h3>Výpočet</h3>
+<div class="formula">H0: p = 1/2 (žiadny rozdiel)
+H1: p ≠ 1/2 (existuje rozdiel)
+
+Dvojitý test (two-tailed):
+Kritické hodnoty pre α = 0.05:</div>
+<h3>Kritické hodnoty (obojstranný test, α = 0.05, presný binomický test)</h3>
+<p>Rozdiel je významný, ak počet hlasov pre jednu vzorku ≤ dolná alebo ≥ horná hodnota (presný binomický test):</p>
+<table>
+<thead><tr><th>n (panelistov)</th><th>Dolná kritická</th><th>Horná kritická</th></tr></thead>
+<tbody>
+<tr><td>20</td><td>5</td><td>15</td></tr>
+<tr><td>30</td><td>9</td><td>21</td></tr>
+<tr><td>40</td><td>13</td><td>27</td></tr>
+<tr><td>50</td><td>17</td><td>33</td></tr>
+<tr><td>60</td><td>21</td><td>39</td></tr>
+</tbody>
+</table>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Veľmi jednoduchý</li>
+<li>Rýchly</li>
+<li>Ak je atribút vopred známy, ide (ako 2-AFC) o štatisticky <strong>najúčinnejší</strong> rozlišovací test pri danom d′</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Poskytuje len informáciu o tom, ktorý produkt je intenzívnejší v jednom atribúte</li>
+<li>Neposkytuje priamo veľkosť rozdielu (tú dá až Thurstonov d′)</li>
+<li>Hodnotitelia musia rovnako rozumieť atribútu</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="anie">
+<h2>5. „A" – „nie A" test</h2>
+<p><strong>Princíp:</strong> Panelista sa oboznámi so vzorkou „A". Potom dostáva sériu vzoriek (A aj „nie A") a pri každej rozhodne, či ide o „A" alebo „nie A" (ISO 8588:2017).</p>
+<h3>Postup</h3>
+<ol>
+<li>Panelista sa naučí referenčnú vzorku "A"</li>
+<li>Podávajú sa vzorky A aj „nie A" v náhodnom poradí; panelista rozhodne: "A" alebo "nie A"</li>
+<li>Výsledky sa zapíšu do tabuľky 2 × 2 (skutočná vzorka × odpoveď)</li>
+</ol>
+<h3>Výpočet</h3>
+<div class="formula">Tabuľka 2 × 2:           odpoveď "A"   odpoveď "nie A"
+  podaná vzorka A            n11            n12
+  podaná vzorka nie A        n21            n22
+
+H0: podiel odpovedí "A" je rovnaký pre obe vzorky
+- rôzni hodnotitelia na každú vzorku → Pearsonov χ² test (1 df) alebo Fisherov test
+- každý hodnotiteľ hodnotí obe vzorky → McNemarov test
+Veľkosť rozdielu: d′ = z(H) − z(F), H = n11/(n11+n12), F = n21/(n21+n22)</div>
+<div class="callout callout-warning">
+<strong>Oprava oproti predošlej verzii</strong>
+Predošlá verzia uvádzala binomický test s p = 1/2 a tabuľku kritických hodnôt. To je nesprávne — pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa, preto sa porovnávajú dva podiely (ISO 8588).
+</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Jednoduchý</li>
+<li>Vhodný pre rýchle testovanie</li>
+<li>Menej náročný na panelistov</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Menej štatisticky efektívny</li>
+<li>Vyžaduje dobrú pamäť panelistov</li>
+<li>Výsledky závisia na kvalite referencie</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="rovnakost">
+<h2>6. Test rovnakosti (Same-Different Test)</h2>
+<p><strong>Princíp:</strong> Panelista dostane dve vzorky a rozhodne, či sú rovnaké alebo odlišné.</p>
+<h3>Postup</h3>
+<ol>
+<li>Podávajú sa páry rovnakých (AA, BB) aj odlišných (AB, BA) vzoriek</li>
+<li>Panelista rozhodne: "rovnaké" alebo "odlišné"</li>
+<li>Porovná sa podiel odpovedí „odlišné" pri odlišných a pri rovnakých pároch</li>
+</ol>
+<h3>Výpočet</h3>
+<div class="formula">H0: podiel odpovedí "odlišné" je rovnaký pre odlišné aj rovnaké páry
+Test: χ² test (alebo Fisherov / McNemarov test) na tabuľke 2 × 2
+Veľkosť rozdielu: Thurstonov d′ podľa modelu same-different
+(napr. funkcia samediff() v R balíku sensR)</div>
+<div class="callout callout-warning">
+<strong>Poznámka</strong>
+Pre tento test neexistuje „náhodná pravdepodobnosť 1/2" ani jednoduchá tabuľka kritických hodnôt — výsledok závisí od toho, ako prísne hodnotiteľ volí „odlišné".
+</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Jednoduchý</li>
+<li>Vhodný pre rýchle testovanie</li>
+<li>Menej náročný na panelistov</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Menej štatisticky efektívny</li>
+<li>Výsledky závisia od stratégie panelistov</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="skaly">
+<h2>7. Typy škál</h2>
+<h3>7.1 Porovnanie typov škál</h3>
+<div class="svg-container">
+<div class="svg-title">Porovnanie typov škál intenzity</div>
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="25" text-anchor="middle" font-size="13" fill="#0d3b3b" font-weight="bold">Typy škál</text>
+<text x="50" y="60" font-size="10" fill="#2e4053" font-weight="bold">3-bodová:</text>
+<circle cx="100" cy="55" r="5" fill="#167878"/>
+<circle cx="200" cy="55" r="5" fill="#167878"/>
+<circle cx="300" cy="55" r="5" fill="#167878"/>
+<text x="100" y="75" text-anchor="middle" font-size="8" fill="#5d6d7e">Sladké</text>
+<text x="200" y="75" text-anchor="middle" font-size="8" fill="#5d6d7e">Stredné</text>
+<text x="300" y="75" text-anchor="middle" font-size="8" fill="#5d6d7e">Nesladké</text>
+<text x="50" y="110" font-size="10" fill="#2e4053" font-weight="bold">5-bodová:</text>
+<circle cx="80" cy="105" r="5" fill="#20b2aa"/>
+<circle cx="160" cy="105" r="5" fill="#20b2aa"/>
+<circle cx="240" cy="105" r="5" fill="#20b2aa"/>
+<circle cx="320" cy="105" r="5" fill="#20b2aa"/>
+<circle cx="400" cy="105" r="5" fill="#20b2aa"/>
+<text x="80" y="125" text-anchor="middle" font-size="8" fill="#5d6d7e">Veľmi slabé</text>
+<text x="160" y="125" text-anchor="middle" font-size="8" fill="#5d6d7e">Slabé</text>
+<text x="240" y="125" text-anchor="middle" font-size="8" fill="#5d6d7e">Stredné</text>
+<text x="320" y="125" text-anchor="middle" font-size="8" fill="#5d6d7e">Silné</text>
+<text x="400" y="125" text-anchor="middle" font-size="8" fill="#5d6d7e">Veľmi silné</text>
+<text x="50" y="160" font-size="10" fill="#2e4053" font-weight="bold">7-bodová:</text>
+<circle cx="70" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="130" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="190" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="250" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="310" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="370" cy="155" r="4" fill="#4ecdc4"/>
+<circle cx="430" cy="155" r="4" fill="#4ecdc4"/>
+<text x="70" y="175" text-anchor="middle" font-size="8" fill="#5d6d7e">1</text>
+<text x="250" y="175" text-anchor="middle" font-size="8" fill="#5d6d7e">4</text>
+<text x="430" y="175" text-anchor="middle" font-size="8" fill="#5d6d7e">7</text>
+<text x="50" y="210" font-size="10" fill="#2e4053" font-weight="bold">9-bodová:</text>
+<circle cx="60" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="110" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="160" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="210" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="260" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="310" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="360" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="410" cy="205" r="4" fill="#7edfd8"/>
+<circle cx="460" cy="205" r="4" fill="#7edfd8"/>
+<text x="60" y="225" text-anchor="middle" font-size="8" fill="#5d6d7e">1</text>
+<text x="260" y="225" text-anchor="middle" font-size="8" fill="#5d6d7e">5</text>
+<text x="460" y="225" text-anchor="middle" font-size="8" fill="#5d6d7e">9</text>
+<text x="50" y="265" font-size="10" fill="#2e4053" font-weight="bold">Lineárna (15 cm):</text>
+<line x1="200" y1="260" x2="500" y2="260" stroke="#167878" stroke-width="2"/>
+<line x1="200" y1="255" x2="200" y2="265" stroke="#167878" stroke-width="2"/>
+<line x1="500" y1="255" x2="500" y2="265" stroke="#167878" stroke-width="2"/>
+<text x="200" y="280" text-anchor="middle" font-size="8" fill="#5d6d7e">0 mm</text>
+<text x="500" y="280" text-anchor="middle" font-size="8" fill="#5d6d7e">150 mm</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Typ škály</th><th>Počet bodov</th><th>Príklad</th></tr></thead>
+<tbody>
+<tr><td>3-bodová</td><td>3</td><td>Sladké, stredne sladké, nesladké</td></tr>
+<tr><td>5-bodová</td><td>5</td><td>Veľmi slabé, slabé, stredné, silné, veľmi silné</td></tr>
+<tr><td>7-bodová</td><td>7</td><td>1 = veľmi slabé, 7 = veľmi silné</td></tr>
+<tr><td>9-bodová</td><td>9</td><td>1 = veľmi slabé, 9 = veľmi silné</td></tr>
+</tbody>
+</table>
+<h3>7.2 Hedonická škála (9-bodová)</h3>
+<p><strong>Princíp:</strong> Panelista vyjadruje mieru prijatia produktu na 9-bodovej škále.</p>
+<table>
+<thead><tr><th>Hodnotenie</th><th>Popis</th></tr></thead>
+<tbody>
+<tr><td>9</td><td>Mimoriadne sa mi páči</td></tr>
+<tr><td>8</td><td>Veľmi sa mi páči</td></tr>
+<tr><td>7</td><td>Stredne sa mi páči</td></tr>
+<tr><td>6</td><td>Trochu sa mi páči</td></tr>
+<tr><td>5</td><td>Ani sa mi páči, ani sa mi nepáči</td></tr>
+<tr><td>4</td><td>Trochu sa mi nepáči</td></tr>
+<tr><td>3</td><td>Stredne sa mi nepáči</td></tr>
+<tr><td>2</td><td>Veľmi sa mi nepáči</td></tr>
+<tr><td>1</td><td>Mimoriadne sa mi nepáči</td></tr>
+</tbody>
+</table>
+<div class="formula">Priemer: x̄ = Σxi / n
+Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
+95% CI: x̄ ± t(0.025, n-1) × s/√n
+
+% Prijatie = (počet odpovedí ≥ 6) / n × 100
+% Odmietnutie = (počet odpovedí ≤ 4) / n × 100</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Široko používaná</li>
+<li>Jednoduchá na pochopenie</li>
+<li>Vhodná pre spotrebiteľov</li>
+<li>Umožňuje porovnanie produktov</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Subjektívne</li>
+<li>Kultúrne závislé</li>
+<li>Neposkytuje informáciu o príčinách</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-info">
+<strong>🧪 Precvič v R</strong>
+interval spoľahlivosti priemeru — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie02.html">SaIT cvičenie 2</a> · porovnanie viacerých vzoriek (ANOVA, Friedman, post-hoc) — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">cvičenie 5b</a>
+</div>
+<h3>7.3 JAR škála (Just-About-Right)</h3>
+<p><strong>Princíp:</strong> Panelista hodnotí, či je intenzita atribútu príliš nízka, príliš vysoká, alebo práve správna.</p>
+<div class="formula">1 = Príliš nízka (Príliš málo)
+2 = Trochu nízka
+3 = Práve správna (Just About Right)
+4 = Trochu vysoká
+5 = Príliš vysoká (Príliš veľa)
+
+% JAR = (počet odpovedí "3") / n × 100
+% Príliš nízka = (počet odpovedí "1" + "2") / n × 100
+% Príliš vysoká = (počet odpovedí "4" + "5") / n × 100
+
+Penalizácia (Penalty Analysis):
+Priemer liking pre "Príliš nízka" - Priemer liking pre "JAR"
+Priemer liking pre "Príliš vysoká" - Priemer liking pre "JAR"</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Poskytuje informáciu o optimalizácii</li>
+<li>Vhodná pre NPD</li>
+<li>Jednoduchá na použitie — určená pre <strong>spotrebiteľov</strong>, nie trénovaný panel</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Kombinuje intenzitu a hodnotenie v jednej otázke (môže ovplyvniť hedonické odpovede)</li>
+<li>Penalty analýza vyžaduje súčasne zbierať celkovú obľúbenosť</li>
+<li>Nevhodná pre trénovaný deskriptívny panel</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-info">
+<strong>🧪 Precvič v R</strong>
+JAR škála a penalty analýza — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">SaIT cvičenie 12</a>
+</div>
+<h3>7.4 Škála intenzity (Category Scale)</h3>
+<p><strong>Princíp:</strong> Panelista priraďuje intenzitu senzorického atribútu na diskrétnej škále (typy škál pozri tabuľku v 7.1).</p>
+<div class="formula">Priemer: x̄ = Σxi / n
+Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
+95% CI: x̄ ± t(0.025, n-1) × s/√n</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Jednoduchá na použitie</li>
+<li>Rýchla</li>
+<li>Vhodná pre väčšinu senzorických atribútov</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Obmedzené rozlíšenie</li>
+<li>Subjektívne hranice medzi kategóriami</li>
+<li>Vyžaduje trénovaných panelistov</li>
+</ul>
+</div>
+</div>
+<h3>7.5 Lineárna škála (Line Scale)</h3>
+<p><strong>Princíp:</strong> Panelista označí intenzitu atribútu na kontinuálnej lineárnej škále.</p>
+<h4>Postup</h4>
+<ol>
+<li>Škála je obvykle 15 cm dlhá</li>
+<li>Panelista umiestni značku na škálu</li>
+<li>Výsledok sa meria v mm od ľavého okraja</li>
+</ol>
+<div class="formula">Priemer: x̄ = Σxi / n
+Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
+95% CI: x̄ ± t(0.025, n-1) × s/√n</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Väčšia citlivosť ako kategorické škály</li>
+<li>Vhodná pre štatistickú analýzu</li>
+<li>Flexibilná</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Vyžaduje trénovaných panelistov</li>
+<li>Náročnejšia na vyhodnotenie</li>
+<li>Menej intuitívna pre panelistov</li>
+</ul>
+</div>
+</div>
+<h3>7.6 Semantická diferenciálna škála (Semantic Differential Scale)</h3>
+<p><strong>Princíp:</strong> Panelista hodnotí produkt pomocou bipolárnych adjektív na škále.</p>
+<div class="formula">Nepríjemné  1 — 2 — 3 — 4 — 5 — 6 — 7  Príjemné
+Slabé       1 — 2 — 3 — 4 — 5 — 6 — 7  Silné
+Nezaujímavé 1 — 2 — 3 — 4 — 5 — 6 — 7  Zaujímavé
+
+Priemer pre každý atribút: x̄ = Σxi / n
+Analýza profilov: porovnanie priemerov medzi produktami
+Faktorská analýza: identifikácia hlavných dimenzií</div>
+<div class="pros-cons">
+<div class="pros">
+<h4>Výhody</h4>
+<ul>
+<li>Vhodná pre spotrebiteľské testy</li>
+<li>Jednoduchá na pochopenie</li>
+<li>Poskytuje holistický obraz</li>
+</ul>
+</div>
+<div class="cons">
+<h4>Nevýhody</h4>
+<ul>
+<li>Subjektívne interpretácie adjektív</li>
+<li>Kultúrne závislé</li>
+<li>Menej vhodná pre technické atribúty</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="statistika">
+<h2>8. Výpočty a štatistika</h2>
+<h3>8.1 Binomické rozdelenie pre rozlišovacie testy</h3>
+<p><strong>Všeobecný vzorec:</strong></p>
+<div class="formula">P(X = k) = C(n,k) × p^k × (1-p)^(n-k)
+
+Kde:
+- n = počet panelistov (pokusov)
+- k = počet správnych odpovedí
+- p = pravdepodobnosť správnej odpovedi pri náhodnej voľbe
+- C(n,k) = n! / (k! × (n-k)!)</div>
+<table>
+<thead><tr><th>Test</th><th>p (náhodná voľba)</th></tr></thead>
+<tbody>
+<tr><td>Trojuholníkový test</td><td>1/3</td></tr>
+<tr><td>Duo-trio test</td><td>1/2</td></tr>
+<tr><td>Párový porovnávací test (2-AFC)</td><td>1/2</td></tr>
+<tr><td>3-AFC</td><td>1/3</td></tr>
+<tr><td>"A" - "nie A" test</td><td>— (porovnanie dvoch podielov, χ²/McNemar)</td></tr>
+<tr><td>Test rovnakosti (same-different)</td><td>— (porovnanie dvoch podielov, χ²)</td></tr>
+<tr><td>Tetrad test</td><td>1/3</td></tr>
+</tbody>
+</table>
+<p><strong>Pravdepodobnosti náhodnej voľby pre jednotlivé testy:</strong></p>
+<table>
+<thead><tr><th>Test</th><th>p (náhodná voľba)</th></tr></thead>
+<tbody>
+<tr><td>Trojuholníkový test</td><td>1/3</td></tr>
+<tr><td>Duo-trio test</td><td>1/2</td></tr>
+<tr><td>Párový porovnávací test (2-AFC)</td><td>1/2</td></tr>
+<tr><td>3-AFC</td><td>1/3</td></tr>
+<tr><td>Tetrad test</td><td>1/3</td></tr>
+<tr><td>„A“ – „nie A“ test</td><td>— (porovnanie dvoch podielov, χ²/McNemar)</td></tr>
+<tr><td>Test rovnakosti (same-different)</td><td>— (porovnanie dvoch podielov, χ²)</td></tr>
+</tbody>
+</table>
+<h3>8.2 Kritické hodnoty pre rôzne úrovne významnosti</h3>
+<p>Presné binomické hodnoty (jednostranný test; minimálny počet správnych odpovedí), prepočítané v Pythone (<code>scipy.stats.binom</code>):</p>
+<h4>Trojuholníkový test a tetrad (p = 1/3) — presné binomické hodnoty</h4>
+<table>
+<thead><tr><th>n</th><th>α = 0.10</th><th>α = 0.05</th><th>α = 0.01</th></tr></thead>
+<tbody>
+<tr><td>10</td><td>6</td><td>7</td><td>8</td></tr>
+<tr><td>15</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td>20</td><td>10</td><td>11</td><td>13</td></tr>
+<tr><td>25</td><td>12</td><td>13</td><td>15</td></tr>
+<tr><td>30</td><td>14</td><td>15</td><td>17</td></tr>
+<tr><td>36</td><td>17</td><td>18</td><td>20</td></tr>
+<tr><td>48</td><td>21</td><td>22</td><td>25</td></tr>
+<tr><td>60</td><td>26</td><td>27</td><td>30</td></tr>
+</tbody>
+</table>
+<h4>Duo-trio a smerový párový test, jednostranne (p = 1/2)</h4>
+<table>
+<thead><tr><th>n</th><th>α = 0.10</th><th>α = 0.05</th><th>α = 0.01</th></tr></thead>
+<tbody>
+<tr><td>10</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><td>15</td><td>11</td><td>12</td><td>13</td></tr>
+<tr><td>20</td><td>14</td><td>15</td><td>16</td></tr>
+<tr><td>25</td><td>17</td><td>18</td><td>19</td></tr>
+<tr><td>30</td><td>20</td><td>20</td><td>22</td></tr>
+<tr><td>36</td><td>23</td><td>24</td><td>26</td></tr>
+<tr><td>48</td><td>29</td><td>31</td><td>33</td></tr>
+<tr><td>60</td><td>36</td><td>37</td><td>40</td></tr>
+</tbody>
+</table>
+<h3>8.3 Výpočet počtu panelistov</h3>
+<p>Počet hodnotiteľov pre rozlišovací test závisí od <strong>α, β (sila testu) a veľkosti rozdielu</strong>, ktorý chceme odhaliť (p_d — podiel „rozlišujúcich" hodnotiteľov, alebo Thurstonov d′). Vzorec pre šírku intervalu spoľahlivosti (n = z²·p(1−p)/E²) na to <strong>nie je vhodný</strong> — rieši presnosť odhadu, nie silu testu.</p>
+<p><strong>Aproximácia normálnym rozdelením (jednostranný test):</strong></p>
+<div class="formula">n ≈ [ z_α·√(p₀(1−p₀)) + z_β·√(p₁(1−p₁)) ]² / (p₁ − p₀)²
+
+Kde:
+- p₀ = pravdepodobnosť uhádnutia (1/3 alebo 1/2)
+- p₁ = p₀ + p_d·(1 − p₀), p_d = podiel „rozlišujúcich" hodnotiteľov
+- z_α = 1.645 (α = 0.05, jednostranne), z_β = 0.842 (sila 0.80)
+
+Príklad: trojuholník, p_d = 25 % → p₁ = 0.50
+n ≈ 52 (aproximácia); presný binomický výpočet: n = 60</div>
+<p><strong>Rovnaký senzorický rozdiel (d′ = 1), α = 0.05, sila 0.80 — presný binomický výpočet s Thurstonovým modelom:</strong></p>
+<table>
+<thead><tr><th>Test</th><th>p_c pri d′ = 1</th><th>Potrebný počet hodnotiteľov</th></tr></thead>
+<tbody>
+<tr><td>2-AFC (smerový párový)</td><td>0.760</td><td>26</td></tr>
+<tr><td>3-AFC</td><td>0.634</td><td>22</td></tr>
+<tr><td>Tetrad</td><td>0.494</td><td>65</td></tr>
+<tr><td>Trojuholníkový</td><td>0.418</td><td>220</td></tr>
+<tr><td>Duo-trio</td><td>0.582</td><td>241</td></tr>
+</tbody>
+</table>
+<p>→ Pri rovnakom senzorickom rozdiele potrebuje trojuholníkový test ~3× viac hodnotiteľov ako tetrad a ~8× viac ako 2-AFC. Orientačné „minimálne počty" (napr. 18–36) preto platia len pre veľké rozdiely.</p>
+<div class="callout callout-info">
+<strong>🧪 Precvič v R</strong>
+sila testu a veľkosť panelu — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">SaIT cvičenie 14</a> · psychometrické funkcie a d′ — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">cvičenie 13</a>
+</div>
+<h3>8.4 Odporúčané počty panelistov</h3>
+<p><em>Orientačné hodnoty z praxe, nie požiadavky noriem (okrem ISO 4120). Potrebný počet vždy určte výpočtom sily testu (pozri 8.5).</em></p>
+<table>
+<thead><tr><th>Typ testu</th><th>Minimálny počet</th><th>Odporúčaný počet</th></tr></thead>
+<tbody>
+<tr><td>Trojuholníkový test</td><td>24 (ISO 4120)</td><td>podľa sily testu; pri p_d = 25 %: 60</td></tr>
+<tr><td>Duo-trio test</td><td>24</td><td>podľa sily testu</td></tr>
+<tr><td>Párový porovnávací test</td><td>20</td><td>30–40+</td></tr>
+<tr><td>"A" - "nie A" test</td><td>20–30</td><td>40+ hodnotení</td></tr>
+<tr><td>Test rovnakosti</td><td>30</td><td>40+</td></tr>
+<tr><td>Tetrad test</td><td>24</td><td>pri rovnakom d′ ~⅓ oproti trojuholníku</td></tr>
+</tbody>
+</table>
+<h3>8.5 Power Analysis</h3>
+<div class="formula">Power = 1 - β = P(zodmietnuť H0 | H1 je pravdivá)
+
+Kde:
+- β = pravdepodobnosť chyby druhého druhu
+- Power = pravdepodobnosť správneho zamietnutia H0</div>
+<h4>Faktory ovplyvňujúce power</h4>
+<table>
+<thead><tr><th>Faktor</th><th>Vplyv na power</th></tr></thead>
+<tbody>
+<tr><td>Počet panelistov (n)</td><td>Vyššie n → vyššia power</td></tr>
+<tr><td>Veľkosť efektu (effect size)</td><td>Väčší efekt → vyššia power</td></tr>
+<tr><td>Úroveň významnosti (α)</td><td>Vyššia α → vyššia power</td></tr>
+<tr><td>Variabilita dát</td><td>Nižšia variabilita → vyššia power</td></tr>
+</tbody>
+</table>
+<h4>Odporúčané hodnoty power</h4>
+<table>
+<thead><tr><th>Typ štúdie</th><th>Minimálna power</th><th>Odporúčaná power</th></tr></thead>
+<tbody>
+<tr><td>Screeningové testy</td><td>0.70</td><td>0.80</td></tr>
+<tr><td>Konfirmatorné testy</td><td>0.80</td><td>0.90</td></tr>
+<tr><td>Regulačné testy</td><td>0.90</td><td>0.95</td></tr>
+</tbody>
+</table>
+</section>
+<section id="aplikacie">
+<h2>9. Aplikácie – Ktorú metódu použiť</h2>
+<h3>9.1 Rozhodovacia tabuľka</h3>
+<table>
+<thead><tr><th>Situácia</th><th>Odporúčaná metóda</th><th>Dôvod</th></tr></thead>
+<tbody>
+<tr><td>Zistiť, či sa produkty líšia (smer neznámy)</td><td>Tetrad alebo trojuholníkový test</td><td>Tetrad má pri rovnakom d′ vyššiu silu; trojuholník je normalizovaný (ISO 4120)</td></tr>
+<tr><td>Zistiť, ktorý produkt je intenzívnejší</td><td>Párový porovnávací test (2-AFC)</td><td>Najvyššia sila pri známom atribúte</td></tr>
+<tr><td>Overiť, či sa produkt líši od referencie</td><td>Duo-trio test</td><td>Vhodný pri známej referencii</td></tr>
+<tr><td>Vzorky nemožno podať súčasne (napr. výrazná dochuť)</td><td>"A" - "nie A" test</td><td>Hodnotí sa jedna vzorka naraz</td></tr>
+<tr><td>Overiť zhodu dvoch vzoriek</td><td>Test rovnakosti (same-different)</td><td>Nízka záťaž, hodnotí celkovú odlišnosť</td></tr>
+<tr><td>Viac ako dve vzorky</td><td>Poradový test (ISO 8587), škála + ANOVA</td><td>Rozlišovacie testy porovnávajú vždy len 2 produkty</td></tr>
+</tbody>
+</table>
+<h3>9.2 Podľa typu atribútu</h3>
+<table>
+<thead><tr><th>Typ atribútu</th><th>Odporúčaná metóda</th></tr></thead>
+<tbody>
+<tr><td>Vôňa</td><td>Trojuholníkový test, Duo-trio test</td></tr>
+<tr><td>Chuť</td><td>Párový porovnávací test, Škála intenzity</td></tr>
+<tr><td>Textúra</td><td>Lineárna škála, Textúrna profilová analýza</td></tr>
+<tr><td>Vzhľad</td><td>Škála intenzity, Semantická diferenciálna škála</td></tr>
+<tr><td>Zvuk</td><td>Škála intenzity, Lineárna škála</td></tr>
+</tbody>
+</table>
+<h3>9.3 Podľa fázy vývoja</h3>
+<table>
+<thead><tr><th>Fáza</th><th>Odporúčaná metóda</th></tr></thead>
+<tbody>
+<tr><td>Koncept</td><td>Spotrebiteľské testy, Hedonická škála</td></tr>
+<tr><td>Prototyp</td><td>Deskriptívna analýza, QDA</td></tr>
+<tr><td>Optimalizácia</td><td>Response Surface Methodology, JAR škála</td></tr>
+<tr><td>Validácia</td><td>Rozlišovacie testy, Shelf-life testy</td></tr>
+<tr><td>Produkcia</td><td>QC senzorika, Go/No-Go testy</td></tr>
+</tbody>
+</table>
+</section>
+<section id="zaver">
+<h2>10. Záver</h2>
+<p>ISO štandardy poskytujú robustný rámec pre senzorickú analýzu potravín. Správna voľba metódy závisí od:</p>
+<ul>
+<li>Cieľa testovania (rozlišovanie vs. deskripcia vs. prijatie)</li>
+<li>Typu produktu a atribútov</li>
+<li>Dostupných zdrojov (čas, personál, financie)</li>
+<li>Požadovanej štatistickej sily</li>
+</ul>
+<p>Dôležité je dodržať princípy dobrej senzorickej praxe (GSP) a zabezpečiť kvalifikáciu a tréning panelistov v súlade s ISO 8586:2023.</p>
+</section>
+</div>
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Binomický test, χ², McNemar (rozlišovacie testy, A – nie A)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">5a – Normalita a porovnanie dvoch vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R"><code>cvicenie5a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Hedonické a intenzitné škály – ANOVA, Friedman</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">5b – Porovnanie viacerých vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R"><code>cvicenie5b.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Neúplné bloky (ISO 29842)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">5d – Durbinov test a neúplné bloky</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5d.R"><code>cvicenie5d.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">JAR škála a penalty analýza</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">12 – JAR škála a radarový graf</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie12.R"><code>cvicenie12.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Thurstonov d′, test podobnosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Sila testu a počet hodnotiteľov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Výkonnosť panelu (ISO 11132)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">15 – Výkonnosť senzorického panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie15.R"><code>cvicenie15.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html">Rozlišovacie testy a Thurstonov model</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+</section>
+
+<footer>
+<p>Prehľad ISO metód pripravený pre potreby SAP – Senzorická Analýza Potravín.</p>
+</footer>
+</body>
+</html>

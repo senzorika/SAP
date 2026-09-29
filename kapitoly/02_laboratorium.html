@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podmienky senzorického laboratória – SAP</title>
+<style>
+:root {
+--teal-900: #0d3b3b;
+--teal-800: #115e5e;
+--teal-700: #167878;
+--teal-600: #1a9494;
+--teal-500: #20b2aa;
+--teal-400: #4ecdc4;
+--teal-300: #7edfd8;
+--teal-200: #b0efeb;
+--teal-100: #d4f7f5;
+--teal-50: #effcfc;
+--blue-700: #1a5276;
+--blue-600: #2471a3;
+--blue-500: #2e86c1;
+--blue-100: #d6eaf8;
+--amber-600: #d4ac0d;
+--amber-100: #fcf3cf;
+--red-600: #c0392b;
+--red-100: #fadbd8;
+--green-600: #1e8449;
+--green-100: #d5f5e3;
+--gray-900: #1c2833;
+--gray-700: #2e4053;
+--gray-500: #5d6d7e;
+--gray-300: #aeb6bf;
+--gray-100: #e5e8e8;
+--white: #ffffff;
+--shadow: 0 2px 8px rgba(0,0,0,0.08);
+--shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+--radius: 8px;
+--radius-lg: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+line-height: 1.7;
+color: var(--gray-900);
+background: var(--gray-100);
+}
+nav {
+background: linear-gradient(135deg, var(--teal-800), var(--teal-600));
+padding: 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: var(--shadow-lg);
+}
+nav .nav-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 1.5rem;
+}
+nav .logo {
+color: var(--white);
+font-weight: 700;
+font-size: 1.1rem;
+padding: 1rem 0;
+}
+nav ul {
+list-style: none;
+display: flex;
+gap: 0.25rem;
+}
+nav ul li a {
+color: rgba(255,255,255,0.85);
+text-decoration: none;
+padding: 0.5rem 1rem;
+border-radius: var(--radius);
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+nav ul li a:hover, nav ul li a.active {
+background: rgba(255,255,255,0.15);
+color: var(--white);
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+.hero {
+background: linear-gradient(135deg, var(--teal-700), var(--teal-500));
+color: var(--white);
+padding: 3rem 2rem;
+border-radius: var(--radius-lg);
+margin-bottom: 2rem;
+text-align: center;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.1rem; opacity: 0.9; }
+.hero .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; }
+section {
+background: var(--white);
+border-radius: var(--radius-lg);
+padding: 2rem;
+margin-bottom: 1.5rem;
+box-shadow: var(--shadow);
+}
+section h2 {
+color: var(--teal-800);
+font-size: 1.5rem;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 3px solid var(--teal-200);
+}
+section h3 {
+color: var(--teal-700);
+font-size: 1.2rem;
+margin: 1.5rem 0 0.75rem;
+}
+section h4 {
+color: var(--gray-700);
+font-size: 1.05rem;
+margin: 1rem 0 0.5rem;
+}
+p { margin-bottom: 0.75rem; }
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1rem 0;
+font-size: 0.9rem;
+}
+thead th {
+background: var(--teal-700);
+color: var(--white);
+padding: 0.75rem 1rem;
+text-align: left;
+font-weight: 600;
+}
+thead th:first-child { border-radius: var(--radius) 0 0 0; }
+thead th:last-child { border-radius: 0 var(--radius) 0 0; }
+tbody tr:nth-child(even) { background: var(--teal-50); }
+tbody tr:nth-child(odd) { background: var(--white); }
+tbody td {
+padding: 0.65rem 1rem;
+border-bottom: 1px solid var(--gray-100);
+}
+tbody tr:hover { background: var(--teal-100); }
+.callout {
+padding: 1rem 1.25rem;
+border-radius: var(--radius);
+margin: 1rem 0;
+border-left: 4px solid;
+font-size: 0.92rem;
+}
+.callout-info {
+background: var(--blue-100);
+border-left-color: var(--blue-600);
+}
+.callout-warning {
+background: var(--amber-100);
+border-left-color: var(--amber-600);
+}
+.callout-success {
+background: var(--green-100);
+border-left-color: var(--green-600);
+}
+.callout-danger {
+background: var(--red-100);
+border-left-color: var(--red-600);
+}
+.callout strong { display: block; margin-bottom: 0.25rem; }
+.svg-container {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.5rem;
+margin: 1.5rem 0;
+text-align: center;
+}
+.svg-container svg {
+max-width: 100%;
+height: auto;
+}
+.svg-title {
+font-weight: 600;
+color: var(--teal-800);
+margin-bottom: 0.75rem;
+font-size: 0.95rem;
+}
+ul, ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+li { margin-bottom: 0.35rem; }
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+}
+.three-col {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1rem;
+}
+.card {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.25rem;
+border: 1px solid var(--teal-200);
+}
+.card h4 { color: var(--teal-800); margin-top: 0; }
+.tag {
+display: inline-block;
+background: var(--teal-600);
+color: var(--white);
+padding: 0.15rem 0.6rem;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 600;
+margin: 0.15rem;
+}
+.formula {
+background: var(--gray-100);
+border-radius: var(--radius);
+padding: 1rem 1.25rem;
+font-family: 'Consolas', 'Courier New', monospace;
+font-size: 0.88rem;
+margin: 0.75rem 0;
+overflow-x: auto;
+white-space: pre-wrap;
+border: 1px solid var(--gray-300);
+}
+footer {
+text-align: center;
+padding: 2rem;
+color: var(--gray-500);
+font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+.two-col, .three-col { grid-template-columns: 1fr; }
+.hero h1 { font-size: 1.6rem; }
+nav .nav-container { flex-direction: column; padding: 0.5rem 1rem; }
+nav ul { flex-wrap: wrap; justify-content: center; }
+section { padding: 1.25rem; }
+}
+</style>
+    <link rel="stylesheet" href="../assets/sap.css">
+    <script src="../assets/sap.js" defer></script>
+</head>
+<body class="sap">
+<nav>
+<div class="nav-container">
+<div class="logo">SAP – Senzorická Analýza Potravín</div>
+<ul>
+<li><a href="#navrh" class="active">Návrh</a></li>
+<li><a href="#prostredie">Prostredie</a></li>
+<li><a href="#vybavenie">Vybavenie</a></li>
+<li><a href="#vzorky">Vzorky</a></li>
+<li><a href="#panelisti">Panelisti</a></li>
+<li><a href="#hygiena">Hygiena</a></li>
+<li><a href="#dokumentacia">Dokumentácia</a></li>
+<li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="hero">
+<h1>Podmienky senzorického laboratória</h1>
+<p>ISO 8589 (priestory) · ISO 8586:2023 (hodnotitelia) · ISO 11132 (výkonnosť panelu)</p>
+<div class="meta">Repozitár: SAP – Senzorická Analýza Potravín | Kategória: Laboratórna dokumentácia | Aktualizované: 2026</div>
+</div>
+<section id="navrh">
+<h2>1. Návrh laboratória</h2>
+<h3>1.1 Požiadavky ISO 8589</h3>
+<p>Návrh senzorického laboratória upravuje <strong>ISO 8589:2007 (+Amd 1:2014)</strong> (Sensory analysis — General guidance for the design of test rooms). <strong>ISO 8586:2023</strong> sa týka výberu, výcviku a monitorovania hodnotiteľov (kapitola 5), nie priestorov. Senzorické laboratórium má spĺňať nasledovné požiadavky:</p>
+<div class="callout callout-warning"><strong>Poznámka k zdrojom (09/2026)</strong> Predošlá verzia pripisovala takmer všetky číselné parametre (teplota, vlhkosť, lux, dB, počty panelistov, frekvencie kalibrácie) normám ISO 8586 alebo ISO 13299. Tie takéto hodnoty neobsahujú. Stĺpec „Zdroj" bol preto opravený: ISO 8589 dáva väčšinou <em>kvalitatívne</em> požiadavky (príjemná, kontrolovaná teplota a vlhkosť; rovnomerné, regulovateľné osvetlenie; bez pachov a hluku), konkrétne čísla sú <em>odporúčania z praxe</em> a treba ich prispôsobiť produktu.</div>
+<ul>
+<li><strong>Oddelenie</strong> prípravnej (kuchyňskej) zóny od senzorického hodnotiaceho priestoru</li>
+<li><strong>Individuálne hodnotiace kabíny</strong> pre každého panelistu</li>
+<li><strong>Kontrolované environmentálne podmienky</strong> (teplota, vlhkosť, osvetlenie, vzduch)</li>
+<li><strong>Nevyhnutnosť eliminácie rušivých vplyvov</strong> (zápachy, hluk, vizuálny stres)</li>
+<li><strong>Dostatok priestoru</strong> pre pohodlné hodnotenie bez stiesnenia</li>
+</ul>
+<h3>1.2 Layout laboratória</h3>
+<div class="svg-container">
+<div class="svg-title">Podlažný plán senzorického laboratória</div>
+<svg viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="20" width="660" height="410" rx="8" fill="#effcfc" stroke="#167878" stroke-width="2"/>
+<rect x="30" y="30" width="640" height="60" rx="4" fill="#d4f7f5" stroke="#167878" stroke-width="1"/>
+<text x="350" y="55" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">VSTUPNÁ ZÓNA</text>
+<text x="350" y="72" text-anchor="middle" font-size="9" fill="#2e4053">Registrácia, úloženie oblečenia</text>
+<rect x="30" y="100" width="640" height="60" rx="4" fill="#b0efeb" stroke="#167878" stroke-width="1"/>
+<text x="350" y="125" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">PRÍPRAVNÁ ZÓNA</text>
+<text x="350" y="142" text-anchor="middle" font-size="9" fill="#2e4053">Kuchyňa, skladovanie, chladničky, mrazničky</text>
+<rect x="30" y="170" width="640" height="120" rx="4" fill="#4ecdc4" stroke="#167878" stroke-width="1"/>
+<text x="350" y="190" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">SENZORICKÁ HODNOTIACA ZÓNA</text>
+<rect x="50" y="205" width="100" height="60" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="100" y="230" text-anchor="middle" font-size="9" fill="#0d3b3b">Kabín 1</text>
+<text x="100" y="245" text-anchor="middle" font-size="8" fill="#5d6d7e">Panelista 1</text>
+<rect x="170" y="205" width="100" height="60" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="220" y="230" text-anchor="middle" font-size="9" fill="#0d3b3b">Kabín 2</text>
+<text x="220" y="245" text-anchor="middle" font-size="8" fill="#5d6d7e">Panelista 2</text>
+<rect x="290" y="205" width="100" height="60" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="340" y="230" text-anchor="middle" font-size="9" fill="#0d3b3b">Kabín 3</text>
+<text x="340" y="245" text-anchor="middle" font-size="8" fill="#5d6d7e">Panelista 3</text>
+<rect x="410" y="205" width="100" height="60" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="460" y="230" text-anchor="middle" font-size="9" fill="#0d3b3b">Kabín 4</text>
+<text x="460" y="245" text-anchor="middle" font-size="8" fill="#5d6d7e">Panelista 4</text>
+<rect x="530" y="205" width="100" height="60" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="580" y="230" text-anchor="middle" font-size="9" fill="#0d3b3b">Kabín 5</text>
+<text x="580" y="245" text-anchor="middle" font-size="8" fill="#5d6d7e">Panelista 5</text>
+<rect x="30" y="300" width="640" height="55" rx="4" fill="#7edfd8" stroke="#167878" stroke-width="1"/>
+<text x="350" y="325" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">ANALYTICKÁ ZÓNA (voliteľné)</text>
+<text x="350" y="342" text-anchor="middle" font-size="9" fill="#2e4053">Textúra, farba, akustika, dotyk</text>
+<rect x="30" y="365" width="640" height="55" rx="4" fill="#e5e8e8" stroke="#5d6d7e" stroke-width="1"/>
+<text x="350" y="390" text-anchor="middle" font-size="12" fill="#2e4053" font-weight="bold">ADMINISTRATÍVNA ZÓNA</text>
+<text x="350" y="407" text-anchor="middle" font-size="9" fill="#5d6d7e">Riadenie, dokumentácia, IT</text>
+</svg>
+</div>
+<h3>1.3 Oddelenie prípravnej a hodnotiacej zóny</h3>
+<table>
+<thead><tr><th>Kritérium</th><th>Prípravná zóna</th><th>Hodnotiaca zóna</th></tr></thead>
+<tbody>
+<tr><td>Vzduchová výmena</td><td>Samostatná</td><td>Samostatná</td></tr>
+<tr><td>Zápachy</td><td>Pripustné</td><td>Neprípustné</td></tr>
+<tr><td>Osvetlenie</td><td>Funkčné</td><td>Kontrolované (biele)</td></tr>
+<tr><td>Teplota</td><td>Funkčná (18–24°C)</td><td>Kontrolovaná (20–22°C)</td></tr>
+<tr><td>Hluk</td><td>Tolerovaný</td><td>Tlumený</td></tr>
+</tbody>
+</table>
+</section>
+<section id="prostredie">
+<h2>2. Podmienky prostredia</h2>
+<h3>2.1 Teplota</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Teplota vzduchu</td><td>20–22°C</td><td>±1°C</td><td>Odporúčanie (ISO 8589: kontrolovaná, príjemná)</td></tr>
+<tr><td>Teplota pracovných plôch</td><td>20–22°C</td><td>±1°C</td><td>Odporúčanie</td></tr>
+<tr><td>Teplota vzoriek pri podávaní</td><td>Špecifická pre produkt</td><td>±2°C</td><td>ISO 6658 (rovnaká pre všetky vzorky)</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Teplota ovplyvňuje vnímanie. Napr. sladkosť sa pri vyššej teplote vzorky vníma intenzívnejšie (mechanizmus cez kanál TRPM5; Talavera et al., 2005, <em>Nature</em> 438, 1022–1025) a prchavosť aromatických látok s teplotou rastie. Teplotu miestnosti aj vzoriek preto treba udržiavať konštantnú.
+</div>
+<h3>2.2 Vlhkosť</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Relatívna vlhkosť</td><td>40–60%</td><td>±5%</td><td>Odporúčanie (ISO 8589: kontrolovaná, príjemná)</td></tr>
+<tr><td>Absolútna vlhkosť</td><td>7–11 g/kg</td><td>—</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Príliš nízka vlhkosť spôsobuje sucho slizníc, čo ovplyvňuje vnímanie chutí. Príliš vysoká vlhkosť umožňuje rast mikroorganizmov a vytvára zápachy.
+</div>
+<h3>2.3 Osvetlenie</h3>
+<div class="svg-container">
+<div class="svg-title">Environmentálne podmienky – Vizuálny prehľad</div>
+<svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+<rect x="30" y="30" width="160" height="190" rx="8" fill="#d4f7f5" stroke="#167878" stroke-width="1.5"/>
+<text x="110" y="55" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Teplota</text>
+<text x="110" y="80" text-anchor="middle" font-size="20" fill="#167878" font-weight="bold">20–22°C</text>
+<text x="110" y="100" text-anchor="middle" font-size="9" fill="#2e4053">Tolerancia: ±1°C</text>
+<line x1="50" y1="115" x2="170" y2="115" stroke="#167878" stroke-width="0.5"/>
+<text x="110" y="135" text-anchor="middle" font-size="9" fill="#2e4053">Vplyv na chuťovú</text>
+<text x="110" y="150" text-anchor="middle" font-size="9" fill="#2e4053">citlivosť</text>
+<rect x="220" y="30" width="160" height="190" rx="8" fill="#d4f7f5" stroke="#167878" stroke-width="1.5"/>
+<text x="300" y="55" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Vlhkosť</text>
+<text x="300" y="80" text-anchor="middle" font-size="20" fill="#167878" font-weight="bold">40–60%</text>
+<text x="300" y="100" text-anchor="middle" font-size="9" fill="#2e4053">Tolerancia: ±5%</text>
+<line x1="240" y1="115" x2="360" y2="115" stroke="#167878" stroke-width="0.5"/>
+<text x="300" y="135" text-anchor="middle" font-size="9" fill="#2e4053">Sucho slizníc =</text>
+<text x="300" y="150" text-anchor="middle" font-size="9" fill="#2e4053">znížené vnímanie</text>
+<rect x="410" y="30" width="160" height="190" rx="8" fill="#d4f7f5" stroke="#167878" stroke-width="1.5"/>
+<text x="490" y="55" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Osvetlenie</text>
+<text x="490" y="80" text-anchor="middle" font-size="20" fill="#167878" font-weight="bold">300–1000</text>
+<text x="490" y="100" text-anchor="middle" font-size="9" fill="#2e4053">lux, rovnomerné, regulovateľné</text>
+<line x1="430" y1="115" x2="550" y2="115" stroke="#167878" stroke-width="0.5"/>
+<text x="490" y="135" text-anchor="middle" font-size="9" fill="#2e4053">Farba svetla</text>
+<text x="490" y="150" text-anchor="middle" font-size="9" fill="#2e4053">ovplyvňuje farbu</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Osvetlenie na pracovnej ploche</td><td>~300–1000 lux, rovnomerné, regulovateľné</td><td>—</td><td>Odporúčanie (ISO 8589: rovnomerné, bez tieňov, regulovateľné)</td></tr>
+<tr><td>Farba osvetlenia</td><td>Denné svetlo D65 (~6500 K) pre hodnotenie farby</td><td>vysoké CRI</td><td>ISO 11037:2011, ISO 8589</td></tr>
+<tr><td>Rovnomernosť</td><td>≥ 0.7</td><td>—</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Farba osvetlenia môže ovplyvniť vnímanie farby potravín. Pre deskriptívnu analýzu farby sa odporúča štandardné osvetlenie D65 (6500 K).
+</div>
+<h3>2.4 Vzduchová výmena</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Hodnota</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Výmena vzduchu</td><td>6–12 krát/hodinu</td><td>Odporúčanie (ISO 8589: priestor bez pachov)</td></tr>
+<tr><td>Rýchlosť prúdenia vzduchu</td><td>&lt; 0.2 m/s</td><td>Odporúčanie</td></tr>
+<tr><td>Tlak</td><td>Mierny <strong>pretlak</strong> v hodnotiacej zóne voči prípravni (aby pachy neprenikali dnu)</td><td>ISO 8589 / prax</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Dostatočná výmena vzduchu zabraňuje hromadeniu zápachov a udržuje čistotu vzduchu v hodnotiacej zóne.
+</div>
+<h3>2.5 Odstránenie zápachov</h3>
+<table>
+<thead><tr><th>Zdroj zápachu</th><th>Riešenie</th></tr></thead>
+<tbody>
+<tr><td>Príprava potravín</td><td>Samostatná vzduchotechnika s kuchynským odsávačom</td></tr>
+<tr><td>Odpad</td><td>Uzavreté nádoby s nočnou odvozom</td></tr>
+<tr><td>Čistenie</td><td>Použitie bezvónnych čistiacich prostriedkov</td></tr>
+<tr><td>Osobná hygiena</td><td>Zákaz parfémov pre panelistov</td></tr>
+</tbody>
+</table>
+<h3>2.6 Akustika</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Hodnota</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Hladina hluku</td><td>&lt; 40 dB(A)</td><td>Odporúčanie (ISO 8589: minimalizovať hluk)</td></tr>
+<tr><td>Reverberačný čas</td><td>&lt; 0.5 s</td><td>Odporúčanie</td></tr>
+<tr><td>Izolácia od vonkajšieho hluku</td><td>≥ 30 dB</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Hluk ruší koncentráciu a môže ovplyvniť vnímanie chutí. Odporúča sa použitie akustických panelov a tlumičov.
+</div>
+</section>
+<section id="vybavenie">
+<h2>3. Vybavenie</h2>
+<h3>3.1 Senzorické kabíny</h3>
+<div class="svg-container">
+<div class="svg-title">Dizajn senzorickej kabíny</div>
+<svg viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+<rect x="50" y="30" width="400" height="280" rx="8" fill="#effcfc" stroke="#167878" stroke-width="2"/>
+<text x="250" y="55" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">Senzorická kabína</text>
+<rect x="80" y="80" width="120" height="80" rx="4" fill="#d4f7f5" stroke="#167878" stroke-width="1"/>
+<text x="140" y="115" text-anchor="middle" font-size="9" fill="#0d3b3b">Panelista</text>
+<text x="140" y="130" text-anchor="middle" font-size="8" fill="#5d6d7e">Stolička</text>
+<rect x="220" y="80" width="160" height="80" rx="4" fill="#4ecdc4" stroke="#167878" stroke-width="1"/>
+<text x="300" y="115" text-anchor="middle" font-size="9" fill="#0d3b3b" font-weight="bold">Pracovná plocha</text>
+<text x="300" y="130" text-anchor="middle" font-size="8" fill="#2e4053">Nerez oceľ 304</text>
+<rect x="400" y="80" width="40" height="80" rx="4" fill="#b0efeb" stroke="#167878" stroke-width="1"/>
+<text x="420" y="115" text-anchor="middle" font-size="8" fill="#0d3b3b">IT</text>
+<text x="420" y="130" text-anchor="middle" font-size="8" fill="#0d3b3b">Tablet</text>
+<rect x="80" y="180" width="320" height="50" rx="4" fill="#ffffff" stroke="#167878" stroke-width="1"/>
+<text x="240" y="200" text-anchor="middle" font-size="9" fill="#0d3b3b">Podávacie okno (pass-through)</text>
+<text x="240" y="215" text-anchor="middle" font-size="8" fill="#5d6d7e">Vzorky sa podávajú bez vizuálneho kontaktu</text>
+<rect x="80" y="250" width="100" height="40" rx="4" fill="#e5e8e8" stroke="#5d6d7e" stroke-width="1"/>
+<text x="130" y="268" text-anchor="middle" font-size="8" fill="#2e4053">Osvetlenie</text>
+<text x="130" y="280" text-anchor="middle" font-size="8" fill="#2e4053">~300–1000 lux, regulovateľné</text>
+<rect x="200" y="250" width="100" height="40" rx="4" fill="#e5e8e8" stroke="#5d6d7e" stroke-width="1"/>
+<text x="250" y="268" text-anchor="middle" font-size="8" fill="#2e4053">Interkom</text>
+<text x="250" y="280" text-anchor="middle" font-size="8" fill="#2e4053">Komunikácia</text>
+<rect x="320" y="250" width="80" height="40" rx="4" fill="#e5e8e8" stroke="#5d6d7e" stroke-width="1"/>
+<text x="360" y="268" text-anchor="middle" font-size="8" fill="#2e4053">Umývadlo</text>
+<text x="360" y="280" text-anchor="middle" font-size="8" fill="#2e4053">Nožné ovládanie</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Počet kabín</td><td>5–15 (podľa veľkosti panelu)</td><td>Odporúčanie</td></tr>
+<tr><td>Rozstup medzi kabínami</td><td>≥ 1.0 m</td><td>Odporúčanie</td></tr>
+<tr><td>Šírka kabíny</td><td>≥ 0.9 m</td><td>Odporúčanie (ISO 8589 uvádza minimálne rozmery pracovnej plochy)</td></tr>
+<tr><td>Hĺbka pracovnej plochy</td><td>≥ 0.6 m</td><td>Odporúčanie</td></tr>
+<tr><td>Materiály</td><td>Bez zápachu, ľahko čistiteľné; steny neutrálne (matné biele/svetlosivé)</td><td>ISO 8589</td></tr>
+<tr><td>Povrch</td><td>Ľahko čistiteľný, odolný proti zápachom</td><td>Odporúčanie</td></tr>
+<tr><td>Osvetlenie</td><td>Regulovateľné, možnosť farebného (maskovacieho) svetla</td><td>ISO 8589</td></tr>
+<tr><td>Komunikácia</td><td>Interkom alebo tablet</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Kabíny musia poskytovať neutrálny, izolovaný priestor, ktorý minimalizuje rušivé vplyvy a umožňuje sústredené hodnotenie.
+</div>
+<h3>3.2 Pracovné plochy a umývačky</h3>
+<table>
+<thead><tr><th>Vybavenie</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Pracovné plochy</td><td>Nerdzavejúca oceľ 304</td><td>Odporúčanie</td></tr>
+<tr><td>Výška pracovnej plochy</td><td>0.85–0.95 m</td><td>Ergonomia</td></tr>
+<tr><td>Umývačky</td><td>S nožným ovládaním</td><td>Hygiena</td></tr>
+<tr><td>Mýdlo</td><td>Bezvónne, antibakteriálne</td><td>Hygiena</td></tr>
+<tr><td>Rukavice</td><td>Jednorazové, bez púdru</td><td>Hygiena</td></tr>
+<tr><td>Papierové utierky</td><td>Jednorazové, bez vón</td><td>Hygiena</td></tr>
+</tbody>
+</table>
+<h3>3.3 Príprava vzoriek</h3>
+<table>
+<thead><tr><th>Vybavenie</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Kuchyňa</td><td>Samostatná, dobre vetraná</td><td>ISO 8589</td></tr>
+<tr><td>Chladnička</td><td>0–4°C</td><td>HACCP</td></tr>
+<tr><td>Mraznička</td><td>-18°C</td><td>HACCP</td></tr>
+<tr><td>Mikrovlnná rúra, varná doska</td><td>Pre ohrev vzoriek</td><td>Odporúčanie</td></tr>
+<tr><td>Váhy</td><td>Presnosť ±0.1 g</td><td>Odporúčanie</td></tr>
+<tr><td>Meradlá</td><td>Pre objemové meranie</td><td>Odporúčanie</td></tr>
+<tr><td>Teplomery</td><td>Presnosť ±0.5°C</td><td>Odporúčanie</td></tr>
+<tr><td>Časovače</td><td>Pre časové limity</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<h3>3.4 IT vybavenie</h3>
+<table>
+<thead><tr><th>Vybavenie</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Tablety/PC</td><td>Pre každú kabínu</td><td>Odporúčanie</td></tr>
+<tr><td>Senzorický softvér</td><td>Compusense, RedJade, SIMS, FIZZ; analýza dát v R (pozri <a href="https://github.com/senzorika/SaIT">SaIT</a>)</td><td>Odporúčanie</td></tr>
+<tr><td>WiFi</td><td>Stabilné pripojenie</td><td>Odporúčanie</td></tr>
+<tr><td>Zálohovanie</td><td>Automatické, denne</td><td>Dokumentácia</td></tr>
+<tr><td>Tlačiareň</td><td>Pre tlač protokolov</td><td>Dokumentácia</td></tr>
+</tbody>
+</table>
+</section>
+<section id="vzorky">
+<h2>4. Vzorky a ich príprava</h2>
+<h3>4.1 Identifikácia vzoriek</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Kódovanie</td><td>Náhodné trojciferné kódy</td><td>ISO 6658</td></tr>
+<tr><td>Generovanie kódov</td><td>Náhodný generátor (napr. RAND)</td><td>Odporúčanie</td></tr>
+<tr><td>Unikátnosť</td><td>Každá vzorka má jedinečný kód</td><td>ISO 6658</td></tr>
+<tr><td>Dvojité slepé kódovanie</td><td>Pre testy s kontrolou</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-info">
+<strong>Príklad kódovania</strong>
+Vzorka A: 382 | Vzorka B: 715 | Vzorka C: 249
+</div>
+<h3>4.2 Porcie a podávanie</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Veľkosť porcie</td><td>10–30 g (tekutiny: 10–30 ml), rovnaká pre všetky vzorky</td><td>Odporúčanie</td></tr>
+<tr><td>Typ nádoby</td><td>Biele plastové poháre, sklenené poháre</td><td>Odporúčanie</td></tr>
+<tr><td>Farba nádoby</td><td>Biele alebo priehľadné (príp. farebné na maskovanie farby)</td><td>Odporúčanie</td></tr>
+<tr><td>Teplota podávania</td><td>Špecifická pre produkt, rovnaká pre všetky vzorky</td><td>ISO 6658</td></tr>
+<tr><td>Pokrievanie</td><td>Štandardné, jednotné</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>Typ produktu</th><th>Teplota podávania</th></tr></thead>
+<tbody>
+<tr><td>Studené nápoje</td><td>4–8°C</td></tr>
+<tr><td>Teplé nápoje</td><td>60–65°C</td></tr>
+<tr><td>Mäsové produkty</td><td>60–70°C</td></tr>
+<tr><td>Pečivo</td><td>Pokojová teplota (20–22°C)</td></tr>
+<tr><td>Mliečne produkty</td><td>4–8°C</td></tr>
+<tr><td>Sladkosti</td><td>Pokojová teplota (20–22°C)</td></tr>
+</tbody>
+</table>
+<h3>4.3 Počet vzoriek na panelistu</h3>
+<table>
+<thead><tr><th>Typ testu</th><th>Maximálny počet vzoriek</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Deskriptívna analýza</td><td>4–6 na sedenie</td><td>Odporúčanie</td></tr>
+<tr><td>Hedonický test</td><td>4–6 (max. ~8 pri nenáročných produktoch)</td><td>Odporúčanie</td></tr>
+<tr><td>Test rozdielov</td><td>1–2 sady (napr. 1–2 trojice) na sedenie</td><td>Odporúčanie</td></tr>
+<tr><td>Časovo-intenzívna analýza</td><td>3–4</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Príliš veľa vzoriek spôsobuje únavu a adaptáciu a znižuje kvalitu dát. Odporúča sa prestávka každé 45–60 minút. Ak treba hodnotiť viac vzoriek, než zvládne jeden hodnotiteľ, použite vyvážené neúplné bloky (ISO 29842) — vyhodnotenie Durbinovým testom: <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">SaIT cvičenie 5d</a>.
+</div>
+<h3>4.4 Poradie podávania</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Randomizácia</td><td>Náhodné poradie pre každého panelistu</td><td>ISO 6658</td></tr>
+<tr><td>Vyváženosť</td><td>Každá vzorka je podávaná v každej pozícii rovnaký počet krát</td><td>ISO 6658</td></tr>
+<tr><td>Williams design</td><td>Vyváženie poradia aj prenosových efektov prvého rádu</td><td>Williams (1949)</td></tr>
+<tr><td>Prenosové efekty (carry-over)</td><td>Kontrola vplyvu predchádzajúcej vzorky</td><td>Williams design</td></tr>
+</tbody>
+</table>
+<h4>Príklad Williams designu pre 3 vzorky</h4>
+<table>
+<thead><tr><th>Panelist</th><th>1. poradie</th><th>2. poradie</th><th>3. poradie</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>A</td><td>B</td><td>C</td></tr>
+<tr><td>2</td><td>B</td><td>C</td><td>A</td></tr>
+<tr><td>3</td><td>C</td><td>A</td><td>B</td></tr>
+<tr><td>4</td><td>A</td><td>C</td><td>B</td></tr>
+<tr><td>5</td><td>B</td><td>A</td><td>C</td></tr>
+<tr><td>6</td><td>C</td><td>B</td><td>A</td></tr>
+</tbody>
+</table>
+</section>
+<section id="panelisti">
+<h2>5. Panelisti</h2>
+<h3>5.1 Výber a tréning (ISO 8586)</h3>
+<div class="svg-container">
+<div class="svg-title">Fázy výberu a tréningu panelistov</div>
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+<rect x="30" y="70" width="100" height="60" rx="8" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="80" y="95" text-anchor="middle" font-size="10" fill="#0d3b3b" font-weight="bold">Rekrutácia</text>
+<text x="80" y="112" text-anchor="middle" font-size="8" fill="#2e4053">Kandidáti</text>
+<line x1="130" y1="100" x2="160" y2="100" stroke="#167878" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="160" y="70" width="100" height="60" rx="8" fill="#20b2aa" stroke="#167878" stroke-width="1.5"/>
+<text x="210" y="95" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Screening</text>
+<text x="210" y="112" text-anchor="middle" font-size="8" fill="#ffffff">Testy citlivosti</text>
+<line x1="260" y1="100" x2="290" y2="100" stroke="#167878" stroke-width="2"/>
+<rect x="290" y="70" width="100" height="60" rx="8" fill="#167878" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="340" y="95" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Tréning</text>
+<text x="340" y="112" text-anchor="middle" font-size="8" fill="#ffffff">Metodológia</text>
+<line x1="390" y1="100" x2="420" y2="100" stroke="#167878" stroke-width="2"/>
+<rect x="420" y="70" width="100" height="60" rx="8" fill="#0d3b3b" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="470" y="95" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Certifikácia</text>
+<text x="470" y="112" text-anchor="middle" font-size="8" fill="#ffffff">Výkonnosť</text>
+<defs><marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#167878"/></marker></defs>
+</svg>
+</div>
+<table>
+<thead><tr><th>Kritérium</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Vek</td><td>Pevnú hranicu ISO 8586 nestanovuje; zohľadniť vplyv veku na citlivosť</td><td>Odporúčanie</td></tr>
+<tr><td>Zdravie</td><td>Zdravý, bez alergií a intolerancií na testované produkty</td><td>ISO 8586</td></tr>
+<tr><td>Citlivosť</td><td>Priemerná alebo nadpriemerná</td><td>ISO 8586</td></tr>
+<tr><td>Dostupnosť</td><td>Pravidelná účasť</td><td>ISO 8586</td></tr>
+<tr><td>Motivácia</td><td>Ochota spolupracovať</td><td>ISO 8586</td></tr>
+</tbody>
+</table>
+<h3>5.2 Počet panelistov</h3>
+<table>
+<thead><tr><th>Typ testu</th><th>Počet panelistov</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Trénovaný panel (deskriptívna analýza)</td><td>8–12</td><td>Bežná prax (ISO 13299)</td></tr>
+<tr><td>Vybraní hodnotitelia (test rozdielov)</td><td>≥ 24; pri malých rozdieloch a testoch podobnosti výrazne viac</td><td>ISO 4120 (výpočet podľa α, β, p_d)</td></tr>
+<tr><td>Spotrebiteľský test (hedonický)</td><td>≥ 60 na skupinu, bežne 100+</td><td>ISO 11136</td></tr>
+<tr><td>Spotrebiteľský test (preferencie)</td><td>100+ (podľa sily testu)</td><td>ISO 5495 / ASTM E2263</td></tr>
+<tr><td>Expertný panel</td><td>3–5</td><td>Odporúčanie (ISO 8586 definuje expertného hodnotiteľa, nie veľkosť panelu)</td></tr>
+</tbody>
+</table>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Trénovaný panel poskytuje presné, reprodukovateľné výsledky, ale nemusí reprezentovať spotrebiteľov. Spotrebiteľský test poskytuje ekologickú validitu, ale je menej presný.
+</div>
+<h3>5.3 Kalibrácia a monitorovanie výkonnosti</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Frekvencia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Test citlivosti</td><td>Každých 6 mesiacov</td><td>Odporúčanie (ISO 8586: pravidelné monitorovanie)</td></tr>
+<tr><td>Test opakovateľnosti</td><td>Každé 3 mesiace</td><td>Odporúčanie (metriky podľa ISO 11132)</td></tr>
+<tr><td>Test diskriminácie</td><td>Každých 6 mesiacov</td><td>Odporúčanie (metriky podľa ISO 11132)</td></tr>
+<tr><td>Kalibrácia s referenčnými vzorkami</td><td>Každý mesiac</td><td>Odporúčanie</td></tr>
+<tr><td>Spätná väzba</td><td>Po každom teste</td><td>ISO 8586</td></tr>
+</tbody>
+</table>
+<h4>Kritériá výkonnosti</h4>
+<p>Príklad <strong>interných</strong> kritérií (nie sú to hodnoty z ISO); ISO 11132:2021 odporúča hodnotiť výkonnosť cez ANOVA — <strong>diskrimináciu</strong> (F-test produktu pre hodnotiteľa), <strong>zhodu</strong> s panelom (interakcia produkt × hodnotiteľ) a <strong>opakovateľnosť</strong> (reziduálny rozptyl):</p>
+<table>
+<thead><tr><th>Kritérium</th><th>Príklad interného cieľa (nie hodnota z ISO)</th></tr></thead>
+<tbody>
+<tr><td>Diskriminácia</td><td>p(F produkt) &lt; 0.05 pre hodnotiteľa pri kľúčových atribútoch</td></tr>
+<tr><td>Zhoda</td><td>nevýznamný príspevok hodnotiteľa k interakcii produkt × hodnotiteľ</td></tr>
+<tr><td>Opakovateľnosť</td><td>nízky reziduálny rozptyl (napr. ICC ≥ 0.7)</td></tr>
+</tbody>
+</table>
+<div class="callout callout-info">
+<strong>🧪 Precvič v R</strong>
+výkonnosť panelu — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">SaIT cvičenie 15</a> · hodnotiteľ ako náhodný efekt — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">cvičenie 16</a> · koľko hodnotiteľov treba — <a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">cvičenie 14</a>
+</div>
+</section>
+<section id="hygiena">
+<h2>6. Hygiena a bezpečnosť</h2>
+<h3>6.1 HACCP</h3>
+<ol>
+<li><strong>Analýza nebezpečenstva</strong> – identifikácia potenciálnych rizík</li>
+<li><strong>Kritické kontrolné body</strong> – stanovenie CCP</li>
+<li><strong>Kritické limity</strong> – stanovenie hodnôt</li>
+<li><strong>Monitorovanie</strong> – pravidelné kontroly</li>
+<li><strong>Korekčné opatrenia</strong> – akcie pri prekročení limitov</li>
+<li><strong>Verifikácia</strong> – overenie účinnosti</li>
+<li><strong>Dokumentácia</strong> – záznamy</li>
+</ol>
+<h3>6.2 Alergény</h3>
+<table>
+<thead><tr><th>Alergén</th><th>Opatrenie</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Gluten</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+<tr><td>Mlieko</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+<tr><td>Vajce</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+<tr><td>Orechy (škrupinové plody), arašidy</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+<tr><td>Sója</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+<tr><td>Ryby</td><td>Samostatná príprava, označenie</td><td>EU 1169/2011</td></tr>
+</tbody>
+</table>
+<p>Príloha II nariadenia 1169/2011 uvádza <strong>14 skupín alergénov</strong> (okrem vyššie uvedených aj kôrovce, zeler, horčica, sezam, oxid siričitý a siričitany, vlčí bôb, mäkkýše) — tabuľka je výber.</p>
+<div class="callout callout-warning">
+<strong>Dôležitosť</strong>
+Všetky vzorky musia byť jasne označené s informáciami o alergénoch. Panelisti musia byť o zložení informovaní pred testom a dať informovaný súhlas.
+</div>
+<h3>6.3 Etiketa</h3>
+<table>
+<thead><tr><th>Informácia</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Názov produktu</td><td>Oficiálny názov</td><td>EU 1169/2011</td></tr>
+<tr><td>Zloženie</td><td>Zoznam surovín</td><td>EU 1169/2011</td></tr>
+<tr><td>Alergény</td><td>Zvýraznené v zložení</td><td>EU 1169/2011</td></tr>
+<tr><td>Trvanlivosť</td><td>Dátum minimálnej trvanlivosti</td><td>EU 1169/2011</td></tr>
+<tr><td>Podmienky skladovania</td><td>Teplota, vlhkosť</td><td>EU 1169/2011</td></tr>
+<tr><td>Výrobca</td><td>Názov, adresa</td><td>EU 1169/2011</td></tr>
+</tbody>
+</table>
+</section>
+<section id="dokumentacia">
+<h2>7. Dokumentácia</h2>
+<h3>7.1 Protokoly</h3>
+<table>
+<thead><tr><th>Dokument</th><th>Obsah</th><th>Frekvencia</th></tr></thead>
+<tbody>
+<tr><td>Testovací protokol</td><td>Cieľ, metóda, vzorky, panelisti</td><td>Každý test</td></tr>
+<tr><td>Záznam z testu</td><td>Dáta, poznámky, pozorovania</td><td>Každý test</td></tr>
+<tr><td>Záznam z prípravy</td><td>Postupy, teploty, časy</td><td>Každá príprava</td></tr>
+<tr><td>Záznam z čistenia</td><td>Použité prostriedky, časy</td><td>Každé čistenie</td></tr>
+<tr><td>Záznam z kalibrácie</td><td>Dátum, výsledky, odchýlky</td><td>Podľa plánu</td></tr>
+</tbody>
+</table>
+<h3>7.2 Záznamy</h3>
+<table>
+<thead><tr><th>Záznam</th><th>Uloženie</th><th>Doba uchovania</th></tr></thead>
+<tbody>
+<tr><td>Testovacie protokoly</td><td>Elektronicky + papier</td><td>5 rokov</td></tr>
+<tr><td>Záznamy z testov</td><td>Elektronicky + papier</td><td>5 rokov</td></tr>
+<tr><td>Záznamy z prípravy</td><td>Elektronicky</td><td>2 roky</td></tr>
+<tr><td>Záznamy z čistenia</td><td>Elektronicky</td><td>2 roky</td></tr>
+<tr><td>Záznamy z kalibrácie</td><td>Elektronicky + papier</td><td>5 rokov</td></tr>
+<tr><td>Záznamy z tréningu panelistov</td><td>Elektronicky</td><td>5 rokov</td></tr>
+</tbody>
+</table>
+<h3>7.3 Kalibrácia zariadení</h3>
+<table>
+<thead><tr><th>Zariadenie</th><th>Frekvencia kalibrácie</th><th>Zdroj</th></tr></thead>
+<tbody>
+<tr><td>Teplomery</td><td>Každých 6 mesiacov</td><td>Interný systém kvality (napr. ISO/IEC 17025)</td></tr>
+<tr><td>Váhy</td><td>Každých 6 mesiacov</td><td>Interný systém kvality</td></tr>
+<tr><td>Meradlá</td><td>Každých 12 mesiacov</td><td>Interný systém kvality</td></tr>
+<tr><td>Chladničky/mrazničky</td><td>Každý mesiac</td><td>HACCP</td></tr>
+<tr><td>Osvetlenie</td><td>Každých 12 mesiacov</td><td>Odporúčanie</td></tr>
+<tr><td>Vzduchotechnika</td><td>Každých 6 mesiacov</td><td>Odporúčanie</td></tr>
+</tbody>
+</table>
+</section>
+<section id="zaver">
+<h2>Záver</h2>
+<p>Tento dokument poskytuje prehľad požiadaviek na senzorické laboratórium vychádzajúci z ISO 8589 (priestory), ISO 8586 (hodnotitelia), ISO 6658 (všeobecná metodika) a ISO 11132 (výkonnosť panelu), doplnený o odporúčania z praxe. Dodržiavanie týchto podmienok je nevyhnutné pre získanie spoľahlivých, reprodukovateľných a validných senzorických dát.</p>
+</section>
+</div>
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prostredie R pre spracovanie dát z laboratória</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie01.html">1 – R, RStudio a spolupráca</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie1.R"><code>cvicenie1.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Import dát zo senzorického softvéru</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05c.html">5c – Import dát z Excelu a postup analýzy</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5c.R"><code>cvicenie5c.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Veľa vzoriek – vyvážené neúplné bloky (ISO 29842)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">5d – Durbinov test a neúplné bloky</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5d.R"><code>cvicenie5d.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Počet hodnotiteľov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Monitorovanie výkonnosti panelu (ISO 11132)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">15 – Výkonnosť senzorického panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie15.R"><code>cvicenie15.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Audit panelu a návrh experimentu</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie20.R"><code>cvicenie20.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html">Senzorický panel ako merací prístroj</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+</section>
+
+<footer>
+<p>Dokument pripravený pre potreby SAP – Senzorická Analýza Potravín. Odporúčame pravidelnú revíziu s ohľadom na zmeny v štandardoch a technológiách.</p>
+</footer>
+</body>
+</html>
