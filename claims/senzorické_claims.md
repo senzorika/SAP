@@ -632,7 +632,7 @@ Záver: Claim "O 30% menej soli" je PODPORENÝ
 
 ## Záver
 
-Senzorické claims sú mocným nástrojom marketingovej komunikácie, ale vyžadujú si prísnusť k vedeckým dátam a právnym predpisom. Každý claim musí byť:
+Senzorické claims sú mocným nástrojom marketingovej komunikácie, ale vyžadujú si prísnosť k vedeckým dátam a právnym predpisom. Každý claim musí byť:
 
 - ✓ **Overiteľný** – podložený senzorickým testom
 - ✓ **Právne slušný** – v súlade s EU/FDA/Codex predpismi

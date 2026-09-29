@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prehľad literatúry: Vnímanie chuťí – SAP</title>
+<style>
+:root {
+--teal-900: #0d3b3b;
+--teal-800: #115e5e;
+--teal-700: #167878;
+--teal-600: #1a9494;
+--teal-500: #20b2aa;
+--teal-400: #4ecdc4;
+--teal-300: #7edfd8;
+--teal-200: #b0efeb;
+--teal-100: #d4f7f5;
+--teal-50: #effcfc;
+--blue-700: #1a5276;
+--blue-600: #2471a3;
+--blue-500: #2e86c1;
+--blue-100: #d6eaf8;
+--amber-600: #d4ac0d;
+--amber-100: #fcf3cf;
+--red-600: #c0392b;
+--red-100: #fadbd8;
+--green-600: #1e8449;
+--green-100: #d5f5e3;
+--gray-900: #1c2833;
+--gray-700: #2e4053;
+--gray-500: #5d6d7e;
+--gray-300: #aeb6bf;
+--gray-100: #e5e8e8;
+--white: #ffffff;
+--shadow: 0 2px 8px rgba(0,0,0,0.08);
+--shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+--radius: 8px;
+--radius-lg: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+line-height: 1.7;
+color: var(--gray-900);
+background: var(--gray-100);
+}
+nav {
+background: linear-gradient(135deg, var(--teal-800), var(--teal-600));
+padding: 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: var(--shadow-lg);
+}
+nav .nav-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 1.5rem;
+}
+nav .logo {
+color: var(--white);
+font-weight: 700;
+font-size: 1.1rem;
+padding: 1rem 0;
+}
+nav ul {
+list-style: none;
+display: flex;
+gap: 0.25rem;
+}
+nav ul li a {
+color: rgba(255,255,255,0.85);
+text-decoration: none;
+padding: 0.5rem 1rem;
+border-radius: var(--radius);
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+nav ul li a:hover, nav ul li a.active {
+background: rgba(255,255,255,0.15);
+color: var(--white);
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+.hero {
+background: linear-gradient(135deg, var(--teal-700), var(--teal-500));
+color: var(--white);
+padding: 3rem 2rem;
+border-radius: var(--radius-lg);
+margin-bottom: 2rem;
+text-align: center;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.1rem; opacity: 0.9; }
+.hero .meta { margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; }
+section {
+background: var(--white);
+border-radius: var(--radius-lg);
+padding: 2rem;
+margin-bottom: 1.5rem;
+box-shadow: var(--shadow);
+}
+section h2 {
+color: var(--teal-800);
+font-size: 1.5rem;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 3px solid var(--teal-200);
+}
+section h3 {
+color: var(--teal-700);
+font-size: 1.2rem;
+margin: 1.5rem 0 0.75rem;
+}
+section h4 {
+color: var(--gray-700);
+font-size: 1.05rem;
+margin: 1rem 0 0.5rem;
+}
+p { margin-bottom: 0.75rem; }
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1rem 0;
+font-size: 0.9rem;
+}
+thead th {
+background: var(--teal-700);
+color: var(--white);
+padding: 0.75rem 1rem;
+text-align: left;
+font-weight: 600;
+}
+thead th:first-child { border-radius: var(--radius) 0 0 0; }
+thead th:last-child { border-radius: 0 var(--radius) 0 0; }
+tbody tr:nth-child(even) { background: var(--teal-50); }
+tbody tr:nth-child(odd) { background: var(--white); }
+tbody td {
+padding: 0.65rem 1rem;
+border-bottom: 1px solid var(--gray-100);
+}
+tbody tr:hover { background: var(--teal-100); }
+.callout {
+padding: 1rem 1.25rem;
+border-radius: var(--radius);
+margin: 1rem 0;
+border-left: 4px solid;
+font-size: 0.92rem;
+}
+.callout-info {
+background: var(--blue-100);
+border-left-color: var(--blue-600);
+}
+.callout-warning {
+background: var(--amber-100);
+border-left-color: var(--amber-600);
+}
+.callout-success {
+background: var(--green-100);
+border-left-color: var(--green-600);
+}
+.callout-danger {
+background: var(--red-100);
+border-left-color: var(--red-600);
+}
+.callout strong { display: block; margin-bottom: 0.25rem; }
+.svg-container {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.5rem;
+margin: 1.5rem 0;
+text-align: center;
+}
+.svg-container svg {
+max-width: 100%;
+height: auto;
+}
+.svg-title {
+font-weight: 600;
+color: var(--teal-800);
+margin-bottom: 0.75rem;
+font-size: 0.95rem;
+}
+ul, ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+li { margin-bottom: 0.35rem; }
+.two-col {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+}
+.three-col {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1rem;
+}
+.card {
+background: var(--teal-50);
+border-radius: var(--radius);
+padding: 1.25rem;
+border: 1px solid var(--teal-200);
+}
+.card h4 { color: var(--teal-800); margin-top: 0; }
+.tag {
+display: inline-block;
+background: var(--teal-600);
+color: var(--white);
+padding: 0.15rem 0.6rem;
+border-radius: 20px;
+font-size: 0.75rem;
+font-weight: 600;
+margin: 0.15rem;
+}
+.formula {
+background: var(--gray-100);
+border-radius: var(--radius);
+padding: 1rem 1.25rem;
+font-family: 'Consolas', 'Courier New', monospace;
+font-size: 0.88rem;
+margin: 0.75rem 0;
+overflow-x: auto;
+white-space: pre-wrap;
+border: 1px solid var(--gray-300);
+}
+footer {
+text-align: center;
+padding: 2rem;
+color: var(--gray-500);
+font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+.two-col, .three-col { grid-template-columns: 1fr; }
+.hero h1 { font-size: 1.6rem; }
+nav .nav-container { flex-direction: column; padding: 0.5rem 1rem; }
+nav ul { flex-wrap: wrap; justify-content: center; }
+section { padding: 1.25rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-container">
+<div class="logo">SAP – Senzorická Analýza Potravín</div>
+<ul>
+<li><a href="#uvod" class="active">Úvod</a></li>
+<li><a href="#fyziologia">Fyziológia</a></li>
+<li><a href="#výskum">Výskum 2020–2026</a></li>
+<li><a href="#metodologia">Metodológia</a></li>
+<li><a href="#aplikacie">Aplikácie</a></li>
+<li><a href="#zdroje">Zdroje</a></li>
+</ul>
+</div>
+</nav>
+<div class="container">
+<div class="hero">
+<h1>Prehľad literatúry: Vnímanie chutí</h1>
+<p>Taste Perception – Komplexný prehľad senzoriky chutí</p>
+<div class="meta">Repozitár: SAP – Senzorická Analýza Potravín | Kategória: Literatúrny prehľad | Aktualizované: 2026</div>
+</div>
+<section id="uvod">
+<h2>1. Úvod do senzoriky</h2>
+<h3>1.1 Čo je senzorická analýza</h3>
+<p>Senzorická analýza (sensory science) je vedná disciplína, ktorá študuje vnímanie ľudskými zmyslami – chuťou, zapáchaním, vzhľadom, dotykom a zvukom – v kontexte potravín a iných produktov. Využíva vedecky overiteľné metódy na kvantifikáciu subjektívnych vnímaní, čím mostí medzi fyziologickými reakciami a spotrebiteľskými preferenciami.</p>
+<h3>1.2 História senzoriky</h3>
+<div class="svg-container">
+<div class="svg-title">Časová os vývoja senzoriky</div>
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<line x1="50" y1="150" x2="750" y2="150" stroke="#167878" stroke-width="3"/>
+<circle cx="100" cy="150" r="8" fill="#167878"/>
+<circle cx="220" cy="150" r="8" fill="#167878"/>
+<circle cx="340" cy="150" r="8" fill="#167878"/>
+<circle cx="460" cy="150" r="8" fill="#167878"/>
+<circle cx="580" cy="150" r="8" fill="#167878"/>
+<circle cx="700" cy="150" r="8" fill="#167878"/>
+<text x="100" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">1940s</text>
+<text x="100" y="175" text-anchor="middle" font-size="10" fill="#2e4053">Vojnové výskumy</text>
+<text x="220" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">1950s</text>
+<text x="220" y="175" text-anchor="middle" font-size="10" fill="#2e4053">Prvé panely (US Army)</text>
+<text x="340" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">1960s</text>
+<text x="340" y="175" text-anchor="middle" font-size="10" fill="#2e4053">Deskriptívne metódy</text>
+<text x="460" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">1970s</text>
+<text x="460" y="175" text-anchor="middle" font-size="10" fill="#2e4053">ASTM a ISO štandardy</text>
+<text x="580" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">1990s</text>
+<text x="580" y="175" text-anchor="middle" font-size="10" fill="#2e4053">T-I, TDS metódy</text>
+<text x="700" y="130" text-anchor="middle" font-size="12" fill="#0d3b3b" font-weight="bold">2000s+</text>
+<text x="700" y="175" text-anchor="middle" font-size="10" fill="#2e4053">AI, VR, wearables</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Obdobie</th><th>Vývojový milník</th></tr></thead>
+<tbody>
+<tr><td>1940s</td><td>Vojnové výskumy – potreba hodnotiť kvalitu armádnych potravín</td></tr>
+<tr><td>1950s</td><td>Založenie prvých senzorických panelov v USA (US Army Quartermaster)</td></tr>
+<tr><td>1960s</td><td>Vývoj deskriptívnych metód (Flavor Profile Method, QDA)</td></tr>
+<tr><td>1970s</td><td>Štandardizácia prostredníctvom ASTM a ISO</td></tr>
+<tr><td>1990s</td><td>Zavedenie časovo-intenzívnych metód (T-I, TDS)</td></tr>
+<tr><td>2000s</td><td>Rozvoj spotrebiteľského testovania a online platforiem</td></tr>
+<tr><td>2010s</td><td>Integrácia neurovedy, genetiky a umelej inteligencie</td></tr>
+<tr><td>2020s</td><td>Virtuálna realita, wearable senzory, AI-driven senzorika</td></tr>
+</tbody>
+</table>
+<h3>1.3 Význam v potravinárskom priemysle</h3>
+<div class="three-col">
+<div class="card"><h4>Vývoj produktov</h4><p>Optimalizácie receptúr pre NPD</p></div>
+<div class="card"><h4>Kontrola kvality</h4><p>Udržanie konzistentnosti medzi dávkami</p></div>
+<div class="card"><h4>Redukcia nákladov</h4><p>Substitúcia surovín bez straty kvality</p></div>
+<div class="card"><h4>Skladovanie</h4><p>Senzorická stabilita počas trvanlivosti</p></div>
+<div class="card"><h4>Regulatíva</h4><p>Dokumentácia pre bezpečnosť potravín</p></div>
+<div class="card"><h4>Marketing</h4><p>Diferenciácia od konkurencie</p></div>
+</div>
+</section>
+<section id="fyziologia">
+<h2>2. Fyziológia chutí</h2>
+<h3>2.1 Chuťové bunky a receptory</h3>
+<p>Chuťové bunky (taste receptor cells) sú špecializované epiteliálne bunky organizované v <strong>chuťových púšťoch</strong> (taste buds). Každý človek má približne 2 000–8 000 chuťových púšťov, ktoré sa nachádzajú predovšetkým na jazyku (papillae fungiformes, foliates, circumvallate), ale aj na podnebku, hltane a hrdle.</p>
+<div class="svg-container">
+<div class="svg-title">Typy chuťových buniek v chuťovom púšti</div>
+<svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="350" cy="175" rx="280" ry="140" fill="#d4f7f5" stroke="#167878" stroke-width="2"/>
+<text x="350" y="35" text-anchor="middle" font-size="14" fill="#0d3b3b" font-weight="bold">Chuťový púšť (Taste Bud)</text>
+<rect x="120" y="80" width="120" height="60" rx="10" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="180" y="105" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Typ I</text>
+<text x="180" y="122" text-anchor="middle" font-size="9" fill="#2e4053">Podporné bunky</text>
+<rect x="290" y="80" width="120" height="60" rx="10" fill="#20b2aa" stroke="#167878" stroke-width="1.5"/>
+<text x="350" y="105" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Typ II</text>
+<text x="350" y="122" text-anchor="middle" font-size="9" fill="#ffffff">Sladké, horké, umami</text>
+<rect x="460" y="80" width="120" height="60" rx="10" fill="#167878" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="520" y="105" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Typ III</text>
+<text x="520" y="122" text-anchor="middle" font-size="9" fill="#ffffff">Kyslé</text>
+<rect x="120" y="180" width="120" height="60" rx="10" fill="#7edfd8" stroke="#167878" stroke-width="1.5"/>
+<text x="180" y="205" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Typ I</text>
+<text x="180" y="222" text-anchor="middle" font-size="9" fill="#2e4053">Glia-like</text>
+<rect x="290" y="180" width="120" height="60" rx="10" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="350" y="205" text-anchor="middle" font-size="11" fill="#0d3b3b" font-weight="bold">Typ II</text>
+<text x="350" y="222" text-anchor="middle" font-size="9" fill="#2e4053">GPCR receptory</text>
+<rect x="460" y="180" width="120" height="60" rx="10" fill="#20b2aa" stroke="#167878" stroke-width="1.5"/>
+<text x="520" y="205" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">Typ III</text>
+<text x="520" y="222" text-anchor="middle" font-size="9" fill="#ffffff">Ion channels</text>
+<rect x="200" y="270" width="300" height="50" rx="8" fill="#e5e8e8" stroke="#5d6d7e" stroke-width="1"/>
+<text x="350" y="292" text-anchor="middle" font-size="10" fill="#2e4053">Regenerácia: ~10 dní pre všetky typy</text>
+<text x="350" y="308" text-anchor="middle" font-size="9" fill="#5d6d7e">Základná membrána s nervovými zakončeniami</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Typ</th><th>Funkcia</th><th>Regenerácia</th></tr></thead>
+<tbody>
+<tr><td>Typ I</td><td>Podporné bunky (glia-like)</td><td>~10 dní</td></tr>
+<tr><td>Typ II</td><td>Receptory pre sladké, horké, umami</td><td>~10 dní</td></tr>
+<tr><td>Typ III</td><td>Receptory pre kyslé</td><td>~10 dní</td></tr>
+</tbody>
+</table>
+<h3>2.2 Prenos signálu</h3>
+<p>Signál z chuťových receptorov je prenášaný trojiciou trojmozgových nervov:</p>
+<ol>
+<li><strong>Nervus facialis (CN VII)</strong> – predná 2/3 jazyka (chorda tympani)</li>
+<li><strong>Nervus glossopharyngeus (CN IX)</strong> – zadná 1/3 jazyka</li>
+<li><strong>Nervus vagus (CN X)</strong> – hltan a hrdlo</li>
+</ol>
+<p>Signál postupuje cez <strong>nucleus tractus solitarii</strong> v produnej mozgovej trupe, ďalej cez <strong>thalamus</strong> (VPMpc) a konečne do <strong>primárnej senzorické kôry chutí</strong> (insula a operculum).</p>
+<div class="svg-container">
+<div class="svg-title">Draha prenosu chuťového signálu</div>
+<svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="90" width="100" height="60" rx="8" fill="#4ecdc4" stroke="#167878" stroke-width="1.5"/>
+<text x="70" y="115" text-anchor="middle" font-size="10" fill="#0d3b3b" font-weight="bold">Chuťový</text>
+<text x="70" y="130" text-anchor="middle" font-size="10" fill="#0d3b3b" font-weight="bold">púšť</text>
+<line x1="120" y1="120" x2="170" y2="120" stroke="#167878" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="170" y="90" width="100" height="60" rx="8" fill="#20b2aa" stroke="#167878" stroke-width="1.5"/>
+<text x="220" y="115" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">CN VII/IX/X</text>
+<text x="220" y="130" text-anchor="middle" font-size="9" fill="#ffffff">Nervy</text>
+<line x1="270" y1="120" x2="320" y2="120" stroke="#167878" stroke-width="2"/>
+<rect x="320" y="90" width="100" height="60" rx="8" fill="#167878" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="370" y="115" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">NTS</text>
+<text x="370" y="130" text-anchor="middle" font-size="9" fill="#ffffff">Mozgová strupa</text>
+<line x1="420" y1="120" x2="470" y2="120" stroke="#167878" stroke-width="2"/>
+<rect x="470" y="90" width="100" height="60" rx="8" fill="#0d3b3b" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="520" y="115" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Thalamus</text>
+<text x="520" y="130" text-anchor="middle" font-size="9" fill="#ffffff">VPMpc</text>
+<line x1="570" y1="120" x2="620" y2="120" stroke="#167878" stroke-width="2"/>
+<rect x="620" y="90" width="70" height="60" rx="8" fill="#115e5e" stroke="#0d3b3b" stroke-width="1.5"/>
+<text x="655" y="115" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Insula</text>
+<text x="655" y="130" text-anchor="middle" font-size="9" fill="#ffffff">Kôra</text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#167878"/></marker></defs>
+</svg>
+</div>
+<h3>2.3 Päť základných chutí</h3>
+<table>
+<thead><tr><th>Chuť</th><th>Typický stimulátor</th><th>Receptory</th><th>Dráha</th></tr></thead>
+<tbody>
+<tr><td><strong>Sladká</strong></td><td>Sacharóza, fruktóza</td><td>T1R2 + T1R3</td><td>G-protein-coupled</td></tr>
+<tr><td><strong>Slaná</strong></td><td>NaCl</td><td>ENaC</td><td>Ion channel</td></tr>
+<tr><td><strong>Kyslá</strong></td><td>Citrónová kyselina, HCl</td><td>PKD2L1, OTOP1</td><td>Ion channel</td></tr>
+<tr><td><strong>Horká</strong></td><td>Kofeín, kapsaicín</td><td>T1R1 + T1R3</td><td>G-protein-coupled</td></tr>
+<tr><td><strong>Umami</strong></td><td>Glutamát, inosinát</td><td>T1R1 + T1R3, mGluR4</td><td>G-protein-coupled</td></tr>
+</tbody>
+</table>
+<div class="callout callout-info">
+<strong>Poznámka</strong>
+V poslednej dobe sa diskutuje o ďalších kandidátoch na základné chutí – <strong>oleogustus</strong> (tuky, CD36/GPR120) a <strong>chalky</strong> (kálcium, Mg²⁺).
+</div>
+</section>
+<section id="výskum">
+<h2>3. Vnímanie chutí v čase (2020–2026)</h2>
+<h3>3.1 Interakcie chutí a zapáchania</h3>
+<p>Jedným z najvýznamnejších objavov posledných rokov je potvrdenie, že <strong>väčšina toho, čo vnímame ako "chuť", je v skutočnosti kombináciou chutí a retronasalneho zapáchania</strong> (retronasal olfaction).</p>
+<div class="callout callout-success">
+<strong>Kľúčové poznatky (2020–2026)</strong>
+<ul>
+<li><strong>Boesveldt et al. (2021)</strong> – potvrdili, že retronasalna stimulácia aktivuje rovnaké oblasti orbitofrontálnej kôry ako orto-nasálna stimulácia.</li>
+<li><strong>Zhou et al. (2022)</strong> – preukázali superadditívne efekty (synergiu) simultánnej stimulácie chutí a zapáchania.</li>
+<li><strong>Lim & Johnson (2020)</strong> – až 80% senzorického zážitku z potravín pochádza z olfaktornej stimulácie.</li>
+</ul>
+</div>
+<h3>3.2 Genetické variácie vnímania chutí</h3>
+<h4>Supertasters a TAS2R38</h4>
+<p>Fenotyp <strong>supertasterov</strong> – jedincov s intenzívnejším vnímaním horkosti – je spojený s polymorfizmom génu <strong>TAS2R38</strong>.</p>
+<div class="svg-container">
+<div class="svg-title">Distribúcia TAS2R38 genotypov v populácii</div>
+<svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+<text x="250" y="25" text-anchor="middle" font-size="13" fill="#0d3b3b" font-weight="bold">TAS2R38 Genotypy</text>
+<rect x="50" y="60" width="120" height="120" rx="10" fill="#167878" opacity="0.9"/>
+<text x="110" y="110" text-anchor="middle" font-size="28" fill="#ffffff" font-weight="bold">25%</text>
+<text x="110" y="135" text-anchor="middle" font-size="11" fill="#ffffff">PAV/PAV</text>
+<text x="110" y="155" text-anchor="middle" font-size="10" fill="#ffffff">Supertaster</text>
+<rect x="190" y="60" width="120" height="120" rx="10" fill="#4ecdc4" opacity="0.9"/>
+<text x="250" y="110" text-anchor="middle" font-size="28" fill="#0d3b3b" font-weight="bold">50%</text>
+<text x="250" y="135" text-anchor="middle" font-size="11" fill="#0d3b3b">PAV/AVI</text>
+<text x="250" y="155" text-anchor="middle" font-size="10" fill="#0d3b3b">Medium taster</text>
+<rect x="330" y="60" width="120" height="120" rx="10" fill="#b0efeb" opacity="0.9"/>
+<text x="390" y="110" text-anchor="middle" font-size="28" fill="#0d3b3b" font-weight="bold">25%</text>
+<text x="390" y="135" text-anchor="middle" font-size="11" fill="#0d3b3b">AVI/AVI</text>
+<text x="390" y="155" text-anchor="middle" font-size="10" fill="#0d3b3b">Non-taster</text>
+<text x="250" y="210" text-anchor="middle" font-size="10" fill="#5d6d7e">Intenzita horkosti: Nízka → Stredná → Vysoká</text>
+<line x1="170" y1="220" x2="330" y2="220" stroke="#167878" stroke-width="2" marker-end="url(#arrow2)"/>
+<defs><marker id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#167878"/></marker></defs>
+</svg>
+</div>
+<table>
+<thead><tr><th>Genotyp</th><th>Fenotyp</th><th>% populácie</th><th>Intenzita horkosti</th></tr></thead>
+<tbody>
+<tr><td>PAV/PAV</td><td>Supertaster</td><td>~25%</td><td>Vysoká</td></tr>
+<tr><td>PAV/AVI</td><td>Medium taster</td><td>~50%</td><td>Stredná</td></tr>
+<tr><td>AVI/AVI</td><td>Non-taster</td><td>~25%</td><td>Nízka</td></tr>
+</tbody>
+</table>
+<h3>3.3 Neurologické mechanizmy</h3>
+<div class="svg-container">
+<div class="svg-title">Kľúčové oblasti mozgu pre vnímanie chutí</div>
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="300" cy="150" rx="250" ry="120" fill="#d4f7f5" stroke="#167878" stroke-width="2"/>
+<circle cx="200" cy="120" r="35" fill="#167878"/>
+<text x="200" y="115" text-anchor="middle" font-size="9" fill="#ffffff" font-weight="bold">Insula</text>
+<text x="200" y="128" text-anchor="middle" font-size="8" fill="#ffffff">Primárna kôra</text>
+<circle cx="350" cy="100" r="35" fill="#20b2aa"/>
+<text x="350" y="95" text-anchor="middle" font-size="9" fill="#ffffff" font-weight="bold">OFC</text>
+<text x="350" y="108" text-anchor="middle" font-size="8" fill="#ffffff">Integrácia</text>
+<circle cx="450" cy="150" r="35" fill="#4ecdc4"/>
+<text x="450" y="145" text-anchor="middle" font-size="9" fill="#0d3b3b" font-weight="bold">NAcc</text>
+<text x="450" y="158" text-anchor="middle" font-size="8" fill="#0d3b3b">Odmena</text>
+<circle cx="280" cy="200" r="35" fill="#7edfd8"/>
+<text x="280" y="195" text-anchor="middle" font-size="9" fill="#0d3b3b" font-weight="bold">Amygdala</text>
+<text x="280" y="208" text-anchor="middle" font-size="8" fill="#0d3b3b">Emócie</text>
+<circle cx="380" cy="220" r="35" fill="#b0efeb"/>
+<text x="380" y="215" text-anchor="middle" font-size="9" fill="#0d3b3b" font-weight="bold">Hippocampus</text>
+<text x="380" y="228" text-anchor="middle" font-size="8" fill="#0d3b3b">Pamäť</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Oblast</th><th>Funkcia</th></tr></thead>
+<tbody>
+<tr><td>Insula</td><td>Primárna senzorická kôra chutí</td></tr>
+<tr><td>Orbitofrontálna kôra</td><td>Integrácia chutí a zapáchania</td></tr>
+<tr><td>Nucleus accumbens</td><td>Odmena a motivácia</td></tr>
+<tr><td>Amygdala</td><td>Emocionálna asociácia</td></tr>
+<tr><td>Hippocampus</td><td>Pamäť na chuťové zážitky</td></tr>
+</tbody>
+</table>
+</section>
+<section id="metodologia">
+<h2>4. Metodologické inovácie</h2>
+<h3>4.1 Virtuálna realita (VR)</h3>
+<table>
+<thead><tr><th>Aplikácia</th><th>Popis</th><th>Výhody</th></tr></thead>
+<tbody>
+<tr><td>Simulácia reštaurácie</td><td>Testovanie v kontexte reštaurácie bez fyzickej prítomnosti</td><td>Kontrola premenných, nižšie náklady</td></tr>
+<tr><td>Testovanie obchodu</td><td>Simulácia supermarketu</td><td>Realistické nákupné správanie</td></tr>
+<tr><td>Domáci kontext</td><td>Testovanie v domácom prostredí</td><td>Ekologická validita</td></tr>
+<tr><td>Tréning panelistov</td><td>Standardizované tréningové scenáre</td><td>Konzistentnosť tréningu</td></tr>
+</tbody>
+</table>
+<h3>4.2 Umelá inteligencia</h3>
+<div class="three-col">
+<div class="card"><h4>Prediktívne modelovanie</h4><p>Predikcia prijatia z chemického zloženia</p></div>
+<div class="card"><h4>Automatizovaná analýza</h4><p>NLP na analýzu textových popisov</p></div>
+<div class="card"><h4>Optimalizácia receptúr</h4><p>Genetické algoritmy pre formulácie</p></div>
+</div>
+<h3>4.3 Wearable senzory</h3>
+<table>
+<thead><tr><th>Senzor</th><th>Meraná veličina</th><th>Aplikácia</th></tr></thead>
+<tbody>
+<tr><td>EDA</td><td>Kožná vodivosť</td><td>Emocionálna arousal</td></tr>
+<tr><td>HRV</td><td>Variabilita srdcového rytmu</td><td>Stres, pozornosť</td></tr>
+<tr><td>Eye tracking</td><td>Pohyb očí, fixácia</td><td>Pozornosť, preferencia</td></tr>
+<tr><td>EMG</td><td>Svalové napätie</td><td>Mimika, reakcia na chuť</td></tr>
+<tr><td>fNIRS</td><td>Hemoglobinová okysatácia</td><td>Activácia mozgu</td></tr>
+</tbody>
+</table>
+</section>
+<section id="aplikacie">
+<h2>5. Aplikácie v potravinárskom priemysle</h2>
+<div class="two-col">
+<div class="card">
+<h4>Redukcia soli</h4>
+<p>WHO odporúča &lt;5 g denne. Stratégie: postupná redukcia (10–15% ročne), kombinácia s umami, aromatizácia.</p>
+<span class="tag">Li et al. 2021</span>
+<span class="tag">Wang et al. 2022</span>
+</div>
+<div class="card">
+<h4>Redukcia cukru</h4>
+<p>Sladidlá (stevia, erythritol), texture modifikácia, postupná redukcia, kombinácia s aromatizáciou.</p>
+<span class="tag">Stegmann et al. 2021</span>
+<span class="tag">Oliveira et al. 2022</span>
+</div>
+<div class="card">
+<h4>Redukcia tuku</h4>
+<p>Tukové náhražky, emulgátory, aromatizácia pre kompenzáciu straty.</p>
+<span class="tag">Rodríguez et al. 2021</span>
+<span class="tag">Kumar et al. 2022</span>
+</div>
+<div class="card">
+<h4>Clean label</h4>
+<p>Jednoduché suroviny bez umelých aditív. Variabilná kvalita prírodných surovín.</p>
+<span class="tag">Aschemann-Witzel 2021</span>
+<span class="tag">Asioli et al. 2022</span>
+</div>
+</div>
+</section>
+<section id="zdroje">
+<h2>6. Kľúčové zdroje</h2>
+<h3>6.1 Základné učebnice</h3>
+<table>
+<thead><tr><th>Autori</th><th>Rok</th><th>Nadpis</th><th>Vydavateľ</th></tr></thead>
+<tbody>
+<tr><td>Lawless, H.T. & Heymann, H.</td><td>2010</td><td>Sensory Evaluation of Food (2nd ed.)</td><td>Springer</td></tr>
+<tr><td>Stone, H. & Sidel, J.L.</td><td>2004</td><td>Sensory Evaluation Practices (3rd ed.)</td><td>Academic Press</td></tr>
+<tr><td>Meilgaard, M.C. et al.</td><td>2016</td><td>Sensory Evaluation Techniques (5th ed.)</td><td>CRC Press</td></tr>
+<tr><td>Kemp, S. et al.</td><td>2011</td><td>Sensory Evaluation: A Practical Handbook</td><td>Wiley-Blackwell</td></tr>
+</tbody>
+</table>
+<h3>6.2 Kľúčové časopisy</h3>
+<table>
+<thead><tr><th>Časopis</th><th>Vydavateľ</th><th>IF (2024)</th><th>Zameranie</th></tr></thead>
+<tbody>
+<tr><td>Food Quality and Preference</td><td>Elsevier</td><td>6.0</td><td>Spotrebiteľské testovanie</td></tr>
+<tr><td>Journal of Food Science</td><td>Wiley</td><td>3.5</td><td>Všetky oblasti potravinárstva</td></tr>
+<tr><td>Food Chemistry</td><td>Elsevier</td><td>8.8</td><td>Chemická analýza</td></tr>
+<tr><td>Journal of Sensory Studies</td><td>Wiley</td><td>2.8</td><td>Senzorická metodológia</td></tr>
+<tr><td>Chemical Senses</td><td>Oxford</td><td>3.5</td><td>Zmyslové vnímanie</td></tr>
+</tbody>
+</table>
+<h3>6.3 Štandardy ISO</h3>
+<table>
+<thead><tr><th>Štandard</th><th>Nadpis</th><th>Aplikácia</th></tr></thead>
+<tbody>
+<tr><td>ISO 8586:2023</td><td>Výber a tréning panelistov</td><td>Kvalifikácia panelistov</td></tr>
+<tr><td>ISO 13299:2016</td><td>Metodológia senzorickej analýzy</td><td>Deskriptívna analýza</td></tr>
+<tr><td>ISO 4120:2021</td><td>Trojuholníkový test</td><td>Test rozdielov</td></tr>
+<tr><td>ISO 5495:2005</td><td>Párový porovnávací test</td><td>Test rozdielov</td></tr>
+<tr><td>ISO 10399:2017</td><td>Duo-trio test</td><td>Test rozdielov</td></tr>
+<tr><td>ISO 11036:2020</td><td>Textúrna profilová analýza</td><td>Textúrna analýza</td></tr>
+</tbody>
+</table>
+</section>
+</div>
+<footer>
+<p>Prehľad pripravený pre potreby SAP – Senzorická Analýza Potravín. Odporúčame pravidelnú aktualizáciu s ohľadom na novú literatúru.</p>
+</footer>
+</body>
+</html>

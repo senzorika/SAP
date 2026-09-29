@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deskriptívne profily – Senzorická analýza potravín</title>
+    <style>
+        :root {
+            --primary: #6C3FC0;
+            --primary-dark: #4A2899;
+            --primary-light: #9B6DD7;
+            --secondary: #2E86AB;
+            --secondary-light: #5BA4C7;
+            --accent: #F18F01;
+            --accent-light: #FFB84D;
+            --bg: #F8F6FC;
+            --bg-card: #FFFFFF;
+            --text: #2D2D3A;
+            --text-light: #5A5A72;
+            --border: #E0D8F0;
+            --success: #2E7D32;
+            --warning: #E65100;
+            --shadow: 0 4px 20px rgba(108, 63, 192, 0.08);
+            --shadow-hover: 0 8px 30px rgba(108, 63, 192, 0.15);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(74, 40, 153, 0.3);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 28px 0 16px;
+        }
+
+        h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .callout {
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            margin: 20px 0;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .callout-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .callout-content h4 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+        }
+
+        .callout-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .callout-info {
+            background: #EBF5FB;
+            border-left: 4px solid var(--secondary);
+        }
+        .callout-info .callout-icon { background: var(--secondary); color: white; }
+        .callout-info h4 { color: var(--secondary); }
+
+        .callout-warning {
+            background: #FEF5E7;
+            border-left: 4px solid var(--accent);
+        }
+        .callout-warning .callout-icon { background: var(--accent); color: white; }
+        .callout-warning h4 { color: var(--accent); }
+
+        .callout-success {
+            background: #E8F5E9;
+            border-left: 4px solid var(--success);
+        }
+        .callout-success .callout-icon { background: var(--success); color: white; }
+        .callout-success h4 { color: var(--success); }
+
+        .callout-tip {
+            background: #F3E5F5;
+            border-left: 4px solid var(--primary);
+        }
+        .callout-tip .callout-icon { background: var(--primary); color: white; }
+        .callout-tip h4 { color: var(--primary); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            font-size: 0.92rem;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr {
+            background: white;
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #F3EEFA;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #FAFAFE;
+        }
+
+        tbody tr:nth-child(even):hover {
+            background: #F3EEFA;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .method-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .method-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .method-card h4 {
+            color: var(--primary-dark);
+            margin: 0 0 12px;
+            font-size: 1.15rem;
+        }
+
+        .method-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .badge-quant { background: #E8F5E9; color: var(--success); }
+        .badge-qual { background: #FFF3E0; color: var(--warning); }
+        .badge-mixed { background: #E3F2FD; color: var(--secondary); }
+
+        .method-card p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .svg-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .svg-title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 2rem; }
+            nav .nav-container { flex-wrap: wrap; height: auto; padding: 12px 16px; }
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 24px 0;
+        }
+
+        .flow-step {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            color: var(--primary-light);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .scale-visual {
+            background: linear-gradient(90deg, #E8F5E9 0%, #FFF9C4 50%, #FFCCBC 100%);
+            height: 40px;
+            border-radius: 20px;
+            margin: 16px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .scale-visual::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, var(--primary-light) 0px, var(--primary-light) 2px, transparent 2px, transparent 20px);
+            opacity: 0.5;
+        }
+
+        ul, ol {
+            margin: 12px 0 16px 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .formula {
+            background: #F5F0FA;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            overflow-x: auto;
+        }
+
+        .formula-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 32px 24px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .pros, .cons {
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+        }
+
+        .pros {
+            background: #E8F5E9;
+            border: 1px solid #C8E6C9;
+        }
+
+        .cons {
+            background: #FFF3E0;
+            border: 1px solid #FFE0B2;
+        }
+
+        .pros h5 {
+            color: var(--success);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cons h5 {
+            color: var(--warning);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pros ul, .cons ul {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .pros-cons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+                </svg>
+                SAP
+            </div>
+            <ul>
+                <li><a href="#uvod">Úvod</a></li>
+                <li><a href="#qda">QDA</a></li>
+                <li><a href="#spectrum">Spectrum</a></li>
+                <li><a href="#metody">Metódy</a></li>
+                <li><a href="#porovnanie">Porovnanie</a></li>
+                <li><a href="#príklady">Príklady</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Deskriptívne profily</h1>
+        <p>Systematické, kvantitatívne popisy senzorických vlastností produktov – od QDA po dynamické metódy TDS a TCATA</p>
+    </div>
+
+    <div class="container">
+        <section id="uvod">
+            <h2><span class="icon">1</span> Úvod do deskriptívnych profilov</h2>
+            <div class="card">
+                <p>Deskriptívne profily predstavujú systematické, kvantitatívne popisy senzorických vlastností produktov. Poskytujú objektívny opis toho, čo senzorický panelista vníma – vrátane intenzity jednotlivých atribútov chuti, vônej, textúry a vizuálnych charakterík.</p>
+            </div>
+
+            <h3>Na čo sa používajú?</h3>
+            <div class="method-grid">
+                <div class="method-card">
+                    <span class="badge badge-quant">Vývoj</span>
+                    <h4>Vývoj produktov</h4>
+                    <p>Porovnanie prototypov s referenciami, identifikácia senzorických deficitov</p>
+                </div>
+                <div class="method-card">
+                    <span class="badge badge-quant">Kvalita</span>
+                    <h4>Kontrola kvality</h4>
+                    <p>Monitorovanie konzistentnosti v čase, stabilita produktu počas skladovania</p>
+                </div>
+                <div class="method-card">
+                    <span class="badge badge-mixed">Výskum</span>
+                    <h4>Kategorizácia</h4>
+                    <p>Mapovanie produktového priestoru, korelačná analýza s preferenciami</p>
+                </div>
+            </div>
+
+            <h3>História deskriptívnej analýzy</h3>
+            <table>
+                <thead>
+                    <tr><th>Obdobie</th><th>Vývoj</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1940s</td><td>Prvé systematické pokusy o deskriptívnu analýzu v USDA</td></tr>
+                    <tr><td>1950s</td><td>Vývoj Flavor Profile Method (Arthur D. Little)</td></tr>
+                    <tr><td>1970s</td><td>Vznik Quantitative Descriptive Analysis (QDA) – Stone et al.</td></tr>
+                    <tr><td>1980s</td><td>Texture Profile Method (Brandt et al.)</td></tr>
+                    <tr><td>1990s</td><td>Spectrum Method – standardizované slovníky</td></tr>
+                    <tr><td>2000s</td><td>Free Choice Profiling, Flash Profile</td></tr>
+                    <tr><td>2010s</td><td>CATA, TDS, TCATA – dynamické metódy</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="qda">
+            <h2><span class="icon">2</span> Quantitative Descriptive Analysis (QDA)</h2>
+            <div class="card">
+                <p>QDA bola vyvinutá Haroldom Stoneom a jeho kolegami na začiatku 70. rokov. Metóda je založená na princípe, že skúsení panelisti dokážu nezávisle identifikovať a kvantifikovať absolútné intenzity senzorických atribútov na numerickej škále.</p>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-icon">i</div>
+                <div class="callout-content">
+                    <h4>Parametre QDA</h4>
+                    <p><strong>8–12</strong> trénovaných panelistov | <strong>60–90 hodín</strong> trénu v priebehu 3–6 mesiacov | Pravidelná certifikácia citlivosti a reprodukovateľnosti</p>
+                </div>
+            </div>
+
+            <h3>Proces generovania deskriptorov</h3>
+            <div class="svg-container">
+                <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="qdaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#6C3FC0"/>
+                            <stop offset="100%" style="stop-color:#2E86AB"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="20" y="60" width="120" height="60" rx="12" fill="url(#qdaGrad)"/>
+                    <text x="80" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="600">Brainstorming</text>
+                    <text x="80" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Generovanie atribútov</text>
+                    <line x1="140" y1="90" x2="170" y2="90" stroke="#9B6DD7" stroke-width="2" marker-end="url(#arrow)"/>
+                    <polygon points="170,90 162,86 162,94" fill="#9B6DD7"/>
+                    <rect x="175" y="60" width="120" height="60" rx="12" fill="url(#qdaGrad)"/>
+                    <text x="235" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="600">Konsenzus</text>
+                    <text x="235" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Diskusia skupiny</text>
+                    <line x1="295" y1="90" x2="325" y2="90" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="325,90 317,86 317,94" fill="#9B6DD7"/>
+                    <rect x="330" y="60" width="120" height="60" rx="12" fill="url(#qdaGrad)"/>
+                    <text x="390" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="600">Definícia</text>
+                    <text x="390" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Jasné definície</text>
+                    <line x1="450" y1="90" x2="480" y2="90" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="480,90 472,86 472,94" fill="#9B6DD7"/>
+                    <rect x="485" y="60" width="120" height="60" rx="12" fill="url(#qdaGrad)"/>
+                    <text x="545" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="600">Tréning</text>
+                    <text x="545" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Škálovanie</text>
+                    <line x1="605" y1="90" x2="635" y2="90" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="635,90 627,86 627,94" fill="#9B6DD7"/>
+                    <rect x="640" y="60" width="120" height="60" rx="12" fill="url(#qdaGrad)"/>
+                    <text x="700" y="95" text-anchor="middle" fill="white" font-size="13" font-weight="600">Validácia</text>
+                    <text x="700" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Overenie konzistencie</text>
+                </svg>
+                <p class="svg-title">Proces generovania deskriptorov v QDA</p>
+            </div>
+
+            <h3>Škálovanie</h3>
+            <div class="card">
+                <p>QDA používa <strong>lineárnu škálu</strong> (typicky 15-bodovú alebo 100 mm VAS – Visual Analog Scale):</p>
+                <div class="scale-visual">
+                    <span>0 – Neprítomné</span>
+                    <span>5</span>
+                    <span>10</span>
+                    <span>15 – Extrémne intenzívne</span>
+                </div>
+            </div>
+
+            <h3>Analýza dát</h3>
+            <div class="two-col">
+                <div class="card">
+                    <h4>ANOVA</h4>
+                    <p>Analýza rozptylu s faktormi: produkt, panelista, interakcia produkt × panelista</p>
+                    <div class="formula-label">Zdroje variability</div>
+                    <div class="formula">
+                        F = MS_efekt / MS_chyba
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>PCA</h4>
+                    <p>Analýza hlavných zložiek na redukciu dimenzionality a vizualizáciu vzťahov</p>
+                    <div class="formula-label">Význam</div>
+                    <div class="formula">
+                        Redukcia dimenzionality → Biplot → Detekcia outlierov
+                    </div>
+                </div>
+            </div>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>Výhody</h5>
+                    <ul>
+                        <li>Vysoká citlivosť a diskriminácia</li>
+                        <li>Reprodukovateľné výsledky</li>
+                        <li>Komplexný popis produktu</li>
+                        <li>Široké využitie v priemysle</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>Nevýhody</h5>
+                    <ul>
+                        <li>Dlhý tréning panelistov</li>
+                        <li>Náročné na čas a finančné zdroje</li>
+                        <li>Vyžaduje skúsených panelistov</li>
+                        <li>Kultúrny bias panelistov</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="spectrum">
+            <h2><span class="icon">3</span> Spectrum Method</h2>
+            <div class="card">
+                <p>Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille, ktorá používa <strong>štandardizované slovníky</strong> pre každú senzorickú dimenziu. Každý atribút má definovanú škálu s referenčnými bodmi.</p>
+            </div>
+
+            <h3>Štandardizované slovníky</h3>
+            <table>
+                <thead>
+                    <tr><th>Dimenzia</th><th>Príklad atribútov</th><th>Referenčné štandardy</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Vôňa</td><td>kvetinová, ovocná, orechová, korenenová</td><td>Etapy, vanilín, citrónová kyselina</td></tr>
+                    <tr><td>Chuť</td><td>sladká, kyslá, slaná, horká, umami</td><td>Sacharóz, kyselina citrónová, NaCl, kofeín, MSG</td></tr>
+                    <tr><td>Textúra</td><td>krémová, tuhá, vláčna, chrumkavá</td><td>Nátierky, želatín, karamel</td></tr>
+                    <tr><td>Vizuálna</td><td>farba, lesk, homogenita</td><td>Farebné štandardy, fotky</td></tr>
+                </tbody>
+            </table>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#4A2899">Porovnanie metód deskriptívnej analýzy</text>
+                    <line x1="100" y1="50" x2="100" y2="270" stroke="#DDD" stroke-width="1"/>
+                    <line x1="100" y1="270" x2="750" y2="270" stroke="#DDD" stroke-width="1"/>
+                    <text x="50" y="165" text-anchor="middle" font-size="12" fill="#5A5A72" transform="rotate(-90, 50, 165)">Intenzita použitia</text>
+                    <rect x="150" y="80" width="80" height="190" rx="6" fill="#6C3FC0" opacity="0.9"/>
+                    <text x="190" y="70" text-anchor="middle" font-size="11" fill="#4A2899" font-weight="600">QDA</text>
+                    <rect x="270" y="120" width="80" height="150" rx="6" fill="#2E86AB" opacity="0.9"/>
+                    <text x="310" y="110" text-anchor="middle" font-size="11" fill="#2E86AB" font-weight="600">Spectrum</text>
+                    <rect x="390" y="180" width="80" height="90" rx="6" fill="#F18F01" opacity="0.9"/>
+                    <text x="430" y="170" text-anchor="middle" font-size="11" fill="#F18F01" font-weight="600">Flavor Prof.</text>
+                    <rect x="510" y="140" width="80" height="130" rx="6" fill="#9B6DD7" opacity="0.9"/>
+                    <text x="550" y="130" text-anchor="middle" font-size="11" fill="#9B6DD7" font-weight="600">Texture</text>
+                    <rect x="630" y="200" width="80" height="70" rx="6" fill="#5BA4C7" opacity="0.9"/>
+                    <text x="670" y="190" text-anchor="middle" font-size="11" fill="#5BA4C7" font-weight="600">CATA</text>
+                    <text x="190" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Vysoká</text>
+                    <text x="310" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Vysoká</text>
+                    <text x="430" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Stredná</text>
+                    <text x="550" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Vysoká</text>
+                    <text x="670" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Nízka</text>
+                </svg>
+                <p class="svg-title">Srovnanie jednotlivých metód podľa typu a náročnosti</p>
+            </div>
+        </section>
+
+        <section id="metody">
+            <h2><span class="icon">4</span> Ďalšie metódy</h2>
+
+            <h3>Flash Profile</h3>
+            <div class="card">
+                <p>Flash Profile je <strong>rýchla deskriptívna metóda</strong>, ktorá kombinuje princípy FCP s priamym porovnaním produktov. Panelisti hodnotia všetky produkty naraz a generujú vlastné deskriptory.</p>
+                <div class="callout callout-tip">
+                    <div class="callout-icon">→</div>
+                    <div class="callout-content">
+                        <h4>Kedy použiť</h4>
+                        <p>Screening veľkého počtu produktov | Exploratórna fáza | Obmedzené zdroje | Rýchla odpoveď</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>CATA – Check-All-That-Apply</h3>
+            <div class="card">
+                <p>CATA je <strong>kvalitatívna metóda</strong>, kde spotrebiteľi označia všetky deskriptory, ktoré podľa nich charakterizujú produkt.</p>
+                <div class="formula-label">Výpočet frekvencií</div>
+                <div class="formula">Frekvencia (%) = (Počet označení / Počet respondentov) × 100</div>
+                <div class="formula-label">Chi-square test</div>
+                <div class="formula">χ² = Σ (O - E)² / E</div>
+            </div>
+
+            <h3>TDS – Temporal Dominance of Sensations</h3>
+            <div class="card">
+                <p>TDS je <strong>dynamická metóda</strong>, ktorá sleduje dominantné senzorické vjemy v čase počas spotreby produktu.</p>
+            </div>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+                    <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">TDS krivka – Dominancia atribútov v čase</text>
+                    <line x1="80" y1="50" x2="80" y2="280" stroke="#DDD" stroke-width="1"/>
+                    <line x1="80" y1="280" x2="650" y2="280" stroke="#DDD" stroke-width="1"/>
+                    <text x="40" y="170" text-anchor="middle" font-size="11" fill="#5A5A72" transform="rotate(-90, 40, 170)">Pravdepodobnosť dominancie</text>
+                    <text x="365" y="310" text-anchor="middle" font-size="11" fill="#5A5A72">Čas (s)</text>
+                    <polyline points="80,260 150,240 220,180 290,120 360,80 430,100 500,150 570,200 640,230" fill="none" stroke="#6C3FC0" stroke-width="3" stroke-linecap="round"/>
+                    <polyline points="80,270 150,265 220,250 290,220 360,180 430,140 500,120 570,130 640,160" fill="none" stroke="#2E86AB" stroke-width="3" stroke-linecap="round"/>
+                    <polyline points="80,275 150,272 220,265 290,255 360,240 430,220 500,200 570,190 640,185" fill="none" stroke="#F18F01" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="360" cy="80" r="5" fill="#6C3FC0"/>
+                    <text x="370" y="75" font-size="10" fill="#6C3FC0" font-weight="600">Sladkosť</text>
+                    <circle cx="500" cy="120" r="5" fill="#2E86AB"/>
+                    <text x="510" y="115" font-size="10" fill="#2E86AB" font-weight="600">Horkosť</text>
+                    <circle cx="640" cy="185" r="5" fill="#F18F01"/>
+                    <text x="600" y="175" font-size="10" fill="#F18F01" font-weight="600">Horká chuť</text>
+                    <line x1="80" y1="280" x2="650" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="4"/>
+                    <text x="80" y="295" text-anchor="middle" font-size="9" fill="#999">0</text>
+                    <text x="220" y="295" text-anchor="middle" font-size="9" fill="#999">10</text>
+                    <text x="360" y="295" text-anchor="middle" font-size="9" fill="#999">20</text>
+                    <text x="500" y="295" text-anchor="middle" font-size="9" fill="#999">30</text>
+                    <text x="640" y="295" text-anchor="middle" font-size="9" fill="#999">40</text>
+                </svg>
+                <p class="svg-title">Príklad TDS krivky pre čaj – sledovanie dominantných vjemov</p>
+            </div>
+
+            <h3>TCATA – Temporal CATA</h3>
+            <div class="card">
+                <p>TCATA je <strong>dynamická verzia CATA</strong>. Spotrebiteľi v priebehu spotreby označujú všetky atribúty, ktoré v danom okamihu vnímajú.</p>
+            </div>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+                    <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">TCATA krivka – Viacnásobné vnímanie v čase</text>
+                    <line x1="80" y1="50" x2="80" y2="250" stroke="#DDD" stroke-width="1"/>
+                    <line x1="80" y1="250" x2="650" y2="250" stroke="#DDD" stroke-width="1"/>
+                    <text x="365" y="280" text-anchor="middle" font-size="11" fill="#5A5A72">Čas (s)</text>
+                    <path d="M80,240 Q150,200 220,180 T360,150 T500,130 T640,120" fill="none" stroke="#6C3FC0" stroke-width="2.5" opacity="0.8"/>
+                    <path d="M80,245 Q150,220 220,200 T360,180 T500,160 T640,150" fill="none" stroke="#2E86AB" stroke-width="2.5" opacity="0.8"/>
+                    <path d="M80,248 Q150,235 220,225 T360,210 T500,195 T640,190" fill="none" stroke="#F18F01" stroke-width="2.5" opacity="0.8"/>
+                    <path d="M80,250 Q150,245 220,240 T360,230 T500,220 T640,215" fill="none" stroke="#9B6DD7" stroke-width="2.5" opacity="0.8"/>
+                    <text x="580" y="115" font-size="9" fill="#6C3FC0">Atribút 1</text>
+                    <text x="580" y="145" font-size="9" fill="#2E86AB">Atribút 2</text>
+                    <text x="580" y="185" font-size="9" fill="#F18F01">Atribút 3</text>
+                    <text x="580" y="210" font-size="9" fill="#9B6DD7">Atribút 4</text>
+                </svg>
+                <p class="svg-title">TCATA – sledovanie viacerých naraz vnímaných atribútov</p>
+            </div>
+
+            <h3>CATA Dotazník – Vizualizácia</h3>
+            <div class="svg-container">
+                <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                    <text x="300" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">CATA Dotazník – Príklad</text>
+                    <text x="300" y="55" text-anchor="middle" font-size="11" fill="#5A5A72">Označte všetky vlastnosti, ktoré podľa vás charakterizujú produkt:</text>
+                    <rect x="80" y="80" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
+                    <text x="100" y="105" font-size="12" fill="#2D2D3A">Krémosa</text>
+                    <rect x="460" y="88" width="24" height="24" rx="4" fill="#6C3FC0"/>
+                    <text x="472" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓</text>
+                    <rect x="80" y="130" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
+                    <text x="100" y="155" font-size="12" fill="#2D2D3A">Horká chuť</text>
+                    <rect x="460" y="138" width="24" height="24" rx="4" fill="white" stroke="#CCC"/>
+                    <rect x="80" y="180" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
+                    <text x="100" y="205" font-size="12" fill="#2D2D3A">Orechová vôňa</text>
+                    <rect x="460" y="188" width="24" height="24" rx="4" fill="white" stroke="#CCC"/>
+                    <rect x="80" y="230" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
+                    <text x="100" y="255" font-size="12" fill="#2D2D3A">Sladkosť</text>
+                    <rect x="460" y="238" width="24" height="24" rx="4" fill="#6C3FC0"/>
+                    <text x="472" y="255" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓</text>
+                    <rect x="80" y="280" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
+                    <text x="100" y="305" font-size="12" fill="#2D2D3A">Kyslosť</text>
+                    <rect x="460" y="288" width="24" height="24" rx="4" fill="white" stroke="#CCC"/>
+                </svg>
+                <p class="svg-title">Ukážka CATA dotazníka s označenými odpoveďami</p>
+            </div>
+
+            <h3>Flash Profile – Proces</h3>
+            <div class="svg-container">
+                <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+                    <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">Flash Profile – Proces</text>
+                    <rect x="40" y="70" width="130" height="55" rx="10" fill="#6C3FC0"/>
+                    <text x="105" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Prezentácia</text>
+                    <text x="105" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">všetkých produktov</text>
+                    <line x1="170" y1="97" x2="200" y2="97" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="200,97 192,93 192,101" fill="#9B6DD7"/>
+                    <rect x="205" y="70" width="130" height="55" rx="10" fill="#2E86AB"/>
+                    <text x="270" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Generovanie</text>
+                    <text x="270" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">vlastných deskriptorov</text>
+                    <line x1="335" y1="97" x2="365" y2="97" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="365,97 357,93 357,101" fill="#9B6DD7"/>
+                    <rect x="370" y="70" width="130" height="55" rx="10" fill="#F18F01"/>
+                    <text x="435" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Hodnotenie</text>
+                    <text x="435" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">na škále</text>
+                    <line x1="500" y1="97" x2="530" y2="97" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="530,97 522,93 522,101" fill="#9B6DD7"/>
+                    <rect x="535" y="70" width="130" height="55" rx="10" fill="#9B6DD7"/>
+                    <text x="600" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Analýza</text>
+                    <text x="600" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">MDS / GPA</text>
+                </svg>
+                <p class="svg-title">Flash Profile – proces od prezentácie po analýzu</p>
+            </div>
+        </section>
+
+        <section id="porovnanie">
+            <h2><span class="icon">5</span> Porovnanie metód</h2>
+            <table>
+                <thead>
+                    <tr><th>Metóda</th><th>Typ</th><th>Tréning</th><th>Čas</th><th>Citlivosť</th><th>Reprod.</th><th>Vhodné pre</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>QDA</strong></td><td>Kvantitatívna</td><td>Vysoký</td><td>Vysoký</td><td>Vysoká</td><td>Vysoká</td><td>Vývoj, kontrola kvality</td></tr>
+                    <tr><td><strong>Spectrum</strong></td><td>Kvantitatívna</td><td>Vysoký</td><td>Stredný</td><td>Vysoká</td><td>Vysoká</td><td>Priemysel, certifikácia</td></tr>
+                    <tr><td><strong>Flavor Profile</strong></td><td>Kval-kvant</td><td>Stredný</td><td>Nízky</td><td>Nízka</td><td>Stredná</td><td>Rýchly screening</td></tr>
+                    <tr><td><strong>Texture Profile</strong></td><td>Kvantitatívna</td><td>Vysoký</td><td>Vysoký</td><td>Vysoká</td><td>Vysoká</td><td>Textúra produktov</td></tr>
+                    <tr><td><strong>Free Choice</strong></td><td>Kvantitatívna</td><td>Nízky</td><td>Stredný</td><td>Stredná</td><td>Nízka</td><td>Nové kategórie</td></tr>
+                    <tr><td><strong>Flash Profile</strong></td><td>Kvantitatívna</td><td>Nízky</td><td>Nízky</td><td>Stredná</td><td>Nízka</td><td>Screening</td></tr>
+                    <tr><td><strong>CATA</strong></td><td>Kvalitatívna</td><td>Žiadny</td><td>Nízky</td><td>Stredná</td><td>Stredná</td><td>Spotrebiteľské testy</td></tr>
+                    <tr><td><strong>TDS</strong></td><td>Kvantitatívna</td><td>Stredný</td><td>Stredný</td><td>Vysoká</td><td>Vysoká</td><td>Dynamické produkty</td></tr>
+                    <tr><td><strong>TCATA</strong></td><td>Kvalitatívna</td><td>Žiadny</td><td>Stredný</td><td>Stredná</td><td>Stredná</td><td>Dynamické produkty</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Rozhodovacie kritériá</h3>
+            <div class="svg-container">
+                <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+                    <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">Výber správnej metódy</text>
+                    <rect x="250" y="45" width="200" height="45" rx="10" fill="#6C3FC0"/>
+                    <text x="350" y="72" text-anchor="middle" fill="white" font-size="13" font-weight="600">Cieľ štúdie?</text>
+                    <line x1="350" y1="90" x2="350" y2="110" stroke="#9B6DD7" stroke-width="2"/>
+                    <polygon points="350,110 345,102 355,102" fill="#9B6DD7"/>
+                    <line x1="200" y1="110" x2="500" y2="110" stroke="#9B6DD7" stroke-width="2"/>
+                    <line x1="200" y1="110" x2="200" y2="130" stroke="#9B6DD7" stroke-width="2"/>
+                    <line x1="350" y1="110" x2="350" y2="130" stroke="#9B6DD7" stroke-width="2"/>
+                    <line x1="500" y1="110" x2="500" y2="130" stroke="#9B6DD7" stroke-width="2"/>
+                    <rect x="100" y="135" width="180" height="50" rx="10" fill="#2E86AB"/>
+                    <text x="190" y="158" text-anchor="middle" fill="white" font-size="12" font-weight="600">Vývoj produktu</text>
+                    <text x="190" y="175" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">QDA / Spectrum</text>
+                    <rect x="260" y="135" width="180" height="50" rx="10" fill="#F18F01"/>
+                    <text x="350" y="158" text-anchor="middle" fill="white" font-size="12" font-weight="600">Screening</text>
+                    <text x="350" y="175" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">Flash Profile</text>
+                    <rect x="420" y="135" width="180" height="50" rx="10" fill="#9B6DD7"/>
+                    <text x="510" y="158" text-anchor="middle" fill="white" font-size="12" font-weight="600">Spotreb. testy</text>
+                    <text x="510" y="175" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">CATA</text>
+                </svg>
+                <p class="svg-title">Rozhodovací strom pre výber metódy</p>
+            </div>
+        </section>
+
+        <section id="príklady">
+            <h2><span class="icon">6</span> Praktické príklady</h2>
+
+            <div class="card">
+                <h3>Príklad 1: Výnový jogurt</h3>
+                <p><strong>Cieľ:</strong> Porovnať senzorický profil 3 výrobcov jogurtov.</p>
+                <p><strong>Metóda:</strong> QDA s 10 panelistami, 15 deskriptorov.</p>
+                <ul>
+                    <li>Jogurt A: vysoká krémosť (12.3), stredná kyslosť (7.1)</li>
+                    <li>Jogurt B: nízka krémosť (5.2), vysoká kyslosť (11.8)</li>
+                    <li>Jogurt C: stredná krémosť (8.5), stredná kyslosť (8.2)</li>
+                </ul>
+                <div class="callout callout-success">
+                    <div class="callout-icon">✓</div>
+                    <div class="callout-content">
+                        <h4>Záver</h4>
+                        <p>Jogurt A je najviac krémny, Jogurt B najkyslejší.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Príklad 2: Čokoláda</h3>
+                <p><strong>Cieľ:</strong> Identifikovať kľúčové deskriptory kvality čokolády.</p>
+                <p><strong>Metóda:</strong> CATA s 150 spotrebiteľmi, 20 deskriptorov.</p>
+                <ul>
+                    <li>"Krémosa" označená 78% spotrebiteľov</li>
+                    <li>"Horká chuť" označená 45% spotrebiteľov</li>
+                    <li>"Orechová vôňa" označená 32% spotrebiteľov</li>
+                </ul>
+                <div class="callout callout-success">
+                    <div class="callout-icon">✓</div>
+                    <div class="callout-content">
+                        <h4>Záver</h4>
+                        <p>Krémosť je najdôležitejší atribút pre spotrebiteľov.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Príklad 3: Čaj</h3>
+                <p><strong>Cieľ:</strong> Sledovať dynamiku senzorických vjemov pri spotrebi čaju.</p>
+                <p><strong>Metóda:</strong> TDS s 12 panelistami, 8 atribútov.</p>
+                <ul>
+                    <li>0–10 s: dominantná sladkosť</li>
+                    <li>10–25 s: dominantná horkosť</li>
+                    <li>25–40 s: dominantná horkosť + horká chuť</li>
+                </ul>
+                <div class="callout callout-warning">
+                    <div class="callout-icon">!</div>
+                    <div class="callout-content">
+                        <h4>Záver</h4>
+                        <p>Počiatočná sladkosť sa mení na horkosť, čo môže byť negatívny signál.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>SAP – Senzorická Analýza Potravín | Deskriptívne profily</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">Verzia 1.0 | 2026</p>
+    </footer>
+</body>
+</html>

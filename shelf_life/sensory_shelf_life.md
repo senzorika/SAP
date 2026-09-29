@@ -753,7 +753,7 @@ Best before = 162 × 0.8 = 129.6 ≈ 129 dní
 ## Záver
 - Shelf-life produktu pri 4°C: 25 dní
 - Odporúčaný "best before" dátum: 20 dni od výroby
-- Hlavný degradáciu atribút: Chuť a vôňa
+- Hlavný atribút degradácie: Chuť a vôňa
 ```
 
 ---

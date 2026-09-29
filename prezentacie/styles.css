@@ -1,0 +1,42 @@
+:root {
+  --r-background-color: #fafafa;
+  --r-main-font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --r-main-font-size: 28px;
+  --r-main-color: #2c3e50;
+  --r-heading-color: #1a5276;
+  --r-link-color: #2980b9;
+  --r-code-font: 'Fira Code', 'Consolas', monospace;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2 {
+  border-bottom: 3px solid #2980b9;
+  padding-bottom: 0.3em;
+}
+
+.reveal table {
+  font-size: 0.85em;
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  background-color: #1a5276;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+.reveal table td {
+  padding: 0.4em 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.reveal blockquote {
+  border-left: 4px solid #2980b9;
+  background-color: #eaf2f8;
+  padding: 0.5em 1em;
+  font-style: normal;
+}
+
+.reveal .mermaid {
+  text-align: center;
+}

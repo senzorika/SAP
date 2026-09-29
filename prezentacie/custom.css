@@ -1,0 +1,62 @@
+:root {
+  --color-primary: #2c3e50;
+  --color-accent: #e74c3c;
+  --color-bg: #ffffff;
+  --color-text: #2c3e50;
+}
+
+.reveal {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text);
+}
+
+.reveal h1 {
+  color: var(--color-primary);
+  font-size: 2.2em;
+  font-weight: 700;
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.3em;
+}
+
+.reveal h2 {
+  color: var(--color-primary);
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.reveal h3 {
+  color: var(--color-accent);
+  font-size: 1.3em;
+}
+
+.reveal table {
+  font-size: 0.75em;
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5em 1em;
+}
+
+.reveal table td {
+  padding: 0.4em 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.reveal blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1em;
+  font-style: italic;
+  color: #555;
+}
+
+.reveal .slide-number {
+  font-size: 0.7em;
+  color: #888;
+}
+
+.reveal .progress {
+  color: var(--color-accent);
+}

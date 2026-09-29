@@ -783,7 +783,7 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 
 ### 4.2 Preference Mapping
 
-**Princíp:** Kombinuje hedonicke dáta s deskriptívnymi dátami na vytvorenie preferenčných máp.
+**Princíp:** Kombinuje hedonické dáta s deskriptívnymi dátami na vytvorenie preferenčných máp.
 
 **Špecifikácie:**
 - Počet spotrebiteľov: 100-200
@@ -801,7 +801,7 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 ```
 Preferenčná mapa:
 - X-os: deskriptívne atribúty (z QDA alebo CATA)
-- Y-os: hedonicke hodnotenie
+- Y-os: hedonické hodnotenie
 - Vektory: produkty
 - Smer: preferencia spotrebiteľov
 ```
@@ -1054,7 +1054,7 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
    - Tréning na identifikáciu atribútov
    - Tréning na používanie škál
 
-3. **Vytvorecie protokolov**
+3. **Vytvorenie protokolov**
    - Štandardné operačné postupy (SOP)
    - Frekvencia testovania
    - Dokumentácia

@@ -159,7 +159,7 @@ Kritické hodnoty pre α = 0.05:
 - Vhodný pre screening
 
 **Nevýhody:**
-- Poskytuje len informáciu o tom, ktorý produkt je intenzívniejsí
+- Poskytuje len informáciu o tom, ktorý produkt je intenzívnejší
 - Neposkytuje informáciu o veľkosti rozdielu
 - Menej citlivý ako iné rozlišovacie testy
 
@@ -201,7 +201,7 @@ Kritické hodnoty (α = 0.05):
 
 **Nevýhody:**
 - Menej statisticky efektívny
-- Vyžahuje dobrú pamäť panelistov
+- Vyžaduje dobrú pamäť panelistov
 - Výsledky závisia na kvalite referencie
 
 ---
@@ -277,7 +277,7 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 **Nevýhody:**
 - Obmedzené rozlíšenie
 - Subjektívne hranice medzi kategóriami
-- Vyžahuje trénovaných panelistov
+- Vyžaduje trénovaných panelistov
 
 ---
 
@@ -304,7 +304,7 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 - Flexibilná
 
 **Nevýhody:**
-- Vyžahuje trénovaných panelistov
+- Vyžaduje trénovaných panelistov
 - Náročnejšia na vyhodnotenie
 - Menej intuitívna pre panelistov
 
@@ -374,7 +374,7 @@ Priemer liking pre "Príliš vysoká" - Priemer liking pre "JAR"
 - Jednoduchá na použitie
 
 **Nevýhody:**
-- Vyžahuje trénovaných panelistov
+- Vyžaduje trénovaných panelistov
 - Subjektívne hranice
 - Menej vhodná pre deskriptívne atribúty
 
@@ -501,7 +501,7 @@ n = 96.04 ≈ 97 panelistov
 
 **Odporúčané počty panelistov:**
 
-| Typ testu | Minimálny počt | Odporúčaný počet |
+| Typ testu | Minimálny počet | Odporúčaný počet |
 |---|---|---|
 | Trojuholníkový test | 18 | 24-36 |
 | Duo-trio test | 16 | 24-36 |

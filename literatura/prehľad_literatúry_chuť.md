@@ -294,7 +294,7 @@ Wearable technológie umožňujú monitorovať fyziologické reakcie na senzoric
 
 ### 5.4 Clean label
 
-**Defícia:** Clean label znamená použitie jednoduchých,rozumiteľných surovín bez umelých aditív.
+**Definícia:** Clean label znamená použitie jednoduchých,rozumiteľných surovín bez umelých aditív.
 
 **Senzorické výzvy:**
 - Prírodné suroviny môžu mať variabilnejšiu kvalitu
@@ -384,7 +384,7 @@ Wearable technológie umožňujú monitorovať fyziologické reakcie na senzoric
 
 ## Záver
 
-Vnímanie chutí je komplexný, multidisciplinárny výskumný objekt, ktorý sa nachádza na prieciencí fyziológie, genetiky, psychológie a neurovedy. Posledné roky (2020–2026) priniesli významné poznatky o interakciách chutí a zapáchania, genetických variáciách, vplyve mikrobiómy a stresu, ako aj technologické inovácie (VR, AI, wearable senzory), ktoré transformujú senzorickú prax. Tieto poznatky majú priamy dopad na potravinársky priemysel, obzvlášť v kontexte redukcie soli, cukru a tuku, clean label trendov a plant-based produktov.
+Vnímanie chutí je komplexný, multidisciplinárny výskumný objekt, ktorý sa nachádza na pomedzí fyziológie, genetiky, psychológie a neurovedy. Posledné roky (2020–2026) priniesli významné poznatky o interakciách chutí a zapáchania, genetických variáciách, vplyve mikrobiómy a stresu, ako aj technologické inovácie (VR, AI, wearable senzory), ktoré transformujú senzorickú prax. Tieto poznatky majú priamy dopad na potravinársky priemysel, obzvlášť v kontexte redukcie soli, cukru a tuku, clean label trendov a plant-based produktov.
 
 ---
 

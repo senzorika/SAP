@@ -123,7 +123,7 @@ $$n = \frac{(Z_{\alpha/2} + Z_\beta)^2 \cdot p(1-p)}{(p - p_0)^2}$$
 
 ### 2.4 Power analysis (Sila testu)
 
-Sila testu = $1 - \beta$ = pravdepodobnosť správne zamietnutú nulovú hypotézu, keď je fakt neplatná.
+Sila testu = $1 - \beta$ = pravdepodobnosť správneho zamietnutia nulovej hypotézy, keď je fakt neplatná.
 
 | Sila testu | $Z_\beta$ | Význam |
 |------------|-----------|--------|
@@ -535,7 +535,7 @@ Z regresie: sklon = β ≈ 2.1, intercept = -β·ln(η) ≈ -7.98
 $$\eta = e^{7.98/2.1} = e^{3.80} = 44.7 \text{ dní}$$
 
 **Výsledok:**
-- β = 2.1 (nadlineárny tzar — degradácia sa zrýchľuje s časom)
+- β = 2.1 (nadlineárny tvar — degradácia sa zrýchľuje s časom)
 - η = 44.7 dní (charakteristický čas)
 
 **Výpočet median survival time:**

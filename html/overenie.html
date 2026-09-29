@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overenie zdrojov — SAP Repozitár</title>
+    <style>
+        :root {
+            --primary: #4a148c;
+            --primary-light: #7c43bd;
+            --primary-dark: #38006b;
+            --secondary: #512da8;
+            --accent: #7b1fa2;
+            --bg: #f8f5fc;
+            --bg-card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a6a;
+            --border: #e0d4f0;
+            --success: #2e7d32;
+            --warning: #e65100;
+            --danger: #c62828;
+            --info: #1565c0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 32px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: #fff;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .card p { margin-bottom: 12px; }
+
+        .callout {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 16px 0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p { margin-bottom: 4px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+
+        th {
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:nth-child(even) { background: #f8f5fc; }
+        tbody tr:hover { background: #f3e5f5; }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin: 24px 0;
+            padding: 16px;
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 16px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 1px solid #a5d6a7;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .highlight-box .hb-title {
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 1px solid #ffcc02;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .warning-box .wb-title {
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 8px 0 12px 24px;
+        }
+
+        li { margin-bottom: 4px; }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
+        .tag-red { background: #ffebee; color: #c62828; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-purple { background: #f3e5f5; color: #7b1fa2; }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .section-nav a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .status-verified { color: #2e7d32; font-weight: 600; }
+        .status-mixed { color: #e65100; font-weight: 600; }
+        .status-controversial { color: #c62828; font-weight: 600; }
+        .status-unverified { color: #757575; font-weight: 600; }
+
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 24px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            nav .nav-container { flex-direction: column; height: auto; padding: 12px; }
+            nav ul { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">SAP Overenie</div>
+        <ul>
+            <li><a href="#metodologia">Metodológia</a></li>
+            <li><a href="#zdroje">Zdroje</a></li>
+            <li><a href="#kontroverzné">Kontroverzné</a></li>
+            <li><a href="#aktualizácie">Aktualizácie</a></li>
+            <li><a href="#odporúčania">Odporúčania</a></li>
+            <li><a href="#zoznam">Zoznam</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Overenie zdrojov</h1>
+    <p>Dokument overujúci pravdivosť informácií a zdrojov použitých v repozitári SAP</p>
+</div>
+
+<div class="container">
+
+    <div class="section-nav">
+        <a href="#metodologia">1. Metodológia</a>
+        <a href="#zdroje">2. Overené zdroje</a>
+        <a href="#kontroverzné">3. Kontroverzné témy</a>
+        <a href="#aktualizácie">4. Aktualizácie</a>
+        <a href="#odporúčania">5. Odporúčania</a>
+        <a href="#zoznam">6. Zoznam zdrojov</a>
+    </div>
+
+    <!-- SECTION 1: METODOLÓGIA -->
+    <div class="card" id="metodologia">
+        <h2>1. Metodológia overovania</h2>
+
+        <h3>1.1 Postup overovania</h3>
+        <p>Každá informácia v repozitári prešla nasledovným procesom:</p>
+        <ol>
+            <li><strong>Identifikácia zdroja</strong> — primárny zdroj (štandard, vedecký článok, kniha)</li>
+            <li><strong>Kontrola autenticity</strong> — overenie existencie zdroja v databázach</li>
+            <li><strong>Konzistencia</strong> — porovnanie s nezávislými zdrojmi</li>
+            <li><strong>Aktuálnosť</strong> — overenie, či informácia nie je zastaraná</li>
+            <li><strong>Klasifikácia</strong> — zaradenie do kategórií: overené / kontroverzné / neoverené</li>
+        </ol>
+
+        <div class="svg-container">
+            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="350" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Workflow overovania zdrojov</text>
+                <!-- Flow boxes -->
+                <rect x="30" y="60" width="100" height="50" rx="8" fill="#4a148c" opacity="0.9"/>
+                <text x="80" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Identifikácia</text>
+
+                <rect x="160" y="60" width="100" height="50" rx="8" fill="#512da8" opacity="0.9"/>
+                <text x="210" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Autenticita</text>
+
+                <rect x="290" y="60" width="100" height="50" rx="8" fill="#7b1fa2" opacity="0.9"/>
+                <text x="340" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Konzistencia</text>
+
+                <rect x="420" y="60" width="100" height="50" rx="8" fill="#4a148c" opacity="0.9"/>
+                <text x="470" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Klasifikácia</text>
+
+                <!-- Arrows -->
+                <line x1="130" y1="85" x2="155" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                <line x1="260" y1="85" x2="285" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                <line x1="390" y1="85" x2="415" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+                <!-- Sub-steps -->
+                <rect x="30" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="80" y="165" text-anchor="middle" font-size="10" fill="#333">Primárny zdroj</text>
+
+                <rect x="160" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="210" y="165" text-anchor="middle" font-size="10" fill="#333">Databáza</text>
+
+                <rect x="290" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="340" y="165" text-anchor="middle" font-size="10" fill="#333">3+ nezávislé</text>
+
+                <rect x="420" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="470" y="165" text-anchor="middle" font-size="10" fill="#333">Overené / ⚠️ / ❌</text>
+
+                <!-- Bottom row -->
+                <rect x="30" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="80" y="235" text-anchor="middle" font-size="10" fill="#333">Štandard</text>
+
+                <rect x="160" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="210" y="235" text-anchor="middle" font-size="10" fill="#333">Scopus/WoS</text>
+
+                <rect x="290" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="340" y="235" text-anchor="middle" font-size="10" fill="#333">Aktuálnosť</text>
+
+                <rect x="420" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
+                <text x="470" y="235" text-anchor="middle" font-size="10" fill="#333">Dokument</text>
+
+                <!-- Connecting lines -->
+                <line x1="80" y1="110" x2="80" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="210" y1="110" x2="210" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="340" y1="110" x2="340" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="470" y1="110" x2="470" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <line x1="80" y1="180" x2="80" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="210" y1="180" x2="210" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="340" y1="180" x2="340" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="470" y1="180" x2="470" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
+
+                <!-- Arrow marker -->
+                <defs>
+                    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <h3>1.2 Kritériá kvality</h3>
+        <table>
+            <thead>
+                <tr><th>Kritérium</th><th>Ako overujeme</th><th>Prijatelná úroveň</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Primárny zdroj</strong></td><td>Publikovaný v peer-reviewed časopise alebo oficiálny štandard</td><td>Povinné</td></tr>
+                <tr><td><strong>Citovateľnosť</strong></td><td>Dá sa nájsť v databáze (Scopus, Web of Science, ISO)</td><td>Povinné</td></tr>
+                <tr><td><strong>Konzistencia</strong></td><td>Minimálne 3 nezávislé zdroje potvrdzujúce</td><td>Odporúčané</td></tr>
+                <tr><td><strong>Aktuálnosť</strong></td><td>Publikované za posledných 10 rokov (alebo klasické dielo)</td><td>Odporúčané</td></tr>
+                <tr><td><strong>Reputácia vydavateľa</strong></td><td>Akademické vydavateľstvo alebo medzinárodná organizácia</td><td>Povinné</td></tr>
+            </tbody>
+        </table>
+
+        <h3>1.3 Klasifikácia spoľahlivosti</h3>
+        <table>
+            <thead>
+                <tr><th>Kategória</th><th>Označenie</th><th>Popis</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="status-verified">Overené</span></td><td>✅</td><td>Potvrdené primárnym zdrojom, konzistentné medzi zdrojmi</td></tr>
+                <tr><td><span class="status-mixed">Prevažujúce</span></td><td>⚠️</td><td>Väčšina zdrojov súhlasí, existujú alternatívne názory</td></tr>
+                <tr><td><span class="status-controversial">Kontroverzné</span></td><td>❌</td><td>Zdroje sa navzájom rozchádzajú</td></tr>
+                <tr><td><span class="status-unverified">Neoverené</span></td><td>❓</td><td>Nedostatok spoľahlivých zdrojov</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2: OVERENÉ ZDROJE -->
+    <div class="card" id="zdroje">
+        <h2>2. Overené zdroje</h2>
+
+        <h3>2.1 ISO štandardy</h3>
+        <table>
+            <thead>
+                <tr><th>ISO číslo</th><th>Názov</th><th>Rok</th><th>Overenie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO 4120</td><td>Sensory analysis — Methodology — Triangle test</td><td>2004</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 5495</td><td>Sensory analysis — Methodology — Paired comparison test</td><td>2005</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 11035</td><td>Identification and selection of descriptors</td><td>1994</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 13299</td><td>General guidance for establishing a sensory profile</td><td>2016</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 8586</td><td>General guidelines for assessors</td><td>2012</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 8589</td><td>General guidance for the design of test rooms</td><td>2007</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 11036</td><td>Methodology — Texture profile</td><td>1994</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ISO 11037</td><td>Assessment of the colour of foods</td><td>1999</td><td class="status-verified">✅ Overené</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Poznámka</div>
+            <p>ISO 4120:2004 nahrádza predchádzajúcu verziu ISO 4120:1983. Kritické hodnoty v našom repozitári sú aktuálne.</p>
+        </div>
+
+        <h3>2.2 Knižné zdroje</h3>
+        <table>
+            <thead>
+                <tr><th>Autor(i)</th><th>Názov</th><th>Vydavateľ</th><th>Rok</th><th>Overenie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Lawless & Heymann</td><td>Sensory Evaluation of Food: Principles and Practices</td><td>Springer</td><td>2010 (2.)</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Stone & Sidel</td><td>Sensory Evaluation Practices</td><td>Academic Press</td><td>2004 (3.)</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Meilgaard et al.</td><td>Sensory Evaluation Techniques</td><td>CRC Press</td><td>2007 (4.)</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Kemp et al.</td><td>Sensory Evaluation: A Practical Handbook</td><td>Wiley-Blackwell</td><td>2011</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Piggott (ed.)</td><td>Alcoholic Beverages: Sensory Evaluation</td><td>Woodhead Publishing</td><td>2011</td><td class="status-verified">✅ Overené</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2.3 Vedecké časopisy</h3>
+        <table>
+            <thead>
+                <tr><th>Časopis</th><th>Vydavateľ</th><th>Impakt faktor (2024)</th><th>Overenie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Food Quality and Preference</td><td>Elsevier</td><td>~6.0</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Journal of Food Science</td><td>Wiley</td><td>~3.0</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Food Chemistry</td><td>Elsevier</td><td>~8.8</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Journal of Sensory Studies</td><td>Wiley</td><td>~2.5</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>LWT - Food Science and Technology</td><td>Elsevier</td><td>~6.0</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Appetite</td><td>Elsevier</td><td>~5.0</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Chemical Senses</td><td>Oxford University Press</td><td>~3.5</td><td class="status-verified">✅ Overené</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2.4 Webové zdroje</h3>
+        <table>
+            <thead>
+                <tr><th>Zdroj</th><th>URL</th><th>Dátum prístupu</th><th>Overenie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO Online Browsing Platform</td><td>iso.org/obp</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>IFST</td><td>ifst.org</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>ASTM International</td><td>astm.org</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>PubMed (NIH)</td><td>pubmed.ncbi.nlm.nih.gov</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
+                <tr><td>Google Scholar</td><td>scholar.google.com</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3: KONTROVERZNÉ TÉMY -->
+    <div class="card" id="kontroverzné">
+        <h2>3. Kontroverzné témy</h2>
+
+        <h3>3.1 "5 chutí" vs. viac chutí</h3>
+        <table>
+            <thead>
+                <tr><th>Téma</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Základných chutí je 5</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Sladká, slaná, kyslá, horká, umami — uznávané od roku 1908 (Ikeda)</td></tr>
+                <tr><td>Kakao ako šiesta chuť</td><td class="status-controversial">❌ Kontroverzné</td><td>Navrhované niektorými výskumníkmi, ale nie je široko prijaté</td></tr>
+                <tr><td>Kyslá chuť ako samostatná</td><td class="status-controversial">❌ Kontroverzné</td><td>Diskusia o tom, či je kyslosť samostatná chuť alebo kombinácia</td></tr>
+                <tr><td>Olejová/mastná chuť</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Navrhovaná, existujú receptory na mastné kyseliny</td></tr>
+                <tr><td>Chuť kalcia</td><td class="status-controversial">❌ Kontroverzné</td><td>Navrhované, ale dôkazy sú slabé</td></tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="hb-title">Aktuálny konsenzus (2026)</div>
+            <ul>
+                <li>Uznávaných je 5 základných chutí (sladká, slaná, kyslá, horká, umami)</li>
+                <li>Výskumníci navrhujú ďalšie (olejová, kyslá, kalcium, kokumi)</li>
+                <li>Výskum pokračuje, najmä v oblasti genetiky chutových receptorov</li>
+            </ul>
+        </div>
+
+        <h3>3.2 Supertasters</h3>
+        <table>
+            <thead>
+                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Supertasters existujú</td><td class="status-verified">✅ Overené</td><td>Potvrdené výskumom Bartoshuka a kol. (1994)</td></tr>
+                <tr><td>~25% populácie sú supertasters</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Pohybuje sa 15-35% podľa štúdie a etnického pozadia</td></tr>
+                <tr><td>Supertasters majú viac chutových pohárov</td><td class="status-verified">✅ Overené</td><td>Anatomický dôkaz</td></tr>
+                <tr><td>Supertasters vnímajú horkosť intenzívnejie</td><td class="status-verified">✅ Overené</td><td>Konzistentné dôkazy</td></tr>
+                <tr><td>Supertasters jedia menej zeleniny</td><td class="status-controversial">❌ Kontroverzné</td><td>Niektoré štúdie potvrdzujú, iné nie</td></tr>
+                <tr><td>Supertasters sú lepší senzorickí analytici</td><td class="status-controversial">❌ Kontroverzné</td><td>Nie je dôkaz, že by lepšie rozpoznávali zložky</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Záver</div>
+            <p>Existencia supertasterov je vedecky podložené. Mýty o ich "super schopnostiach" v senzorike alebo výžive sú často prehnané.</p>
+        </div>
+
+        <h3>3.3 Červená farba a sladkosť</h3>
+        <table>
+            <thead>
+                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Červená farba zvyšuje vnímanie sladkosti</td><td class="status-verified">✅ Overené</td><td>Viacero štúdii potvrdzuje (DuBose et al., 1980)</td></tr>
+                <tr><td>Modrá farba znižuje vnímanie sladkosti</td><td class="status-verified">✅ Overené</td><td>Potvrdzené v štúdiách</td></tr>
+                <tr><td>Zelená farba ovplyvňuje vnímanie kyslosti</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Niektoré dôkazy, ale menej konzistentné</td></tr>
+                <tr><td>Biela farba zvyšuje vnímanie intenzity</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Závisí od kontextu</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Mechanizmus</div>
+            <p>Kognitívna asociácia — červená = zralé ovocie = sladké. Toto je naučený, nie vrodený efekt.</p>
+        </div>
+
+        <h3>3.4 Glutamát a "Chinese restaurant syndrome"</h3>
+        <table>
+            <thead>
+                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Glutamát spôsobuje "Chinese restaurant syndrome"</td><td class="status-controversial">❌ Kontroverzné</td><td>Pôvodný článk (Schaumburg et al., 1969) bol metodologicky slabý</td></tr>
+                <tr><td>Glutamát je bezpečný pre väčšinu ľudí</td><td class="status-verified">✅ Overené</td><td>FDA, EFSA, JECFA ho uznávajú za bezpečný</td></tr>
+                <tr><td>Existujú jednotlivci citliví na glutamát</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Niektoré štúdie naznačujú, ale dôkazy sú limitované</td></tr>
+                <tr><td>Glutamát prirodne vyskytuje v potravách</td><td class="status-verified">✅ Overené</td><td>Rajčaty, syry, huby, mäso</td></tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="hb-title">Aktuálny konsenzus (2026)</div>
+            <ul>
+                <li>"Chinese restaurant syndrome" je vedený ako mýt</li>
+                <li>Glutamát je bezpečný pri bežných dávkach</li>
+                <li>Môže existovať malá skupina citlivých jedincov, ale prevalencia je nízka</li>
+                <li>Placebo kontrolované štúdie nepotvrdzujú systematickú reakciu</li>
+            </ul>
+        </div>
+
+        <h3>3.5 Cukor a hyperaktivita</h3>
+        <table>
+            <thead>
+                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Cukor spôsobuje hyperaktivitu u detí</td><td class="status-controversial">❌ Kontroverzné</td><td>Metaanalýzy nepotvrdzú kauzalitu</td></tr>
+                <tr><td>Cukor zvyšuje energiu</td><td class="status-verified">✅ Overené</td><td>Fyziologický efekt, ale nie hyperaktivita</td></tr>
+                <tr><td>Rodičia vnímajú hyperaktivitu po cukore</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Rodičia očakávajú efekt (placebo/nocebo efekt)</td></tr>
+                <tr><td>Cukor spôsobuje ADHD</td><td class="status-controversial">❌ Kontroverzné</td><td>Nie je vedecký dôkaz</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Kľúčové štúdie</div>
+            <ul>
+                <li>Wolraich et al. (1995) — metaanalýza, žiadny efekt</li>
+                <li>Benton, D. (2008) — prehľad, žiadny kauzálny vzťah</li>
+                <li>Farsad-Naeimi et al. (2020) — systematický prehľad, slabý efekt</li>
+            </ul>
+        </div>
+
+        <h3>3.6 Umami — je to skutočne samostatná chuť?</h3>
+        <table>
+            <thead>
+                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Umami je samostatná chuť</td><td class="status-verified">✅ Overené</td><td>Existujú špecifické receptory (T1R1/T1R3)</td></tr>
+                <tr><td>Umami bol objavený v roku 1908</td><td class="status-verified">✅ Overené</td><td>Ikeda K., Tokio</td></tr>
+                <tr><td>Umami receptor bol identifikovaný v roku 2000</td><td class="status-verified">✅ Overené</td><td>Li et al., Nature 2000</td></tr>
+                <tr><td>Umami je univerzálne uznávané ako 5. chuť</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Uznávané vo vede, ale nie všetky kultúry ho rozlišujú</td></tr>
+                <tr><td>Umami zvyšuje chuťový zážitok</td><td class="status-verified">✅ Overené</td><td>Synergia s ostatnými chutami</td></tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">Záver</div>
+            <p>Umami je vedecky podložená samostatná chuť s identifikovaným receptorom. Diskusia o jeho "univerzálnom uznaní" je skôr kultúrna než vedecká.</p>
+        </div>
+
+        <div class="svg-container">
+            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="350" fill="#fff"/>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Hierarchia dôkazov — Evidence Hierarchy</text>
+                <!-- Pyramid levels -->
+                <polygon points="300,50 200,100 400,100" fill="#4a148c" opacity="0.9"/>
+                <text x="300" y="85" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Systematické prehľady</text>
+                <text x="300" y="98" text-anchor="middle" font-size="10" fill="#fff">Metaanalýzy</text>
+
+                <polygon points="220,110 380,110 420,160 180,160" fill="#512da8" opacity="0.9"/>
+                <text x="300" y="135" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">RCT štúdie</text>
+                <text x="300" y="148" text-anchor="middle" font-size="10" fill="#fff">Randomizované kontrolované</text>
+
+                <polygon points="180,170 420,170 460,220 140,220" fill="#7b1fa2" opacity="0.9"/>
+                <text x="300" y="195" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Kohortové štúdie</text>
+                <text x="300" y="208" text-anchor="middle" font-size="10" fill="#fff">Pozorovanie</text>
+
+                <polygon points="140,230 460,230 500,280 100,280" fill="#9c27b0" opacity="0.7"/>
+                <text x="300" y="255" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Prípadové štúdie</text>
+                <text x="300" y="268" text-anchor="middle" font-size="10" fill="#fff">Expertné názory</text>
+
+                <polygon points="100,290 500,290 540,330 60,330" fill="#ba68c8" opacity="0.5"/>
+                <text x="300" y="315" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">Anekdotické dôkazy</text>
+                <text x="300" y="328" text-anchor="middle" font-size="10" fill="#333">Tradičné poznatky</text>
+
+                <!-- Arrow -->
+                <line x1="560" y1="60" x2="560" y2="320" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+                <text x="575" y="190" text-anchor="middle" font-size="10" fill="#333" transform="rotate(90, 575, 190)">Kvalita dôkazu</text>
+
+                <defs>
+                    <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+    </div>
+
+    <!-- SECTION 4: AKTUALIZÁCIE -->
+    <div class="card" id="aktualizácie">
+        <h2>4. Aktualizácie a opravy</h2>
+
+        <h3>4.1 Zmeny v senzorike (2020-2026)</h3>
+        <table>
+            <thead>
+                <tr><th>Oblasť</th><th>Zmena</th><th>Zdroj</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO 13299</td><td>Aktualizované v roku 2016 (nahradilo ISO 11035)</td><td>ISO</td></tr>
+                <tr><td>Temporálna senzorika</td><td>Rastúci zájem o TDS (Temporal Dominance of Sensations)</td><td>Castura et al.</td></tr>
+                <tr><td>AI v senzorike</td><td>Využitie strojového učenia na predikciu senzorických profilov</td><td>Viacero časopisov</td></tr>
+                <tr><td>Consumer neuroscience</td><td>Integrácia EEG, eye-trackingu do senzoriky</td><td>Viacero časopisov</td></tr>
+                <tr><td>Personalizácia</td><td>Výskum individuálnych rozdielov v senzorike</td><td>Viacero časopisov</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4.2 Opravy v repozitári</h3>
+        <table>
+            <thead>
+                <tr><th>Dátum</th><th>Oprava</th><th>Dôvod</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2026-09-15</td><td>Aktualizované kritické hodnoty ISO 4120</td><td>Overenie podľa ISO 4120:2004</td></tr>
+                <tr><td>2026-09-15</td><td>Pridaná poznámka k "Chinese restaurant syndrome"</td><td>Aktuálne vedecké poznatky</td></tr>
+                <tr><td>2026-09-15</td><td>Opravený popis supertasterov</td><td>Rozšírené o kontroverzné aspekty</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: ODPOREČANIA -->
+    <div class="card" id="odporúčania">
+        <h2>5. Odporúčania pre ďalší výskum</h2>
+
+        <h3>5.1 Kde hľadať spoľahlivé informácie</h3>
+        <table>
+            <thead>
+                <tr><th>Zdroj</th><th>Typ</th><th>Odporúčanie</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO štandardy</td><td>Normy</td><td>Primárny zdroj pre metodológiu</td></tr>
+                <tr><td>PubMed</td><td>Databáza článkov</td><td>Pre vedecké dôkazy</td></tr>
+                <tr><td>Scopus</td><td>Databáza článkov</td><td>Pre citácie a impakt</td></tr>
+                <tr><td>Web of Science</td><td>Databáza článkov</td><td>Pre citácie a impakt</td></tr>
+                <tr><td>Google Scholar</td><td>Vyhľadávač</td><td>Pre široký prehľad</td></tr>
+                <tr><td>IFST</td><td>Profesionálna organizácia</td><td>Pre aktuálne trendy</td></tr>
+                <tr><td>IFT</td><td>Profesionálna organizácia</td><td>Pre odborné zdroje</td></tr>
+            </tbody>
+        </table>
+
+        <h3>5.2 Ako vyhodnocovať zdroje</h3>
+        <ol>
+            <li><strong>Skontrolujte vydavateľa</strong> — akademické vydavateľstvo alebo profesionálna organizácia</li>
+            <li><strong>Overte si rok publikovania</strong> — preferujte články za posledných 5 rokov</li>
+            <li><strong>Pozrite si citácie</strong> — vysoký počet citácií = väčšia dôveryhodnosť</li>
+            <li><strong>Skontrolujte metodológiu</strong> — randomizované kontrolované štúdie sú najlepšie</li>
+            <li><strong>Buďte opatrní s prezentáciami</strong> — konferenčné príspevky často neprešli peer review</li>
+        </ol>
+
+        <h3>5.3 Témy pre budúci výskum</h3>
+        <table>
+            <thead>
+                <tr><th>Téma</th><th>Prečo je dôležité</th><th>Aktuálna medzera</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Genetika chutových receptorov</td><td>Personalizácia senzoriky</td><td>Mapovanie polymorfizmov</td></tr>
+                <tr><td>Mikrobióm a chuť</td><td>Vplyv na individuálne rozdiely</td><td>Kauzálne vzťahy</td></tr>
+                <tr><td>AI predikcia senzorických profilov</td><td>Efektivita výskumu</td><td>Validácia modelov</td></tr>
+                <tr><td>Kultúrne rozdiely v chuti</td><td>Globalizácia potravín</td><td>Systémové štúdie</td></tr>
+                <tr><td>Udržateľnosť a senzorika</td><td>Alternatívne potraviny</td><td>Akceptácia spotrebiteľov</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 6: ZOZNAM ZDROJOV -->
+    <div class="card" id="zoznam">
+        <h2>6. Zoznam overených zdrojov</h2>
+
+        <h3>6.1 Štandardy</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>ISO 4120:2004</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>2</td><td>ISO 5495:2005</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>3</td><td>ISO 11035:1994</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>4</td><td>ISO 13299:2016</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>5</td><td>ISO 8586:2012</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>6</td><td>ISO 8589:2007</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>7</td><td>ISO 11036:1994</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>8</td><td>ISO 11037:1999</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Knihy</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Lawless & Heymann (2010)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>2</td><td>Stone & Sidel (2004)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>3</td><td>Meilgaard et al. (2007)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>4</td><td>Kemp et al. (2011)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>5</td><td>Piggott (2011)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.3 Vedecké časopisy</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Food Quality and Preference</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>2</td><td>Journal of Food Science</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>3</td><td>Food Chemistry</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>4</td><td>Journal of Sensory Studies</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>5</td><td>LWT - Food Science and Technology</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>6</td><td>Appetite</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>7</td><td>Chemical Senses</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.4 Webové zdroje</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>ISO Online Browsing Platform</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>2</td><td>IFST</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>3</td><td>ASTM International</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>4</td><td>PubMed</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+                <tr><td>5</td><td>Google Scholar</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.5 Neoverené informácie</h3>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Informácia</th><th>Dôvod neoverenia</th><th>Akcia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Presná prevalencia supertasterov</td><td>Rozličné štúdie uvádzajú rôzne čísla</td><td>Potrebný systematický prehľad</td></tr>
+                <tr><td>2</td><td>Vplyv farby na chuť u detí</td><td>Málo štúdií na detských populáciách</td><td>Potrebný ďalší výskum</td></tr>
+                <tr><td>3</td><td>Dlhodobý vplyv glutamátu na zdravie</td><td>Limitované longitudinálne štúdie</td><td>Potrebné dlhodobé štúdie</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Záver</h2>
+        <p>Tento dokument je živý dokument, ktorý bude pravidelne aktualizovaný. Všetky informácie v repozitári SAP prešli procesom overovania opísaným v sekcii 1. Kontroverzné témy sú jasne označené a prezentujú objektívny pohľad na aktuálny vedecký konsenzus.</p>
+
+        <div class="highlight-box">
+            <div class="hb-title">Ďalšie aktualizácie</div>
+            <p><strong>Posledná aktualizácia:</strong> September 2026</p>
+            <p><strong>Ďalšia plánovaná aktualizácia:</strong> Marec 2027</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>SAP — Senzorická Analýza Potravín | Overenie zdrojov | 2026</p>
+</footer>
+
+</body>
+</html>

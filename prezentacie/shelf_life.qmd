@@ -1,0 +1,356 @@
+---
+title: "Sensory Shelf-Life Testing"
+subtitle: "Metódy, výpočty a dizajn senzorických shelf-life štúdií"
+author: "SAP — Senzorická Analýza Potravín"
+date: "September 2026"
+format:
+  revealjs:
+    theme: default
+    css: custom.css
+    slide-number: true
+    progress: true
+    transition: slide
+    width: 1280
+    height: 720
+---
+
+## Úvod
+
+### Čo je sensory shelf-life?
+
+Sensory shelf-life je **časový interval**, počas ktorého potravinársky produkt udržuje svoje senzorické vlastnosti na úrovni akceptovateľnej pre spotrebiteľa za daných podmienok skladovania.
+
+::: notes
+Sensory shelf-life predstavuje senzorickú trvanlivosť produktu — obdobie, počas ktorého produkt "chutí dobre" z hľadiska spotrebiteľa.
+:::
+
+---
+
+## Prečo je shelf-life dôležité?
+
+| Aspekt | Význam |
+|--------|--------|
+| **Kvalita produktu** | Zaisťuje udržanie charakteristiky počas celej trvanlivosti |
+| **Spokojnosť spotrebiteľa** | Minimalizuje reklamácie a návraty |
+| **Konkurencieschopnosť** | Dlhšia shelf-life = väčšia flexibilita v distribúcii |
+| **Straty** | Predlženie shelf-life = zníženie vyradených produktov |
+| **Bezpečnosť** | Senzorická degradácia môže indikovať mikrobiologické problémy |
+
+---
+
+## Agenda
+
+1. Kaplan-Meierov odhad
+2. Weibullova distribúcia
+3. ASLT a Q10 model
+4. Arrheniusov model
+5. Survival analysis
+6. Cut-off point metóda
+7. Dizajn shelf-life štúdie
+8. Praktické príklady
+
+---
+
+## Typy produktov a degradácia
+
+| Kategória | Typická degradácia | Typická shelf-life |
+|-----------|--------------------|--------------------|
+| **Mliečne výrobky** | Kyslosť, oxidácia, textúra | 14–30 dní |
+| **Chlieb a pečivo** | Stárnutie (staling), plesnivý | 3–7 dní |
+| **Nápoje** | Oxidácia, strata účinnosti | 6–12 mesiacov |
+| **Mäso** | Oxidácia tuku, mikrobiologický rast | 7–14 dní |
+| **Ovocie a zelenina** | Zrnie, hniloba, strata chuti | 3–14 dní |
+| **Konzervy** | Korózia, strata textúry | 12–36 mesiacov |
+
+---
+
+## Kaplan-Meierov odhad
+
+**Princíp:** Non-parametrická metóda na odhad prežívacej funkcie z časových dát.
+
+$$S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)$$
+
+| Čas (dni) | Testované (nᵢ) | Zamietnuté (dᵢ) | S(t) |
+|------------|----------------|-----------------|------|
+| 0 | 50 | 0 | 1.00 |
+| 7 | 50 | 2 | 0.96 |
+| 14 | 48 | 5 | 0.86 |
+| 21 | 43 | 8 | 0.70 |
+| 28 | 35 | 10 | 0.50 |
+| 35 | 25 | 12 | 0.26 |
+| 42 | 13 | 8 | 0.10 |
+
+**Mediánová shelf-life:** 28 dní (S(t) = 0.50)
+
+---
+
+## Weibullova distribúcia
+
+**Princíp:** Flexibilná parametrická distribúcia modelujúca degradáciu produktu v čase.
+
+$$F(t) = 1 - \exp\left(-\left(\frac{t}{\eta}\right)^\beta\right)$$
+
+| Parameter | Význam |
+|-----------|--------|
+| **η (eta)** | Charakteristická životnosť (scale) |
+| **β (beta)** | Tvarový parameter (shape) |
+
+### Interpretácia β
+
+| β | Typ degradácie | Príklad |
+|---|----------------|---------|
+| **β < 1** | Ranná smrteľnosť | Chlieb |
+| **β = 1** | Konštantná hazard | Nápoje |
+| **β > 1** | Starnutie | Mliečne výrobky |
+
+---
+
+## ASLT — Accelerated Shelf-Life Testing
+
+**Princíp:** Urýchlenie degradácie zvýšením teploty a extrapolácia na normálne podmienky.
+
+### Q10 Model
+
+$$Q_{10} = \frac{\text{Shelf-life pri } T_1}{\text{Shelf-life pri } T_2}$$
+
+Kde $T_2 = T_1 + 10°C$
+
+### Vzťah
+
+$$\text{Shelf-life}(T_2) = \frac{\text{Shelf-life}(T_1)}{Q_{10}^{(T_1-T_2)/10}}$$
+
+---
+
+## Arrheniusov model
+
+$$k = A \cdot \exp\left(-\frac{E_a}{R \cdot T}\right)$$
+
+| Symbol | Význam | Jednotka |
+|--------|--------|----------|
+| **k** | Rýchlostná konštanta degradácie | deň⁻¹ |
+| **A** | Preexponenciálny faktor | deň⁻¹ |
+| **Ea** | Energia aktivácie | J/mol |
+| **R** | Univerzálny plynový konštanta (8.314) | J/(mol·K) |
+| **T** | Absolútna teplota | K |
+
+### Vzťah medzi Q10 a Ea
+
+$$Q_{10} \approx \exp\left(\frac{10 \times E_a}{R \times T^2}\right)$$
+
+---
+
+## Survival Analysis
+
+**Princíp:** Štatistická metóda na analýzu časových dát, kde "udalosť" je zamietnutie produktu.
+
+### Prežívacia funkcia
+
+$$S(t) = P(T > t) = 1 - F(t)$$
+
+### Hazard funkcia
+
+$$h(t) = \frac{f(t)}{S(t)} = -\frac{d}{dt}[\ln S(t)]$$
+
+### Cox Proportional Hazards Model
+
+$$h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p)$$
+
+---
+
+## Cut-off Point Metóda
+
+**Princíp:** Definuje konkrétny bod, pri ktorom produkt prestáva byť akceptovateľný.
+
+| Typ | Definícia | Použitie |
+|-----|-----------|---------|
+| **Senzorický cut-off** | Hodnota atribútu, pri ktorej produkt prestáva byť akceptovateľný | Deskriptívna analýza |
+| **Spotrebiteľský cut-off** | % spotrebiteľov, ktorí zamietnu produkt | Spotrebiteľský test |
+| **Kombinovaný cut-off** | Kombinácia oboch prístupov | Komplexné hodnotenie |
+
+---
+
+## Dizajn štúdie
+
+```mermaid
+flowchart TD
+    A[Produkt] --> B[Časové body]
+    A --> C[Počet vzoriek]
+    A --> D[Podmienky skladovania]
+    A --> E[Panelisti]
+    
+    B --> F[Min. 5 časových bodov]
+    C --> G[3-10 vzoriek na bod]
+    D --> H[Normálne + Akcelerované]
+    E --> I[8-15 trénovaných]
+    
+    F --> J[Štatistická analýza]
+    G --> J
+    H --> J
+    I --> J
+    
+    J --> K[Kaplan-Meier]
+    J --> L[Weibull model]
+    J --> M[Arrhenius extrapolácia]
+    
+    K --> N[Shelf-life]
+    L --> N
+    M --> N
+```
+
+---
+
+## Časové body
+
+| Typ produktu | Časové body (dni) | Počet bodov |
+|--------------|-------------------|-------------|
+| **Krátkodobá** (< 30 dní) | 0, 3, 7, 10, 14, 21, 28 | 5–7 |
+| **Stredná** (30–180 dní) | 0, 14, 30, 60, 90, 120, 180 | 5–7 |
+| **Dlhá** (> 180 dní) | 0, 30, 60, 90, 120, 180, 240, 360 | 6–8 |
+
+### Pravidlá
+
+1. **Viac bodov na začiatku** – degradácia je rýchlejšia
+2. **Menej bodov na konci** – degradácia spomaľuje
+3. **Minimálne 5 časových bodov** – pre spoľahlivý odhad
+4. **Kontrolné body** – na overenie linearity
+
+---
+
+## Podmienky skladovania
+
+| Parameter | Typické podmienky | Akcelerované podmienky |
+|-----------|-------------------|----------------------|
+| **Teplota** | 4°C, 20°C, 25°C | 30°C, 35°C, 40°C |
+| **Vlhkosť** | 50% RH, 60% RH | 75% RH, 85% RH |
+| **Svetlo** | Tmavé, normálne | UV, intenzívne |
+| **Atmosféra** | Vzduch, vákum | N₂, CO₂, modifikovaná |
+
+---
+
+## Q10 Koeficient
+
+| Kategória produktu | Typické Q10 | Poznámka |
+|--------------------|-------------|----------|
+| **Mliečne výrobky** | 2–4 | Závisí od obsahu tuku |
+| **Chlieb a pečivo** | 1.5–2.5 | Stárnutie |
+| **Nápoje** | 2–3 | Oxidácia |
+| **Mäso** | 2–4 | Oxidácia tuku |
+| **Ovocie a zelenina** | 2–3 | Enzymatická degradácia |
+| **Konzervy** | 1.5–2.5 | Korózia, textúra |
+
+---
+
+## Energia aktivácie (Ea)
+
+$$E_a = -R \times \frac{\ln(k_2/k_1)}{1/T_2 - 1/T_1}$$
+
+| Typ reakcie | Ea (kJ/mol) |
+|-------------|-------------|
+| **Oxidácia tuku** | 60–100 |
+| **Enzymatická degradácia** | 40–80 |
+| **Mikrobiologický rast** | 80–120 |
+| **Stárnutie chleba** | 100–150 |
+| **Vitamínová degradácia** | 60–100 |
+
+---
+
+## Výpočet shelf-life
+
+```mermaid
+flowchart LR
+    A[Zber dát] --> B[Prežívacia funkcia]
+    B --> C[Weibull fit]
+    C --> D[t₅₀ = η × ln2^(1/β)]
+    C --> E[t₁₀ = η × ln10^(1/β)]
+    D --> F[Bezpečnostný faktor]
+    E --> F
+    F --> G[Best before dátum]
+```
+
+### Weibullove parametre
+
+$$t_{50} = \eta \times (\ln 2)^{1/\beta}$$
+
+$$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
+
+---
+
+## Praktický príklad: Jogurt
+
+**Produkt:** Jogurt s jahodami, skladovaný pri 4°C
+
+| Čas (dni) | Chuť | Vôňa | Textúra | Akceptabilita (%) |
+|------------|------|------|---------|-------------------|
+| 0 | 8.5 | 8.2 | 8.0 | 100 |
+| 7 | 8.0 | 7.8 | 7.5 | 95 |
+| 14 | 7.2 | 7.0 | 6.8 | 85 |
+| 21 | 6.5 | 6.2 | 6.0 | 70 |
+| 28 | 5.8 | 5.5 | 5.2 | 55 |
+| 35 | 5.0 | 4.8 | 4.5 | 35 |
+| 42 | 4.2 | 4.0 | 3.8 | 15 |
+
+**Weibull fit:** β = 2.3, η = 28.5 dní
+
+**Záver:** Shelf-life = 25 dní (mediánová)
+
+---
+
+## Praktický príklad: Chlieb
+
+**Produkt:** Hrubý chlieb, skladovaný pri 20°C
+
+| Čas (dni) | Staling | Chuť | Textúra | Akceptabilita (%) |
+|------------|---------|------|---------|-------------------|
+| 0 | 1.0 | 8.5 | 8.0 | 100 |
+| 1 | 2.5 | 7.8 | 7.2 | 90 |
+| 2 | 4.0 | 7.0 | 6.5 | 75 |
+| 3 | 5.5 | 6.2 | 5.8 | 55 |
+| 5 | 7.0 | 5.0 | 4.5 | 30 |
+| 7 | 8.0 | 4.0 | 3.5 | 10 |
+| 10 | 9.0 | 3.0 | 2.5 | 0 |
+
+**Weibull fit:** β = 1.8, η = 3.2 dní
+
+**Záver:** Shelf-life = 3 dni (mediánová)
+
+---
+
+## Best Before Dátum
+
+**Postup:**
+
+1. Vypočítajte mediánovú shelf-life (t₅₀)
+2. Aplikujte bezpečnostný faktor (0.7–0.9)
+3. Zaokrúhlite nadol na celé dni
+
+| Typ produktu | Odporúčaný faktor | Dôvod |
+|--------------|-------------------|-------|
+| **Kľúčové potraviny** | 0.7 | Vysoká spotrebiteľská rizika |
+| **Bežné potraviny** | 0.8 | Štandardná ochrana |
+| **Konzervy** | 0.9 | Nízka rizika |
+| **Mrazené výrobky** | 0.75 | Závisí od reťaznice chladenia |
+
+---
+
+## Záver
+
+Sensory shelf-life testing je **komplexný proces**, ktorý kombinuje:
+
+- Senzorickú analýzu
+- Štatistické modelovanie
+- Techniky urýchleného starnutia
+
+### Kľúčové princípy
+
+1. **Správny dizajn** – dostatočný počet časových bodov, vzoriek a panelistov
+2. **Vhodná štatistická analýza** – Kaplan-Meier, Weibull, Arrhenius
+3. **Bezpečnostný faktor** – konzervatívny prístup k "best before"
+4. **Kompletná dokumentácia** – všetky dáta zdokumentované
+
+---
+
+## Ďakujem za pozornosť
+
+**Otázky?**
+
+*SAP — Senzorická Analýza Potravín*

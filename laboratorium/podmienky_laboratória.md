@@ -196,7 +196,7 @@ Vzorka C: 249
 | Typ nádoby | Biele plastové poháre, sklenené poháre | Odporúčanie |
 | Farba nádoby | Biele alebo priehľadné | ISO 11037 |
 | Teplota podávania | Špecifická pre produkt | ISO 13299 |
-| Pokrievanie | Štandardné, jednotné | Odporúčanie |
+| Pokrytie | Štandardné, jednotné | Odporúčanie |
 
 **Odporúčané teploty podávania:**
 
