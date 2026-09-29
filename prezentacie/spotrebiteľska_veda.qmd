@@ -22,11 +22,11 @@ Disciplína, ktorá skúma vzťah medzi **senzorickými vlastnosťami produktov*
 
 | Obdobie | Vývoj |
 |---------|-------|
-| 1940s | Prvé hedonické testy v armáde (US Army) |
+| 1940s | Prvé hedonické testy v armáde (US Army Quartermaster) |
 | 1950s | Vývoj 9-bodovej hedonické škály (Peryam & Pilgrim) |
-| 1960s | Preference Mapping – Carroll, Greenhoff |
-| 1970s | Conjoint Analysis – Green & Rao |
-| 1980s | Penalty Analysis – JAR škála |
+| 1971–1972 | Conjoint (Green & Rao) · PREFMAP (Carroll) |
+| 1990s | Preferenčné mapovanie v senzorike (Greenhoff & MacFie) |
+| 2000s | Penalty analýza JAR (ASTM MNL 63) |
 | 1990s | TURF Analysis, segmentácia spotrebiteľov |
 | 2000s | Online testy, automatizácia |
 | 2010s | Big data, integrácia s neurovedou |
@@ -45,15 +45,15 @@ Disciplína, ktorá skúma vzťah medzi **senzorickými vlastnosťami produktov*
 
 | Bod | Označenie | Popis |
 |-----|-----------|-------|
-| 9 | Výborne | Najvyššia miera obľúbenosti |
-| 8 | Veľmi dobre | |
-| 7 | Dobre | |
-| 6 | Trochu dobre | |
-| 5 | Ani dobré, ani zlé | Neutrálna hodnota |
-| 4 | Trochu zlé | |
-| 3 | Zlé | |
-| 2 | Veľmi zlé | |
-| 1 | Hrozne | Najnižšia miera obľúbenosti |
+| 9 | Mimoriadne sa mi páči | Najvyššia miera obľúbenosti |
+| 8 | Veľmi sa mi páči | |
+| 7 | Stredne sa mi páči | |
+| 6 | Trochu sa mi páči | |
+| 5 | Ani sa mi páči, ani sa mi nepáči | Neutrálna hodnota |
+| 4 | Trochu sa mi nepáči | |
+| 3 | Stredne sa mi nepáči | |
+| 2 | Veľmi sa mi nepáči | |
+| 1 | Mimoriadne sa mi nepáči | Najnižšia miera obľúbenosti |
 
 ### Počet spotrebiteľov
 
@@ -71,7 +71,7 @@ Disciplína, ktorá skúma vzťah medzi **senzorickými vlastnosťami produktov*
 - **Náhodné poradie:** eliminácia efektu poradia
 - **Anonymita:** spotrebiteľi nepoznajú značku
 - **Čas:** obvykle ráno alebo poobede
-- **Zákaz korenenia:** spotrebiteľi nesmú kúriť, piť kávu 1 hodinu pred testom
+- **Obmedzenia:** nefajčiť, nejesť, nepiť kávu aspoň 1 hodinu pred testom
 
 ## Preference Mapping
 
@@ -136,7 +136,9 @@ Kde:
 
 ### Výpočet
 
-$$TURF = \sum (Reach_i \times Frequency_i)$$
+$$\text{Reach}(S) = \frac{\#\{\text{spotrebitelia, ktorí akceptujú} \geq 1 \text{ položku z } S\}}{n}$$
+
+Optimum = kombinácia s max. Reach; pri zhode rozhoduje Frequency (priemerný počet akceptovaných položiek).
 
 ## JAR škála a Penalty Analysis
 
@@ -149,7 +151,7 @@ graph TD
     A[Atribút hodnotený] --> B{Práve správny?}
     B -->|Áno| C[JAR - žiadny penalty]
     B -->|Nie| D[Príliš nízka alebo príliš vysoká]
-    D --> E[Penalty = Priemer-JAR - Priemer-nie-JAR]
+    D --> E[Pokles = liking JAR - liking nie JAR]
 ```
 
 ### Výpočet penalty
@@ -158,9 +160,9 @@ $$\text{Penalty} = \text{Priemer(JAR)} - \text{Priemer(nie JAR)}$$
 
 | Kategória | Popis | Penalty |
 |-----------|-------|---------|
-| Príliš nízka | Atribút je príliš slabý | Záporný |
+| Príliš nízka | Atribút je príliš slabý | Kladný pokles oproti JAR |
 | JAR | Atribút je práve správny | 0 |
-| Príliš vysoká | Atribút je príliš intenzívny | Záporný |
+| Príliš vysoká | Atribút je príliš intenzívny | Kladný pokles oproti JAR |
 
 ## Purchase Intent
 
@@ -278,11 +280,11 @@ graph TD
 
 | Metrika | Hodnota |
 |---------|---------|
-| Priemerné hodnotenie | 7.2 (Dobre) |
+| Priemerné hodnotenie | 7.2 (stredne – veľmi sa mi páči) |
 | % s hodnotením ≥ 7 | 65% |
 | Purchase Intent (4+5) | 58% |
 
-**Záver:** Produkt má dobré vyhladienia, odporúča sa spustiť na trh.
+**Záver:** Produkt má dobrú celkovú obľúbenosť; o uvedení na trh rozhodnúť porovnaním s benchmarkom.
 
 ## Praktický príklad 2: Optimalizácia cukru v nápoji
 
@@ -292,14 +294,14 @@ graph TD
 
 **Výsledky:**
 
-| Úroveň | Penalty | Interpretácia |
-|--------|---------|---------------|
-| 1 | -1.2 | Príliš sladké |
-| 2 | -0.3 | Mierne sladké |
-| 3 | 0.0 | JAR (optimálna) |
-| 4 | -0.8 | Nesladké |
+| Úroveň | % málo sladké | % JAR | % príliš sladké | Obľúbenosť |
+|--------|---|---|---|---|
+| L1 | 62 | 33 | 5 | 5.6 |
+| L2 | 35 | 58 | 7 | 6.4 |
+| L3 | 12 | 74 | 14 | 7.1 |
+| L4 | 4 | 41 | 55 | 6.2 |
 
-**Záver:** Úroveň 3 je optimálna, penalty je najnižšia.
+**Záver:** L3 má najviac JAR odpovedí aj najvyššiu obľúbenosť; žiadna skupina mimo JAR nepresahuje 20 % (ilustračné dáta).
 
 ## Praktický príklad 3: Segmentácia trhu čokolády
 
@@ -335,3 +337,25 @@ Výber správnej metódy závisí od:
 - Lawless, H.T. & Heymann, H. (2010). *Sensory Evaluation of Food: Principles and Practices*. Springer.
 - Stone, H. & Sidel, J.L. (2004). *Sensory Evaluation Practices*. Elsevier.
 - Green, P.E. & Rao, V.R. (1971). *Conjoint Measurement for Quantifying Judgmental Data*. JMR.
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Hedonické testy – ANOVA, Friedman | [5b – Porovnanie viacerých vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) |
+| PCA (preferenčné mapovanie) | [7 – PCA a faktorová analýza](https://senzorika.github.io/SaIT/teoria/cvicenie07.html) |
+| Segmentácia spotrebiteľov | [8 – Zhluková analýza](https://senzorika.github.io/SaIT/teoria/cvicenie08.html) |
+| Korešpondenčná analýza | [9 – Korešpondenčná analýza](https://senzorika.github.io/SaIT/teoria/cvicenie09.html) |
+| TURF, mapa preferencií | [11a – TURF analýza a mapa preferencií](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html) |
+| Text mining recenzií | [11b – Text mining a analýza sentimentu](https://senzorika.github.io/SaIT/teoria/cvicenie11b.html) |
+| JAR a penalty analýza | [12 – JAR škála a radarový graf](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) |
+| CATA so spotrebiteľmi | [17 – CATA a napping](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) |
+| Prípadová štúdia: preferencie a JAR | [20 – Kontrolné prípadové štúdie II](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) |
+
+Prednášky: [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../overenie/overenie_zdrojov.md).
+:::

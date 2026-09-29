@@ -555,7 +555,8 @@
                 <li><a href="#metody">Metódy</a></li>
                 <li><a href="#porovnanie">Porovnanie</a></li>
                 <li><a href="#príklady">Príklady</a></li>
-            </ul>
+            <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
         </div>
     </nav>
 
@@ -596,13 +597,12 @@
                     <tr><th>Obdobie</th><th>Vývoj</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>1940s</td><td>Prvé systematické pokusy o deskriptívnu analýzu v USDA</td></tr>
-                    <tr><td>1950s</td><td>Vývoj Flavor Profile Method (Arthur D. Little)</td></tr>
-                    <tr><td>1970s</td><td>Vznik Quantitative Descriptive Analysis (QDA) – Stone et al.</td></tr>
-                    <tr><td>1980s</td><td>Texture Profile Method (Brandt et al.)</td></tr>
-                    <tr><td>1990s</td><td>Spectrum Method – standardizované slovníky</td></tr>
-                    <tr><td>2000s</td><td>Free Choice Profiling, Flash Profile</td></tr>
-                    <tr><td>2010s</td><td>CATA, TDS, TCATA – dynamické metódy</td></tr>
+                    <tr><td>koniec 1940s</td><td>Flavor Profile Method (Arthur D. Little; Cairncross &amp; Sjöström, 1950)</td></tr>
+                    <tr><td>1963</td><td>Texture Profile Method (Brandt, Skinner &amp; Coleman; Szczesniak – General Foods)</td></tr>
+                    <tr><td>1974</td><td>Quantitative Descriptive Analysis (QDA) – Stone, Sidel et al.</td></tr>
+                    <tr><td>1980s</td><td>Spectrum Method (Civille; Meilgaard, Civille &amp; Carr) · Free Choice Profiling (Williams &amp; Langron, 1984)</td></tr>
+                    <tr><td>2000s</td><td>Flash Profile (2002) · CATA (~2007) · TDS (Pineau et al., 2009)</td></tr>
+                    <tr><td>2010s</td><td>TCATA (Castura et al., 2016) a ďalšie rýchle a dynamické metódy</td></tr>
                 </tbody>
             </table>
         </section>
@@ -610,14 +610,14 @@
         <section id="qda">
             <h2><span class="icon">2</span> Quantitative Descriptive Analysis (QDA)</h2>
             <div class="card">
-                <p>QDA bola vyvinutá Haroldom Stoneom a jeho kolegami na začiatku 70. rokov. Metóda je založená na princípe, že skúsení panelisti dokážu nezávisle identifikovať a kvantifikovať absolútné intenzity senzorických atribútov na numerickej škále.</p>
+                <p>QDA bola vyvinutá Herbertom Stoneom a jeho kolegami (Stone et al., 1974). Metóda je založená na princípe, že trénovaní panelisti dokážu nezávisle a opakovateľne kvantifikovať <strong>relatívne rozdiely</strong> v intenzite atribútov medzi produktmi; rozdiely v používaní škály rieši štatistická analýza.</p>
             </div>
 
             <div class="callout callout-info">
                 <div class="callout-icon">i</div>
                 <div class="callout-content">
                     <h4>Parametre QDA</h4>
-                    <p><strong>8–12</strong> trénovaných panelistov | <strong>60–90 hodín</strong> trénu v priebehu 3–6 mesiacov | Pravidelná certifikácia citlivosti a reprodukovateľnosti</p>
+                    <p><strong>8–12</strong> trénovaných panelistov | tréning rádovo <strong>10–20 hodín</strong> (niekoľko týždňov) | Pravidelné monitorovanie výkonnosti (ISO 11132)</p>
                 </div>
             </div>
 
@@ -659,7 +659,7 @@
 
             <h3>Škálovanie</h3>
             <div class="card">
-                <p>QDA používa <strong>lineárnu škálu</strong> (typicky 15-bodovú alebo 100 mm VAS – Visual Analog Scale):</p>
+                <p>QDA používa <strong>nestrukturovanú lineárnu škálu</strong> (~15 cm, kotvy ~1,25 cm od okrajov); hodnota sa odčíta ako vzdialenosť, napr. 0–15:</p>
                 <div class="scale-visual">
                     <span>0 – Neprítomné</span>
                     <span>5</span>
@@ -675,7 +675,7 @@
                     <p>Analýza rozptylu s faktormi: produkt, panelista, interakcia produkt × panelista</p>
                     <div class="formula-label">Zdroje variability</div>
                     <div class="formula">
-                        F = MS_efekt / MS_chyba
+                        F(produkt) = MS_produkt / MS_produkt×panelista<br>(panelista = náhodný efekt; test proti MS_chyba nadhodnocuje významnosť)
                     </div>
                 </div>
                 <div class="card">
@@ -701,7 +701,7 @@
                 <div class="cons">
                     <h5>Nevýhody</h5>
                     <ul>
-                        <li>Dlhý tréning panelistov</li>
+                        <li>Tréning a udržiavanie panelu</li>
                         <li>Náročné na čas a finančné zdroje</li>
                         <li>Vyžaduje skúsených panelistov</li>
                         <li>Kultúrny bias panelistov</li>
@@ -713,7 +713,7 @@
         <section id="spectrum">
             <h2><span class="icon">3</span> Spectrum Method</h2>
             <div class="card">
-                <p>Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille, ktorá používa <strong>štandardizované slovníky</strong> pre každú senzorickú dimenziu. Každý atribút má definovanú škálu s referenčnými bodmi.</p>
+                <p>Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille, ktorá používa <strong>štandardizované lexikóny</strong> a <strong>univerzálnu škálu 0–15</strong> ukotvenú referenčnými vzorkami, aby boli intenzity porovnateľné medzi atribútmi, produktmi aj laboratóriami. Tréning je dlhý (často mesiace).</p>
             </div>
 
             <h3>Štandardizované slovníky</h3>
@@ -722,9 +722,9 @@
                     <tr><th>Dimenzia</th><th>Príklad atribútov</th><th>Referenčné štandardy</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Vôňa</td><td>kvetinová, ovocná, orechová, korenenová</td><td>Etapy, vanilín, citrónová kyselina</td></tr>
-                    <tr><td>Chuť</td><td>sladká, kyslá, slaná, horká, umami</td><td>Sacharóz, kyselina citrónová, NaCl, kofeín, MSG</td></tr>
-                    <tr><td>Textúra</td><td>krémová, tuhá, vláčna, chrumkavá</td><td>Nátierky, želatín, karamel</td></tr>
+                    <tr><td>Vôňa</td><td>kvetinová, ovocná, orechová, korenistá</td><td>Referenčné látky a produkty (napr. vanilín, citral)</td></tr>
+                    <tr><td>Chuť</td><td>sladká, kyslá, slaná, horká, umami</td><td>Roztoky sacharózy, kyseliny citrónovej, NaCl, kofeínu, MSG</td></tr>
+                    <tr><td>Textúra</td><td>tvrdosť, súdržnosť, lepivosť, chrumkavosť</td><td>Referenčné potraviny na škále</td></tr>
                     <tr><td>Vizuálna</td><td>farba, lesk, homogenita</td><td>Farebné štandardy, fotky</td></tr>
                 </tbody>
             </table>
@@ -751,7 +751,7 @@
                     <text x="550" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Vysoká</text>
                     <text x="670" y="290" text-anchor="middle" font-size="10" fill="#5A5A72">Nízka</text>
                 </svg>
-                <p class="svg-title">Srovnanie jednotlivých metód podľa typu a náročnosti</p>
+                <p class="svg-title">Porovnanie jednotlivých metód podľa typu a náročnosti (ilustračné)</p>
             </div>
         </section>
 
@@ -760,7 +760,7 @@
 
             <h3>Flash Profile</h3>
             <div class="card">
-                <p>Flash Profile je <strong>rýchla deskriptívna metóda</strong>, ktorá kombinuje princípy FCP s priamym porovnaním produktov. Panelisti hodnotia všetky produkty naraz a generujú vlastné deskriptory.</p>
+                <p>Flash Profile (Dairou &amp; Sieffermann, 2002) je <strong>rýchla deskriptívna metóda</strong>, ktorá kombinuje princípy FCP s priamym porovnaním produktov. Panelisti dostanú všetky produkty naraz, vytvoria vlastné deskriptory a podľa každého produkty <strong>zoradia</strong>.</p>
                 <div class="callout callout-tip">
                     <div class="callout-icon">→</div>
                     <div class="callout-content">
@@ -772,16 +772,17 @@
 
             <h3>CATA – Check-All-That-Apply</h3>
             <div class="card">
-                <p>CATA je <strong>kvalitatívna metóda</strong>, kde spotrebiteľi označia všetky deskriptory, ktoré podľa nich charakterizujú produkt.</p>
+                <p>CATA je metóda, kde spotrebitelia označia všetky deskriptory, ktoré podľa nich charakterizujú produkt (binárne dáta → frekvencie).</p>
                 <div class="formula-label">Výpočet frekvencií</div>
                 <div class="formula">Frekvencia (%) = (Počet označení / Počet respondentov) × 100</div>
-                <div class="formula-label">Chi-square test</div>
-                <div class="formula">χ² = Σ (O - E)² / E</div>
+                <div class="formula-label">Cochranov Q test (závislé binárne dáta)</div>
+                <div class="formula">Q = (k − 1)·[k·Σ C_j² − N²] / [k·N − Σ R_i²] ~ χ²(k − 1)</div>
+                <p>Každý respondent hodnotí všetky produkty, preto sa nepoužíva obyčajný χ² test nezávislosti. Mapu produktov a deskriptorov poskytne korešpondenčná analýza.</p>
             </div>
 
             <h3>TDS – Temporal Dominance of Sensations</h3>
             <div class="card">
-                <p>TDS je <strong>dynamická metóda</strong>, ktorá sleduje dominantné senzorické vjemy v čase počas spotreby produktu.</p>
+                <p>TDS (Pineau et al., 2009) je <strong>dynamická metóda</strong>, ktorá sleduje dominantné senzorické vnemy v čase. V každom okamihu je dominantný len jeden atribút, preto súčet mier dominancie ≤ 100 %. Úroveň náhody je P₀ = 1/k (k = počet atribútov) a hranica významnosti P_s = P₀ + 1.645·√(P₀(1 − P₀)/n).</p>
             </div>
 
             <div class="svg-container">
@@ -791,15 +792,17 @@
                     <line x1="80" y1="280" x2="650" y2="280" stroke="#DDD" stroke-width="1"/>
                     <text x="40" y="170" text-anchor="middle" font-size="11" fill="#5A5A72" transform="rotate(-90, 40, 170)">Pravdepodobnosť dominancie</text>
                     <text x="365" y="310" text-anchor="middle" font-size="11" fill="#5A5A72">Čas (s)</text>
-                    <polyline points="80,260 150,240 220,180 290,120 360,80 430,100 500,150 570,200 640,230" fill="none" stroke="#6C3FC0" stroke-width="3" stroke-linecap="round"/>
-                    <polyline points="80,270 150,265 220,250 290,220 360,180 430,140 500,120 570,130 640,160" fill="none" stroke="#2E86AB" stroke-width="3" stroke-linecap="round"/>
-                    <polyline points="80,275 150,272 220,265 290,255 360,240 430,220 500,200 570,190 640,185" fill="none" stroke="#F18F01" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="360" cy="80" r="5" fill="#6C3FC0"/>
-                    <text x="370" y="75" font-size="10" fill="#6C3FC0" font-weight="600">Sladkosť</text>
-                    <circle cx="500" cy="120" r="5" fill="#2E86AB"/>
-                    <text x="510" y="115" font-size="10" fill="#2E86AB" font-weight="600">Horkosť</text>
-                    <circle cx="640" cy="185" r="5" fill="#F18F01"/>
-                    <text x="600" y="175" font-size="10" fill="#F18F01" font-weight="600">Horká chuť</text>
+                    <polyline points="80,192 108,157 136,142 164,157 192,192 220,229 248,257 276,271 304,277 332,279 360,280 388,280 416,280 444,280 472,280 500,280 528,280 556,280 584,280 612,280 640,280" fill="none" stroke="#6C3FC0" stroke-width="3" stroke-linecap="round"/>
+                    <polyline points="80,280 108,279 136,276 164,269 192,256 220,233 248,204 276,175 304,156 332,156 360,175 388,204 416,233 444,256 472,269 500,276 528,279 556,280 584,280 612,280 640,280" fill="none" stroke="#2E86AB" stroke-width="3" stroke-linecap="round"/>
+                    <polyline points="80,280 108,280 136,280 164,280 192,280 220,280 248,280 276,280 304,279 332,277 360,272 388,263 416,248 444,227 472,202 500,180 528,167 556,167 584,180 612,202 640,227" fill="none" stroke="#F18F01" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="80" y1="230" x2="650" y2="230" stroke="#c62828" stroke-width="1" stroke-dasharray="5,5"/>
+                    <text x="645" y="225" text-anchor="end" font-size="9" fill="#c62828">P_s (k = 8, n = 36)</text>
+                    <circle cx="136" cy="142" r="5" fill="#6C3FC0"/>
+                    <text x="146" y="137" font-size="10" fill="#6C3FC0" font-weight="600">Sladkosť</text>
+                    <circle cx="318" cy="154" r="5" fill="#2E86AB"/>
+                    <text x="328" y="148" font-size="10" fill="#2E86AB" font-weight="600">Horkosť</text>
+                    <circle cx="542" cy="165" r="5" fill="#F18F01"/>
+                    <text x="552" y="160" font-size="10" fill="#F18F01" font-weight="600">Trpkosť</text>
                     <line x1="80" y1="280" x2="650" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="4"/>
                     <text x="80" y="295" text-anchor="middle" font-size="9" fill="#999">0</text>
                     <text x="220" y="295" text-anchor="middle" font-size="9" fill="#999">10</text>
@@ -812,7 +815,7 @@
 
             <h3>TCATA – Temporal CATA</h3>
             <div class="card">
-                <p>TCATA je <strong>dynamická verzia CATA</strong>. Spotrebiteľi v priebehu spotreby označujú všetky atribúty, ktoré v danom okamihu vnímajú.</p>
+                <p>TCATA (Castura et al., 2016) je <strong>dynamická verzia CATA</strong>. Hodnotitelia v priebehu konzumácie označujú a odznačujú všetky atribúty, ktoré v danom okamihu vnímajú; produkty sa v každom čase porovnávajú testami podielov.</p>
             </div>
 
             <div class="svg-container">
@@ -839,7 +842,7 @@
                     <text x="300" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#4A2899">CATA Dotazník – Príklad</text>
                     <text x="300" y="55" text-anchor="middle" font-size="11" fill="#5A5A72">Označte všetky vlastnosti, ktoré podľa vás charakterizujú produkt:</text>
                     <rect x="80" y="80" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
-                    <text x="100" y="105" font-size="12" fill="#2D2D3A">Krémosa</text>
+                    <text x="100" y="105" font-size="12" fill="#2D2D3A">Krémová</text>
                     <rect x="460" y="88" width="24" height="24" rx="4" fill="#6C3FC0"/>
                     <text x="472" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓</text>
                     <rect x="80" y="130" width="440" height="40" rx="8" fill="#F8F6FC" stroke="#E0D8F0"/>
@@ -875,12 +878,12 @@
                     <polygon points="365,97 357,93 357,101" fill="#9B6DD7"/>
                     <rect x="370" y="70" width="130" height="55" rx="10" fill="#F18F01"/>
                     <text x="435" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Hodnotenie</text>
-                    <text x="435" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">na škále</text>
+                    <text x="435" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">zoradenie (ranking)</text>
                     <line x1="500" y1="97" x2="530" y2="97" stroke="#9B6DD7" stroke-width="2"/>
                     <polygon points="530,97 522,93 522,101" fill="#9B6DD7"/>
                     <rect x="535" y="70" width="130" height="55" rx="10" fill="#9B6DD7"/>
                     <text x="600" y="95" text-anchor="middle" fill="white" font-size="12" font-weight="600">Analýza</text>
-                    <text x="600" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">MDS / GPA</text>
+                    <text x="600" y="112" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">GPA / MFA</text>
                 </svg>
                 <p class="svg-title">Flash Profile – proces od prezentácie po analýzu</p>
             </div>
@@ -898,10 +901,10 @@
                     <tr><td><strong>Flavor Profile</strong></td><td>Kval-kvant</td><td>Stredný</td><td>Nízky</td><td>Nízka</td><td>Stredná</td><td>Rýchly screening</td></tr>
                     <tr><td><strong>Texture Profile</strong></td><td>Kvantitatívna</td><td>Vysoký</td><td>Vysoký</td><td>Vysoká</td><td>Vysoká</td><td>Textúra produktov</td></tr>
                     <tr><td><strong>Free Choice</strong></td><td>Kvantitatívna</td><td>Nízky</td><td>Stredný</td><td>Stredná</td><td>Nízka</td><td>Nové kategórie</td></tr>
-                    <tr><td><strong>Flash Profile</strong></td><td>Kvantitatívna</td><td>Nízky</td><td>Nízky</td><td>Stredná</td><td>Nízka</td><td>Screening</td></tr>
-                    <tr><td><strong>CATA</strong></td><td>Kvalitatívna</td><td>Žiadny</td><td>Nízky</td><td>Stredná</td><td>Stredná</td><td>Spotrebiteľské testy</td></tr>
-                    <tr><td><strong>TDS</strong></td><td>Kvantitatívna</td><td>Stredný</td><td>Stredný</td><td>Vysoká</td><td>Vysoká</td><td>Dynamické produkty</td></tr>
-                    <tr><td><strong>TCATA</strong></td><td>Kvalitatívna</td><td>Žiadny</td><td>Stredný</td><td>Stredná</td><td>Stredná</td><td>Dynamické produkty</td></tr>
+                    <tr><td><strong>Flash Profile</strong></td><td>Poradová</td><td>Nízky</td><td>Nízky</td><td>Stredná</td><td>Nízka</td><td>Screening</td></tr>
+                    <tr><td><strong>CATA</strong></td><td>Binárna (frekvencie)</td><td>Žiadny</td><td>Nízky</td><td>Stredná</td><td>Stredná</td><td>Spotrebiteľské testy</td></tr>
+                    <tr><td><strong>TDS</strong></td><td>Binárna v čase</td><td>Stredný</td><td>Stredný</td><td>Stredná</td><td>Stredná</td><td>Dynamické produkty</td></tr>
+                    <tr><td><strong>TCATA</strong></td><td>Binárna v čase</td><td>Nízky–stredný</td><td>Stredný</td><td>Stredná</td><td>Stredná</td><td>Dynamické produkty</td></tr>
                 </tbody>
             </table>
 
@@ -935,7 +938,7 @@
             <h2><span class="icon">6</span> Praktické príklady</h2>
 
             <div class="card">
-                <h3>Príklad 1: Výnový jogurt</h3>
+                <h3>Príklad 1: Jogurt</h3>
                 <p><strong>Cieľ:</strong> Porovnať senzorický profil 3 výrobcov jogurtov.</p>
                 <p><strong>Metóda:</strong> QDA s 10 panelistami, 15 deskriptorov.</p>
                 <ul>
@@ -947,7 +950,7 @@
                     <div class="callout-icon">✓</div>
                     <div class="callout-content">
                         <h4>Záver</h4>
-                        <p>Jogurt A je najviac krémny, Jogurt B najkyslejší.</p>
+                        <p>Jogurt A je najviac krémový, Jogurt B najkyslejší.</p>
                     </div>
                 </div>
             </div>
@@ -957,7 +960,7 @@
                 <p><strong>Cieľ:</strong> Identifikovať kľúčové deskriptory kvality čokolády.</p>
                 <p><strong>Metóda:</strong> CATA s 150 spotrebiteľmi, 20 deskriptorov.</p>
                 <ul>
-                    <li>"Krémosa" označená 78% spotrebiteľov</li>
+                    <li>"Krémová" označená 78% spotrebiteľov</li>
                     <li>"Horká chuť" označená 45% spotrebiteľov</li>
                     <li>"Orechová vôňa" označená 32% spotrebiteľov</li>
                 </ul>
@@ -965,30 +968,48 @@
                     <div class="callout-icon">✓</div>
                     <div class="callout-content">
                         <h4>Záver</h4>
-                        <p>Krémosť je najdôležitejší atribút pre spotrebiteľov.</p>
+                        <p>Krémovosť je najčastejšie označovaný deskriptor. Frekvencia však nehovorí o dôležitosti pre obľúbenosť — na to treba CATA doplniť hedonickou otázkou a urobiť penalty-lift analýzu.</p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <h3>Príklad 3: Čaj</h3>
-                <p><strong>Cieľ:</strong> Sledovať dynamiku senzorických vjemov pri spotrebi čaju.</p>
+                <p><strong>Cieľ:</strong> Sledovať dynamiku senzorických vnemov pri pití čaju.</p>
                 <p><strong>Metóda:</strong> TDS s 12 panelistami, 8 atribútov.</p>
                 <ul>
                     <li>0–10 s: dominantná sladkosť</li>
                     <li>10–25 s: dominantná horkosť</li>
-                    <li>25–40 s: dominantná horkosť + horká chuť</li>
+                    <li>25–40 s: dominantná trpkosť (adstringencia)</li>
                 </ul>
                 <div class="callout callout-warning">
                     <div class="callout-icon">!</div>
                     <div class="callout-content">
                         <h4>Záver</h4>
-                        <p>Počiatočná sladkosť sa mení na horkosť, čo môže byť negatívny signál.</p>
+                        <p>Počiatočná sladkosť prechádza do horkosti a v dochuti do trpkosti, čo môže byť negatívny signál.</p>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">ANOVA profilov, post-hoc</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">5b – Porovnanie viacerých vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R"><code>cvicenie5b.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">PCA, biplot</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie07.html">7 – PCA a faktorová analýza</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie7.R"><code>cvicenie7.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zhluková analýza produktov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie08.html">8 – Zhluková analýza</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie8.R"><code>cvicenie8.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Radarový graf (profilogram)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">12 – JAR škála a radarový graf</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie12.R"><code>cvicenie12.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Výkonnosť panelu (ISO 11132)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">15 – Výkonnosť senzorického panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie15.R"><code>cvicenie15.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely (hodnotiteľ ako náhodný efekt)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">CATA, napping</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie17.html">17 – CATA a napping</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie17.R"><code>cvicenie17.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">TDS, TCATA</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie18.html">18 – Temporálne metódy – TDS a TCATA</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie18.R"><code>cvicenie18.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html">Senzorický panel ako merací prístroj</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/05_viacrozmerne_metody.html">Vzťahy a viacrozmerné metódy</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/07_rychle_temporalne_metody.html">Rýchle a temporálne metódy</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="overenie.html">Overenie zdrojov</a>.</p>
+</section>
 
     <footer>
         <p>SAP – Senzorická Analýza Potravín | Deskriptívne profily</p>

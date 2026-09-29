@@ -373,7 +373,8 @@
             <li><a href="#qc">QC senzorika</a></li>
             <li><a href="#npd">NPD senzorika</a></li>
             <li><a href="#rychle">Rýchle metódy</a></li>
-        </ul>
+        <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
     </nav>
 
     <div class="hero">
@@ -483,28 +484,26 @@
             <table>
                 <tr><th>n</th><th>Kritická hodnota</th></tr>
                 <tr><td>18</td><td>10</td></tr>
-                <tr><td>24</td><td>12</td></tr>
+                <tr><td>24</td><td>13</td></tr>
                 <tr><td>30</td><td>15</td></tr>
-                <tr><td>36</td><td>17</td></tr>
-                <tr><td>48</td><td>21</td></tr>
-                <tr><td>60</td><td>25</td></tr>
+                <tr><td>36</td><td>18</td></tr>
+                <tr><td>48</td><td>22</td></tr>
+                <tr><td>60</td><td>27</td></tr>
             </table>
 
             <div class="pros-cons">
                 <div class="pros">
                     <h5>Výhody</h5>
                     <ul>
-                        <li>Najcitlivejší rozlišovací test</li>
-                        <li>Vyžaduje menej podávaní ako iné testy</li>
-                        <li>Dobre zavedený a široko akceptovaný</li>
+                        <li>Nevyžaduje poznať smer rozdielu</li>
+                        <li>Dobre zavedený a normalizovaný (ISO 4120:2021)</li>
                     </ul>
                 </div>
                 <div class="cons">
                     <h5>Nevýhody</h5>
                     <ul>
-                        <li>Vyžaduje trénovaných panelistov</li>
-                        <li>Môže byť náročný na pamäť</li>
-                        <li>Panelista môže byť zmätený</li>
+                        <li>Pri danom d′ nízka sila – tetrad aj 2-AFC potrebujú menej hodnotiteľov</li>
+                        <li>Môže byť náročný na pamäť a únavu (3 vzorky)</li>
                     </ul>
                 </div>
             </div>
@@ -512,11 +511,11 @@
 
         <div class="card">
             <h3>1.2 Duo-trio Test</h3>
-            <p><strong>Princíp:</strong> Panelista dostane referenčnú vzorku a dve neznáme vzorky (jedna rovná referencii, jedna odlišná). Úlohou je identifikovať vzorku, ktorá sa líši od referencie.</p>
+            <p><strong>Princíp:</strong> Panelista dostane referenčnú vzorku a dve neznáme vzorky (jedna rovná referencii, jedna odlišná). Úlohou je identifikovať vzorku <strong>zhodnú s referenciou</strong> (ISO 10399:2017).</p>
 
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">3 vzorky (1R + 2T)</span> <span class="tag">p = 1/2</span> <span class="tag">Min. 16 panelistov</span> <span class="tag">Odporúčané 24-36</span></p>
+                <p><span class="tag">3 vzorky (1R + 2T)</span> <span class="tag">p = 1/2</span> <span class="tag">≥ 24 panelistov (podľa sily testu)</span></p>
             </div>
 
             <div class="callout">
@@ -527,12 +526,12 @@
             <h4>Kritické hodnoty (α = 0.05)</h4>
             <table>
                 <tr><th>n</th><th>Kritická hodnota</th></tr>
-                <tr><td>16</td><td>11</td></tr>
-                <tr><td>24</td><td>15</td></tr>
-                <tr><td>30</td><td>18</td></tr>
-                <tr><td>36</td><td>21</td></tr>
-                <tr><td>48</td><td>27</td></tr>
-                <tr><td>60</td><td>33</td></tr>
+                <tr><td>16</td><td>12</td></tr>
+                <tr><td>24</td><td>17</td></tr>
+                <tr><td>30</td><td>20</td></tr>
+                <tr><td>36</td><td>24</td></tr>
+                <tr><td>48</td><td>31</td></tr>
+                <tr><td>60</td><td>37</td></tr>
             </table>
 
             <div class="pros-cons">
@@ -541,13 +540,13 @@
                     <ul>
                         <li>Jednoduchšie na pochopenie ako trojuholníkový test</li>
                         <li>Menej náročný na panelistov</li>
-                        <li>Vhodný pre menej zkušené panely</li>
+                        <li>Vhodný pre menej skúsené panely</li>
                     </ul>
                 </div>
                 <div class="cons">
                     <h5>Nevýhody</h5>
                     <ul>
-                        <li>Menej statisticky efektívny ako trojuholníkový test</li>
+                        <li>Pri danom d′ približne rovnako nízka sila ako trojuholník</li>
                         <li>Vyžaduje konzistentnú referenčnú vzorku</li>
                     </ul>
                 </div>
@@ -564,56 +563,58 @@
             </div>
 
             <div class="callout">
-                <div class="callout-title">Výpočet (dvojitý test)</div>
+                <div class="callout-title">Výpočet (obojstranný test, presný binomický)</div>
                 <div class="formula">H0: p = 1/2 (žiadny rozdiel)<br>H1: p ≠ 1/2 (existuje rozdiel)</div>
             </div>
 
             <table>
                 <tr><th>n</th><th>Dolná kritická</th><th>Horná kritická</th></tr>
-                <tr><td>20</td><td>6</td><td>14</td></tr>
-                <tr><td>30</td><td>10</td><td>20</td></tr>
+                <tr><td>20</td><td>5</td><td>15</td></tr>
+                <tr><td>30</td><td>9</td><td>21</td></tr>
                 <tr><td>40</td><td>13</td><td>27</td></tr>
-                <tr><td>50</td><td>16</td><td>34</td></tr>
-                <tr><td>60</td><td>19</td><td>41</td></tr>
+                <tr><td>50</td><td>17</td><td>33</td></tr>
+                <tr><td>60</td><td>21</td><td>39</td></tr>
             </table>
         </div>
 
         <div class="card">
             <h3>1.4 "A" - "nie A" Test</h3>
-            <p><strong>Princíp:</strong> Panelista dostane vzorku a rozhodne, či podobá vzorke "A" alebo nie.</p>
+            <p><strong>Princíp:</strong> Panelista sa oboznámi so vzorkou "A" a potom pri vzorkách A aj „nie A" rozhoduje, či ide o "A" alebo nie (ISO 8588:2017).</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">1 vzorka + referencia</span> <span class="tag">p = 1/2</span> <span class="tag">Min. 16 panelistov</span></p>
+                <p><span class="tag">1 vzorka naraz</span> <span class="tag">Vyhodnotenie: χ² / McNemar (tabuľka 2 × 2)</span> <span class="tag">d′ = z(H) − z(F)</span></p>
             </div>
+            <p>⚠️ Nie binomický test s p = 1/2 — pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa.</p>
         </div>
 
         <div class="card">
             <h3>1.5 Test rovnakosti (Same-Different Test)</h3>
-            <p><strong>Princíp:</strong> Panelista dostane dve vzorky a rozhodne, či sú rovnaké alebo odlišné.</p>
+            <p><strong>Princíp:</strong> Panelista dostane rovnaký (AA, BB) alebo odlišný (AB, BA) pár a rozhodne, či sú vzorky rovnaké alebo odlišné.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">2 vzorky</span> <span class="tag">p = 1/2</span> <span class="tag">Min. 16 panelistov</span></p>
+                <p><span class="tag">2 vzorky</span> <span class="tag">Vyhodnotenie: χ² (podiel „odlišné" pri odlišných vs. rovnakých pároch)</span> <span class="tag">≥ 30 panelistov</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>1.6 Tetrad Test</h3>
-            <p><strong>Princíp:</strong> Panelista dostane štyri vzorky, z ktorých sú dve rovnaké a dve odlišné. Úlohou je rozdeliť ich do dvoch skupín po dvoch.</p>
+            <p><strong>Princíp:</strong> Panelista dostane štyri vzorky — dve A a dve B — a rozdelí ich do dvoch skupín rovnakých vzoriek (ASTM E3009).</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">4 vzorky</span> <span class="tag">p = 1/3</span> <span class="tag">Min. 24 panelistov</span> <span class="tag">Odporúčané 36-48</span></p>
+                <p><span class="tag">4 vzorky</span> <span class="tag">p = 1/3</span> <span class="tag">Kritické hodnoty ako pri trojuholníku</span> <span class="tag">Pri rovnakom d′ ~⅓ hodnotiteľov oproti trojuholníku</span></p>
             </div>
         </div>
 
         <h3>1.7 Kedy použiť ktorý test</h3>
         <table>
             <tr><th>Kritérium</th><th>Trojuholníkový</th><th>Duo-trio</th><th>Párový</th><th>A-nie A</th><th>Rovnakosti</th><th>Tetrad</th></tr>
-            <tr><td>Citlivosť</td><td>Vysoká</td><td>Stredná</td><td>Nízka</td><td>Nízka</td><td>Nízka</td><td>Vysoká</td></tr>
+            <tr><td>Sila pri danom d′</td><td>Nízka</td><td>Nízka</td><td>Vysoká (známy atribút)</td><td>Stredná</td><td>Nízka–stredná</td><td>Stredná</td></tr>
             <tr><td>Náročnosť na panelistov</td><td>Vysoká</td><td>Stredná</td><td>Nízka</td><td>Nízka</td><td>Nízka</td><td>Vysoká</td></tr>
             <tr><td>Rýchlosť</td><td>Stredná</td><td>Stredná</td><td>Vysoká</td><td>Vysoká</td><td>Vysoká</td><td>Stredná</td></tr>
-            <tr><td>Vhodnosť pre screening</td><td>Nie</td><td>Nie</td><td>Áno</td><td>Áno</td><td>Áno</td><td>Nie</td></tr>
+            <tr><td>Vhodnosť pre screening</td><td>Obmedzene</td><td>Obmedzene</td><td>Áno</td><td>Áno</td><td>Áno</td><td>Obmedzene</td></tr>
             <tr><td>Vhodnosť pre referenciu</td><td>Nie</td><td>Áno</td><td>Nie</td><td>Áno</td><td>Nie</td><td>Nie</td></tr>
-            <tr><td>Počet podávaní</td><td>6</td><td>6</td><td>2</td><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>Vzorky na jeden pokus</td><td>3</td><td>3</td><td>2</td><td>1</td><td>2</td><td>4</td></tr>
+            <tr><td>Vyhodnotenie</td><td>binom. p₀ = 1/3</td><td>binom. p₀ = 1/2</td><td>binom. p₀ = 1/2</td><td>χ² / McNemar</td><td>χ² / McNemar</td><td>binom. p₀ = 1/3</td></tr>
         </table>
 
         <h2 id="deskriptivne">2. Deskriptívne metódy (Descriptive methods)</h2>
@@ -624,7 +625,7 @@
 
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">8-12 panelistov</span> <span class="tag">60-90 hodín tréningu</span> <span class="tag">10-30 atribútov</span> <span class="tag">Lineárna škála (15 cm)</span></p>
+                <p><span class="tag">8-12 panelistov</span> <span class="tag">~10-20 hodín tréningu</span> <span class="tag">10-30 atribútov</span> <span class="tag">Nestrukturovaná lineárna škála (~15 cm)</span></p>
             </div>
 
             <div class="svg-container">
@@ -662,7 +663,7 @@
 
             <div class="callout">
                 <div class="callout-title">Výpočet</div>
-                <div class="formula">Priemer: x̄ = Σxi / n<br>Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))<br>95% CI: x̄ ± t(0.025, n-1) × s/√n<br><br>ANOVA: F = MS_atribút / MS_chyba</div>
+                <div class="formula">Priemer: x̄ = Σxi / n<br>Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))<br>95% CI: x̄ ± t(0.025, n-1) × s/√n<br><br>ANOVA (hodnotiteľ = náhodný efekt):<br>F(produkt) = MS_produkt / MS_produkt×hodnotiteľ</div>
             </div>
 
             <div class="pros-cons">
@@ -687,28 +688,28 @@
 
         <div class="card">
             <h3>2.2 Spectrum Method</h3>
-            <p><strong>Princíp:</strong> Podobný ako QDA, ale používa sa štandardizovaná slovníka a intenzitná škála.</p>
+            <p><strong>Princíp:</strong> Podobný ako QDA, ale používa štandardizované lexikóny a univerzálnu škálu 0–15 ukotvenú referenčnými vzorkami.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">8-12 panelistov</span> <span class="tag">60-90 hodín tréningu</span> <span class="tag">Štandardizovaný slovník (ASTM)</span></p>
+                <p><span class="tag">8-12 panelistov</span> <span class="tag">často 100+ hodín tréningu</span> <span class="tag">Škála 0–15 s referenciami</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>2.3 Flavor Profile Method</h3>
-            <p><strong>Princíp:</strong> Panelisti identifikujú a kvantifikujú chuťové atribúty pomocou špecifického slovníka.</p>
+            <p><strong>Princíp:</strong> Malý panel expertov popíše vôňu a chuť (zložky, poradie, intenzitu, dochuť) a dospeje ku konsenzuálnemu profilu (Arthur D. Little, koniec 40. rokov).</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">4-6 panelistov</span> <span class="tag">40-60 hodín tréningu</span> <span class="tag">4-bodová škála</span></p>
+                <p><span class="tag">4-6 panelistov</span> <span class="tag">Dlhodobý výcvik expertov</span> <span class="tag">Škála )( / 1 / 2 / 3</span> <span class="tag">Konsenzus</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>2.4 Texture Profile Method</h3>
-            <p><strong>Princíp:</strong> Panelisti hodnotia textúrne atribúty pomocou štandardizovaného slovníka.</p>
+            <p><strong>Princíp:</strong> Hodnotenie mechanických, geometrických a ďalších textúrnych vlastností v poradí, ako sa objavujú (Brandt, Skinner &amp; Coleman, 1963; ISO 11036:2020).</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">8-12 panelistov</span> <span class="tag">60-90 hodín tréningu</span> <span class="tag">Lineárna škála (15 cm)</span></p>
+                <p><span class="tag">8-12 panelistov</span> <span class="tag">Dlhý tréning</span> <span class="tag">Referenčné škály</span></p>
             </div>
         </div>
 
@@ -717,16 +718,16 @@
             <p><strong>Princíp:</strong> Panelisti používajú vlastné deskriptory na hodnotenie produktov.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">Neobmedzené atribúty</span></p>
+                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">Neobmedzené atribúty</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>2.6 Flash Profile</h3>
-            <p><strong>Princíp:</strong> Panelisti porovnávajú produkty a generujú deskriptory v reálnom čase.</p>
+            <p><strong>Princíp:</strong> Panelisti dostanú všetky produkty naraz, vytvoria vlastné deskriptory a podľa každého produkty zoradia (Dairou &amp; Sieffermann, 2002); analýza GPA/MFA.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">Vlastná škála</span></p>
+                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">Poradia (ranking)</span></p>
             </div>
         </div>
 
@@ -736,7 +737,7 @@
 
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">50-100 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">20-40 atribútov</span> <span class="tag">Binárna (áno/nie)</span></p>
+                <p><span class="tag">50-100 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">20-40 atribútov</span> <span class="tag">Binárna (áno/nie)</span></p>
             </div>
 
             <div class="svg-container">
@@ -782,7 +783,7 @@
 
             <div class="callout">
                 <div class="callout-title">Výpočet</div>
-                <div class="formula">Frekvencia výberu: f_i = (počet výberov deskriptoru i) / n × 100<br><br>Chi-square test: χ² = Σ (O_i - E_i)² / E_i</div>
+                <div class="formula">Frekvencia výberu: f_i = (počet výberov deskriptoru i) / n × 100<br><br>Rozdiely medzi produktmi: Cochranov Q test (závislé binárne dáta),<br>párovo McNemar; mapa: korešpondenčná analýza</div>
             </div>
         </div>
 
@@ -821,31 +822,32 @@
                     <line x1="60" y1="125" x2="560" y2="125" stroke="#e0e0e0" stroke-width="1"/>
                     <line x1="60" y1="75" x2="560" y2="75" stroke="#e0e0e0" stroke-width="1"/>
 
-                    <polyline points="60,240 100,235 140,220 180,190 220,150 260,110 300,80 340,60 380,50 420,45 460,42 500,40 560,40" fill="none" stroke="#0d7377" stroke-width="3"/>
-                    <polyline points="60,245 100,240 140,230 180,210 220,180 260,150 300,120 340,100 380,85 420,75 460,70 500,68 560,65" fill="none" stroke="#1a9850" stroke-width="3"/>
-                    <polyline points="60,248 100,245 140,240 180,230 220,215 260,200 300,185 340,170 380,160 420,155 460,150 500,148 560,145" fill="none" stroke="#f9a825" stroke-width="3"/>
+                    <polyline points="60,185 85,154 110,129 135,120 160,129 185,154 210,185 235,212 260,231 285,242 310,247 335,249 360,250 385,250 410,250 435,250 460,250 485,250 510,250 535,250 560,250" fill="none" stroke="#0d7377" stroke-width="3"/>
+                    <polyline points="60,250 85,249 110,248 135,243 160,235 185,219 210,198 235,173 260,153 285,145 310,153 335,173 360,198 385,219 410,235 435,243 460,248 485,249 510,250 535,250 560,250" fill="none" stroke="#1a9850" stroke-width="3"/>
+                    <polyline points="60,250 85,250 110,250 135,250 160,250 185,250 210,250 235,249 260,247 285,244 310,237 335,225 360,208 385,188 410,169 435,158 460,156 485,166 510,184 535,204 560,222" fill="none" stroke="#f9a825" stroke-width="3"/>
 
-                    <line x1="60" y1="215" x2="560" y2="215" stroke="#c62828" stroke-width="1" stroke-dasharray="5,5"/>
-                    <text x="555" y="210" text-anchor="end" fill="#c62828" font-size="8">P_chance</text>
+                    <line x1="60" y1="190" x2="560" y2="190" stroke="#c62828" stroke-width="1" stroke-dasharray="5,5"/>
+                    <text x="555" y="185" text-anchor="end" fill="#c62828" font-size="8">P_s (k = 5 atribútov, n = 60)</text>
 
-                    <circle cx="300" cy="80" r="4" fill="#0d7377"/>
-                    <text x="310" y="75" fill="#0d7377" font-size="9">Sladkosť</text>
-                    <circle cx="380" cy="85" r="4" fill="#1a9850"/>
-                    <text x="390" y="80" fill="#1a9850" font-size="9">Kyslosť</text>
-                    <circle cx="460" cy="150" r="4" fill="#f9a825"/>
-                    <text x="470" y="145" fill="#f9a825" font-size="9">Ovocnosť</text>
+                    <circle cx="135" cy="120" r="4" fill="#0d7377"/>
+                    <text x="145" y="115" fill="#0d7377" font-size="9">Sladkosť</text>
+                    <circle cx="285" cy="145" r="4" fill="#1a9850"/>
+                    <text x="295" y="140" fill="#1a9850" font-size="9">Kyslosť</text>
+                    <circle cx="450" cy="156" r="4" fill="#f9a825"/>
+                    <text x="460" y="150" fill="#f9a825" font-size="9">Ovocnosť</text>
+                    <text x="310" y="22" text-anchor="middle" fill="#666" font-size="9">Súčet mier dominancie v každom čase ≤ 100 % (v jednom okamihu je dominantný len jeden atribút)</text>
                 </svg>
             </div>
 
             <div class="callout">
                 <div class="callout-title">Výpočet</div>
-                <div class="formula">TDS krivka: % panelistov vyberajúcich atribút i v čase t<br><br>Signifikantnosť:<br>P_h0 = 1/m (m = počet atribútov)<br>P_chance = 1/m + 1.645 × √((1/m) × (1-1/m) / n)<br>Ak % > P_chance → atribút je signifikantne dominantný</div>
+                <div class="formula">TDS krivka: % panelistov vyberajúcich atribút i v čase t<br><br>Signifikantnosť:<br>P_h0 = 1/m (m = počet atribútov)<br>P_s = 1/m + 1.645 × √((1/m) × (1-1/m) / n)  (n = počet hodnotení)<br>Ak % > P_s → atribút je signifikantne dominantný (Pineau et al., 2009)</div>
             </div>
         </div>
 
         <div class="card">
             <h3>2.9 Temporal Check-All-That-Apply (TCATA)</h3>
-            <p><strong>Princíp:</strong> Panelista sleduje všetky aktívne senzorické atribúty v čase.</p>
+            <p><strong>Princíp:</strong> Panelista sleduje všetky aktívne senzorické atribúty v čase (Castura et al., 2016). Produkty sa v každom čase porovnávajú testami podielov (Fisher/McNemar); úroveň náhody 1/m sa tu nepoužíva.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
                 <p><span class="tag">10-15 panelistov</span> <span class="tag">20-30 hodín tréningu</span> <span class="tag">5-10 atribútov</span> <span class="tag">Binárna (aktívny/nie)</span></p>
@@ -883,9 +885,9 @@
                     <h4>TDS dáta</h4>
                     <ul>
                         <li>TDS krivky pre každý atribút</li>
-                        <li>Signifikantnosť: % > P_chance</li>
-                        <li>TDS tabuľka: sekvencia dominantných atribútov</li>
-                        <li>Štatistická analýza: chi-square test</li>
+                        <li>Signifikantnosť: % > P_s</li>
+                        <li>Rozdielové krivky medzi produktmi, TDS pásy</li>
+                        <li>Trajektórie v priestore CA</li>
                     </ul>
                 </div>
             </div>
@@ -908,7 +910,7 @@
 
         <div class="card">
             <h3>4.2 Preference Mapping</h3>
-            <p><strong>Princíp:</strong> Kombinuje hedonicke dáta s deskriptívnymi dátami na vytvorenie preferenčných máp.</p>
+            <p><strong>Princíp:</strong> Kombinuje hedonické dáta s deskriptívnymi dátami na vytvorenie preferenčných máp. <em>Interná mapa</em>: PCA na matici produkty × spotrebitelia (spotrebitelia ako vektory). <em>Externá mapa</em>: obľúbenosť spotrebiteľov sa regresiou modeluje v senzorickom priestore produktov.</p>
         </div>
 
         <div class="card">
@@ -918,7 +920,7 @@
 
         <div class="card">
             <h3>4.4 TURF Analysis</h3>
-            <p><strong>Princíp:</strong> Identifikuje optimálnu kombináciu produktov pre maximalizáciu pokrytia trhu.</p>
+            <p><strong>Princíp:</strong> Identifikuje optimálnu kombináciu produktov pre maximalizáciu pokrytia (reach = podiel spotrebiteľov, ktorí akceptujú aspoň jednu položku kombinácie).</p>
         </div>
 
         <div class="card">
@@ -926,7 +928,7 @@
             <p><strong>Princíp:</strong> Spotrebiteľi hodnotia, či je intenzita atribútu príliš nízka, príliš vysoká, alebo práve správna.</p>
             <div class="callout">
                 <div class="callout-title">Výpočet</div>
-                <div class="formula">% JAR = (počet odpovedí "3") / n × 100<br>% Príliš nízka = (počet odpovedí "1" + "2") / n × 100<br>% Príliš vysoká = (počet odpovedí "4" + "5") / n × 100<br><br>Penalizácia:<br>Priemer liking pre "Príliš nízka" - Priemer liking pre "JAR"<br>Priemer liking pre "Príliš vysoká" - Priemer liking pre "JAR"</div>
+                <div class="formula">% JAR = (počet odpovedí "3") / n × 100<br>% Príliš nízka = (počet odpovedí "1" + "2") / n × 100<br>% Príliš vysoká = (počet odpovedí "4" + "5") / n × 100<br><br>Penalty (pokles):<br>Priemer liking "JAR" − Priemer liking "Príliš nízka"<br>Priemer liking "JAR" − Priemer liking "Príliš vysoká"<br>Vážený pokles = pokles × podiel skupiny (interpretuj skupiny ≥ 20 %)</div>
             </div>
         </div>
 
@@ -934,7 +936,7 @@
             <h3>4.6 Liking scales</h3>
             <table>
                 <tr><th>Typ škály</th><th>Počet bodov</th><th>Príklad</th></tr>
-                <tr><td>9-bodová hedonická</td><td>9</td><td>1 = výnimočne sa mi nepáči, 9 = výnimočne sa mi páči</td></tr>
+                <tr><td>9-bodová hedonická</td><td>9</td><td>1 = mimoriadne sa mi nepáči, 9 = mimoriadne sa mi páči</td></tr>
                 <tr><td>7-bodová</td><td>7</td><td>1 = veľmi sa mi nepáči, 7 = veľmi sa mi páči</td></tr>
                 <tr><td>5-bodová</td><td>5</td><td>1 = nepáči sa mi, 5 = páči sa mi</td></tr>
                 <tr><td>Semantická</td><td>5-7</td><td>Rôzne popisy</td></tr>
@@ -960,7 +962,7 @@
             <ol class="step-list">
                 <li><strong>Definícia kvalitatívnych atribútov</strong> – Identifikácia kľúčových senzorických atribútov, stanovenie akceptačných limít, vytvorenie senzorických špecifikácií</li>
                 <li><strong>Výber a tréning QC panelu</strong> – Výber 8-12 panelistov, tréning na identifikáciu atribútov, tréning na používanie škál</li>
-                <li><strong>Vytvorecie protokolov</strong> – Štandardné operačné postupy (SOP), frekvencia testovania, dokumentácia</li>
+                <li><strong>Vytvorenie protokolov</strong> – Štandardné operačné postupy (SOP), frekvencia testovania, dokumentácia</li>
                 <li><strong>Implementácia</strong> – Integrovanie do produkčného procesu, monitorovanie a reporting, prijímanie opatrení</li>
             </ol>
         </div>
@@ -1021,7 +1023,7 @@
 
             <div class="callout">
                 <div class="callout-title">Kontrolný graf</div>
-                <div class="formula">UCL = x̄ + 3σ<br>CL = x̄<br>LCL = x̄ - 3σ</div>
+                <div class="formula">UCL = x̿ + 3σ/√n<br>CL = x̿<br>LCL = x̿ − 3σ/√n<br><br>n = počet hodnotení v jednom bode grafu (pre jednotlivé hodnoty n = 1)</div>
             </div>
         </div>
 
@@ -1095,7 +1097,7 @@
             <p><strong>Princíp:</strong> Porovnanie nového produktu s existujúcimi produktmi na trhu.</p>
             <div class="callout">
                 <div class="callout-title">Výpočet podobnosti</div>
-                <div class="formula">Podobnosť = 1 - (Σ|xi - yi|) / n<br><br>Kde:<br>xi = intenzita atribútu i v novom produkte<br>yi = intenzita atribútu i v benchmark produkte</div>
+                <div class="formula">Podobnosť = 1 - (Σ|xi - yi|) / (n · R)<br><br>Kde:<br>xi = intenzita atribútu i v novom produkte<br>yi = intenzita atribútu i v benchmark produkte<br>n = počet atribútov, R = rozsah škály</div>
             </div>
         </div>
 
@@ -1113,7 +1115,7 @@
             <p><strong>Princíp:</strong> Stanovenie trvanlivosti produktu senzorickými metódami.</p>
             <div class="callout">
                 <div class="callout-title">Model</div>
-                <div class="formula">y = β0 + β1×t + β2×t²<br><br>Kde:<br>y = senzorická hodnota<br>t = čas<br>β = koeficienty<br><br>Trvanlivosť: čas, kedy y = prahová hodnota</div>
+                <div class="formula">y = β0 + β1×t + β2×t²<br><br>Kde:<br>y = senzorická hodnota<br>t = čas<br>β = koeficienty<br><br>Trvanlivosť: čas, kedy y = prahová hodnota<br><br>Alternatíva: analýza prežitia odmietnutí spotrebiteľmi (Hough, 2010; ISO 16779:2015)</div>
             </div>
         </div>
 
@@ -1121,8 +1123,9 @@
             <h3>6.5 Claim substantiation</h3>
             <table>
                 <tr><th>Typ</th><th>Príklad</th><th>Metóda</th></tr>
-                <tr><td>Absolútne</td><td>"Najsladší"</td><td>Porovnanie s konkurenciou</td></tr>
-                <tr><td>Relatívne</td><td>"Sladší ako"</td><td>Rozlišovacie testy</td></tr>
+                <tr><td>Nadradenosť</td><td>"Najsladší"</td><td>Porovnanie so všetkými relevantnými konkurentmi</td></tr>
+                <tr><td>Porovnávacie</td><td>"Sladší ako X"</td><td>Smerový párový test (2-AFC)</td></tr>
+                <tr><td>Parita</td><td>"Chutí rovnako"</td><td>Test podobnosti / ekvivalencie</td></tr>
                 <tr><td>Deskriptívne</td><td>"Má intenzívnu chuť"</td><td>Deskriptívna analýza</td></tr>
                 <tr><td>Spotrebiteľské</td><td>"Spotrebiteľi ho preferujú"</td><td>Spotrebiteľské testy</td></tr>
             </table>
@@ -1133,7 +1136,7 @@
             <p><strong>Princíp:</strong> Identifikácia možností zníženia nákladov bez zníženia kvality.</p>
             <div class="callout">
                 <div class="callout-title">Výpočet</div>
-                <div class="formula">Rozdiel v kvalite = |x_nový - x_pôvodný|<br><br>Ak rozdiel < prahová hodnota → zníženie nákladov je prijateľné</div>
+                <div class="formula">Cieľom je preukázať PODOBNOSŤ:<br>test podobnosti s vopred zvoleným p_d a β, alebo TOST na škálových dátach<br><br>Nevýznamný rozdiel pri malom n NIE JE dôkazom podobnosti.</div>
             </div>
         </div>
 
@@ -1149,7 +1152,7 @@
             <p><strong>Princíp:</strong> Panelisti porovnávajú produkty a generujú deskriptory v reálnom čase.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">Neobmedzené atribúty</span></p>
+                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">Neobmedzené atribúty</span></p>
             </div>
         </div>
 
@@ -1158,34 +1161,34 @@
             <p><strong>Princíp:</strong> Panelista vyberie všetky deskriptory, ktoré sa vzťahujú k produktu.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">50-100 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">20-40 atribútov</span></p>
+                <p><span class="tag">50-100 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">20-40 atribútov</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>7.3 Sorting</h3>
-            <p><strong>Princíp:</strong> Panelisti triedia produkty podľa senzorického podobnosti.</p>
+            <p><strong>Princíp:</strong> Panelisti triedia produkty do skupín podľa senzorickej podobnosti; analýza matice spoločného výskytu (MDS, DISTATIS, MCA).</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">10-20 produktov</span></p>
+                <p><span class="tag">15-50 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">10-20 produktov</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>7.4 Napping</h3>
-            <p><strong>Princíp:</strong> Panelisti umiestnia produkty na podlahe podľa senzorického podobnosti.</p>
+            <p><strong>Princíp:</strong> Panelisti umiestnia produkty na hárok papiera (~60 × 40 cm) tak, aby vzdialenosť zodpovedala odlišnosti (Pagès, 2005); analýza MFA.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">10-20 produktov</span></p>
+                <p><span class="tag">15-30 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">6-15 produktov</span></p>
             </div>
         </div>
 
         <div class="card">
             <h3>7.5 Ultra Flash Profile</h3>
-            <p><strong>Princíp:</strong> Kombinácia Flash Profile a CATA.</p>
+            <p><strong>Princíp:</strong> Napping doplnený o voľné deskriptory k produktom (Perrin et al., 2008); analýza MFA.</p>
             <div class="info-card">
                 <h4>Špecifikácie</h4>
-                <p><span class="tag">10-15 panelistov</span> <span class="tag">Minimálna tréning</span> <span class="tag">20-40 atribútov</span></p>
+                <p><span class="tag">10-30 panelistov</span> <span class="tag">Minimálny tréning</span> <span class="tag">Voľné deskriptory</span></p>
             </div>
         </div>
 
@@ -1196,7 +1199,7 @@
             <tr><td>Identifikácia rozdielov</td><td>CATA</td><td>Jednoduchý</td></tr>
             <tr><td>Triedenie produktov</td><td>Sorting</td><td>Rýchly</td></tr>
             <tr><td>Vizualizácia podobnosti</td><td>Napping</td><td>Intuitívny</td></tr>
-            <tr><td>Komplexný screening</td><td>Ultra Flash Profile</td><td>Rýchly a podrobný</td></tr>
+            <tr><td>Mapa podobnosti s popisom</td><td>Ultra Flash Profile</td><td>Napping + deskriptory</td></tr>
         </table>
 
         <h2>8. Záver</h2>
@@ -1206,11 +1209,36 @@
                 <li>Cieľa testovania (rozlišovanie vs. deskripcia vs. prijatie)</li>
                 <li>Typu produktu a atribútov</li>
                 <li>Dostupných zdrojov (čas, personál, financie)</li>
-                <li>Požadovanej štatististickej sily</li>
+                <li>Požadovanej štatistickej sily</li>
             </ul>
-            <p style="margin-top: 15px;">Dôležité je dodržať princípy dobrej senzorickéj praxie (GSP) a zabezpečiť kvalifikáciu a tréning panelistov v súlade s ISO 8586:2012.</p>
+            <p style="margin-top: 15px;">Dôležité je dodržať princípy dobrej senzorickej praxe (GSP) a zabezpečiť kvalifikáciu a tréning panelistov v súlade s ISO 8586:2023.</p>
         </div>
     </div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Rozlišovacie testy – binomický test, χ², McNemar</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">5a – Normalita a porovnanie dvoch vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R"><code>cvicenie5a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Hedonické testy, QDA – ANOVA, post-hoc</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05b.html">5b – Porovnanie viacerých vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R"><code>cvicenie5b.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Neúplné bloky</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">5d – Durbinov test a neúplné bloky</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5d.R"><code>cvicenie5d.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">PCA deskriptívnych profilov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie07.html">7 – PCA a faktorová analýza</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie7.R"><code>cvicenie7.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Segmentácia</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie08.html">8 – Zhluková analýza</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie8.R"><code>cvicenie8.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Korešpondenčná analýza (CATA)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie09.html">9 – Korešpondenčná analýza</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie9.R"><code>cvicenie9.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Shelf-life – analýza prežitia</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">10 – Analýza prežitia a senzorická trvanlivosť</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie10.R"><code>cvicenie10.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">TURF, preferenčná mapa</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie11a.html">11a – TURF analýza a mapa preferencií</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie11a.R"><code>cvicenie11a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">JAR a penalty analýza</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">12 – JAR škála a radarový graf</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie12.R"><code>cvicenie12.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Thurstonov d′, test podobnosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Sila testu</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Výkonnosť panelu</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">15 – Výkonnosť senzorického panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie15.R"><code>cvicenie15.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">CATA, napping</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie17.html">17 – CATA a napping</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie17.R"><code>cvicenie17.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">TDS, TCATA</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie18.html">18 – Temporálne metódy – TDS a TCATA</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie18.R"><code>cvicenie18.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html">Rozlišovacie testy a Thurstonov model</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/05_viacrozmerne_metody.html">Vzťahy a viacrozmerné metódy</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html">Spotrebiteľský výskum</a> · <a href="https://senzorika.github.io/SaIT/prezentacie/sk/07_rychle_temporalne_metody.html">Rýchle a temporálne metódy</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="overenie.html">Overenie zdrojov</a>.</p>
+</section>
 
     <footer>
         <p>Senzorická analýza potravín | SAP Repository</p>

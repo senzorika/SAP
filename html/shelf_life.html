@@ -321,7 +321,8 @@
             <li><a href="#priklady">Príklady</a></li>
             <li><a href="#interpretacia">Interpretácia</a></li>
             <li><a href="#zdroje">Zdroje</a></li>
-        </ul>
+        <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
     </div>
 </nav>
 
@@ -385,16 +386,16 @@
         <h2>2. Metódy na stanovenie shelf-life</h2>
 
         <h3>2.1 Kaplan-Meierov odhad</h3>
-        <p><strong>Princíp:</strong> Non-parametrická metóda na odhad prežívacej funkcie z časových dát. V kontexte shelf-life sa používa na odhad pravdepodobnosti, že produkt zostáva akceptovateľný v danom čase.</p>
+        <p><strong>Princíp:</strong> Neparametrická metóda na odhad prežívacej funkcie. V senzorickej trvanlivosti (Hough, 2010) je „udalosťou" <strong>odmietnutie produktu spotrebiteľom</strong> a S(t) je pravdepodobnosť, že spotrebiteľ produkt skladovaný čas t ešte akceptuje. Keďže presný čas odmietnutia nepoznáme (intervalovo cenzurované dáta), Hough odporúča parametrický odhad (Weibull, log-normálne rozdelenie); KM je zjednodušenie na prvý pohľad. Norma: ISO 16779:2015. Precvič v R: <a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">SaIT cvičenie 10</a>.</p>
 
         <div class="callout">
             <div class="callout-title">Vzorec Kaplan-Meierovho odhadu</div>
             <div class="formula-box">S(t) = ∏(1 - dᵢ/nᵢ)  pre tᵢ ≤ t
 
 Kde:
-• S(t) = pravdepodobnosť preživania (akceptovateľnosti) v čase t
-• dᵢ = počet "udalostí" (zamietnutí) v čase tᵢ
-• nᵢ = počet "rizikových" (testovaných) v čase tᵢ</div>
+• S(t) = pravdepodobnosť, že spotrebiteľ produkt skladovaný čas t akceptuje
+• dᵢ = počet prvých odmietnutí v čase tᵢ
+• nᵢ = počet spotrebiteľov „v riziku" (ešte neodmietli) v čase tᵢ</div>
         </div>
 
         <div class="svg-container">
@@ -426,22 +427,18 @@ Kde:
                 <line x1="60" y1="120" x2="560" y2="120" stroke="#eee" stroke-width="1"/>
                 <line x1="60" y1="60" x2="560" y2="60" stroke="#eee" stroke-width="1"/>
                 <!-- KM Curve (step function) -->
-                <polyline points="60,40 100,40 100,52 140,52 140,70 180,70 180,95 220,95 220,130 260,130 260,170 300,170 300,210 340,210 340,250 380,250 380,275 420,275 420,290 460,290 460,298"
+                <polyline points="60,40 130,40 130,50 200,50 200,76 270,76 270,118 340,118 340,170 410,170 410,232 480,232 480,274 540,274"
                     fill="none" stroke="#e65100" stroke-width="2.5"/>
                 <!-- Median line -->
                 <line x1="60" y1="170" x2="560" y2="170" stroke="#1565c0" stroke-width="1" stroke-dasharray="5,5"/>
                 <text x="555" y="165" text-anchor="end" font-size="10" fill="#1565c0">Medián (S=0.5)</text>
                 <!-- Data points -->
-                <circle cx="100" cy="52" r="3" fill="#e65100"/>
-                <circle cx="140" cy="70" r="3" fill="#e65100"/>
-                <circle cx="180" cy="95" r="3" fill="#e65100"/>
-                <circle cx="220" cy="130" r="3" fill="#e65100"/>
-                <circle cx="260" cy="170" r="3" fill="#e65100"/>
-                <circle cx="300" cy="210" r="3" fill="#e65100"/>
-                <circle cx="340" cy="250" r="3" fill="#e65100"/>
-                <circle cx="380" cy="275" r="3" fill="#e65100"/>
-                <circle cx="420" cy="290" r="3" fill="#e65100"/>
-                <circle cx="460" cy="298" r="3" fill="#e65100"/>
+                <circle cx="130" cy="50" r="3" fill="#e65100"/>
+                <circle cx="200" cy="76" r="3" fill="#e65100"/>
+                <circle cx="270" cy="118" r="3" fill="#e65100"/>
+                <circle cx="340" cy="170" r="3" fill="#e65100"/>
+                <circle cx="410" cy="232" r="3" fill="#e65100"/>
+                <circle cx="480" cy="274" r="3" fill="#e65100"/>
             </svg>
         </div>
 
@@ -481,7 +478,7 @@ Kde:
         <div class="svg-container">
             <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
                 <rect width="600" height="350" fill="#fff"/>
-                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Weibullova distribúcia — rôzne hodnoty β</text>
+                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Weibull — podiel akceptujúcich S(t) = 1 − F(t) pre rôzne β</text>
                 <!-- Axes -->
                 <line x1="60" y1="300" x2="560" y2="300" stroke="#333" stroke-width="1.5"/>
                 <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
@@ -489,7 +486,7 @@ Kde:
                 <text x="50" y="305" text-anchor="end" font-size="11" fill="#666">0</text>
                 <text x="50" y="170" text-anchor="end" font-size="11" fill="#666">0.5</text>
                 <text x="50" y="45" text-anchor="end" font-size="11" fill="#666">1.0</text>
-                <text x="20" y="170" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90, 20, 170)">F(t)</text>
+                <text x="20" y="170" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-90, 20, 170)">S(t)</text>
                 <!-- X axis -->
                 <text x="60" y="320" text-anchor="middle" font-size="11" fill="#666">0</text>
                 <text x="185" y="320" text-anchor="middle" font-size="11" fill="#666">5</text>
@@ -509,23 +506,23 @@ Kde:
                 <!-- Legend -->
                 <rect x="380" y="50" width="170" height="70" fill="#fff" stroke="#ddd" rx="4"/>
                 <line x1="390" y1="65" x2="420" y2="65" stroke="#c62828" stroke-width="2.5"/>
-                <text x="425" y="69" font-size="11" fill="#333">β &lt; 1 (ranná smrteľnosť)</text>
+                <text x="425" y="69" font-size="11" fill="#333">β &lt; 1 (klesajúci hazard)</text>
                 <line x1="390" y1="85" x2="420" y2="85" stroke="#1565c0" stroke-width="2.5"/>
-                <text x="425" y="89" font-size="11" fill="#333">β = 1 (konštantná)</text>
+                <text x="425" y="89" font-size="11" fill="#333">β = 1 (konštantný hazard)</text>
                 <line x1="390" y1="105" x2="420" y2="105" stroke="#2e7d32" stroke-width="2.5"/>
-                <text x="425" y="109" font-size="11" fill="#333">β &gt; 1 (starnutie)</text>
+                <text x="425" y="109" font-size="11" fill="#333">β &gt; 1 (rastúci hazard)</text>
             </svg>
         </div>
 
         <h4>Interpretácia β</h4>
         <table>
             <thead>
-                <tr><th>β</th><th>Typ degradácie</th><th>Príklad</th></tr>
+                <tr><th>β</th><th>Tvar hazardu</th><th>Význam pri senzorickej trvanlivosti</th></tr>
             </thead>
             <tbody>
-                <tr><td><span class="tag tag-red">β &lt; 1</span></td><td>Ranná smrteľnosť</td><td>Chlieb (rýchle stárnutie na začiatku)</td></tr>
-                <tr><td><span class="tag tag-blue">β = 1</span></td><td>Konštantná hazard</td><td>Nápoje (konštantná rýchlosť degradácie)</td></tr>
-                <tr><td><span class="tag tag-green">β &gt; 1</span></td><td>Starnutie</td><td>Mliečne výrobky (rastúca rýchlosť degradácie)</td></tr>
+                <tr><td><span class="tag tag-red">β &lt; 1</span></td><td>Klesajúci</td><td>Časť spotrebiteľov odmieta produkt hneď od začiatku</td></tr>
+                <tr><td><span class="tag tag-blue">β = 1</span></td><td>Konštantný</td><td>Odmietnutia rovnomerne v čase</td></tr>
+                <tr><td><span class="tag tag-green">β &gt; 1</span></td><td>Rastúci</td><td>Typické – odmietnutí pribúda so starnutím produktu</td></tr>
             </tbody>
         </table>
 
@@ -539,7 +536,10 @@ Kde:
 Kde T₂ = T₁ + 10°C
 
 Vzťah:
-Shelf-life(T₂) = Shelf-life(T₁) / Q10^((T₁-T₂)/10)</div>
+Shelf-life(T₂) = Shelf-life(T₁) / Q10^((T₂ − T₁)/10)
+
+ln Q10 = 10·Ea / (R·T·(T+10))   (T v K)
+Pozor: starnutie chleba (retrogradácia) nie je arrheniovské.</div>
         </div>
 
         <div class="callout">
@@ -550,7 +550,7 @@ Kde:
 • k = rýchlostná konštanta degradácie
 • A = preexponenciálny faktor
 • Ea = energia aktivácie (J/mol)
-• R = univerzálná plynová konštanta (8.314 J/(mol·K))
+• R = univerzálna plynová konštanta (8.314 J/(mol·K))
 • T = absolútna teplota (K)</div>
         </div>
 
@@ -581,15 +581,15 @@ Kde:
                 <line x1="80" y1="120" x2="560" y2="120" stroke="#eee" stroke-width="1"/>
                 <line x1="80" y1="60" x2="560" y2="60" stroke="#eee" stroke-width="1"/>
                 <!-- Linear fit line -->
-                <line x1="100" y1="270" x2="540" y2="60" stroke="#e65100" stroke-width="2.5"/>
+                <line x1="100" y1="60" x2="540" y2="270" stroke="#e65100" stroke-width="2.5"/>
                 <!-- Data points -->
-                <circle cx="140" cy="245" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
-                <circle cx="220" cy="200" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
-                <circle cx="300" cy="160" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
-                <circle cx="380" cy="120" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
-                <circle cx="460" cy="85" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="140" cy="85" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="220" cy="130" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="300" cy="170" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="380" cy="210" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
+                <circle cx="460" cy="245" r="5" fill="#1565c0" stroke="#fff" stroke-width="1.5"/>
                 <!-- Slope annotation -->
-                <text x="350" y="100" font-size="11" fill="#e65100" font-weight="bold">slope = -Ea/R</text>
+                <text x="330" y="120" font-size="11" fill="#e65100" font-weight="bold">sklon = −Ea/R (záporný)</text>
             </svg>
         </div>
 
@@ -615,7 +615,7 @@ h(t|X) = h₀(t) × exp(β₁X₁ + β₂X₂ + ... + βₚXₚ)</div>
             </thead>
             <tbody>
                 <tr><td><strong>Senzorický cut-off</strong></td><td>Hodnota atribútu, pri ktorej produkt prestáva byť akceptovateľný</td><td>Deskriptívna analýza</td></tr>
-                <tr><td><strong>Spotrebiteľský cut-off</strong></td><td>% spotrebiteľov, ktorí zamietnu produkt</td><td>Spotrebiteľský test</td></tr>
+                <tr><td><strong>Spotrebiteľský cut-off</strong></td><td>Prípustný % spotrebiteľov, ktorí produkt odmietnu (napr. 25 % alebo 50 %) — rozhodnutie výrobcu</td><td>Spotrebiteľský test</td></tr>
                 <tr><td><strong>Kombinovaný cut-off</strong></td><td>Kombinácia senzorického a spotrebiteľského</td><td>Komplexné hodnotenie</td></tr>
             </tbody>
         </table>
@@ -682,7 +682,7 @@ h(t|X) = h₀(t) × exp(β₁X₁ + β₂X₂ + ... + βₚXₚ)</div>
             </thead>
             <tbody>
                 <tr><td><strong>Deskriptívna analýza</strong></td><td>8</td><td>12-15</td></tr>
-                <tr><td><strong>Spotrebiteľský test</strong></td><td>100</td><td>150-200</td></tr>
+                <tr><td><strong>Spotrebiteľský test akceptácie (analýza prežitia)</strong></td><td>~50 (Hough)</td><td>50-100</td></tr>
                 <tr><td><strong>JAR test</strong></td><td>100</td><td>150-200</td></tr>
                 <tr><td><strong>Preference test</strong></td><td>100</td><td>150-200</td></tr>
             </tbody>
@@ -721,7 +721,7 @@ h(t|X) = h₀(t) × exp(β₁X₁ + β₂X₂ + ... + βₚXₚ)</div>
                 <text x="340" y="165" text-anchor="middle" font-size="10" fill="#333">KM + Weibull</text>
 
                 <rect x="420" y="140" width="100" height="40" rx="6" fill="#fff3e0" stroke="#e65100" stroke-width="1"/>
-                <text x="470" y="165" text-anchor="middle" font-size="10" fill="#333">t₅₀, t₁₀, Q10</text>
+                <text x="470" y="165" text-anchor="middle" font-size="10" fill="#333">t₅₀, t₂₅, Q10</text>
 
                 <!-- Bottom row -->
                 <rect x="30" y="210" width="100" height="40" rx="6" fill="#fff3e0" stroke="#e65100" stroke-width="1"/>
@@ -782,7 +782,7 @@ Q10 = 180 / 60 = 3.0</div>
             </thead>
             <tbody>
                 <tr><td><strong>Mliečne výrobky</strong></td><td>2-4</td><td>Závisí od obsahu tuku</td></tr>
-                <tr><td><strong>Chlieb a pečivo</strong></td><td>1.5-2.5</td><td>Stárnutie</td></tr>
+                <tr><td><strong>Chlieb a pečivo</strong></td><td>—</td><td>Retrogradácia nie je arrheniovská (v chladničke rýchlejšia)</td></tr>
                 <tr><td><strong>Nápoje</strong></td><td>2-3</td><td>Oxidácia</td></tr>
                 <tr><td><strong>Mäso</strong></td><td>2-4</td><td>Oxidácia tuku, mikrobiologický rast</td></tr>
                 <tr><td><strong>Ovocie a zelenina</strong></td><td>2-3</td><td>Enzymatická degradácia</td></tr>
@@ -804,9 +804,9 @@ Kde:
 • T₁, T₂ = absolútne teploty (K)
 
 Príklad:
-Pri 20°C (293 K): k₁ = 0.0056 deň⁻¹
-Pri 30°C (303 K): k₂ = 0.0168 deň⁻¹
-Ea = 80.9 kJ/mol</div>
+Pri 20°C (293.15 K): k₁ = 0.0056 deň⁻¹
+Pri 30°C (303.15 K): k₂ = 0.0168 deň⁻¹
+Ea ≈ 81 kJ/mol</div>
         </div>
 
         <table>
@@ -814,11 +814,12 @@ Ea = 80.9 kJ/mol</div>
                 <tr><th>Typ reakcie</th><th>Ea (kJ/mol)</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>Oxidácia tuku</strong></td><td>60-100</td></tr>
-                <tr><td><strong>Enzymatická degradácia</strong></td><td>40-80</td></tr>
-                <tr><td><strong>Mikrobiologický rast</strong></td><td>80-120</td></tr>
-                <tr><td><strong>Stárnutie chleba</strong></td><td>100-150</td></tr>
-                <tr><td><strong>Vitamínová degradácia</strong></td><td>60-100</td></tr>
+                <tr><td><strong>Oxidácia lipidov</strong></td><td>40-100</td></tr>
+                <tr><td><strong>Enzymatické reakcie</strong></td><td>40-130</td></tr>
+                <tr><td><strong>Rast mikroorganizmov</strong></td><td>80-120 (v rozsahu rastových teplôt)</td></tr>
+                <tr><td><strong>Maillardovo hnednutie</strong></td><td>100-200</td></tr>
+                <tr><td><strong>Degradácia vitamínov</strong></td><td>40-130</td></tr>
+                <tr><td><strong>Starnutie chleba</strong></td><td>nie je arrheniovské</td></tr>
             </tbody>
         </table>
 
@@ -828,14 +829,14 @@ Ea = 80.9 kJ/mol</div>
             <div class="formula-box">Mediánova shelf-life (S(t) = 0.50):
 t₅₀ = η × (ln 2)^(1/β) = η × (0.693)^(1/β)
 
-Shelf-life pri S(t) = 0.10:
-t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
+Shelf-life pri S(t) = 0.75 (25 % odmietnutí):
+t₂₅ = η × (−ln 0.75)^(1/β) = η × (0.288)^(1/β)</div>
         </div>
 
         <h3>4.4 Ako vypočítať shelf-life z dát</h3>
         <ol>
             <li><strong>Zber dát</strong> — Zberte senzorické dáta v pravidelných časových intervaloch</li>
-            <li><strong>Výpočet prežívacej funkcie</strong> — Pre každý časový bod vypočítajte S(t) pomocou Kaplan-Meierovho odhadu</li>
+            <li><strong>Výpočet prežívacej funkcie</strong> — podiel akceptujúcich spotrebiteľov S(t) (KM, príp. intervalovo cenzurovaný model)</li>
             <li><strong>Fit Weibullovho modelu</strong> — Odhadnite parametre β a η pomocou MLE</li>
             <li><strong>Výpočet shelf-life</strong> — t₅₀ = η × (ln 2)^(1/β)</li>
             <li><strong>Extrapolácia</strong> — Použite Arrheniusov model na extrapoláciu na normálne podmienky</li>
@@ -856,7 +857,7 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
             <tbody>
                 <tr><td><strong>Časové body</strong></td><td>0, 7, 14, 21, 28, 35, 42 dní</td></tr>
                 <tr><td><strong>Počet vzoriek</strong></td><td>5 na časový bod</td></tr>
-                <tr><td><strong>Panelisti</strong></td><td>12 trénovaných</td></tr>
+                <tr><td><strong>Panelisti</strong></td><td>12 trénovaných (profil) + 60 spotrebiteľov (akceptácia)</td></tr>
                 <tr><td><strong>Opakovania</strong></td><td>3</td></tr>
                 <tr><td><strong>Atribúty</strong></td><td>Chuť, vôňa, textúra, celková akceptabilita</td></tr>
                 <tr><td><strong>Škála</strong></td><td>0-10 bodov</td></tr>
@@ -865,7 +866,7 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
 
         <table>
             <thead>
-                <tr><th>Čas (dni)</th><th>Chuť</th><th>Vôňa</th><th>Textúra</th><th>Akceptabilita (%)</th></tr>
+                <tr><th>Čas (dni)</th><th>Chuť</th><th>Vôňa</th><th>Textúra</th><th>Akceptujúci spotrebitelia (%)</th></tr>
             </thead>
             <tbody>
                 <tr><td>0</td><td>8.5</td><td>8.2</td><td>8.0</td><td>100</td></tr>
@@ -879,13 +880,13 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
         </table>
 
         <div class="highlight-box">
-            <div class="hb-title">Weibull fit: β = 2.3, η = 28.5 dní</div>
-            <p>t₅₀ = 24.8 dní | t₁₀ = 39.3 dní</p>
-            <p><strong>Záver:</strong> Shelf-life jogurtu = 25 dní (mediánová shelf-life)</p>
+            <div class="hb-title">Weibull fit: β = 2.29, η = 33.6 dní</div>
+            <p>t₅₀ = 28.6 dní | t₂₅ (25 % odmietnutí) = 19.5 dní</p>
+            <p><strong>Záver:</strong> Mediánová senzorická trvanlivosť ≈ 29 dní; pri kritériu 25 % odmietnutí ≈ 19–20 dní. (Predošlé parametre β = 2.3, η = 28.5, t₅₀ = 24.8 nezodpovedali dátam.)</p>
         </div>
 
         <h3>5.2 Shelf-life test na chlebe</h3>
-        <p><strong>Produkt:</strong> Hrubý chlieb, skladovaný pri 20°C</p>
+        <p><strong>Produkt:</strong> Chlieb, skladovaný pri 20°C</p>
 
         <table>
             <thead>
@@ -903,9 +904,9 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
         </table>
 
         <div class="highlight-box">
-            <div class="hb-title">Weibull fit: β = 1.8, η = 3.2 dní</div>
-            <p>t₅₀ = 2.6 dní | t₁₀ = 4.1 dní</p>
-            <p><strong>Záver:</strong> Shelf-life chleba = 3 dni (mediánová shelf-life)</p>
+            <div class="hb-title">Weibull fit: β = 1.60, η = 4.27 dní</div>
+            <p>t₅₀ = 3.4 dní | t₂₅ = 2.0 dni</p>
+            <p><strong>Záver:</strong> Mediánová senzorická trvanlivosť chleba ≈ 3 dni; pri 25 % odmietnutí ≈ 2 dni.</p>
         </div>
 
         <h3>5.3 Shelf-life test na nápoji</h3>
@@ -925,8 +926,8 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
         <div class="highlight-box">
             <div class="hb-title">Výpočty pre nápoj</div>
             <p>Q10 (25→35°C) = 180/60 = 3.0 | Q10 (35→45°C) = 60/20 = 3.0</p>
-            <p>Ea = 83.8 kJ/mol</p>
-            <p>Weibull fit (25°C): β = 2.0, η = 195 dní → t₅₀ = 162 dní</p>
+            <p>Ea ≈ 84 kJ/mol</p>
+            <p>Weibull fit (25°C): β = 2.0, η = 195 dní → t₅₀ = 162 dní, t₂₅ = 105 dní</p>
             <p><strong>Záver:</strong> Shelf-life nápoja = 160 dní (mediánová shelf-life pri 25°C)</p>
         </div>
     </div>
@@ -941,15 +942,16 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
                 <tr><th>Ukazovateľ</th><th>Interpretácia</th><th>Akceptačné kritérium</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>Mediánová shelf-life</strong></td><td>Čas, pri ktorom 50% produktov je stále akceptovateľných</td><td>Závisí od produktu</td></tr>
-                <tr><td><strong>t₁₀</strong></td><td>Čas, pri ktorom 10% produktov je stále akceptovateľných</td><td>Koniec shelf-life</td></tr>
-                <tr><td><strong>β (Weibull)</strong></td><td>Tvar degradácie</td><td>β &gt; 1 = starnutie</td></tr>
+                <tr><td><strong>Mediánová shelf-life (t₅₀)</strong></td><td>Čas, keď produkt odmietne 50 % spotrebiteľov</td><td>Závisí od produktu</td></tr>
+                <tr><td><strong>t₂₅</strong></td><td>Čas, keď produkt odmietne 25 % spotrebiteľov</td><td>Častá konzervatívnejšia hranica</td></tr>
+                <tr><td><strong>β (Weibull)</strong></td><td>Tvar hazardu odmietnutí</td><td>β &gt; 1 = rastúci hazard</td></tr>
                 <tr><td><strong>Q10</strong></td><td>Závislosť od teploty</td><td>Typicky 2-4</td></tr>
                 <tr><td><strong>Ea</strong></td><td>Energia aktivácie</td><td>Typicky 60-120 kJ/mol</td></tr>
             </tbody>
         </table>
 
         <h3>6.2 Ako určiť "best before" dátum</h3>
+        <p>Najprv rozlíšte typ dátumu (1169/2011, čl. 24): <strong>„spotrebujte do"</strong> určuje mikrobiologická bezpečnosť; senzorická trvanlivosť je podkladom najmä pre <strong>„spotrebujte najlepšie do"</strong>. Priamejšie je zvoliť prípustný podiel odmietnutí (napr. 25 %) a vziať t₂₅. Alternatívna firemná prax:</p>
         <ol>
             <li>Vypočítajte mediánovú shelf-life (t₅₀)</li>
             <li>Aplikujte bezpečnostný faktor (typicky 0.7-0.8)</li>
@@ -961,10 +963,10 @@ t₁₀ = η × (ln 10)^(1/β) = η × (2.303)^(1/β)</div>
                 <tr><th>Typ produktu</th><th>Odporúčaný faktor</th><th>Dôvod</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>Kľúčové potraviny</strong></td><td>0.7</td><td>Vysoká spotrebiteľská rizika</td></tr>
+                <tr><td><strong>Citlivé potraviny</strong></td><td>0.7</td><td>Vyššie riziko reklamácií</td></tr>
                 <tr><td><strong>Bežné potraviny</strong></td><td>0.8</td><td>Štandardná ochrana</td></tr>
-                <tr><td><strong>Konzervy</strong></td><td>0.9</td><td>Nízka rizika</td></tr>
-                <tr><td><strong>Mrazené výrobky</strong></td><td>0.75</td><td>Závisí od reťaznice chladenia</td></tr>
+                <tr><td><strong>Konzervy</strong></td><td>0.9</td><td>Nízke riziko (ilustračné hodnoty, nie norma)</td></tr>
+                <tr><td><strong>Mrazené výrobky</strong></td><td>0.75</td><td>Závisí od chladiaceho reťazca</td></tr>
             </tbody>
         </table>
 
@@ -986,11 +988,11 @@ Best before = 162 × 0.8 = 129.6 ≈ 129 dní</div>
                 <tr><th>Norma</th><th>Názov</th><th>Relevancia</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>ISO 16741:2015</strong></td><td>Sensory analysis — Shelf-life testing</td><td>Hlavná norma pre sensory shelf-life</td></tr>
-                <tr><td><strong>ISO 8586:2012</strong></td><td>General guidelines for assessors</td><td>Výber a tréning panelistov</td></tr>
+                <tr><td><strong>ISO 16779:2015</strong></td><td>Sensory analysis — Assessment (determination and verification) of the shelf life of foodstuffs</td><td>Hlavná norma pre sensory shelf-life</td></tr>
+                <tr><td><strong>ISO 8586:2023</strong></td><td>General guidelines for assessors</td><td>Výber a tréning panelistov</td></tr>
                 <tr><td><strong>ISO 11035:1994</strong></td><td>Identification and selection of descriptors</td><td>Deskriptívna analýza</td></tr>
                 <tr><td><strong>ISO 11136:2014</strong></td><td>General guidance for hedonic tests</td><td>Spotrebiteľské testy</td></tr>
-                <tr><td><strong>ISO 4120:2004</strong></td><td>Triangle test</td><td>Trojuholníkový test</td></tr>
+                <tr><td><strong>ISO 4120:2021</strong></td><td>Triangle test</td><td>Trojuholníkový test</td></tr>
                 <tr><td><strong>ISO 13299:2016</strong></td><td>General guidance for sensory profile</td><td>Deskriptívna analýza</td></tr>
             </tbody>
         </table>
@@ -1002,7 +1004,7 @@ Best before = 162 × 0.8 = 129.6 ≈ 129 dní</div>
             </thead>
             <tbody>
                 <tr><td>Lawless & Heymann</td><td>2010</td><td>Sensory Evaluation of Food</td><td>Springer</td></tr>
-                <tr><td>Hough, G.</td><td>2010</td><td>Sensory Shelf Life Estimation</td><td>CRC Press</td></tr>
+                <tr><td>Hough, G.</td><td>2010</td><td>Sensory Shelf Life Estimation of Food Products</td><td>CRC Press</td></tr>
                 <tr><td>Gacula & Singh</td><td>1984</td><td>Statistical Methods in Food Research</td><td>Academic Press</td></tr>
                 <tr><td>Robertson, G.L.</td><td>2012</td><td>Food Packaging: Principles and Practice</td><td>CRC Press</td></tr>
                 <tr><td>Man & Jones</td><td>2000</td><td>Shelf Life Evaluation of Foods</td><td>Aspen Publishers</td></tr>
@@ -1041,6 +1043,19 @@ Best before = 162 × 0.8 = 129.6 ≈ 129 dní</div>
     </div>
 
 </div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kaplan-Meierov odhad, cut-off bod</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">10 – Analýza prežitia a senzorická trvanlivosť</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie10.R"><code>cvicenie10.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Regresia senzorických dát v čase</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie06.html">6 – Korelácia a lineárna regresia</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie6.R"><code>cvicenie6.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prípadová štúdia senzorickej trvanlivosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie20.R"><code>cvicenie20.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html">Spotrebiteľský výskum</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="overenie.html">Overenie zdrojov</a>.</p>
+</section>
 
 <footer>
     <p>SAP — Senzorická Analýza Potravín | Verzia 1.0 | 2026</p>

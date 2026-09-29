@@ -10,14 +10,12 @@ Spotrebiteľská senzorická veda je disciplína, ktorá skúma vzťah medzi sen
 
 | Obdobie | Vývoj |
 |---------|-------|
-| 1940s | Prvé hedonické testy v armáde (US Army) |
-| 1950s | Vývoj 9-bodovej hedonické škály (Peryam & Pilgrim) |
-| 1960s | Preference Mapping – Carroll, Greenhoff |
-| 1970s | Conjoint Analysis – Green & Rao |
-| 1980s | Penalty Analysis – JAR škála |
-| 1990s | TURF Analysis, segmentácia spotrebiteľov |
-| 2000s | Online testy, automatizácia |
-| 2010s | Big data, integrácia s neurovedou |
+| 1940s | Prvé hedonické testy v armáde (US Army Quartermaster) |
+| 1957 | Publikácia 9-bodovej hedonickej škály (Peryam & Pilgrim) |
+| 1971–1972 | Conjoint Analysis (Green & Rao, 1971) · PREFMAP – preferenčné mapovanie (Carroll, 1972) |
+| 1990s | Rozšírenie preferenčného mapovania v senzorike (napr. Greenhoff & MacFie, 1994) · TURF z mediálneho plánovania do vývoja produktov |
+| 2000s | Penalty analýza JAR dát (ASTM MNL 63, 2009) · online testy |
+| 2010s | Rýchle metódy so spotrebiteľmi (CATA), big data, integrácia s neurovedou |
 
 ### Význam
 
@@ -37,21 +35,23 @@ Najpoužívanejšia škála na meranie spotrebiteľskej acceptácie:
 
 | Bod | Označenie | Popis |
 |-----|-----------|-------|
-| 9 | Výborne | Najvyššia miera obľúbenosti |
-| 8 | Veľmi dobre | |
-| 7 | Dobre | |
-| 6 | Trochu dobre | |
-| 5 | Ani dobré, ani zlé | Neutrálna hodnota |
-| 4 | Trochu zlé | |
-| 3 | Zlé | |
-| 2 | Veľmi zlé | |
-| 1 | Hrozne | Najnižšia miera obľúbenosti |
+| 9 | Mimoriadne sa mi páči | Najvyššia miera obľúbenosti |
+| 8 | Veľmi sa mi páči | |
+| 7 | Stredne sa mi páči | |
+| 6 | Trochu sa mi páči | |
+| 5 | Ani sa mi páči, ani sa mi nepáči | Neutrálna hodnota |
+| 4 | Trochu sa mi nepáči | |
+| 3 | Stredne sa mi nepáči | |
+| 2 | Veľmi sa mi nepáči | |
+| 1 | Mimoriadne sa mi nepáči | Najnižšia miera obľúbenosti |
+
+*Hedonická škála meria **obľúbenosť** („páči sa mi"), nie kvalitu („dobré/zlé") — kotvy typu „výborne/dobre" by menili význam otázky.*
 
 ### Počet spotrebiteľov
 
 | Typ testu | Odporúčaný počet | Poznámka |
 |-----------|------------------|----------|
-| Exploratórny | 50–80 | Rýchly screening |
+| Exploratórny | 50–80 | Rýchly screening (ISO 11136: aspoň ~60 na skupinu) |
 | Standardný | 100–150 | Väčšina štúdií |
 | Robustný | 200+ | Kľúčové rozhodnutia |
 | Online | 300+ | Väčšie súbory dát |
@@ -62,8 +62,10 @@ Najpoužívanejšia škála na meranie spotrebiteľskej acceptácie:
 - **Izolované kabíny:** minimalizácia rušivých vplyvov
 - **Náhodné poradie:** eliminácia efektu poradia
 - **Anonymita:** spotrebiteľi nepoznajú značku
-- **Čas:** obvykle ráno alebo poobede
-- **Zákaz korenenia:** spotrebiteľi nesmú kúriť, piť kávu 1 hodinu pred testom
+- **Čas:** mimo obdobia bezprostredne po jedle
+- **Obmedzenia pred testom:** spotrebitelia by nemali fajčiť, jesť, piť kávu ani používať výrazné parfumy aspoň 1 hodinu pred testom
+
+> 🧪 **Precvič v R ([SaIT](https://github.com/senzorika/SaIT)):** porovnanie hedonických hodnotení viacerých produktov — [cvičenie 5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) · kompletný postup od importu dát — [cvičenie 5c](https://senzorika.github.io/SaIT/teoria/cvicenie05c.html)
 
 ### Výpočet prijatia
 
@@ -91,6 +93,11 @@ Kde hodnotenie_i je hodnotenie i-teho spotrebiteľa a n je počet spotrebiteľov
 ### Princíp
 
 Preference Mapping je technika, ktorá kombinuje **senzorické dáta** (z trénovaných panelov) s **hedonickými dátami** (od spotrebiteľov) na vytvorenie mapy preferencií. Cieľom je identifikovať optimálne senzorické vlastnosti pre rôzne segmenty spotrebiteľov.
+
+- **Interná mapa (MDPREF):** PCA na matici produkty × spotrebitelia; spotrebitelia sú vektory, senzorické atribúty sa premietnu dodatočne.
+- **Externá mapa (PREFMAP):** priestor produktov z deskriptívnej analýzy; obľúbenosť každého spotrebiteľa sa v ňom modeluje regresiou (vektorový alebo ideálny-bod model).
+
+> 🧪 **SaIT:** mapa preferencií — [cvičenie 11a](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html) · PCA — [cvičenie 7](https://senzorika.github.io/SaIT/teoria/cvicenie07.html)
 
 ### PCA (Analýza hlavných zložiek)
 
@@ -132,7 +139,7 @@ Celkový užitek = Σ part-worth utility pre každú úroveň atribútu
 
 ### Výpočet
 
-Conjoint Analysis sa zvyčajne počíta pomocou **hierarchickej Bayesovej (HB) analýzy**:
+Ratingový conjoint sa počíta regresiou (OLS) na úrovni respondenta; výberový (choice-based) conjoint multinomickým logitom, často s **hierarchickým Bayesovým (HB)** odhadom individuálnych užitočností:
 
 ```
 U(x) = Σ β_j × x_j
@@ -158,24 +165,28 @@ Kde:
 
 ### Princíp
 
-TURF (Total Unduplicated Reach and Frequency) Analysis je optimalizačná technika, ktorá identifikuje kombináciu produktov, ktorá **maximálny dosiahne čo najväčší počet spotrebiteľov** s minimálnou redundanciou.
+TURF (Total Unduplicated Reach and Frequency) Analysis je optimalizačná technika, ktorá identifikuje kombináciu produktov, ktorá **osloví čo najväčší počet spotrebiteľov** s minimálnou redundanciou.
 
 ### Reach a frequency
 
-- **Reach:** Percento spotrebiteľov, ktorí aspoň jeden produkt z kombinácie preferujú
-- **Frequency:** Priemerný počet produktov z kombinácie, ktoré spotrebiteľ preferuje
+- **Reach:** Percento spotrebiteľov, ktorí akceptujú aspoň jeden produkt z kombinácie
+- **Frequency:** Priemerný počet produktov z kombinácie, ktoré spotrebiteľ akceptuje
 
 ### Výpočet
 
-TURF sa vypočíta iteračne:
-
 ```
-TURF = Σ (Reach_i × Frequency_i)
+1. Pre každého spotrebiteľa a produkt: akceptuje (1) / neakceptuje (0),
+   napr. hedonické skóre ≥ 7 alebo "určite/pravdepodobne kúpim"
+2. Pre každú kombináciu S veľkosti k:
+   Reach(S) = podiel spotrebiteľov s aspoň jednou 1 v kombinácii S
+   Frequency(S) = priemerný počet 1 v kombinácii S
+3. Optimum = kombinácia s najvyšším Reach (pri zhode rozhoduje Frequency);
+   pri veľkom počte kombinácií sa používa greedy (postupné pridávanie) algoritmus
 ```
 
-Kde:
-- Reach_i = percento spotrebiteľov preferujúcich produkt i
-- Frequency_i = priemerný počet produktov preferovaných spotrebiteľmi, ktorí preferujú produkt i
+(Predošlá verzia uvádzala vzorec „TURF = Σ Reach_i × Frequency_i", ktorý nezodpovedá metóde — reach kombinácie nie je súčtom reach jednotlivých produktov.)
+
+> 🧪 **SaIT:** TURF analýza — [cvičenie 11a](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html)
 
 ### Výhody a nevýhody
 
@@ -198,14 +209,19 @@ JAR (Just About Right) škála meria, či je intenzita atribútu **príliš vyso
 Penalty sa vypočíta ako:
 
 ```
-Penalty = Priemer(JAR) - Priemer(nie JAR)
+Penalty (pokles) = Priemer liking(JAR) − Priemer liking(nie JAR)
+Vážený pokles   = Penalty × podiel respondentov v skupine
 ```
 
-| Kategória | Popis | Penalty |
+| Kategória | Popis | Penalty (pokles obľúbenosti) |
 |-----------|-------|---------|
-| Príliš nízka | Atribút je príliš slabý | Záporný |
-| JAR | Atribút je práve správny | 0 |
-| Príliš vysoká | Atribút je príliš intenzívny | Záporný |
+| Príliš nízka | Atribút je príliš slabý | Kladné číslo = o koľko bodov je obľúbenosť nižšia než pri JAR |
+| JAR | Atribút je práve správny | referencia |
+| Príliš vysoká | Atribút je príliš intenzívny | Kladné číslo = o koľko bodov je obľúbenosť nižšia než pri JAR |
+
+Interpretujú sa zvyčajne len skupiny s ≥ 20 % respondentov.
+
+> 🧪 **SaIT:** [cvičenie 12](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) (JAR a penalty analýza) · [cvičenie 20](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) (prípadová štúdia preferencie a JAR)
 
 ### Výhody a nevýhody
 
@@ -257,10 +273,12 @@ Kde:
 
 ### Latent class analysis
 
-Latent class analysis je **modelová prístup** k segmentácii, ktorý:
+Latent class analysis je **modelový prístup** k segmentácii, ktorý:
 - Identifikuje latentné (skryté) triedy spotrebiteľov
 - Poskytuje pravdepodobnosti príslušnosti ku triedam
 - Umožňuje zahrnuť kovariáty (demografia, správanie)
+
+> 🧪 **SaIT:** hierarchické zhlukovanie (Ward) a k-means — [cvičenie 8](https://senzorika.github.io/SaIT/teoria/cvicenie08.html)
 
 ### Výhody a nevýhody
 
@@ -366,25 +384,28 @@ Latent class analysis je **modelová prístup** k segmentácii, ktorý:
 **Metóda:** Hedonická škála s 120 spotrebiteľmi.
 
 **Výsledky:**
-- Priemerné hodnotenie: 7.2 (Dobre)
+- Priemerné hodnotenie: 7.2 (medzi „stredne" a „veľmi sa mi páči")
 - 65% spotrebiteľov hodnotí 7 alebo vyššie
 - Purchase Intent: 58% (4 alebo 5)
 
-**Záver:** Produkt má dobrý vzhľad, odporúča sa spustiť na trh.
+**Záver:** Produkt má dobrú celkovú obľúbenosť. Rozhodnutie o uvedení na trh by malo vychádzať z porovnania s benchmarkom (napr. lídrom kategórie testovaným v tom istom teste), nie z absolútnej hodnoty priemeru.
 
 ### Príklad 2: Optimalizácia cukru v nápoji
 
 **Cieľ:** Nájsť optimálnu úroveň sladkosti.
 
-**Metóda:** JAR škála s 150 spotrebiteľmi, 4 úrovne cukru.
+**Metóda:** JAR škála sladkosti + celková obľúbenosť, 150 spotrebiteľov, 4 úrovne cukru (L1 najnižšia → L4 najvyššia).
 
 **Výsledky:**
-- Úroveň 1: Penalty -1.2 (príliš sladké)
-- Úroveň 2: Penalty -0.3 (mierne sladké)
-- Úroveň 3: Penalty 0.0 (JAR)
-- Úroveň 4: Penalty -0.8 (nesladké)
 
-**Záver:** Úroveň 3 je optimálna, penalty je najnižšia.
+| Úroveň | % málo sladké | % JAR | % príliš sladké | Priemerná obľúbenosť |
+|---|---|---|---|---|
+| L1 | 62 | 33 | 5 | 5.6 |
+| L2 | 35 | 58 | 7 | 6.4 |
+| L3 | 12 | 74 | 14 | 7.1 |
+| L4 | 4 | 41 | 55 | 6.2 |
+
+**Záver:** Úroveň L3 má najvyšší podiel JAR odpovedí aj najvyššiu obľúbenosť a žiadna skupina mimo JAR nepresahuje 20 %. Pri L1/L2 penalizuje „málo sladké", pri L4 „príliš sladké". (Ilustračné dáta; predošlá verzia priraďovala „penalty" celým úrovniam cukru, čo nezodpovedá metóde.)
 
 ### Príklad 3: Segmentácia trhu čokolády
 
@@ -398,3 +419,25 @@ Latent class analysis je **modelová prístup** k segmentácii, ktorý:
 - Segment 3 (25%): Preferuje čokoládu s orechmi
 
 **Záver:** Tri odlišné segmenty s rôznymi preferenciami, odporúča sa cielená marketingová stratégia.
+
+---
+
+## 13. Prepojenie s praktickými cvičeniami v R (SaIT)
+
+| Téma | Cvičenie [SaIT](https://github.com/senzorika/SaIT) | Skript |
+|---|---|---|
+| Hedonické testy – ANOVA, Friedman | [5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html), [5c](https://senzorika.github.io/SaIT/teoria/cvicenie05c.html) | [`cvicenie5b.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R) |
+| PCA (preferenčné mapovanie) | [7](https://senzorika.github.io/SaIT/teoria/cvicenie07.html) | [`cvicenie7.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie7.R) |
+| Segmentácia (Ward, k-means) | [8](https://senzorika.github.io/SaIT/teoria/cvicenie08.html) | [`cvicenie8.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie8.R) |
+| Korešpondenčná analýza (produkty × cieľové skupiny) | [9](https://senzorika.github.io/SaIT/teoria/cvicenie09.html) | [`cvicenie9.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie9.R) |
+| TURF, mapa preferencií | [11a](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html) | [`cvicenie11a.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie11a.R) |
+| Text mining a sentiment recenzií | [11b](https://senzorika.github.io/SaIT/teoria/cvicenie11b.html) | [`cvicenie11b.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie11b.R) |
+| JAR, penalty analýza | [12](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) | [`cvicenie12.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie12.R) |
+| CATA so spotrebiteľmi | [17](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) | [`cvicenie17.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie17.R) |
+| Prípadová štúdia: preferencie a JAR | [20](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) | [`cvicenie20.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie20.R) |
+| Net Promoter Score (Shiny) | — | [`NetPromoterScore_app.R`](https://github.com/senzorika/SaIT/blob/master/Senzometricke_appky/NetPromoterScore_app.R) |
+| Prednáška | [Spotrebiteľský výskum (slajdy)](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html) | — |
+
+---
+
+*Referencie: Peryam, D.R. & Pilgrim, F.J. (1957). Food Technology 11(9), 9–14. | Green, P.E. & Rao, V.R. (1971). Conjoint measurement for quantifying judgmental data. J. Marketing Research 8, 355–363. | Carroll, J.D. (1972). Individual differences and multidimensional scaling. In: Shepard, Romney & Nerlove (Eds.), Multidimensional Scaling, Vol. 1. Seminar Press. | Rothman, L. & Parker, M.J. (2009). ASTM MNL 63. | ISO 11136:2014.*

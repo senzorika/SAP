@@ -20,16 +20,17 @@ Senzorické claims (senzorické tvrdenia) sú tvrdenia na obale alebo v reklame 
 
 **Príklady senzorických claims:**
 - "Chutí lepšie ako náš predchádzajúci produkt"
-- "O 30% menej soli"
-- "Prírodná čokoládová chuť"
-- "Bez umelých farbív"
+- "Nová receptúra, rovnaká chuť"
 - "Intenzívna kávová chuť"
+- "Jemnejšia textúra ako značka X"
+
+Súvisiace, ale **nesenzorické** tvrdenia (zloženie, výživa) — napr. „O 30 % menej cukru", „Bez umelých farbív", „Prírodná aróma" — upravujú osobitné predpisy a overujú sa analyticky alebo dokumentáciou zloženia; senzorický test ich nedokazuje. Kapitola ich uvádza, lebo sa pri reformuláciách vyskytujú spolu so senzorickými tvrdeniami.
 
 ### 1.2 Prečo sú senzorické claims dôležité?
 
 | Aspekt | Význam |
 |--------|--------|
-| **Rozhodovanie spotrebiteľa** | 70-80% nákupných rozhodnutí sa opiera o claims na obale |
+| **Rozhodovanie spotrebiteľa** | Informácie na obale ovplyvňujú výber produktu (často citované percentá typu „70–80 % rozhodnutí" nemajú overiteľný zdroj) |
 | **Diferenciácia** | Výhoda pred konkurenciou na poliach |
 | **Cena** | Produkty s overiteľnými claims môžu mať vyššiu cenu |
 | **Dôvera** | Overené claims budujú dôveru značky |
@@ -37,14 +38,17 @@ Senzorické claims (senzorické tvrdenia) sú tvrdenia na obale alebo v reklame 
 
 ### 1.3 Právne aspekty
 
-Senzorické claims podliehajú prísnym reguláciám:
+Pre **senzorické** tvrdenia neexistuje v EÚ osobitný predpis — platia všeobecné pravidlá o nezavádzaní:
 
-- **EU:** Regulation (EC) No 1924/2006 o výživových a zdravotných tvrdeniach
-- **USA:** FDA 21 CFR 101 (Food Labeling)
-- **Medzinárodné:** Codex Alimentarius – Guidelines for the Use of Nutrition and Health Claims (CAC/GL 23-1997)
-- **Slovenská republika:** Zákon č. 152/2005 Z.z. o potravinách
+- **EÚ – informácie o potravinách:** Nariadenie (EÚ) č. 1169/2011, **čl. 7** (postupy poctivého informovania — informácie nesmú byť zavádzajúce a musia byť presné, jasné a zrozumiteľné)
+- **EÚ – reklama:** Smernica 2006/114/ES (klamlivá a porovnávacia reklama) a Smernica 2005/29/ES (nekalé obchodné praktiky)
+- **EÚ – výživové a zdravotné tvrdenia** (nie senzorické!): Nariadenie (ES) č. 1924/2006
+- **USA:** FTC Act (nekalé a klamlivé praktiky), FDA 21 CFR 101 (označovanie, výživové tvrdenia)
+- **Medzinárodné:** Codex Alimentarius – CXG 1-1979 (všeobecné tvrdenia), CAC/GL 23-1997 (výživové a zdravotné tvrdenia)
+- **Slovenská republika:** Zákon č. **152/1995** Z. z. o potravinách (v znení neskorších predpisov)
+- **Metodický štandard:** **ASTM E1958** – Standard Guide for Sensory Claim Substantiation
 
-> **Upozornenie:** Každý claim musí byť **overiteľný** a **dokázateľný** vedeckými dátami. Nemožno tvrdiť niečo, čo nie je podložené senzorickým testom.
+> **Upozornenie:** Každý claim musí byť **pravdivý a doložiteľný**. Pre senzorické tvrdenia to v praxi znamená dobre navrhnutý senzorický test (správna metóda, populácia, počet hodnotiteľov, štatistika) v súlade s ASTM E1958.
 
 ---
 
@@ -63,11 +67,12 @@ Tvrdenia, ktoré porovnávajú produkt s iným produktom (konkurenciou alebo pre
 
 | Parameter | Požiadavka |
 |-----------|------------|
-| **Referenčný produkt** | Musí byť jasne identifikovaný |
-| **Rozdiel** | Musí byť štatisticky významný (p < 0.05) |
+| **Referenčný produkt** | Musí byť jasne identifikovaný, reprezentatívne vzorky (viac šarží, trh) |
+| **Rozdiel** | Musí byť štatisticky významný (p < 0.05), vopred stanovená hypotéza |
 | **Veľkosť rozdielu** | Doložiteľná minimálna hodnota |
 | **Testovaný parameter** | Špecifikovaný senzorický atribút |
-| **Panelista** | Minimálne 60-80 pre porovnávacie testy |
+| **Hodnotitelia** | Pre tvrdenia o chuti pre spotrebiteľa: **spotrebitelia** cieľovej skupiny (typicky 100+), pre atribútové tvrdenia aj trénovaný panel; počet podľa výpočtu sily testu |
+| **Parita („chutí rovnako")** | Test **podobnosti/ekvivalencie** — nevýznamný rozdiel nestačí |
 
 ### 2.2 Absolútne claims (Absolute Claims)
 
@@ -90,21 +95,23 @@ Tvrdenia o vlastnostiach produktu bez priameho porovnania s iným produktom.
 
 ### 2.3 Redukčné claims (Reduction Claims)
 
-Tvrdenia o znížení obsahu alebo intenzity niektorej zložky alebo vlastnosti.
+Tvrdenia o znížení obsahu živiny sú **výživové tvrdenia** podľa Nariadenia (ES) č. 1924/2006 (príloha, tvrdenie „so zníženým obsahom…").
 
 **Príklady:**
 - "O 30% menej soli"
 - "O 50% menej cukru"
-- "O 25% menej tuku"
+- "O 30% menej tuku"
 
 **Požiadavky na redukčné claims:**
 
 | Parameter | Požiadavka |
 |-----------|------------|
-| **Percentuálny rozdiel** | Overený analytickým meraním a/alebo senzorickým testom |
-| **Referenčná hodnota** | Pôvodná hodnota musí byť známa |
-| **Minimálny rozdiel** | ≥ 25% pre senzoricky detekovateľný rozdiel |
-| **Spotrebiteľský test** | Musí byť preukázaný rozdiel (p < 0.05) |
+| **Právna podmienka (EÚ)** | Zníženie o **≥ 30 %** oproti porovnateľnému výrobku; pre **sodík/soľ ≥ 25 %**, pre mikroživiny ≥ 10 % (1924/2006, príloha) |
+| **Overenie** | **Analytické meranie** obsahu — senzorický test nie je právnou podmienkou |
+| **Referenčná hodnota** | Porovnateľný výrobok (pôvodná receptúra alebo priemer trhu) musí byť známy |
+| **Senzorická úloha** | Voliteľná: ak sa zároveň tvrdí „rovnaká chuť", treba **test podobnosti**; ak sa hodnotí akceptácia, spotrebiteľský hedonický test |
+
+> Pozn.: Predošlá verzia uvádzala „minimálny rozdiel ≥ 25 % pre senzoricky detekovateľný rozdiel" a povinný spotrebiteľský test preukazujúci rozdiel — to nezodpovedá právnej úprave. Senzorická detekovateľnosť zníženia nesúvisí s oprávnenosťou tvrdenia.
 
 ### 2.4 Bez-claims (Free-From Claims)
 
@@ -121,11 +128,13 @@ Tvrdenia o absencii určitej zložky alebo skupiny zložiek.
 
 | Typ claimu | Právna definícia | Senzorické overenie |
 |------------|------------------|---------------------|
-| **Bez pridaného cukru** | Žiadny monosacharid/disacharid pridaný | Analytické meranie cukru |
-| **Bez umelých farbív** | Žiadne syntetické farbivá | Analytické meranie farbív |
-| **Bez konzervantov** | Žiadne zákonom definované konzervanty | Analytické meranie konzervantov |
-| **Bez lepku** | < 20 ppm lepku | ELISA test |
-| **Bez laktózy** | < 0.1 g laktózy na 100 g | Analytické meranie laktózy |
+| **Bez pridaného cukru** | Bez pridaných mono-/disacharidov a iných potravín použitých pre sladiace vlastnosti (1924/2006, príloha) | Receptúra + analytika |
+| **Bez umelých farbív** | Nie je harmonizované; nesmie byť zavádzajúce (1169/2011 čl. 7) | Receptúra |
+| **Bez konzervantov** | Nie je harmonizované; nesmie byť zavádzajúce | Receptúra |
+| **Bez lepku** | ≤ 20 mg/kg lepku (Vykonávacie nariadenie (EÚ) č. 828/2014) | ELISA (R5) |
+| **Bez laktózy** | V EÚ nie je harmonizovaný limit; bežne < 0,1 g/100 g, niektoré krajiny < 0,01 g/100 g | Analytické meranie laktózy |
+
+Tieto tvrdenia sa overujú **analyticky / dokumentáciou zloženia**, nie senzorickým testom.
 
 ### 2.5 Clean Label Claims
 
@@ -143,27 +152,30 @@ Tvrdenia o jednoduchosti zloženia alebo použití prírodných surovín.
 |-----------|------------|
 | **Zloženie** | Všetky zložky musia byť "čitateľné" a zrozumiteľné |
 | **E-čísla** | Žiadne prísady s E-číslom |
-| **Prírodnosť** | Zložky musia byť z prírodného pôvodu |
+| **Prírodnosť** | Zložky musia byť z prírodného pôvodu; „prírodná aróma" má presnú definíciu v Nariadení (ES) č. 1334/2008, čl. 16 |
 | **Spracovanie** | Minimálne spracovanie |
 
-### 2.6 Health-Related Claims (Výživové tvrdenia)
+„Clean label" nie je právne definovaný pojem — rozhoduje, či tvrdenie nie je zavádzajúce.
 
-Tvrdenia o vplyve na zdravie alebo výživové vlastnosti.
+### 2.6 Výživové tvrdenia (Nutrition Claims)
+
+Tvrdenia o výživových vlastnostiach podľa Nariadenia (ES) č. 1924/2006 (zdravotné tvrdenia — o vplyve na zdravie — sú osobitná kategória, čl. 13/14, a vyžadujú schválenie na úrovni EÚ po posúdení EFSA).
 
 **Príklady:**
 - "Nízky obsah soli"
 - "Zdroj vlákniny"
 - "Nízkoenergetický"
-- "Bez trans tukov"
 
-**Požiadavky na health-related claims:**
+**Podmienky podľa prílohy k 1924/2006:**
 
-| Typ claimu | Právna požiadavka | Senzorické overenie |
+| Typ claimu | Právna požiadavka | Overenie |
 |------------|-------------------|---------------------|
-| **Nízky obsah** | < 150 mg Na/100g pre "nízky obsah soli" | Analytické meranie + senzorický test |
-| **Zdroj vlákniny** | ≥ 3 g vlákniny/100g | Analytické meranie |
-| **Nízkoenergetický** | < 40 kcal/100g | Analytické meranie |
-| **Bez trans tukov** | < 1 g trans tukov/100g tuku | Analytické meranie |
+| **Nízky obsah sodíka/soli** | ≤ 0,12 g sodíka (alebo ekvivalent soli) na 100 g / 100 ml | Analytické meranie |
+| **Zdroj vlákniny** | ≥ 3 g vlákniny/100 g alebo ≥ 1,5 g/100 kcal | Analytické meranie |
+| **Nízkoenergetický** | ≤ 40 kcal/100 g (tuhé) alebo ≤ 20 kcal/100 ml (tekuté) | Analytické meranie |
+| **Trans-tuky** | Tvrdenie „bez trans tukov" nie je v prílohe definované; limit priemyselných trans-tukov ≤ 2 g/100 g tuku stanovuje Nariadenie (EÚ) 2019/649 | Analytické meranie |
+
+Senzorický test tu nie je právnou podmienkou; býva však potrebný pri reformulácii (akceptácia, parita chuti).
 
 ---
 
@@ -181,31 +193,33 @@ Tvrdenia o vplyve na zdravie alebo výživové vlastnosti.
 H₀: Neexistuje rozdiel medzi produktmi
 H₁: Existuje rozdiel medzi produktmi
 
-Kritická hodnota (α = 0.05):
-- Pre n = 24: kritický počet správnych odpovedí = 12
-- Pre n = 36: kritický počet správnych odpovedí = 17
+Kritická hodnota (α = 0.05, presný binomický test):
+- Pre n = 24: kritický počet správnych odpovedí = 13
+- Pre n = 36: kritický počet správnych odpovedí = 18
 - Pre n = 48: kritický počet správnych odpovedí = 22
 ```
 
-**Vzorec pre minimálny počet panelistov:**
+**Vzorec pre minimálny počet panelistov (normálna aproximácia, jednostranný test):**
 
 ```
-n = (Z_α + Z_β)² × p × (1 - p) / (p - p₀)²
+n = [ Z_α·√(p₀(1−p₀)) + Z_β·√(p(1−p)) ]² / (p − p₀)²
 
 Kde:
-- p₀ = 0.33 (náhodná pravdepodobnosť)
+- p₀ = 1/3 (náhodná pravdepodobnosť)
 - p = očakávaná pravdepodobnosť správnej odpovede (napr. 0.50)
-- Z_α = kvantil normálnej rozdelenia pre α
-- Z_β = kvantil normálnej rozdelenia pre β
+- Z_α = 1.645 (α = 0.05), Z_β = 0.842 (power = 0.80)
 ```
 
 **Výpočet pre α = 0.05, power = 0.80, p = 0.50:**
 
 ```
-n = (1.645 + 0.842)² × 0.50 × 0.50 / (0.50 - 0.33)²
-n = 6.175 × 0.25 / 0.0289
-n = 53.4 ≈ 54 panelistov
+n = [1.645 × 0.471 + 0.842 × 0.500]² / (0.50 − 0.333)²
+n = [0.776 + 0.421]² / 0.0278
+n = 1.433 / 0.0278 ≈ 52 panelistov
+Presný binomický výpočet: n = 60
 ```
+
+> 🧪 **SaIT:** sila testu a počet hodnotiteľov — [cvičenie 14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) · test podobnosti pre tvrdenia typu „rovnaká chuť" — [cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html)
 
 ### 3.2 Deskriptívna analýza (Descriptive Analysis)
 
@@ -241,7 +255,7 @@ Dolná hranica = 6.74 < 7 → claim NEMÔŽE byť podporený
 
 **Účel:** Overenie, či spotrebiteľ preferuje produkt alebo ho akceptuje.
 
-**Princíp:** Spotrebiteľia hodnotia produkt na hedonickej škále (napr. 9-bodová škála: 1 = "neviem vôbec", 9 = "veľmi rád").
+**Princíp:** Spotrebitelia hodnotia produkt na hedonickej škále (9-bodová škála: 1 = „mimoriadne sa mi nepáči", 9 = „mimoriadne sa mi páči").
 
 **Štatistické požiadavky:**
 
@@ -249,8 +263,8 @@ Dolná hranica = 6.74 < 7 → claim NEMÔŽE byť podporený
 |-----------|------------|
 | **Počet spotrebiteľov** | Minimálne 100-150 |
 | **Škála** | 9-bodová hedonickej škála |
-| **Analýza** | ANOVA, Tukey HSD post-hoc test |
-| **Kritériá akceptácie** | Priemer ≥ 6.0 ("rád") |
+| **Analýza** | ANOVA (respondent ako blok), Tukey HSD post-hoc test |
+| **Kritériá akceptácie** | Vopred definované, napr. priemer ≥ 6.0 („trochu sa mi páči") alebo nie horší ako benchmark |
 
 **Vzorec pre minimálny počet spotrebiteľov:**
 
@@ -269,14 +283,14 @@ Kde:
 **Princíp:** Spotrebiteľia hodnotia intenzitu atribútu na 5-bodovej škále:
 - 1 = "Príliš málo"
 - 2 = "Trochu málo"
-- 3 = "Právne" (JAR)
+- 3 = "Akurát" (JAR)
 - 4 = "Trochu veľa"
 - 5 = "Príliš veľa"
 
 **Analýza:**
 
 ```
-% JAR = (Počet odpovedí "Právne" / Celkový počet odpovedí) × 100
+% JAR = (Počet odpovedí "Akurát" / Celkový počet odpovedí) × 100
 
 Akceptačné kritérium: % JAR ≥ 60-70%
 
@@ -296,9 +310,10 @@ Penalizácia:
 | Parameter | Požiadavka |
 |-----------|------------|
 | **Počet spotrebiteľov** | Minimálne 100-150 |
-| **Test** | Binomický test alebo chi-kvadrát test |
+| **Test** | Obojstranný binomický test (2 vzorky), χ² / Friedman pri viacerých vzorkách |
+| **Voľba „bez preferencie"** | Ak je povolená, jej spracovanie (vylúčenie / rovnomerné rozdelenie) treba určiť vopred (ASTM E2263) |
 | **Kritériá** | p < 0.05 pre významnosť |
-| **Minimálna preferencia** | ≥ 60% pre jednoznačný claim |
+| **Minimálna preferencia** | Interné kritérium (napr. ≥ 60 %), nie právna požiadavka |
 
 ---
 
@@ -324,56 +339,63 @@ Penalizácia:
 
 | Typ claimu | Typ testu | Min. počet | Odporúčaný počet |
 |------------|-----------|------------|------------------|
-| **Porovnávacie** | Trojuholníkový test | 36 | 54-60 |
-| **Porovnávacie** | Duo-trio test | 32 | 48-64 |
-| **Absolútne** | Deskriptívna analýza | 8-10 | 12-15 |
-| **Redukčné** | Trojuholníkový + deskriptívna | 36 + 10 | 54 + 12 |
-| **Bez-claims** | Analytické meranie | N/A | N/A |
-| **Clean label** | Spotrebiteľský test | 100 | 150 |
-| **Health-related** | Spotrebiteľský + analytický | 100 | 150 |
+| **Porovnávacie (rozdiel)** | Trojuholníkový / tetrad / 2-AFC | podľa sily testu | pri p_d = 25 %: trojuholník 60 |
+| **Parita („rovnaká chuť")** | Test podobnosti (napr. trojuholník, tetrad) | podľa p_d a β | často 60–100+ |
+| **Absolútne (atribútové)** | Deskriptívna analýza | 8-10 | 12-15 (s opakovaniami) |
+| **Preferencia / „chutí lepšie"** | Spotrebiteľský preferenčný / hedonický test | 100 | 150-300 |
+| **Redukčné (výživové)** | Analytické meranie | N/A | N/A |
+| **Bez-claims** | Analytické meranie / zloženie | N/A | N/A |
+
+Orientačné hodnoty; záväzný je výpočet sily testu pre konkrétnu hypotézu.
 
 ### 4.4 Kritické hodnoty pre trojuholníkový test
 
 | n (panelistov) | α = 0.05 | α = 0.01 | α = 0.10 |
 |----------------|----------|----------|----------|
-| 24 | 12 | 14 | 11 |
-| 36 | 17 | 19 | 16 |
-| 48 | 22 | 24 | 21 |
-| 60 | 27 | 29 | 26 |
-| 72 | 31 | 34 | 30 |
+| 24 | 13 | 15 | 12 |
+| 36 | 18 | 20 | 17 |
+| 48 | 22 | 25 | 21 |
+| 60 | 27 | 30 | 26 |
+| 72 | 32 | 34 | 30 |
+
+*Presné binomické hodnoty (jednostranný test, p₀ = 1/3), prepočítané.*
 
 ### 4.5 Vzorec pre výpočet veľkosti vzorky
 
 **Pre porovnávacie testy (trojuholníkový):**
 
 ```
-n = (Z_α + Z_β)² × p × (1 - p) / (p - p₀)²
+n = [ Z_α·√(p₀(1−p₀)) + Z_β·√(p(1−p)) ]² / (p − p₀)²
 
 Kde:
-- p₀ = 0.33 (náhodná pravdepodobnosť)
+- p₀ = 1/3 (náhodná pravdepodobnosť)
 - p = očakávaná pravdepodobnosť správnej odpovede
-- Z_α = 1.645 (pre α = 0.05, jedný chvost)
+- Z_α = 1.645 (pre α = 0.05, jeden chvost)
 - Z_β = 0.842 (pre power = 0.80)
+Výsledok je aproximácia; presný binomický výpočet dáva zvyčajne o niečo vyššie n.
 ```
 
 **Pre deskriptívnu analýzu:**
 
 ```
-n = (Z_α + Z_β)² × σ² / δ²
+Párové porovnanie (každý hodnotí oba produkty):
+n = (Z_α + Z_β)² × σ_d² / δ²
 
 Kde:
-- σ = štandardná odchýlka atribútu
+- σ_d = štandardná odchýlka rozdielov medzi produktmi u toho istého hodnotiteľa
 - δ = minimálny dôležitý rozdiel
 ```
 
-**Pre spotrebiteľské testy:**
+**Pre spotrebiteľské testy (dve nezávislé skupiny):**
 
 ```
-n = (Z_α + Z_β)² × σ² / δ²
+n na skupinu = 2 × (Z_α/2 + Z_β)² × σ² / δ²
 
 Kde:
 - σ = štandardná odchýlka na hedonickej škále (typicky 1.5-2.0)
 - δ = minimálny dôležitý rozdiel (typicky 0.5-1.0)
+Príklad: σ = 1.8, δ = 0.5, α = 0.05 (obojstranne), power 0.80:
+n = 2 × (1.96 + 0.842)² × 3.24 / 0.25 ≈ 204 na skupinu
 ```
 
 ---
@@ -384,13 +406,16 @@ Kde:
 
 **Regulation (EC) No 1924/2006:**
 
-| Článok | Obsah | Aplikácia na senzorické claims |
+Nariadenie sa vzťahuje na **výživové a zdravotné** tvrdenia; senzorické tvrdenia („intenzívnejšia chuť") do jeho pôsobnosti nepatria, ale jeho princípy sú dobrým vzorom.
+
+| Článok | Obsah | Aplikácia |
 |--------|-------|-------------------------------|
-| **Čl. 5** | Všeobecné požiadavky na tvrdenia | Tvrdenia musia byť pravdivé a overiteľné |
-| **Čl. 6** | Vedecké dokazy | Tvrdenia musia byť podložené vedeckými dátami |
-| **Čl. 7** | Registrácia tvrdení | Výživové a zdravotné tvrdenia musia byť registrované |
-| **Čl. 10** | Zákaz zavádzajúcich tvrdení | Tvrdenia nesmú byť zavádzajúce |
-| **Čl. 13** | Tvrdenia o zdravotných vlastnostiach | Vyžadujú sa vedecké dokazy a schválenie EFSA |
+| **Čl. 3** | Všeobecné zásady | Tvrdenia nesmú byť nepravdivé, nejednoznačné ani zavádzajúce |
+| **Čl. 5** | Všeobecné podmienky | Prínos musí byť preukázaný všeobecne uznávanými vedeckými dôkazmi |
+| **Čl. 6** | Vedecké zdôvodnenie | Prevádzkovateľ musí použitie tvrdenia zdôvodniť |
+| **Čl. 8 + príloha** | Výživové tvrdenia | Len tvrdenia uvedené v prílohe za stanovených podmienok |
+| **Čl. 10** | Osobitné podmienky pre zdravotné tvrdenia | Len povolené tvrdenia zo zoznamu Únie |
+| **Čl. 13 / 14** | Zdravotné tvrdenia (funkčné / zníženie rizika, vývoj detí) | Posúdenie EFSA a schválenie Komisiou |
 
 **Kľúčové požiadavky:**
 
@@ -405,18 +430,19 @@ Kde:
 
 | Sekcia | Obsah | Aplikácia |
 |--------|-------|-----------|
-| **101.13** | Tvrdenia o obsahu živín | Vyžadujú sa analytické merania |
-| **101.14** | Zdravotné tvrdenia | Vyžadujú sa vedecké dokazy |
-| **101.54** | Tvrdenia o obsahu tuku | Špecifické požiadavky na "nízky obsah" |
-| **101.56** | Tvrdenia o obsahu sodíka | Špecifické požiadavky na "nízky obsah" |
-| **101.60** | Tvrdenia o obsahu vlákniny | Špecifické požiadavky |
+| **101.13** | Tvrdenia o obsahu živín – všeobecné | Vyžadujú sa analytické merania |
+| **101.14** | Zdravotné tvrdenia | Vyžadujú sa vedecké dôkazy |
+| **101.54** | „Good source", „high", „more" (napr. vláknina) | Špecifické prahy |
+| **101.60** | Tvrdenia o kalóriách a cukre | Špecifické požiadavky |
+| **101.61** | Tvrdenia o sodíku a soli | Špecifické požiadavky na „low sodium" a pod. |
+| **101.62** | Tvrdenia o tuku a cholesterole | Špecifické požiadavky na „low fat" a pod. |
 
-**Kľúčové požiadavky FDA:**
+**Kľúčové požiadavky (FDA/FTC):**
 
 1. Tvrdenie musí byť **pravdivé** a **nezavádzajúce**
-2. Tvrdenie musí byť **podložené** kompetentnými vedeckými dôkazmi
+2. Tvrdenie musí byť **podložené** kompetentnými a spoľahlivými vedeckými dôkazmi (FTC: „competent and reliable scientific evidence")
 3. Tvrdenie musí byť **jasné** a **zrozumiteľné**
-4. Tvrdenie nesmú **súťažiť** s inými tvrdeniami na obale
+4. Porovnávacie tvrdenia musia jasne uviesť referenčný produkt
 
 ### 5.3 Codex Alimentarius
 
@@ -427,7 +453,7 @@ Kde:
 | **Pravdivosť** | Tvrdenia musia byť pravdivé |
 | **Vedecký základ** | Tvrdenia musia byť podložené vedeckými dátami |
 | **Zrozumiteľnosť** | Tvrdenia musia byť zrozumiteľné pre spotrebiteľa |
-| **Nesúťaživosť** | Tvrdenia nesmú byť zavádzajúce |
+| **Nezavádzanie** | Tvrdenia nesmú byť zavádzajúce |
 | **Konzistencia** | Tvrdenia musia byť v súlade s národnými právnymi predpismi |
 
 ### 5.4 Etiketa a označovanie potravín
@@ -439,8 +465,9 @@ Kde:
 | **Zoznam zložiek** | Všetky zložky musia byť uvedené |
 | **Alergény** | Musia byť jasne označené |
 | **Výživové údaje** | Musia byť uvedené v stanovenom formáte |
-| **Pôvod** | Musí byť uvedený pôvod produktu |
-| **Trvanlivosť** | Musí byť uvedený dátum minimálnej trvanlivosti |
+| **Pôvod** | Povinný len v určitých prípadoch (čl. 26 — napr. ak by opomenutie mohlo zavádzať, vybrané druhy mäsa) |
+| **Trvanlivosť** | Dátum minimálnej trvanlivosti („spotrebujte najlepšie do") alebo dátum spotreby („spotrebujte do") pri mikrobiologicky rýchlo podliehajúcich potravinách (čl. 24) |
+| **Čl. 7** | Informácie nesmú byť zavádzajúce — základ pre všetky senzorické tvrdenia |
 
 ---
 
@@ -468,15 +495,15 @@ Kritérium: Priemer ≥ 7.0 a ≥ 80% panelistov hodnotí ≥ 7
 ```
 Panel: 12 trénovaných panelistov
 Opakovania: 3
-Výsledok: Priemer = 7.8, SD = 1.1
-95% CI: 7.8 ± 0.68 = [7.12, 8.48]
+Výsledok (priemery hodnotiteľov cez opakovania, n = 12): Priemer = 7.8, SD = 1.1
+95% CI: 7.8 ± 2.201 × 1.1/√12 = 7.8 ± 0.70 = [7.10, 8.50]
 % panelistov s hodnotením ≥ 7: 83%
 ```
 
 **Krok 4: Vyhodnoťte výsledky**
 
 ```
-✓ Dolná hranica CI (7.12) ≥ 7.0
+✓ Dolná hranica CI (7.10) ≥ 7.0
 ✓ 83% panelistov ≥ 7.0
 ✓ Claim je PODPORENÝ
 ```
@@ -493,30 +520,42 @@ Podložené: Deskriptívnou analýzou, n = 12, 3 opakovania
 **Príklad: "O 30% menej soli"**
 
 ```
-Krok 1: Analytické meranie
+Krok 1: Analytické meranie (PRÁVNE ROZHODUJÚCE)
 - Pôvodný produkt: 1.2 g Na/100g
 - Nový produkt: 0.84 g Na/100g
-- Rozdiel: (1.2 - 0.84) / 1.2 = 30%
+- Rozdiel: (1.2 - 0.84) / 1.2 = 30% ≥ 25 % (limit pre sodík/soľ, 1924/2006)
+→ výživové tvrdenie "so zníženým obsahom soli" je oprávnené
 
-Krok 2: Senzorický test (trojuholníkový)
-- n = 54 panelistov
+Krok 2 (voliteľný): Senzorický test — len ak chceme tvrdiť aj "rovnaká chuť"
+- trojuholníkový test, n = 54 panelistov
 - Výsledok: 24 správnych odpovedí
-- Kritická hodnota (α = 0.05): 22
-- 24 > 22 → rozdiel je štatisticky významný
+- Kritická hodnota (α = 0.05, n = 54): 25 → 24 < 25, p ≈ 0.058
+- Rozdiel NEBOL preukázaný — ale to ešte nie je dôkaz rovnakej chuti!
+  Pre tvrdenie "rovnaká chuť" treba test podobnosti: napr. zvoliť p_d = 30 %,
+  β = 0.05 a overiť, že horná hranica 95 % CI pre p_d < 30 %.
+  Tu p_c = 24/54 = 0.444 → p_d = (0.444 − 1/3)/(2/3) ≈ 0.17,
+  horná hranica jednostranného 95 % CI pre p_d ≈ 0.33 (Wald) až 0.35
+  (presný Clopper-Pearson) > 0.30 → podobnosť
+  preukázaná NIE JE (bolo by treba viac hodnotiteľov).
 
-Krok 3: Spotrebiteľský test
+Krok 3: Spotrebiteľský test akceptácie
 - n = 150 spotrebiteľov
 - Priemerné hodnotenie: 6.8 (9-bodová škála)
-- ≥ 6.0 → produkt je akceptovateľný
+- Porovnanie s pôvodným produktom testovaným v rovnakom teste
 
-Záver: Claim "O 30% menej soli" je PODPORENÝ
+Záver: Claim "O 30% menej soli" je PODPORENÝ analyticky.
+Tvrdenie "rovnaká chuť" by týmito dátami podporené nebolo.
 ```
+
+(Predošlá verzia tvrdila, že 24 správnych z 54 je významný rozdiel pri kritickej hodnote 22 — správna kritická hodnota je 25 — a že významný senzorický rozdiel podporuje tvrdenie o znížení soli, čo logicky nesúvisí.)
 
 ### 6.3 Časté chyby pri claims
 
 | Chyba | Príklad | Ako sa vyhnúť |
 |-------|---------|---------------|
-| **Nedostatočný počet panelistov** | n = 10 pre trojuholníkový test | Minimálne 36-54 panelistov |
+| **Nedostatočný počet panelistov** | n = 10 pre trojuholníkový test | Výpočet sily testu (pri p_d = 25 %: ~60) |
+| **„Nevýznamný rozdiel = rovnaká chuť"** | Trojuholník, p = 0.2 → „chutí rovnako" | Test podobnosti s vopred zvoleným p_d a β |
+| **Sčítanie opakovaní ako nezávislých pokusov** | 3 × 54 = 162 „hodnotení" | Beta-binomický model alebo analýza po hodnotiteľoch |
 | **Nesprávna štatistická analýza** | Použitie t-testu namiesto binomického | Konzultácia so štatistikom |
 | **Zavádzajúci claim** | "Prírodní chuť" bez dôkazu | Overenie analytickým meraním |
 | **Nedostatočná dokumentácia** | Chýbajúce záznamy z testov | Kompletný protokol z testu |
@@ -580,31 +619,31 @@ Záver: Claim "O 30% menej soli" je PODPORENÝ
 
 ## Metadata
 - Dátum: 2026-09-29
-- Test: Trojuholníkový test
-- Produkt: Jogurt s jahodami (vzorka A vs. B)
-- Claim: "Rozdiel v intenzite jahodovej chuti"
+- Test: Smerový párový test (2-AFC), jednostranný
+- Produkt: Jogurt s jahodami (nová receptúra B vs. pôvodná A)
+- Claim: "Intenzívnejšia jahodová chuť" (B > A)
+- Hypotéza stanovená pred testom: p(B zvolená) > 0.5
 
 ## Dizajn
-- n = 54 panelistov
-- 3 opakovania
+- n = 54 panelistov, 1 hodnotenie na panelistu
+- vyvážené poradie AB/BA
 - α = 0.05
 
 ## Výsledky
-| Opakovanie | Správne odpovede | Celkom |
-|------------|------------------|--------|
-| 1 | 18 | 54 |
-| 2 | 17 | 54 |
-| 3 | 19 | 54 |
-| **Celkom** | **54** | **162** |
+| Voľba „intenzívnejšia jahodová chuť" | Počet |
+|------------------|--------|
+| B | 36 |
+| A | 18 |
+| **Celkom** | **54** |
 
 ## Štatistická analýza
-- Kritická hodnota (α = 0.05, n = 54): 27
-- Pozorovaná hodnota: 54
-- p < 0.001
+- Kritická hodnota (α = 0.05, jednostranne, n = 54): 34
+- Pozorovaná hodnota: 36
+- p ≈ 0.01 (binom.test(36, 54, 0.5, alternative = "greater"))
 
 ## Záver
 - H₀ zamietnutá
-- Existuje štatisticky významný rozdiel
+- B má štatisticky významne intenzívnejšiu jahodovú chuť
 - Claim je PODPORENÝ
 ```
 
@@ -643,4 +682,19 @@ Dodržiavanie týchto princípov zaisťuje ochranu spotrebiteľa a minimalizuje 
 
 ---
 
-*Verzia: 1.0 | Dátum: 2026-09-29 | Autor: SAP - Senzorická Analýza Potravín*
+## Prepojenie s praktickými cvičeniami v R (SaIT)
+
+| Úloha pri overovaní claimu | Cvičenie [SaIT](https://github.com/senzorika/SaIT) | Skript |
+|---|---|---|
+| Interval spoľahlivosti priemeru (atribútové tvrdenia) | [2](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) | [`cvicenie2.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie2.R) |
+| Binomický test (preferencia, 2-AFC, trojuholník) | [5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) | [`cvicenie5a.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R) |
+| Porovnanie viacerých produktov (hedonika) | [5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) | [`cvicenie5b.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R) |
+| Test podobnosti („rovnaká chuť"), d′ | [13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) | [`cvicenie13.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie13.R) |
+| Sila testu a počet hodnotiteľov | [14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) | [`cvicenie14.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie14.R) |
+| Zmiešané modely pre opakované hodnotenia | [16](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) | [`cvicenie16.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie16.R) |
+
+---
+
+*Verzia: 1.1 (overená a prelinkovaná so SaIT) | Dátum: 2026-09-29 | Autor: SAP - Senzorická Analýza Potravín*
+
+*Referencie: ASTM E1958 – Standard Guide for Sensory Claim Substantiation. | ASTM E2263 – Paired Preference Test. | Nariadenie (EÚ) č. 1169/2011. | Nariadenie (ES) č. 1924/2006. | Nariadenie (ES) č. 1334/2008. | Vykonávacie nariadenie (EÚ) č. 828/2014. | Nariadenie (EÚ) 2019/649. | Smernica 2006/114/ES. | Smernica 2005/29/ES. | Zákon č. 152/1995 Z. z. o potravinách.*

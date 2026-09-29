@@ -21,7 +21,7 @@ format:
 Sensory shelf-life je **časový interval**, počas ktorého potravinársky produkt udržuje svoje senzorické vlastnosti na úrovni akceptovateľnej pre spotrebiteľa za daných podmienok skladovania.
 
 ::: notes
-Sensory shelf-life predstavuje senzorickú trvanlivosť produktu — obdobie, počas ktorého produkt "chutí dobre" z hľadiska spotrebiteľa.
+Sensory shelf-life predstavuje senzorickú trvanlivosť produktu. Podľa Hougha (2010) závisí aj od spotrebiteľa: kľúčová otázka je, aká časť spotrebiteľov produkt skladovaný čas t odmietne. Norma: ISO 16779:2015.
 :::
 
 ---
@@ -59,18 +59,18 @@ Sensory shelf-life predstavuje senzorickú trvanlivosť produktu — obdobie, po
 | **Chlieb a pečivo** | Stárnutie (staling), plesnivý | 3–7 dní |
 | **Nápoje** | Oxidácia, strata účinnosti | 6–12 mesiacov |
 | **Mäso** | Oxidácia tuku, mikrobiologický rast | 7–14 dní |
-| **Ovocie a zelenina** | Zrnie, hniloba, strata chuti | 3–14 dní |
+| **Ovocie a zelenina** | Vädnutie, hniloba, strata chuti | 3–14 dní |
 | **Konzervy** | Korózia, strata textúry | 12–36 mesiacov |
 
 ---
 
 ## Kaplan-Meierov odhad
 
-**Princíp:** Non-parametrická metóda na odhad prežívacej funkcie z časových dát.
+**Princíp:** Neparametrický odhad S(t) = pravdepodobnosti, že spotrebiteľ produkt skladovaný čas t akceptuje (udalosť = odmietnutie). Dáta sú v praxi intervalovo cenzurované → Hough odporúča parametrický model. [SaIT cvičenie 10](https://senzorika.github.io/SaIT/teoria/cvicenie10.html)
 
 $$S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)$$
 
-| Čas (dni) | Testované (nᵢ) | Zamietnuté (dᵢ) | S(t) |
+| Čas (dni) | V riziku (nᵢ) | Prvé odmietnutia (dᵢ) | S(t) |
 |------------|----------------|-----------------|------|
 | 0 | 50 | 0 | 1.00 |
 | 7 | 50 | 2 | 0.96 |
@@ -80,7 +80,7 @@ $$S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)$$
 | 35 | 25 | 12 | 0.26 |
 | 42 | 13 | 8 | 0.10 |
 
-**Mediánová shelf-life:** 28 dní (S(t) = 0.50)
+**Mediánová shelf-life:** 28 dní (S(t) = 0.50 → 50 % spotrebiteľov odmieta)
 
 ---
 
@@ -97,11 +97,11 @@ $$F(t) = 1 - \exp\left(-\left(\frac{t}{\eta}\right)^\beta\right)$$
 
 ### Interpretácia β
 
-| β | Typ degradácie | Príklad |
+| β | Hazard odmietnutí | Význam |
 |---|----------------|---------|
-| **β < 1** | Ranná smrteľnosť | Chlieb |
-| **β = 1** | Konštantná hazard | Nápoje |
-| **β > 1** | Starnutie | Mliečne výrobky |
+| **β < 1** | Klesajúci | Časť spotrebiteľov odmieta hneď od začiatku |
+| **β = 1** | Konštantný | Odmietnutia rovnomerne v čase |
+| **β > 1** | Rastúci | Typické – odmietnutí pribúda so starnutím |
 
 ---
 
@@ -117,7 +117,9 @@ Kde $T_2 = T_1 + 10°C$
 
 ### Vzťah
 
-$$\text{Shelf-life}(T_2) = \frac{\text{Shelf-life}(T_1)}{Q_{10}^{(T_1-T_2)/10}}$$
+$$\text{Shelf-life}(T_2) = \frac{\text{Shelf-life}(T_1)}{Q_{10}^{(T_2-T_1)/10}}$$
+
+⚠️ Starnutie chleba (retrogradácia) nie je arrheniovské – v chladničke je rýchlejšie.
 
 ---
 
@@ -130,12 +132,12 @@ $$k = A \cdot \exp\left(-\frac{E_a}{R \cdot T}\right)$$
 | **k** | Rýchlostná konštanta degradácie | deň⁻¹ |
 | **A** | Preexponenciálny faktor | deň⁻¹ |
 | **Ea** | Energia aktivácie | J/mol |
-| **R** | Univerzálny plynový konštanta (8.314) | J/(mol·K) |
+| **R** | Univerzálna plynová konštanta (8.314) | J/(mol·K) |
 | **T** | Absolútna teplota | K |
 
 ### Vzťah medzi Q10 a Ea
 
-$$Q_{10} \approx \exp\left(\frac{10 \times E_a}{R \times T^2}\right)$$
+$$\ln Q_{10} = \frac{10\,E_a}{R\,T\,(T+10)} \approx \frac{10\,E_a}{R\,T^2}$$
 
 ---
 
@@ -164,7 +166,7 @@ $$h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p)$$
 | Typ | Definícia | Použitie |
 |-----|-----------|---------|
 | **Senzorický cut-off** | Hodnota atribútu, pri ktorej produkt prestáva byť akceptovateľný | Deskriptívna analýza |
-| **Spotrebiteľský cut-off** | % spotrebiteľov, ktorí zamietnu produkt | Spotrebiteľský test |
+| **Spotrebiteľský cut-off** | Prípustný % odmietnutí (napr. 25 % alebo 50 %) – rozhodnutie výrobcu | Spotrebiteľský test |
 | **Kombinovaný cut-off** | Kombinácia oboch prístupov | Komplexné hodnotenie |
 
 ---
@@ -181,7 +183,7 @@ flowchart TD
     B --> F[Min. 5 časových bodov]
     C --> G[3-10 vzoriek na bod]
     D --> H[Normálne + Akcelerované]
-    E --> I[8-15 trénovaných]
+    E --> I[~50+ spotrebiteľov + trénovaný panel]
     
     F --> J[Štatistická analýza]
     G --> J
@@ -209,10 +211,10 @@ flowchart TD
 
 ### Pravidlá
 
-1. **Viac bodov na začiatku** – degradácia je rýchlejšia
-2. **Menej bodov na konci** – degradácia spomaľuje
-3. **Minimálne 5 časových bodov** – pre spoľahlivý odhad
-4. **Kontrolné body** – na overenie linearity
+1. **Hustejšie body okolo očakávaného konca trvanlivosti** – tam je informácia pre odhad najcennejšia
+2. **Aj body za očakávaným koncom** – krivka má dosiahnuť ~50 % odmietnutí
+3. **Minimálne 5–6 časových bodov**
+4. **Reverzný dizajn** – vzorky rôzneho veku hodnotené v jeden deň
 
 ---
 
@@ -232,7 +234,7 @@ flowchart TD
 | Kategória produktu | Typické Q10 | Poznámka |
 |--------------------|-------------|----------|
 | **Mliečne výrobky** | 2–4 | Závisí od obsahu tuku |
-| **Chlieb a pečivo** | 1.5–2.5 | Stárnutie |
+| **Chlieb a pečivo** | — | Retrogradácia nie je arrheniovská |
 | **Nápoje** | 2–3 | Oxidácia |
 | **Mäso** | 2–4 | Oxidácia tuku |
 | **Ovocie a zelenina** | 2–3 | Enzymatická degradácia |
@@ -246,11 +248,12 @@ $$E_a = -R \times \frac{\ln(k_2/k_1)}{1/T_2 - 1/T_1}$$
 
 | Typ reakcie | Ea (kJ/mol) |
 |-------------|-------------|
-| **Oxidácia tuku** | 60–100 |
-| **Enzymatická degradácia** | 40–80 |
-| **Mikrobiologický rast** | 80–120 |
-| **Stárnutie chleba** | 100–150 |
-| **Vitamínová degradácia** | 60–100 |
+| **Oxidácia lipidov** | 40–100 |
+| **Enzymatické reakcie** | 40–130 |
+| **Rast mikroorganizmov** | 80–120 |
+| **Maillardovo hnednutie** | 100–200 |
+| **Degradácia vitamínov** | 40–130 |
+| **Starnutie chleba** | nie je arrheniovské |
 
 ---
 
@@ -261,7 +264,7 @@ flowchart LR
     A[Zber dát] --> B[Prežívacia funkcia]
     B --> C[Weibull fit]
     C --> D[t₅₀ = η × ln2^(1/β)]
-    C --> E[t₁₀ = η × ln10^(1/β)]
+    C --> E[t₂₅ = η × 0.288^(1/β)]
     D --> F[Bezpečnostný faktor]
     E --> F
     F --> G[Best before dátum]
@@ -271,7 +274,7 @@ flowchart LR
 
 $$t_{50} = \eta \times (\ln 2)^{1/\beta}$$
 
-$$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
+$$t_{25} = \eta \times (-\ln 0.75)^{1/\beta} = \eta \times 0.288^{1/\beta}$$
 
 ---
 
@@ -279,7 +282,7 @@ $$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
 
 **Produkt:** Jogurt s jahodami, skladovaný pri 4°C
 
-| Čas (dni) | Chuť | Vôňa | Textúra | Akceptabilita (%) |
+| Čas (dni) | Chuť | Vôňa | Textúra | Akceptujúci spotrebitelia (%) |
 |------------|------|------|---------|-------------------|
 | 0 | 8.5 | 8.2 | 8.0 | 100 |
 | 7 | 8.0 | 7.8 | 7.5 | 95 |
@@ -289,15 +292,15 @@ $$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
 | 35 | 5.0 | 4.8 | 4.5 | 35 |
 | 42 | 4.2 | 4.0 | 3.8 | 15 |
 
-**Weibull fit:** β = 2.3, η = 28.5 dní
+**Weibull fit:** β = 2.29, η = 33.6 dní → t₅₀ = 28.6 d, t₂₅ = 19.5 d
 
-**Záver:** Shelf-life = 25 dní (mediánová)
+**Záver:** Mediánová trvanlivosť ≈ 29 dní; pri 25 % odmietnutí ≈ 19–20 dní
 
 ---
 
 ## Praktický príklad: Chlieb
 
-**Produkt:** Hrubý chlieb, skladovaný pri 20°C
+**Produkt:** Chlieb, skladovaný pri 20°C
 
 | Čas (dni) | Staling | Chuť | Textúra | Akceptabilita (%) |
 |------------|---------|------|---------|-------------------|
@@ -309,15 +312,15 @@ $$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
 | 7 | 8.0 | 4.0 | 3.5 | 10 |
 | 10 | 9.0 | 3.0 | 2.5 | 0 |
 
-**Weibull fit:** β = 1.8, η = 3.2 dní
+**Weibull fit:** β = 1.60, η = 4.27 dní → t₅₀ = 3.4 d, t₂₅ = 2.0 d
 
-**Záver:** Shelf-life = 3 dni (mediánová)
+**Záver:** Mediánová trvanlivosť ≈ 3 dni; pri 25 % odmietnutí ≈ 2 dni
 
 ---
 
 ## Best Before Dátum
 
-**Postup:**
+„Spotrebujte do" určuje mikrobiologická bezpečnosť; senzorika je podkladom pre „spotrebujte najlepšie do" (1169/2011, čl. 24). Priamo: zvoliť prípustný podiel odmietnutí (napr. 25 %) → t₂₅. Alternatívna firemná prax (nie norma):
 
 1. Vypočítajte mediánovú shelf-life (t₅₀)
 2. Aplikujte bezpečnostný faktor (0.7–0.9)
@@ -325,10 +328,10 @@ $$t_{10} = \eta \times (\ln 10)^{1/\beta}$$
 
 | Typ produktu | Odporúčaný faktor | Dôvod |
 |--------------|-------------------|-------|
-| **Kľúčové potraviny** | 0.7 | Vysoká spotrebiteľská rizika |
+| **Citlivé potraviny** | 0.7 | Vyššie riziko reklamácií |
 | **Bežné potraviny** | 0.8 | Štandardná ochrana |
-| **Konzervy** | 0.9 | Nízka rizika |
-| **Mrazené výrobky** | 0.75 | Závisí od reťaznice chladenia |
+| **Konzervy** | 0.9 | Nízke riziko |
+| **Mrazené výrobky** | 0.75 | Závisí od chladiaceho reťazca |
 
 ---
 
@@ -354,3 +357,19 @@ Sensory shelf-life testing je **komplexný proces**, ktorý kombinuje:
 **Otázky?**
 
 *SAP — Senzorická Analýza Potravín*
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Kaplan-Meierov odhad, cut-off bod | [10 – Analýza prežitia a senzorická trvanlivosť](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) |
+| Regresia senzorických dát v čase | [6 – Korelácia a lineárna regresia](https://senzorika.github.io/SaIT/teoria/cvicenie06.html) |
+| Prípadová štúdia senzorickej trvanlivosti | [20 – Kontrolné prípadové štúdie II](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) |
+
+Prednášky: [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../overenie/overenie_zdrojov.md).
+:::

@@ -4,33 +4,43 @@
 
 ### 1.1 Hlavné ISO standardy pre senzorickú analýzu
 
-| ISO Štandard | Názov | Rok | Hlavný účel |
-|---|---|---|---|
-| ISO 8586:2012 | Výber a tréning hodnotiteľov | 2012 | Kvalifikácia a tréning senzorických panelistov |
-| ISO 13299:2016 | Metodológia senzorickej analýzy | 2016 | Všeobecná metodológia a návody pre senzorické testovanie |
-| ISO 4120:2004 | Trojuholníkový test | 2004 | Rozlišovanie dvoch produktov pomocou trojice vzoriek |
-| ISO 5495:2005 | Párový porovnávací test | 2005 | Rozlišovanie dvoch produktov pomocou páru vzoriek |
-| ISO 10399:2004 | Duo-trio test | 2004 | Rozlišovanie dvoch produktov s referenčnou vzorkou |
-| ISO 4121:2003 | Škála intenzity | 2003 | Použitie škál intenzity v senzorickom hodnotení |
-| ISO 11035:1994 | Identifikácia deskriptorov | 1994 | Výber a identifikácia deskriptorov pre profilovú analýzu |
-| ISO 11036:1994 | Textúrna profilová analýza | 1994 | Metodológia hodnotenia textúry potravín |
-| ISO 11037:1999 | Vnímanie textúry | 1999 | Vzájemné vzťahy medzi senzorickými a fyzikálnymi meraniami textúry |
-| ISO 16779:2015 | Časovo intenzívna analýza | 2015 | Meranie intenzity senzorických atribútov v čase |
-| ISO 11136:2014 | Spotrebiteľské testy | 2014 | Metodológia testovania prijatia produktov spotrebiteľmi |
-| ISO 16741:2015 | Shelf-life testy | 2015 | Stanovenie trvanlivosti potravín senzorickými metódami |
-| ISO 20784:2005 | Rýchla senzorická profilová analýza | 2005 | Rýchle metódy profilového hodnotenia |
-| ISO 22308:2005 | Senzorické metódy pre kávu | 2005 | Špecifické senzorické metódy pre hodnotenie kávy |
-| ISO 11036:2021 | Textúrna profilová analýza (aktualizovaná) | 2021 | Aktualizovaná verzia textúrnych profilových metód |
+> **Poznámka k aktuálnosti (overené 09/2026):** Uvádzame posledné známe vydanie normy. Pred citovaním v protokole vždy over platnosť v [katalógu ISO/TC 34/SC 12](https://www.iso.org/committee/47858/x/catalogue/).
 
-### 1.2 Doplnkové ISO standardy
+| ISO Štandard | Názov | Hlavný účel |
+|---|---|---|
+| ISO 8586:2023 | Všeobecné pokyny na výber, výcvik a monitorovanie hodnotiteľov | Kvalifikácia a tréning senzorických panelistov (nahrádza vydanie 2012) |
+| ISO 8589:2007 (+Amd 1:2014) | Všeobecné pokyny na navrhovanie senzorických miestností | Senzorické laboratórium, kabíny, osvetlenie |
+| ISO 6658:2017 | Metodológia — všeobecné pokyny | Prehľad metód a ich výber |
+| ISO 13299:2016 | Metodológia — všeobecné pokyny na zostavenie senzorického profilu | Deskriptívna (profilová) analýza |
+| ISO 4120:2021 | Trojuholníkový test | Rozlišovanie dvoch produktov (trojica vzoriek) |
+| ISO 5495:2005 (+Amd 1:2016) | Párový porovnávací test | Smerový rozdiel / preferencia medzi dvoma vzorkami |
+| ISO 10399:2017 | Duo-trio test | Rozlišovanie dvoch produktov s referenčnou vzorkou |
+| ISO 8588:2017 | Test „A" – „nie A" | Rozlišovanie pri nemožnosti priameho porovnania |
+| ISO 8587:2006 (+Amd 1:2013) | Poradový test (ranking) | Zoradenie vzoriek podľa intenzity / preferencie |
+| ISO 4121:2003 | Pokyny na používanie kvantitatívnych škál odpovedí | Škály intenzity |
+| ISO 11035:1994 | Identifikácia a výber deskriptorov (multidimenzionálny prístup) | Výber deskriptorov pre profil (starší dokument; over platnosť) |
+| ISO 11036:2020 | Profil textúry | Metodológia hodnotenia textúry potravín |
+| ISO 11037:2011 | Hodnotenie farby potravín | Vizuálne hodnotenie farby, osvetlenie |
+| ISO 11132:2021 | Pokyny na meranie výkonnosti kvantitatívneho deskriptívneho panelu | Diskriminácia, zhoda a opakovateľnosť panelu |
+| ISO 11136:2014 (+Amd 1:2020) | Všeobecné pokyny na vykonávanie hedonických testov | Spotrebiteľské testy prijatia |
+| ISO 13301:2018 | Metódy stanovenia prahov (3-AFC) | Detekčné prahy vôní, chutí |
+| ISO 16779:2015 | Hodnotenie (stanovenie a overenie) trvanlivosti potravín | Senzorická trvanlivosť (shelf-life) |
+| ISO 16820:2019 | Sekvenčná analýza | Sekvenčné rozlišovacie testy |
+| ISO 29842:2011 | Vyvážené neúplné blokové usporiadania | Dizajn pri veľkom počte vzoriek |
+| ISO 22308-1:2021 | Korok — senzorické hodnotenie (nahrádza ISO 22308:2005) | Cudzie pachy korkových zátok (nie káva) |
 
-| ISO Štandard | Názov | Rok | Hlavný účel |
-|---|---|---|---|
-| ISO 5492:2008 | Senzorická terminológia | 2008 | Definície senzorických pojmov |
-| ISO 6658:2005 | Metodológia senzorickej analýza — Všeobecné usmernenia | 2005 | Základné usmernenia pre senzorické testovanie |
-| ISO 11035:1994 | Identifikácia deskriptorov | 1994 | Výber deskriptorov pre senzorické profily |
-| ISO 16741:2015 | Stanovenie trvanlivosti | 2015 | Senzorické aspekty stanovenia trvanlivosti |
-| ISO 20784:2005 | Rýchle senzorické metódy | 2005 | Profilové metódy pre rýchle hodnotenie |
+### 1.2 Doplnkové ISO / ASTM dokumenty
+
+| Dokument | Názov | Hlavný účel |
+|---|---|---|
+| ISO 5492:2008 (+Amd 2016) | Senzorická terminológia | Definície senzorických pojmov |
+| ISO 3972:2011 | Metóda skúmania citlivosti chuti | Skríning hodnotiteľov |
+| ISO 5496:2006 | Iniciácia a výcvik hodnotiteľov v detekcii a rozpoznávaní vôní | Tréning čuchu |
+| ASTM E1885 | Triangle test (ASTM) | Alternatíva k ISO 4120 |
+| ASTM E3009 | Tetrad test | Tetrádový test (ISO norma pre tetrádu neexistuje) |
+| ASTM E1958 | Sensory claim substantiation | Senzorické tvrdenia |
+
+> ⚠️ **Opravy oproti predošlej verzii:** „ISO 16741:2015 (shelf-life)" a „ISO 20784:2005 (rýchle profily)" sa v katalógu ISO nenachádzajú; normou pre senzorickú trvanlivosť je **ISO 16779:2015** (nie časovo-intenzitná analýza — pre T-I samostatná ISO norma neexistuje). **ISO 22308** sa týka korkových zátok, nie kávy. **ISO 11037** rieši farbu, nie textúru.
 
 ---
 
@@ -66,34 +76,38 @@ P(X ≥ k) = Σ (n choose i) × p^i × (1-p)^(n-i) pre i = k až n
 | 20 | 11 |
 | 25 | 13 |
 | 30 | 15 |
-| 36 | 17 |
-| 48 | 21 |
-| 60 | 25 |
+| 36 | 18 |
+| 48 | 22 |
+| 60 | 27 |
+
+*Presné binomické hodnoty (jednostranný test, p₀ = 1/3), prepočítané; zhodujú sa s ISO 4120:2021.*
 
 **Interpretácia:**
 - Ak počet správnych odpovedí ≥ kritická hodnota → produkty sa signifikantne líšia
-- Ak počet správnych odpovedí < kritická hodnota → produkty sa nedajú rozlišovať
+- Ak počet správnych odpovedí < kritická hodnota → rozdiel **nebol preukázaný** (to nie je dôkaz podobnosti — na ten treba test podobnosti s vopred zvoleným p_d a β, pozri [SaIT cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html))
 
 **Výhody:**
 - Jednoduchý na pochopenie
-- Náročný na panelistov (dobrá senzorická citlivosť)
-- Štatisticky efektívny
+- Nevyžaduje poznať smer rozdielu
+- Široko zavedený a normalizovaný
 
 **Nevýhody:**
-- Vyžaduje trénovaných panelistov
-- Náročný na organizáciu (6 podávaní pre plný dizajn)
-- Panelista môže byť zmätený
+- Pri danom d′ patrí medzi štatisticky najmenej účinné testy (menej účinný ako tetrad, 2-AFC či 3-AFC)
+- Náročný na pamäť a únavu (3 vzorky na pokus)
+- Vyvážené poradie vyžaduje 6 permutácií (AAB, ABA, BAA, BBA, BAB, ABB)
+
+> 🧪 **Precvič v R:** binomický test v rozlišovacích skúškach — [SaIT cvičenie 5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) · Thurstonov model a d′ — [cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html)
 
 ---
 
 ### 2.2 Duo-trio Test
 
-**Princíp:** Panelista dostane referenčnú vzorku a dve neznáme vzorky (jedna rovná referencii, jedna odlišná). Úlohou je identifikovať vzorku, ktorá sa líši od referencie.
+**Princíp:** Panelista dostane referenčnú vzorku a dve neznáme vzorky (jedna rovná referencii, jedna odlišná). Úlohou je identifikovať vzorku, ktorá je **zhodná s referenciou** (ISO 10399:2017).
 
 **Postup:**
 1. Podáva sa referenčná vzorka (R)
 2. Následne dve vzorky (jedna = R, jedna ≠ R)
-3. Panelista identifikuje odlišnú vzorku
+3. Panelista určí, ktorá vzorka zodpovedá referencii
 
 **Výpočet:**
 
@@ -101,19 +115,19 @@ P(X ≥ k) = Σ (n choose i) × p^i × (1-p)^(n-i) pre i = k až n
 H0: p = 1/2 (náhodná voľba)
 H1: p > 1/2 (schopnosť rozlišovať)
 
-Kritické hodnoty (α = 0.05):
+Kritické hodnoty (α = 0.05, jednostranný test):
 ```
 
 | n (panelistov) | Kritická hodnota (min. správnych) |
 |---|---|
-| 10 | 8 |
-| 15 | 11 |
-| 20 | 13 |
-| 25 | 16 |
-| 30 | 18 |
-| 36 | 21 |
-| 48 | 27 |
-| 60 | 33 |
+| 10 | 9 |
+| 15 | 12 |
+| 20 | 15 |
+| 25 | 18 |
+| 30 | 20 |
+| 36 | 24 |
+| 48 | 31 |
+| 60 | 37 |
 
 **Výhody:**
 - Jednoduchšie na pochopenie ako trojuholníkový test
@@ -121,7 +135,7 @@ Kritické hodnoty (α = 0.05):
 - Vhodný pre menej zkušené panely
 
 **Nevýhody:**
-- Menej statisticky efektívny ako trojuholníkový test
+- Pri danom d′ štatisticky približne rovnako málo účinný ako trojuholníkový test (oba potrebujú veľa hodnotiteľov)
 - Vyžaduje konzistentnú referenčnú vzorku
 
 ---
@@ -145,54 +159,51 @@ Dvojitý test (two-tailed):
 Kritické hodnoty pre α = 0.05:
 ```
 
+Rozdiel je významný, ak počet hlasov pre jednu vzorku ≤ dolná alebo ≥ horná hodnota (presný binomický test):
+
 | n (panelistov) | Dolná kritická | Horná kritická |
 |---|---|---|
-| 20 | 6 | 14 |
-| 30 | 10 | 20 |
+| 20 | 5 | 15 |
+| 30 | 9 | 21 |
 | 40 | 13 | 27 |
-| 50 | 16 | 34 |
-| 60 | 19 | 41 |
+| 50 | 17 | 33 |
+| 60 | 21 | 39 |
 
 **Výhody:**
 - Veľmi jednoduchý
 - Rýchly
-- Vhodný pre screening
+- Ak je atribút vopred známy, ide (ako 2-AFC) o štatisticky **najúčinnejší** rozlišovací test pri danom d′
 
 **Nevýhody:**
-- Poskytuje len informáciu o tom, ktorý produkt je intenzívnejší
-- Neposkytuje informáciu o veľkosti rozdielu
-- Menej citlivý ako iné rozlišovacie testy
+- Poskytuje len informáciu o tom, ktorý produkt je intenzívnejší v jednom atribúte
+- Neposkytuje priamo veľkosť rozdielu (tú dá až Thurstonov d′)
+- Hodnotitelia musia rovnako rozumieť atribútu
 
 ---
 
 ### 2.4 "A" - "nie A" Test
 
-**Princíp:** Panelista dostane vzorku a rozhodne, či podobá vzorke "A" alebo nie.
+**Princíp:** Panelista sa oboznámi so vzorkou „A". Potom dostáva sériu vzoriek (A aj „nie A") a pri každej rozhodne, či ide o „A" alebo „nie A" (ISO 8588:2017).
 
 **Postup:**
 1. Panelista sa naučí referenčnú vzorku "A"
-2. Podáva sa vzorka a panelista rozhodne: "A" alebo "nie A"
-3. Výsledky sa vyhodnotia pomocou binomického rozdelenia
+2. Podávajú sa vzorky A aj „nie A" v náhodnom poradí; panelista rozhodne: "A" alebo "nie A"
+3. Výsledky sa zapíšu do tabuľky 2 × 2 (skutočná vzorka × odpoveď)
 
 **Výpočet:**
 
 ```
-H0: p = 1/2 (náhodná voľba)
-H1: p > 1/2 (správne rozpoznanie)
+Tabuľka 2 × 2:           odpoveď "A"   odpoveď "nie A"
+  podaná vzorka A            n11            n12
+  podaná vzorka nie A        n21            n22
 
-Kritické hodnoty (α = 0.05):
+H0: podiel odpovedí "A" je rovnaký pre obe vzorky
+- rôzni hodnotitelia na každú vzorku → Pearsonov χ² test (1 df) alebo Fisherov test
+- každý hodnotiteľ hodnotí obe vzorky → McNemarov test
+Veľkosť rozdielu: d′ = z(H) − z(F), H = n11/(n11+n12), F = n21/(n21+n22)
 ```
 
-| n (panelistov) | Kritická hodnota (min. správnych) |
-|---|---|
-| 10 | 8 |
-| 15 | 11 |
-| 20 | 13 |
-| 25 | 16 |
-| 30 | 18 |
-| 36 | 21 |
-| 48 | 27 |
-| 60 | 33 |
+> ⚠️ Predošlá verzia uvádzala binomický test s p = 1/2 a tabuľku kritických hodnôt. To je nesprávne — pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa, preto sa porovnávajú dva podiely (ISO 8588).
 
 **Výhody:**
 - Jednoduchý
@@ -211,31 +222,20 @@ Kritické hodnoty (α = 0.05):
 **Princíp:** Panelista dostane dve vzorky a rozhodne, či sú rovnaké alebo odlišné.
 
 **Postup:**
-1. Podáva sa dve vzorky (rovnaké alebo odlišné)
+1. Podávajú sa páry rovnakých (AA, BB) aj odlišných (AB, BA) vzoriek
 2. Panelista rozhodne: "rovnaké" alebo "odlišné"
-3. Výsledky sa vyhodnotia pomocou štatistického testu
+3. Porovná sa podiel odpovedí „odlišné" pri odlišných a pri rovnakých pároch
 
 **Výpočet:**
 
 ```
-Používa sa chi-square test alebo binomické rozdelenie
-
-H0: p = 1/2 (náhodná voľba)
-H1: p ≠ 1/2 (schopnosť rozlišovať)
-
-Kritické hodnoty (α = 0.05):
+H0: podiel odpovedí "odlišné" je rovnaký pre odlišné aj rovnaké páry
+Test: χ² test (alebo Fisherov / McNemarov test) na tabuľke 2 × 2
+Veľkosť rozdielu: Thurstonov d′ podľa modelu same-different
+(napr. funkcia samediff() v R balíku sensR)
 ```
 
-| n (panelistov) | Kritická hodnota (min. správnych) |
-|---|---|
-| 10 | 8 |
-| 15 | 11 |
-| 20 | 13 |
-| 25 | 16 |
-| 30 | 18 |
-| 36 | 21 |
-| 48 | 27 |
-| 60 | 33 |
+> ⚠️ Pre tento test neexistuje „náhodná pravdepodobnosť 1/2" ani jednoduchá tabuľka kritických hodnôt — výsledok závisí od toho, ako prísne hodnotiteľ volí „odlišné".
 
 **Výhody:**
 - Jednoduchý
@@ -371,12 +371,14 @@ Priemer liking pre "Príliš vysoká" - Priemer liking pre "JAR"
 **Výhody:**
 - Poskytuje informáciu o optimalizácii
 - Vhodná pre NPD
-- Jednoduchá na použitie
+- Jednoduchá na použitie — určená pre **spotrebiteľov**, nie trénovaný panel
 
 **Nevýhody:**
-- Vyžaduje trénovaných panelistov
-- Subjektívne hranice
-- Menej vhodná pre deskriptívne atribúty
+- Kombinuje intenzitu a hodnotenie v jednej otázke (môže ovplyvniť hedonické odpovede)
+- Penalty analýza vyžaduje súčasne zbierať celkovú obľúbenosť
+- Nevhodná pre trénovaný deskriptívny panel
+
+> 🧪 **Precvič v R:** JAR škála a penalty analýza — [SaIT cvičenie 12](https://senzorika.github.io/SaIT/teoria/cvicenie12.html)
 
 ---
 
@@ -388,15 +390,15 @@ Priemer liking pre "Príliš vysoká" - Priemer liking pre "JAR"
 
 | Hodnotenie | Popis |
 |---|---|
-| 9 | Výnimočne sa mi páči |
+| 9 | Mimoriadne sa mi páči |
 | 8 | Veľmi sa mi páči |
-| 7 | Mierne sa mi páči |
+| 7 | Stredne sa mi páči |
 | 6 | Trochu sa mi páči |
 | 5 | Ani sa mi páči, ani sa mi nepáči |
 | 4 | Trochu sa mi nepáči |
-| 3 | Mierne sa mi nepáči |
+| 3 | Stredne sa mi nepáči |
 | 2 | Veľmi sa mi nepáči |
-| 1 | Výnimočne sa mi nepáči |
+| 1 | Mimoriadne sa mi nepáči |
 
 **Výpočet:**
 
@@ -419,6 +421,8 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 - Subjektívne
 - Kultúrne závislé
 - Neposkytuje informáciu o príčinách
+
+> 🧪 **Precvič v R:** interval spoľahlivosti priemeru — [SaIT cvičenie 2](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) · porovnanie viacerých vzoriek (ANOVA, Friedman, post-hoc) — [cvičenie 5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html)
 
 ---
 
@@ -444,71 +448,72 @@ Kde:
 |---|---|
 | Trojuholníkový test | 1/3 |
 | Duo-trio test | 1/2 |
-| Párový porovnávací test | 1/2 |
-| "A" - "nie A" test | 1/2 |
-| Test rovnakosti | 1/2 |
+| Párový porovnávací test (2-AFC) | 1/2 |
+| 3-AFC | 1/3 |
 | Tetrad test | 1/3 |
+| "A" - "nie A" test | — (porovnanie dvoch podielov, χ²/McNemar) |
+| Test rovnakosti (same-different) | — (porovnanie dvoch podielov, χ²) |
 
 ### 3.2 Kritické hodnoty pre rôzne úrovne významnosti
 
-**Trojuholníkový test (p = 1/3):**
+Presné binomické hodnoty (jednostranný test; minimálny počet správnych odpovedí), prepočítané v Pythone (`scipy.stats.binom`):
+
+**Trojuholníkový test a tetrad (p₀ = 1/3):**
 
 | n | α = 0.10 | α = 0.05 | α = 0.01 |
 |---|---|---|---|
 | 10 | 6 | 7 | 8 |
-| 15 | 8 | 9 | 11 |
+| 15 | 8 | 9 | 10 |
 | 20 | 10 | 11 | 13 |
 | 25 | 12 | 13 | 15 |
-| 30 | 13 | 15 | 17 |
-| 36 | 15 | 17 | 19 |
-| 48 | 19 | 21 | 24 |
-| 60 | 23 | 25 | 28 |
+| 30 | 14 | 15 | 17 |
+| 36 | 17 | 18 | 20 |
+| 48 | 21 | 22 | 25 |
+| 60 | 26 | 27 | 30 |
 
-**Duo-trio test (p = 1/2):**
+**Duo-trio a smerový párový test, jednostranne (p₀ = 1/2):**
 
 | n | α = 0.10 | α = 0.05 | α = 0.01 |
 |---|---|---|---|
-| 10 | 7 | 8 | 9 |
-| 15 | 10 | 11 | 12 |
-| 20 | 12 | 13 | 15 |
-| 25 | 14 | 16 | 17 |
-| 30 | 16 | 18 | 20 |
-| 36 | 19 | 21 | 23 |
-| 48 | 25 | 27 | 29 |
-| 60 | 30 | 33 | 36 |
+| 10 | 8 | 9 | 10 |
+| 15 | 11 | 12 | 13 |
+| 20 | 14 | 15 | 16 |
+| 25 | 17 | 18 | 19 |
+| 30 | 20 | 20 | 22 |
+| 36 | 23 | 24 | 26 |
+| 48 | 29 | 31 | 33 |
+| 60 | 36 | 37 | 40 |
 
 ### 3.3 Výpočet počtu panelistov
 
-**Vzorec pre binomické rozdelenie:**
+Počet hodnotiteľov pre rozlišovací test závisí od **α, β (sila testu) a veľkosti rozdielu**, ktorý chceme odhaliť (p_d — podiel „rozlišujúcich" hodnotiteľov, alebo Thurstonov d′). Vzorec pre šírku intervalu spoľahlivosti (n = z²·p(1−p)/E²) na to **nie je vhodný** — rieši presnosť odhadu, nie silu testu.
+
+**Aproximácia normálnym rozdelením (jednostranný test):**
 
 ```
-n = (Zα/2)² × p × (1-p) / E²
+n ≈ [ z_α·√(p₀(1−p₀)) + z_β·√(p₁(1−p₁)) ]² / (p₁ − p₀)²
 
-Kde:
-- Zα/2 = kritická hodnota z-rozdelenia (1.96 pre α = 0.05)
-- p = očakávaná pravdepodobnosť správnej odpovedi
-- E = požadovaná presnosť (margin of error)
+p₀ = pravdepodobnosť uhádnutia (1/3 alebo 1/2)
+p₁ = p₀ + p_d·(1 − p₀)  … očakávaný podiel správnych odpovedí
+z_α = 1.645 (α = 0.05), z_β = 0.842 (sila 0.80)
 ```
 
-**Príklad výpočtu:**
+**Príklad:** trojuholníkový test, p_d = 25 % → p₁ = 0.50:
+n ≈ (1.645·0.471 + 0.842·0.5)² / (0.167)² ≈ 52; presný binomický výpočet dáva **n = 60**.
 
-```
-Pre trojuholníkový test (p = 0.5, E = 0.1, α = 0.05):
-n = (1.96)² × 0.5 × 0.5 / (0.1)²
-n = 3.8416 × 0.25 / 0.01
-n = 96.04 ≈ 97 panelistov
-```
+**Rovnaký senzorický rozdiel (d′ = 1), α = 0.05, sila 0.80 — presný binomický výpočet s Thurstonovým modelom:**
 
-**Odporúčané počty panelistov:**
-
-| Typ testu | Minimálny počet | Odporúčaný počet |
+| Test | p_c pri d′ = 1 | Potrebný počet hodnotiteľov |
 |---|---|---|
-| Trojuholníkový test | 18 | 24-36 |
-| Duo-trio test | 16 | 24-36 |
-| Párový porovnávací test | 20 | 30-40 |
-| "A" - "nie A" test | 16 | 24-36 |
-| Test rovnakosti | 16 | 24-36 |
-| Tetrad test | 24 | 36-48 |
+| 2-AFC (smerový párový) | 0.760 | 26 |
+| 3-AFC | 0.634 | 22 |
+| Tetrad | 0.494 | 65 |
+| Trojuholníkový | 0.418 | 220 |
+| Duo-trio | 0.582 | 241 |
+
+→ Pri rovnakom senzorickom rozdiele potrebuje trojuholníkový test ~3× viac hodnotiteľov ako tetrad a ~8× viac ako 2-AFC. Orientačné „minimálne počty" (napr. 18–36) preto platia len pre veľké rozdiely.
+
+> 🧪 **Precvič v R:** sila testu a veľkosť panelu — [SaIT cvičenie 14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) · psychometrické funkcie a d′ — [cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html)
 
 ### 3.4 Power Analysis
 
@@ -547,12 +552,12 @@ Kde:
 
 | Situácia | Odporúčaná metóda | Dôvod |
 |---|---|---|
-| Zistiť, či sa produkty líšia | Trojuholníkový test | Najcitlivejší rozlišovací test |
-| Zistiť, ktorý produkt je intenzívniejší | Párový porovnávací test | Jednoduchý a rýchly |
-| Overiť, či sa produkt líši od referencie | Duo-trio test | Vhodný pre porovnanie s referenciou |
-| Rýchly screening | "A" - "nie A" test | Náročný na pamäť |
-| Overiť konzistenciu | Test rovnakosti | Jednoduchý |
-| Porovnať viac produktov | Tetrad test | Efektívny pre viacero produktov |
+| Zistiť, či sa produkty líšia (smer neznámy) | Tetrad alebo trojuholníkový test | Tetrad má pri rovnakom d′ vyššiu silu; trojuholník je normalizovaný (ISO 4120) |
+| Zistiť, ktorý produkt je intenzívnejší | Párový porovnávací test (2-AFC) | Najvyššia sila pri známom atribúte |
+| Overiť, či sa produkt líši od referencie | Duo-trio test | Vhodný pri známej referencii |
+| Vzorky nemožno podať súčasne (napr. výrazná dochuť) | "A" - "nie A" test | Hodnotí sa jedna vzorka naraz |
+| Overiť zhodu dvoch vzoriek | Test rovnakosti (same-different) | Nízka záťaž, hodnotí celkovú odlišnosť |
+| Viac ako dve vzorky | Poradový test (ISO 8587), škála + ANOVA | Rozlišovacie testy porovnávajú vždy len 2 produkty |
 
 ### 4.2 Podľa typu atribútu
 
@@ -584,4 +589,20 @@ ISO štandardy poskytujú robustný rámec pre senzorickú analýzu potravín. S
 - Dostupných zdrojov (čas, personál, financie)
 - Požadovanej štatististickej sily
 
-Dôležité je dodržať princípy dobrej senzorickéj praxie (GSP) a zabezpečiť kvalifikáciu a tréning panelistov v súlade s ISO 8586:2012.
+Dôležité je dodržať princípy dobrej senzorickej praxe (GSP) a zabezpečiť kvalifikáciu a tréning panelistov v súlade s ISO 8586:2023.
+
+---
+
+## 6. Prepojenie s praktickými cvičeniami v R (SaIT)
+
+Repozitár [senzorika/SaIT](https://github.com/senzorika/SaIT) obsahuje R skripty a teóriu k štatistickému vyhodnoteniu metód z tejto kapitoly:
+
+| Téma v tejto kapitole | Cvičenie SaIT | Skript |
+|---|---|---|
+| Binomický test, χ², McNemar (rozlišovacie testy, A – nie A) | [5a – Normalita a porovnanie dvoch vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) | [`cvicenie5a.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R) |
+| Hedonické a intenzitné škály — ANOVA, Friedman, post-hoc | [5b – Porovnanie viacerých vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) | [`cvicenie5b.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R) |
+| Neúplné bloky (ISO 29842) | [5d – Durbinov test a BIBD](https://senzorika.github.io/SaIT/teoria/cvicenie05d.html) | [`cvicenie5d.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5d.R) |
+| JAR škála, penalty analýza | [12 – JAR škála a radarový graf](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) | [`cvicenie12.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie12.R) |
+| Thurstonov d′, test podobnosti | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) | [`cvicenie13.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie13.R) |
+| Sila testu a počet hodnotiteľov | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) | [`cvicenie14.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie14.R) |
+| Výkonnosť panelu (ISO 11132) | [15 – Výkonnosť senzorického panelu](https://senzorika.github.io/SaIT/teoria/cvicenie15.html) | [`cvicenie15.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie15.R) |

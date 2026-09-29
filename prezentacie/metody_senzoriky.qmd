@@ -42,23 +42,23 @@ graph TD
 
 ### Prehľad metód
 
-| Test | Vzorky | p (náhodná) | Min. panelistov | Citlivosť |
+| Test | Vzorky | Vyhodnotenie | n pri d′ = 1 (α 0.05, sila 0.8) | Sila pri danom d′ |
 |------|--------|-------------|-----------------|-----------|
-| Trojuholníkový | 3 | 1/3 | 18 | Vysoká |
-| Duo-trio | 3 (1 ref.) | 1/2 | 16 | Stredná |
-| Párový | 2 | 1/2 | 20 | Nízka |
-| A – nie A | 1 (+ref.) | 1/2 | 16 | Nízka |
-| Rovnakosti | 2 | 1/2 | 16 | Nízka |
-| Tetrad | 4 | 1/3 | 24 | Vysoká |
+| Trojuholníkový | 3 | binom., p₀ = 1/3 | 220 | Nízka |
+| Duo-trio | 3 (1 ref.) | binom., p₀ = 1/2 | 241 | Nízka |
+| Párový (2-AFC) | 2 | binom., p₀ = 1/2 | 26 | Vysoká (známy atribút) |
+| A – nie A | 1 naraz | χ² / McNemar (2 × 2) | — | Stredná |
+| Rovnakosti | 2 | χ² / McNemar (2 × 2) | — | Nízka–stredná |
+| Tetrad | 4 | binom., p₀ = 1/3 | 65 | Stredná |
 
 ### Kedy použiť ktorý test
 
 | Kritérium | Trojuholníkový | Duo-trio | Párový | A-nie A | Rovnakosti | Tetrad |
 |---|---|---|---|---|---|---|
-| Citlivosť | Vysoká | Stredná | Nízka | Nízka | Nízka | Vysoká |
-| Náročnosť | Vysoká | Stredná | Nízka | Nízka | Nízka | Vysoká |
+| Sila pri danom d′ | Nízka | Nízka | Vysoká | Stredná | Nízka–stredná | Stredná |
+| Náročnosť | Vysoká | Stredná | Nízka | Stredná | Nízka | Vysoká |
 | Rýchlosť | Stredná | Stredná | Vysoká | Vysoká | Vysoká | Stredná |
-| Screening | Nie | Nie | Áno | Áno | Áno | Nie |
+| Screening | Obmedzene | Obmedzene | Áno | Áno | Áno | Obmedzene |
 | Referencia | Nie | Áno | Nie | Áno | Nie | Nie |
 
 ## Deskriptívne metódy
@@ -66,22 +66,22 @@ graph TD
 ### QDA (Quantitative Descriptive Analysis)
 
 - **Panelisti:** 8–12 trénovaných
-- **Tréning:** 60–90 hodín
+- **Tréning:** rádovo 10–20 hodín
 - **Atribúty:** 10–30
-- **Škála:** Lineárna (15 cm)
-- **Analýza:** ANOVA, PCA
+- **Škála:** nestrukturovaná lineárna (~15 cm)
+- **Analýza:** ANOVA (hodnotiteľ = náhodný efekt), PCA
 
 ### Porovnanie deskriptívnych metód
 
 | Metóda | Panelisti | Tréning | Flexibilita | Reprodukovateľnosť |
 |--------|-----------|---------|-------------|---------------------|
-| QDA | 8–12 | 60–90 h | Stredná | Vysoká |
-| Spectrum | 8–12 | 60–90 h | Nízka | Vysoká |
-| Flavor Profile | 4–6 | 40–60 h | Stredná | Stredná |
-| Texture Profile | 8–12 | 60–90 h | Nízka | Vysoká |
-| Free Choice | 10–15 | Minimálna | Vysoká | Nízka |
-| Flash Profile | 10–15 | Minimálna | Vysoká | Nízka |
-| CATA | 50–100 | Minimálna | Stredná | Stredná |
+| QDA | 8–12 | ~10–20 h | Stredná | Vysoká |
+| Spectrum | 8–12 | často 100+ h | Nízka | Vysoká |
+| Flavor Profile | 4–6 (konsenzus) | dlhý výcvik expertov | Stredná | Stredná |
+| Texture Profile | 8–12 | dlhý | Nízka | Vysoká |
+| Free Choice | 10–15 | Minimálny | Vysoká | Nízka |
+| Flash Profile | 10–15 | Minimálny | Vysoká | Nízka |
+| CATA | 50–100 | Žiadny | Stredná | Stredná |
 
 ## Časovo intenzívne metódy
 
@@ -96,25 +96,25 @@ graph TD
 - Sleduje **dominantný atribút** v čase
 - **Panelisti:** 10–15, tréning 20–30 hodín
 - **Atribúty:** 5–10
-- **Signifikantnosť:** % > P_chance = 1/m + 1.645 × √((1/m)(1-1/m)/n)
+- **Signifikantnosť:** % > P_s = 1/m + 1.645 × √((1/m)(1-1/m)/n), m = počet atribútov (Pineau et al., 2009)
 
 ### TCATA
 
-- Sleduje **všetky aktívne atribúty** v čase
-- Kombinácia prístupov TI a TDS
+- Sleduje **všetky aktívne atribúty** v čase (Castura et al., 2016)
+- Rozšírenie CATA o čas; produkty sa porovnávajú testami podielov v každom čase
 
 ## Spotrebiteľské metódy
 
 ### Hedonické testy
 
-- **Spotrebiteľi:** 100–200
+- **Spotrebitelia:** 100–200 (ISO 11136: aspoň ~60 na skupinu)
 - **Škála:** 9-bodová hedonická
 - **% Prijatie** = (odpovede ≥ 6) / n × 100
 - **% Odmietnutie** = (odpovede ≤ 4) / n × 100
 
 ### Preference Mapping
 
-- Kombinuje hedonicke dáta s deskriptívnymi dátami
+- Kombinuje hedonické dáta s deskriptívnymi dátami (interná / externá mapa)
 - Vytvára preferenčné mapy (PCA, PLS)
 - Umožňuje segmentáciu spotrebiteľov
 
@@ -127,7 +127,8 @@ graph TD
 ### JAR škála
 
 - 5-bodová škála (príliš nízka → práve správna → príliš vysoká)
-- Penalty analysis pre optimalizáciu
+- Penalty analýza: pokles obľúbenosti oproti JAR, vážený podielom skupiny (≥ 20 %)
+- Určené pre spotrebiteľov, nie pre trénovaný panel
 
 ## QC senzorika
 
@@ -182,11 +183,11 @@ graph TD
 
 | Metóda | Panelisti | Tréning | Výhody |
 |--------|-----------|---------|--------|
-| Flash Profile | 10–15 | Minimálna | Veľmi rýchly |
-| CATA | 50–100 | Minimálna | Jednoduchý |
-| Sorting | 10–15 | Minimálna | Rýchly |
-| Napping | 10–15 | Minimálna | Intuitívny |
-| Ultra Flash Profile | 10–15 | Minimálna | Rýchly a podrobný |
+| Flash Profile | 10–15 | Minimálny | Veľmi rýchly (poradia, GPA/MFA) |
+| CATA | 50–100 | Žiadny | Jednoduchý (Cochranov Q, CA) |
+| Sorting | 15–50 | Minimálny | Rýchly (MDS, DISTATIS) |
+| Napping | 15–30 | Minimálny | Intuitívny (hárok ~60 × 40 cm, MFA) |
+| Ultra Flash Profile | 10–30 | Minimálny | Napping + deskriptory |
 
 ### Kedy použiť rýchle metódy
 
@@ -196,7 +197,7 @@ graph TD
 | Identifikácia rozdielov | CATA |
 | Triedenie produktov | Sorting |
 | Vizualizácia podobnosti | Napping |
-| Komplexný screening | Ultra Flash Profile |
+| Mapa podobnosti s popisom | Ultra Flash Profile |
 
 ## Záver
 
@@ -205,10 +206,38 @@ Správna voľba metódy závisí od:
 - **Cieľa** testovania (rozlišovanie vs. deskripcia vs. prijatie)
 - **Typu** produktu a atribútov
 - **Dostupných zdrojov** (čas, personál, financie)
-- **Požadovanej štatististickej sily**
+- **Požadovanej štatistickej sily**
 
-Dôležité je dodržať princípy **dobrej senzorickéj praxie (GSP)** a zabezpečiť kvalifikáciu panelistov v súlade s **ISO 8586**.
+Dôležité je dodržať princípy **dobrej senzorickej praxe (GSP)** a zabezpečiť kvalifikáciu panelistov v súlade s **ISO 8586:2023**.
 
 ---
 
 *Prehľad pripravený pre potreby SAP – Senzorická Analýza Potravín*
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Rozlišovacie testy – binomický test, χ², McNemar | [5a – Normalita a porovnanie dvoch vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) |
+| Hedonické testy, QDA – ANOVA, post-hoc | [5b – Porovnanie viacerých vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) |
+| Neúplné bloky | [5d – Durbinov test a neúplné bloky](https://senzorika.github.io/SaIT/teoria/cvicenie05d.html) |
+| PCA deskriptívnych profilov | [7 – PCA a faktorová analýza](https://senzorika.github.io/SaIT/teoria/cvicenie07.html) |
+| Segmentácia | [8 – Zhluková analýza](https://senzorika.github.io/SaIT/teoria/cvicenie08.html) |
+| Korešpondenčná analýza (CATA) | [9 – Korešpondenčná analýza](https://senzorika.github.io/SaIT/teoria/cvicenie09.html) |
+| Shelf-life – analýza prežitia | [10 – Analýza prežitia a senzorická trvanlivosť](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) |
+| TURF, preferenčná mapa | [11a – TURF analýza a mapa preferencií](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html) |
+| JAR a penalty analýza | [12 – JAR škála a radarový graf](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) |
+| Thurstonov d′, test podobnosti | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) |
+| Sila testu | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) |
+| Výkonnosť panelu | [15 – Výkonnosť senzorického panelu](https://senzorika.github.io/SaIT/teoria/cvicenie15.html) |
+| Zmiešané modely | [16 – Zmiešané modely](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) |
+| CATA, napping | [17 – CATA a napping](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) |
+| TDS, TCATA | [18 – Temporálne metódy – TDS a TCATA](https://senzorika.github.io/SaIT/teoria/cvicenie18.html) |
+
+Prednášky: [Rozlišovacie testy a Thurstonov model](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html) · [Vzťahy a viacrozmerné metódy](https://senzorika.github.io/SaIT/prezentacie/sk/05_viacrozmerne_metody.html) · [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html) · [Rýchle a temporálne metódy](https://senzorika.github.io/SaIT/prezentacie/sk/07_rychle_temporalne_metody.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../overenie/overenie_zdrojov.md).
+:::

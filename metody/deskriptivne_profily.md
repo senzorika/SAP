@@ -19,13 +19,14 @@ Deskriptívne profily predstavujú systematické, kvantitatívne popisy senzoric
 
 | Obdobie | Vývoj |
 |---------|-------|
-| 1940s | Prvé systematické pokusy o deskriptívnu analýzu v USDA |
-| 1950s | Vývoj Flavor Profile Method (Arthur D. Little) |
-| 1970s | Vznik Quantitative Descriptive Analysis (QDA) – Stone et al. |
-| 1980s | Texture Profile Method (Brandt et al.) |
-| 1990s | Spectrum Method – standardizované slovníky |
-| 2000s | Free Choice Profiling, Flash Profile |
-| 2010s | CATA, TDS, TCATA – dynamické metódy |
+| koniec 1940s | Flavor Profile Method (Arthur D. Little; Cairncross & Sjöström, 1950) |
+| 1963 | Texture Profile Method (Brandt, Skinner & Coleman; Szczesniak – General Foods) |
+| 1974 | Quantitative Descriptive Analysis (QDA) – Stone, Sidel et al. |
+| 1980s | Spectrum Method (Civille; Meilgaard, Civille & Carr) · Free Choice Profiling (Williams & Langron, 1984) |
+| 2000s | Flash Profile (Dairou & Sieffermann, 2002) · CATA (Adams et al., 2007) · TDS (Pineau et al., 2009) |
+| 2010s | TCATA (Castura et al., 2016) a ďalšie rýchle a dynamické metódy |
+
+> 🧪 **Precvič v R ([SaIT](https://github.com/senzorika/SaIT)):** ANOVA profilov — [cvičenie 5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) · PCA — [cvičenie 7](https://senzorika.github.io/SaIT/teoria/cvicenie07.html) · výkonnosť panelu — [cvičenie 15](https://senzorika.github.io/SaIT/teoria/cvicenie15.html) · zmiešané modely — [cvičenie 16](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) · CATA — [cvičenie 17](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) · TDS/TCATA — [cvičenie 18](https://senzorika.github.io/SaIT/teoria/cvicenie18.html)
 
 ---
 
@@ -33,12 +34,12 @@ Deskriptívne profily predstavujú systematické, kvantitatívne popisy senzoric
 
 ### Princíp a história
 
-QDA bola vyvinutá Haroldom Stoneom a jeho kolegami na začiatku 70. rokov. Metóda je založená na princípe, že skúsení panelisti dokážu nezávisle identifikovať a kvantifikovať absolútné intenzity senzorických atribútov na numerickej škále.
+QDA bola vyvinutá Herbertom Stoneom a jeho kolegami (Stone, Sidel, Oliver, Woolsey & Singleton, 1974). Metóda je založená na princípe, že trénovaní panelisti dokážu nezávisle a opakovateľne kvantifikovať **relatívne rozdiely** v intenzite atribútov medzi produktmi; rozdiely v tom, ako jednotliví hodnotitelia používajú škálu, rieši štatistická analýza (ANOVA).
 
 ### Počet panelistov a tréning
 
 - **Počet panelistov:** 8–12 trénovaných panelistov
-- **Tréning:** 60–90 hodín v priebehu 3–6 mesiacov
+- **Tréning:** relatívne krátky — rádovo 10–20 hodín (niekoľko týždňov), zameraný na konkrétnu kategóriu produktov
 - **Selekcia:** panelisti musia mať nadpriemernú senzorickú citlivosť a schopnosť verbálne popísať vjemy
 - **Certifikácia:** pravidelné testy citlivosti a reprodukovateľnosti
 
@@ -54,12 +55,12 @@ Proces generácie pozostáva z niekoľkých krokov:
 
 ### Škálovanie
 
-QDA používa **lineárnu škálu** (typicky 15-bodovú alebo 100 mm VAS – Visual Analog Scale):
+QDA používa **nestrukturovanú lineárnu škálu** (pôvodne 6 palcov ≈ 15 cm, so slovnými kotvami ~1,25 cm od okrajov); výsledok sa odčíta ako vzdialenosť, napr. 0–15 alebo 0–100:
 
 ```
-0 = neprítomné                    15 = extrémne intenzívne
-|---------|---------|---------|---------|
-0         5        10        15
+       slabé                                  silné
+|--|------------------------------------------|--|
+0                                                15
 ```
 
 ### Analýza dát
@@ -76,6 +77,8 @@ Chyba                SS_E      ...       MS_E      —        ─
 Celkovo              SS_T      n-1       ─         ─        ─
 ```
 
+> **Pozor:** Panelista je náhodný efekt (reprezentuje populáciu možných hodnotiteľov). V zmiešanom modeli sa efekt produktu testuje proti interakcii: **F_P = MS_P / MS_PS**. Test proti MS_E nadhodnocuje významnosť, keď hodnotitelia nie sú v zhode. V R: `lmer()` alebo balík `SensoMineR::panelperf` — [SaIT cvičenie 16](https://senzorika.github.io/SaIT/teoria/cvicenie16.html).
+
 #### PCA (Analýza hlavných zložiek)
 
 PCA sa používa na:
@@ -88,7 +91,7 @@ PCA sa používa na:
 
 | Výhody | Nevýhody |
 |--------|----------|
-| Vysoká citlivosť a diskriminácia | Dlhý tréning panelistov |
+| Vysoká citlivosť a diskriminácia | Tréning a udržiavanie panelu |
 | Reprodukovateľné výsledky | Náročné na čas a finančné zdroje |
 | Komplexný popis produktu | Vyžaduje skúsených panelistov |
 | Široké využitie v priemysle | Generácia počiatočných deskriptorov je zložitá |
@@ -113,25 +116,25 @@ PCA sa používa na:
 
 ### Princíp
 
-Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille, ktorá používa **štandardizované slovníky** pre každú senzorickú dimenziu. Každý atribút má definovanú škálu s referenčnými bodmi, čo zabezpečuje konzistentnosť medzi panelistami a laboratóriami.
+Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille (popísaná v Meilgaard, Civille & Carr, *Sensory Evaluation Techniques*), ktorá používa **štandardizované lexikóny** a **univerzálnu škálu 0–15** ukotvenú referenčnými vzorkami. Cieľom je, aby intenzity boli porovnateľné medzi atribútmi, produktmi aj laboratóriami (kvázi absolútna škála).
 
 ### Štandardizované slovníky
 
 | Senzorická dimenzia | Príklad atribútov | Referenčné štandardy |
 |---------------------|-------------------|----------------------|
-| Vôňa | kvetinová, ovocná, orechová, korenenová | Etapy, vanilín, citrónová kyselina |
-| Chuť | sladká, kyslá, slaná, horká, umami | Sacharóz, kyselina citrónová, NaCl, kofeín, MSG |
-| Textúra | krémová, tuhá, vláčna, chrumkavá | Nátierky, želatín, karamel |
-| Vizuálna | farba, lesk, homogenita | Farebné štandardy, fotky |
+| Vôňa / aróma | kvetinová, ovocná, orechová, korenistá | Referenčné látky a produkty (napr. vanilín, citral) |
+| Chuť | sladká, kyslá, slaná, horká, umami | Roztoky sacharózy, kyseliny citrónovej, NaCl, kofeínu, MSG v odstupňovaných koncentráciách |
+| Textúra | tvrdosť, súdržnosť, lepivosť, chrumkavosť | Referenčné potraviny na škále (napr. syr, olivy, arašidy pre tvrdosť) |
+| Vizuálna | farba, lesk, homogenita | Farebné štandardy, fotografie |
 
 ### Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |--------|----------|
-| Vysoká reprodukateľnosť medzi laboratóriami | Náročný tréning na štandardizované škály |
-| Široká databáza referenčných štandardov | Menej flexibilná pri nových kategóriách produktov |
-| Kompatibilita s databázami (e-senses) | Vyžaduje dokonalé znalosti slovníka |
-| Rýchlejšie než QDA pri opakovaných testoch | Náklady na certifikáciu |
+| Vysoká reprodukovateľnosť medzi laboratóriami | Dlhý a náročný tréning (často mesiace) |
+| Škála porovnateľná naprieč atribútmi a produktmi | Menej flexibilná pri nových kategóriách produktov |
+| Rozsiahle publikované lexikóny a referencie | Vyžaduje dôkladnú znalosť lexikónu |
+| Vhodná pre dlhodobé sledovanie (QC, benchmarking) | Vysoké náklady na zavedenie |
 
 ---
 
@@ -139,16 +142,17 @@ Spectrum Method je deskriptívna metóda vyvinutá Gail Vance Civille, ktorá po
 
 ### Princíp
 
-Flavor Profile Method bola vyvinutá v roku 1949 v spoločnosti Arthur D. Little. Je to **kvalitatívno-kvantitatívna metóda**, ktorá popisuje komplexnú vôňu a chuť produktu pomocou špeciálneho jazyka.
+Flavor Profile Method bola vyvinutá koncom 40. rokov v spoločnosti Arthur D. Little (publikovaná Cairncrossom & Sjöströmom, 1950). Je to **kvalitatívno-kvantitatívna metóda**: malý panel expertov (4–6) popíše zložky vône a chuti, ich poradie, intenzitu, dochuť a celkový dojem (amplitúdu) a dospeje ku **konsenzu**.
 
-### 4-bodová škála
+### Škála intenzity
 
-| Úroveň | Označenie | Popis |
-|--------|-----------|-------|
-| 1 | T (threshold) | Len znateľná intenzita |
-| 2 | S (slight) | Slabá intenzita |
-| 3 | M (moderate) | Stredná intenzita |
-| 4 | L (large) | Vysoká intenzita |
+| Symbol | Význam |
+|--------|--------|
+| 0 | Neprítomné |
+| )( | Na prahu (threshold, len postrehnuteľné) |
+| 1 | Slabá intenzita (slight) |
+| 2 | Stredná intenzita (moderate) |
+| 3 | Silná intenzita (strong) |
 
 ### Výhody a nevýhody
 
@@ -165,21 +169,23 @@ Flavor Profile Method bola vyvinutá v roku 1949 v spoločnosti Arthur D. Little
 
 ### Princíp
 
-Texture Profile Method (TPM) bola vyvinutá Alinou Brandtovou a kolegami. Metóda kvantifikuje mechanické, geometrické a chemické vlastnosti textúry prostredníctvom **dvojitého hodnotenia** (simulovanie dvoch žuvacích pohybov).
+Texture Profile Method (TPM) bola vyvinutá v General Foods (Brandt, Skinner & Coleman, 1963; klasifikácia textúry Szczesniak, 1963). Panelisti hodnotia textúrne vlastnosti **v poradí, v akom sa objavujú**: vzhľad → prvé zahryznutie → žuvanie → reziduum po prehltnutí, s použitím štandardizovaných referenčných škál (ISO 11036:2020).
+
+> Nezamieňať s inštrumentálnou **TPA** (Texture Profile Analysis) na textúrometri, ktorá simuluje dve zahryznutia dvojitou kompresiou vzorky.
 
 ### Atribúty textúry
 
 | Kategória | Atribúty | Popis |
 |-----------|----------|-------|
-| Mechanická | Tvrdosť, žuvacívosť, lepkavosť, pružnosť | Silové vlastnosti |
-| Geometrická | Hrubosť, zrnitosť, vláčnosť | Fyzická štruktúra |
-| Chemická | Tukovitosť, vlhkosť | Vlastnosti surovín |
+| Mechanická | Tvrdosť, súdržnosť, lepivosť, pružnosť, žuvateľnosť | Reakcia na pôsobenie sily |
+| Geometrická | Zrnitosť, vláknitosť, kryštalickosť | Veľkosť, tvar a orientácia častíc |
+| Ostatné (vlhkosť, tuk) | Vlhkosť, šťavnatosť, mastnosť, olejovitosť | Vnímanie vody a tuku |
 
 ### Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |--------|----------|
-| Objektívne meranie textúry | Vyžaduje tréning v texturologii |
+| Štandardizované hodnotenie textúry s referenčnými škálami | Vyžaduje dlhý tréning |
 | Korelácia s instrumentálnymi meraniami | Časovo náročné hodnotenie |
 | Široké využitie v potravinárstve | Obmedzené na textúru |
 
@@ -189,7 +195,7 @@ Texture Profile Method (TPM) bola vyvinutá Alinou Brandtovou a kolegami. Metód
 
 ### Princíp
 
-Free Choice Profiling (FCP) umožňuje panelistom používať **vlastné deskriptory** namiesto predpísaného zoznamu. Každý panelista vypracuje slovník podľa vlastného vnímania, čo znižuje kultúrny bias.
+Free Choice Profiling (FCP; Williams & Langron, 1984) umožňuje panelistom používať **vlastné deskriptory** namiesto predpísaného zoznamu. Každý panelista vypracuje slovník podľa vlastného vnímania a hodnotí produkty na vlastných škálach; nie je potrebná zhoda panelu na slovníku.
 
 ### GPA analýza
 
@@ -203,9 +209,9 @@ Generalized Procrustes Analysis (GPA) sa používa na:
 | Výhody | Nevýhody |
 |--------|----------|
 | Žiadny predpísaný slovník | Zložitá štatistická analýza |
-| Nízky kultúrny bias | Ťažké porovnanie medzi štúdiami |
+| Netreba konsenzus na slovníku | Ťažké porovnanie medzi štúdiami |
 | Vhodná pre nové kategórie | Vyžaduje pokročilú štatistiku |
-| Rýchlejšie tréning | Menšia reprodukateľnosť |
+| Rýchlejší tréning | Menšia reprodukovateľnosť, ťažšia interpretácia slov |
 
 ---
 
@@ -213,7 +219,7 @@ Generalized Procrustes Analysis (GPA) sa používa na:
 
 ### Princíp
 
-Flash Profile je **rýchla deskriptívna metóda**, ktorá kombinuje princípy FCP s priamym porovnaním produktov. Panelisti hodnotia všetky produkty naraz a generujú vlastné deskriptory.
+Flash Profile (Dairou & Sieffermann, 2002) je **rýchla deskriptívna metóda**, ktorá kombinuje princípy FCP s priamym porovnaním produktov. Panelisti dostanú všetky produkty naraz, vytvoria vlastné deskriptory a podľa každého deskriptora produkty **zoradia**; dáta sa analyzujú GPA alebo MFA.
 
 ### Kedy použiť
 
@@ -226,10 +232,10 @@ Flash Profile je **rýchla deskriptívna metóda**, ktorá kombinuje princípy F
 
 | Výhody | Nevýhody |
 |--------|----------|
-| Veľmi rýchle (15–30 min) | Nízka reprodukateľnosť |
-| Náročné na panelistov | Obmedzená štatistická analýza |
-| Flexibilné deskriptory | Vyžaduje skúsených panelistov |
-| Náklady na tréning | |
+| Veľmi rýchle (jedno až niekoľko sedení) | Nižšia reprodukovateľnosť |
+| Nízke náklady na tréning | Porovnávanie všetkých produktov naraz je kognitívne náročné |
+| Flexibilné deskriptory | Najlepšie výsledky so skúsenými hodnotiteľmi |
+| | Výsledky sú relatívne (poradia), nie intenzity |
 
 ---
 
@@ -237,7 +243,7 @@ Flash Profile je **rýchla deskriptívna metóda**, ktorá kombinuje princípy F
 
 ### Princíp
 
-CATA je **kvalitatívna metóda**, kde spotrebiteľi (nie trénovaní panelisti) označia všetky deskriptory, ktoré podľa nich charakterizujú produkt. Výsledkom je binárna matica (0/1).
+CATA (Adams et al., 2007; rozšírená najmä prácami Aresa a kol.) je metóda, kde spotrebitelia (nie trénovaní panelisti) označia všetky deskriptory, ktoré podľa nich charakterizujú produkt. Výsledkom je binárna matica (0/1), z ktorej sa počítajú frekvencie.
 
 ### Výpočet frekvencií
 
@@ -247,24 +253,26 @@ Pre každý deskriptor sa vypočíta frekvencia výskytu:
 Frekvencia (%) = (Počet označení / Počet respondentov) × 100
 ```
 
-### Chi-square test
+### Cochranov Q test
 
-Chi-square test sa používa na overenie, či sa frekvencie líšia medzi produktami:
+Keďže každý respondent hodnotí všetky produkty, odpovede sú **závislé**. Rozdiely vo frekvencii deskriptora medzi produktmi sa preto testujú **Cochranovým Q testom** (párové porovnania McNemarovým testom), nie obyčajným χ² testom nezávislosti:
 
 ```
-χ² = Σ (O - E)² / E
+Q = (k − 1) · [k·Σ C_j² − N²] / [k·N − Σ R_i²]  ~  χ²(k − 1)
 ```
 
-Kde O = pozorovaná frekvencia, E = očakávaná frekvencia.
+Kde k = počet produktov, C_j = počet označení pri produkte j, R_i = počet označení respondenta i, N = celkový počet označení. Mapu produktov a deskriptorov poskytne korešpondenčná analýza (CA) kontingenčnej tabuľky produkt × deskriptor.
 
 ### Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |--------|----------|
-| Jednoduché pre respondentov | Kvalitatívne (nie kvantitatívne) dáta |
-| Rýchle zber dát | Nemožnosť merania intenzity |
-| Vhodné pre spotrebiteľov | Závislé na zozname deskriptorov |
-| Náklady na tréning | |
+| Jednoduché pre respondentov | Binárne dáta (frekvencie, nie intenzity) |
+| Rýchly zber dát | Nemožnosť priamo merať intenzitu |
+| Vhodné pre spotrebiteľov | Závislé od zoznamu a poradia deskriptorov |
+| Žiadne náklady na tréning | |
+
+> 🧪 **SaIT:** [cvičenie 17](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) (CATA, napping) · [cvičenie 9](https://senzorika.github.io/SaIT/teoria/cvicenie09.html) (korešpondenčná analýza)
 
 ---
 
@@ -272,7 +280,7 @@ Kde O = pozorovaná frekvencia, E = očakávaná frekvencia.
 
 ### Princíp
 
-TDS je **dynamická metóda**, ktorá sleduje dominantné senzorické vjemy v čase počas spotreby produktu. Panelista označuje, ktorý atribút je v danom okamihu dominantný.
+TDS (Pineau et al., 2009) je **dynamická metóda**, ktorá sleduje dominantné senzorické vnemy v čase počas konzumácie produktu. Panelista označuje, ktorý atribút je v danom okamihu dominantný (v každom okamihu len jeden).
 
 ### TDS krivky
 
@@ -283,13 +291,15 @@ TDS krivka zobrazuje:
 
 ### Signifikantnosť
 
-Signifikantná dominancia sa vypočíta pomocou binomického testu:
+Úroveň náhody je **P₀ = 1/k**, kde **k = počet atribútov** v zozname (nie počet panelistov). Hranica významnosti (Pineau et al., 2009) je založená na normálnej aproximácii binomického rozdelenia:
 
 ```
-P(X ≥ k) = Σ (n choose i) × p₀^i × (1-p₀)^(n-i)
+P_s = P₀ + 1.645 · √( P₀ · (1 − P₀) / n )
 ```
 
-Kde p₀ = 1/n (náhodná dominancia), n = počet panelistov.
+Kde n = počet hodnotení (hodnotitelia × opakovania). Atribút, ktorého krivka prekročí P_s, je v danom čase významne dominantný.
+
+> 🧪 **SaIT:** [cvičenie 18](https://senzorika.github.io/SaIT/teoria/cvicenie18.html) · aplikácia [`TDS_app.R`](https://github.com/senzorika/SaIT/blob/master/Senzometricke_appky/TDS_app.R)
 
 ### Výhody a nevýhody
 
@@ -305,7 +315,9 @@ Kde p₀ = 1/n (náhodná dominancia), n = počet panelistov.
 
 ### Princíp
 
-TCATA je **dynamická verzia CATA**. Spotrebiteľi v priebehu spotreby označujú všetky atribúty, ktoré v danom okamihu vnímajú (nie len dominantné).
+TCATA (Castura, Antúnez, Giménez & Ares, 2016) je **dynamická verzia CATA**. Hodnotitelia (trénovaní aj spotrebitelia) v priebehu konzumácie označujú a odznačujú všetky atribúty, ktoré v danom okamihu vnímajú (nie len dominantné). Produkty sa v každom čase porovnávajú testami podielov (napr. Fisherov/McNemarov test).
+
+> 🧪 **SaIT:** [cvičenie 18](https://senzorika.github.io/SaIT/teoria/cvicenie18.html) · aplikácia [`TCATA_app.R`](https://github.com/senzorika/SaIT/blob/master/Senzometricke_appky/TCATA_app.R)
 
 ### Výhody a nevýhody
 
@@ -326,10 +338,10 @@ TCATA je **dynamická verzia CATA**. Spotrebiteľi v priebehu spotreby označuj�
 | Flavor Profile | Kvalitatívno-kvantitatívna | Stredný | Nízky | Nízka | Stredná | Rýchly screening |
 | Texture Profile | Kvantitatívna | Vysoký | Vysoký | Vysoká | Vysoká | Textúra produktov |
 | Free Choice | Kvantitatívna | Nízky | Stredný | Stredná | Nízka | Nové kategórie |
-| Flash Profile | Kvantitatívna | Nízky | Nízky | Stredná | Nízka | Screening |
-| CATA | Kvalitatívna | Žiadny | Nízky | Stredná | Stredná | Spotrebiteľské testy |
-| TDS | Kvantitatívna | Stredný | Stredný | Vysoká | Vysoká | Dynamické produkty |
-| TCATA | Kvalitatívna | Žiadny | Stredný | Stredná | Stredná | Dynamické produkty |
+| Flash Profile | Poradová (ranking) | Nízky | Nízky | Stredná | Nízka | Screening |
+| CATA | Binárna (frekvencie) | Žiadny | Nízky | Stredná | Stredná | Spotrebiteľské testy |
+| TDS | Binárna v čase | Stredný | Stredný | Stredná | Stredná | Dynamické produkty |
+| TCATA | Binárna v čase | Nízky–stredný | Stredný | Stredná | Stredná | Dynamické produkty |
 
 ---
 
@@ -365,13 +377,13 @@ TCATA je **dynamická verzia CATA**. Spotrebiteľi v priebehu spotreby označuj�
 | Dynamické vjemy | TDS, TCATA |
 | Nízke náklady | CATA, Flash Profile |
 | Vysoká reprodukateľnosť | QDA, Spectrum |
-| Spotrebiteľské preferencie | CATA, Flash Profile |
+| Spotrebiteľský popis produktov | CATA (+ hedonická otázka → penalty-lift analýza) |
 
 ---
 
 ## 13. Praktické príklady
 
-### Príklad 1: Výnový jogurt
+### Príklad 1: Jogurt
 
 **Cieľ:** Porovnať senzorický profil 3 výrobcov jogurtov.
 
@@ -395,7 +407,7 @@ TCATA je **dynamická verzia CATA**. Spotrebiteľi v priebehu spotreby označuj�
 - "Horká chuť" označená 45% spotrebiteľov
 - "Orechová vôňa" označená 32% spotrebiteľov
 
-**Záver:** Krémosť je najdôležitejší atribút pre spotrebiteľov.
+**Záver:** Krémosť je deskriptor, ktorý spotrebitelia pri tejto čokoláde označujú najčastejšie. Samotná frekvencia však **nehovorí o dôležitosti** pre obľúbenosť — na to treba CATA doplniť hedonickou otázkou a urobiť *penalty-lift* analýzu (rozdiel priemernej obľúbenosti, keď je deskriptor označený vs. neoznačený).
 
 ### Príklad 3: Čaj
 
@@ -406,6 +418,26 @@ TCATA je **dynamická verzia CATA**. Spotrebiteľi v priebehu spotreby označuj�
 **Výsledky:**
 - 0–10 s: dominantná sladkosť
 - 10–25 s: dominantná horkosť
-- 25–40 s: dominantná horkosť + horká chuť
+- 25–40 s: dominantná trpkosť (adstringencia)
 
-**Záver:** Počiatočná sladkosť sa mení na horkosť, čo môže byť negatívny signál pre niektorých spotrebiteľov.
+**Záver:** Počiatočná sladkosť prechádza do horkosti a v dochuti do trpkosti, čo môže byť negatívny signál pre niektorých spotrebiteľov.
+
+---
+
+## 14. Prepojenie s praktickými cvičeniami v R (SaIT)
+
+| Téma | Cvičenie [SaIT](https://github.com/senzorika/SaIT) | Skript |
+|---|---|---|
+| ANOVA profilov, post-hoc | [5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) | [`cvicenie5b.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5b.R) |
+| PCA, biplot profilov | [7](https://senzorika.github.io/SaIT/teoria/cvicenie07.html) | [`cvicenie7.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie7.R) |
+| Zhluková analýza produktov | [8](https://senzorika.github.io/SaIT/teoria/cvicenie08.html) | [`cvicenie8.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie8.R) |
+| Radarový graf (profilogram) | [12](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) | [`cvicenie12.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie12.R) |
+| Výkonnosť panelu (ISO 11132) | [15](https://senzorika.github.io/SaIT/teoria/cvicenie15.html) | [`cvicenie15.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie15.R) |
+| Zmiešané modely (lmer) | [16](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) | [`cvicenie16.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie16.R) |
+| CATA, napping | [17](https://senzorika.github.io/SaIT/teoria/cvicenie17.html) | [`cvicenie17.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie17.R) |
+| TDS, TCATA | [18](https://senzorika.github.io/SaIT/teoria/cvicenie18.html) | [`cvicenie18.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie18.R) |
+| Prednášky | [Panel ako merací prístroj](https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html) · [Viacrozmerné metódy](https://senzorika.github.io/SaIT/prezentacie/sk/05_viacrozmerne_metody.html) · [Rýchle a temporálne metódy](https://senzorika.github.io/SaIT/prezentacie/sk/07_rychle_temporalne_metody.html) | — |
+
+---
+
+*Referencie: Stone, H., Sidel, J., Oliver, S., Woolsey, A. & Singleton, R.C. (1974). Sensory evaluation by quantitative descriptive analysis. Food Technology 28(11), 24–34. | Brandt, M.A., Skinner, E.Z. & Coleman, J.A. (1963). Texture profile method. J. Food Science 28, 404–409. | Williams, A.A. & Langron, S.P. (1984). The use of free-choice profiling for the evaluation of commercial ports. J. Sci. Food Agric. 35, 558–568. | Dairou, V. & Sieffermann, J.-M. (2002). A comparison of 14 jams characterized by conventional profile and a quick original method, the Flash Profile. J. Food Science 67, 826–834. | Pineau, N. et al. (2009). Temporal Dominance of Sensations. Food Quality and Preference 20, 450–455. | Castura, J.C. et al. (2016). Temporal Check-All-That-Apply (TCATA). Food Quality and Preference 47, 79–90. | Meilgaard, M.C., Civille, G.V. & Carr, B.T. (2016). Sensory Evaluation Techniques (5th ed.). CRC Press.*

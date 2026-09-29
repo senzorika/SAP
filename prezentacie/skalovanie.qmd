@@ -1,5 +1,5 @@
 ---
-title: "Škálovanie v senzorikej analýze"
+title: "Škálovanie v senzorickej analýze"
 author: "Senzorická analýza potravín"
 format:
   revealjs:
@@ -35,7 +35,7 @@ Umožňuje kvantifikovať kvalitatívne vlastnosti produktov do **kvantitatívny
 
 ```mermaid
 graph TD
-    A[Škály v senzorikej analýze] --> B[Kvalitatívne škály]
+    A[Škály v senzorickej analýze] --> B[Kvalitatívne škály]
     A --> C[Kvantitatívne škály]
     A --> D[Špeciálne senzorické škály]
     B --> B1[Nominálne - kategorické]
@@ -55,15 +55,15 @@ graph TD
 
 | Bod | Označenie | Popis |
 |---|---|---|
-| 9 | Extrémne mi sa páči | Najvyššia možná príjemnosť |
-| 8 | Veľmi mi sa páči | Vysoká príjemnosť |
-| 7 | Mierne mi sa páči | Stredne vysoká príjemnosť |
-| 6 | Trochu mi sa páči | Mierna príjemnosť |
-| 5 | Ani mi sa páči, ani nepáči | Neutrálna hodnota |
+| 9 | Mimoriadne sa mi páči | Najvyššia možná príjemnosť |
+| 8 | Veľmi sa mi páči | Vysoká príjemnosť |
+| 7 | Stredne sa mi páči | Stredne vysoká príjemnosť |
+| 6 | Trochu sa mi páči | Mierna príjemnosť |
+| 5 | Ani sa mi páči, ani sa mi nepáči | Neutrálna hodnota |
 | 4 | Trochu sa mi nepáči | Mierna nepríjemnosť |
 | 3 | Mierne sa mi nepáči | Stredne vysoká nepríjemnosť |
 | 2 | Veľmi sa mi nepáči | Vysoká nepríjemnosť |
-| 1 | Extremne sa mi nepáči | Najnižšia možná príjemnosť |
+| 1 | Mimoriadne sa mi nepáči | Najnižšia možná príjemnosť |
 
 ## 7-bodová a 5-bodová hedonická škála
 
@@ -71,9 +71,9 @@ graph TD
 
 | Bod | Označenie |
 |---|---|
-| 7 | Veľmi mi sa páči |
+| 7 | Veľmi sa mi páči |
 | 6 | Mi sa páči |
-| 5 | Trochu mi sa páči |
+| 5 | Trochu sa mi páči |
 | 4 | Neutrálne |
 | 3 | Trochu sa mi nepáči |
 | 2 | Nepáči sa mi |
@@ -191,16 +191,18 @@ graph TD
     B --> C[Výpočet hraníc a_n a b_n]
     C --> D{Počet správnych odpovedí}
     D -->|≥ a_n| E[Zamietni H₀ - existuje rozdiel]
-    D -->|≤ b_n| F[Prijmni H₀ - neexistuje rozdiel]
+    D -->|≤ b_n| F[Prijmi H₀ - rozdiel nepreukázaný]
     D -->|b_n < x < a_n| G[Pokračuj v testovaní]
     G --> D
 ```
 
 ### Výpočet hraníc
 
-$$a_n = \frac{\ln\left(\frac{1-\beta}{\alpha}\right) + n \cdot \ln\left(\frac{1-p_0}{1-p_1}\right)}{\ln\left(\frac{p_1}{p_0}\right) - \ln\left(\frac{1-p_0}{1-p_1}\right)}$$
+$$D = \ln\frac{p_1}{p_0} + \ln\frac{1-p_0}{1-p_1}, \qquad s = \frac{1}{D}\ln\frac{1-p_0}{1-p_1}$$
 
-$$b_n = \frac{\ln\left(\frac{\beta}{1-\alpha}\right) + n \cdot \ln\left(\frac{1-p_0}{1-p_1}\right)}{\ln\left(\frac{p_1}{p_0}\right) - \ln\left(\frac{1-p_0}{1-p_1}\right)}$$
+$$a_n = \frac{1}{D}\ln\frac{1-\beta}{\alpha} + s\,n, \qquad b_n = -\frac{1}{D}\ln\frac{1-\alpha}{\beta} + s\,n$$
+
+Trojuholník (p₀ = 1/3, p₁ = 0.5, α = 0.05, β = 0.20): **a_n ≈ 4.00 + 0.415 n**, **b_n ≈ −2.25 + 0.415 n** (ISO 16820:2019).
 
 ## Thurstone d-prime (d')
 
@@ -220,8 +222,8 @@ graph LR
 $$d' = z(\text{Hit Rate}) - z(\text{False Alarm Rate})$$
 
 Kde:
-- **Hit Rate (H):** Pravdepodobnosť správnej identifikácie odlišnej vzorky
-- **False Alarm Rate (F):** Pravdepodobnosť chybnej identifikácie
+- úloha **A – nie A** (yes/no): **H** = podiel „nie A" pri vzorke „nie A", **F** = podiel „nie A" pri vzorke A
+- pre same-different, trojuholník, duo-trio platia iné psychometrické funkcie (sensR)
 
 ## Interpretácia d'
 
@@ -230,7 +232,7 @@ Kde:
 | 0.0 | Žiadna citlivosť | Náhodné hádanie |
 | 0.5 | Veľmi slabá | Takmer neznáma |
 | 1.0 | Slabá | Rozoznateľná |
-| 1.5 | Umiernená | Jasná |
+| 1.5 | Stredná | Jasná |
 | 2.0 | Dobrá | Veľmi jasná |
 | 2.5 | Výborná | Takmer dokonalá |
 | 3.0+ | Výborná | Takmer dokonalá |
@@ -252,6 +254,8 @@ slabé    slabé    správne  silné    silné
 
 $$\text{Penalty} = \bar{x}_{JAR} - \bar{x}_{non-JAR}$$
 
+Vážený pokles = penalty × podiel skupiny; interpretovať skupiny ≥ 20 %. Hranice nižšie sú konvencia:
+
 | Penalty | Význam |
 |---|---|
 | < 0.5 | Zanedbateľný |
@@ -269,7 +273,7 @@ $$\text{Penalty} = \bar{x}_{JAR} - \bar{x}_{non-JAR}$$
 | **9-bodová intenzitná** | Kategorická | Vysoká | Stredná | Nízka | Vysoká |
 | **Lineárna (VAS)** | Kontinuálna | Vysoká | Stredná | Nízka | Vysoká |
 | **Semantická** | Kategorická | Stredná | Stredná | Stredná | Vysoká |
-| **JAR** | Kategorická | Vysoká | Vysoká | Vysoká | Vysoká |
+| **JAR** | Kategorická (bipolárna) | Stredná | Vysoká | Vysoká | Nevhodná |
 
 ## Výber správnej škály
 
@@ -313,15 +317,15 @@ $$\% \text{ Prijatia} = \frac{5 + 12 + 15 + 10}{50} \times 100 = 84\%$$
 
 $$AI = \frac{6.84 - 1}{8} \times 100 = 73\%$$
 
-**Záver:** Jogurt má **vysokú príjemnosť** (84% prijatia, index 73%).
+**Záver:** Jogurt má **vysokú príjemnosť** (84% prijatia, index 73%); rozhodnutie o trhu porovnať s benchmarkom.
 
 ## Praktický príklad 2: Thurstone d'
 
-**Scénár:** Test citlivosti panelu – rozlíšenie dvoch vzoriek syra. 20 testovateľov × 10 pokusov.
+**Scénár:** Test citlivosti panelu úlohou **A – nie A** – dve vzorky syra. 20 testovateľov × 10 pokusov (5 × A, 5 × „nie A").
 
 **Výsledky:**
-- Pri odlišných vzorkách: 80 správnych z 100 pokusov
-- Pri rovnakých vzorkách: 20 chybných z 100 pokusov
+- Hit rate: 80 odpovedí „nie A" zo 100 pri vzorke „nie A"
+- False alarm: 20 odpovedí „nie A" zo 100 pri vzorke A
 
 $$H = \frac{80}{100} = 0.80, \quad F = \frac{20}{100} = 0.20$$
 
@@ -329,7 +333,7 @@ $$z(H) = z(0.80) \approx 0.842, \quad z(F) = z(0.20) \approx -0.842$$
 
 $$d' = 0.842 - (-0.842) = 1.684$$
 
-**Záver:** d' = 1.684 → **Umiernená citlivosť**. Odporúča sa ďalší tréning.
+**Záver:** d' = 1.684 → **Stredná citlivosť**. Odporúča sa ďalší tréning.
 
 ## Praktický príklad 3: JAR škála
 
@@ -337,21 +341,23 @@ $$d' = 0.842 - (-0.842) = 1.684$$
 
 | Kategória | Počet | Priemerné skóre príjemnosti |
 |---|---|---|
-| Príliš sladká (1) | 10 | 4.5 |
-| Trochu sladká (2) | 20 | 6.2 |
+| Oveľa menej sladká (1) | 10 | 4.5 |
+| Trochu málo sladká (2) | 20 | 6.2 |
 | JAR (3) | 35 | 7.9 |
-| Trochu sladká (4) | 12 | 6.5 |
-| Príliš sladká (5) | 3 | 4.8 |
+| Trochu príliš sladká (4) | 12 | 6.5 |
+| Oveľa sladšia (5) | 3 | 4.8 |
 
-**Penalty za „príliš sladké":**
+**Penalty za „málo sladké" (30/80 = 37.5 % respondentov):**
 
 $$\text{Penalty} = 7.9 - \frac{10 \times 4.5 + 20 \times 6.2}{30} = 7.9 - 5.63 = 2.27$$
 
-**Záver:** Obe kategórie majú **významný penalty** (> 1.5). Odporúča sa zníženie cukru o 15%.
+Penalty za „príliš sladké" = 7.9 − 6.16 = 1.74, ale skupina má len 18.75 % (< 20 %).
+
+**Záver:** Rozhodujúca je skupina „málo sladké" → **mierne zvýšiť sladkosť** a overiť ďalším testom.
 
 ## Záver
 
-Škálovanie je **základný pilier** senzorikej analýze.
+Škálovanie je **základný pilier** senzorickej analýzy.
 
 Výber správnej škály závisí od:
 
@@ -367,3 +373,22 @@ Výber správnej škály závisí od:
 - Lawless, H.T. & Heymann, H. (2010). *Sensory Evaluation of Food: Principles and Practices*. Springer.
 - Stone, H. & Sidel, J.L. (2004). *Sensory Evaluation Practices*. Elsevier.
 - Osgood, C.E. et al. (1957). *The Measurement of Meaning*. University of Illinois Press.
+
+## Precvič v R – SaIT {.smaller}
+
+Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):
+
+| Téma | Cvičenie SaIT |
+|---|---|
+| Priemer a interval spoľahlivosti | [2 – BCG matica a interval spoľahlivosti](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) |
+| Grafy škálových dát | [4 – Grafy a vizualizácia dát](https://senzorika.github.io/SaIT/teoria/cvicenie04.html) |
+| t-test vs. Wilcoxon, normalita | [5a – Normalita a porovnanie dvoch vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) |
+| ANOVA, Kruskal-Wallis, Friedman | [5b – Porovnanie viacerých vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) |
+| JAR a penalty analýza | [12 – JAR škála a radarový graf](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) |
+| Thurstonov d′ | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) |
+
+Prednášky: [Testovanie hypotéz v senzorike](https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html)
+
+::: {.callout-note}
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../overenie/overenie_zdrojov.md).
+:::

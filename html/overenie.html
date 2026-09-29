@@ -314,544 +314,967 @@
         <div class="logo">SAP Overenie</div>
         <ul>
             <li><a href="#metodologia">Metodológia</a></li>
+            <li><a href="#vysledky">Výsledky 09/2026</a></li>
             <li><a href="#zdroje">Zdroje</a></li>
-            <li><a href="#kontroverzné">Kontroverzné</a></li>
-            <li><a href="#aktualizácie">Aktualizácie</a></li>
-            <li><a href="#odporúčania">Odporúčania</a></li>
-            <li><a href="#zoznam">Zoznam</a></li>
-        </ul>
+            <li><a href="#kontroverzne">Kontroverzné</a></li>
+            <li><a href="#odporucania">Odporúčania</a></li>
+        <li><a href="#sait">🧪 SaIT (R)</a></li>
+</ul>
     </div>
 </nav>
 
 <div class="hero">
     <h1>Overenie zdrojov</h1>
-    <p>Dokument overujúci pravdivosť informácií a zdrojov použitých v repozitári SAP</p>
+    <p>Záznam overenia faktov, výpočtov a zdrojov v repozitári SAP a opráv z revízie 09/2026</p>
 </div>
 
 <div class="container">
 
-    <div class="section-nav">
-        <a href="#metodologia">1. Metodológia</a>
-        <a href="#zdroje">2. Overené zdroje</a>
-        <a href="#kontroverzné">3. Kontroverzné témy</a>
-        <a href="#aktualizácie">4. Aktualizácie</a>
-        <a href="#odporúčania">5. Odporúčania</a>
-        <a href="#zoznam">6. Zoznam zdrojov</a>
-    </div>
-
-    <!-- SECTION 1: METODOLÓGIA -->
     <div class="card" id="metodologia">
-        <h2>1. Metodológia overovania</h2>
-
-        <h3>1.1 Postup overovania</h3>
-        <p>Každá informácia v repozitári prešla nasledovným procesom:</p>
-        <ol>
-            <li><strong>Identifikácia zdroja</strong> — primárny zdroj (štandard, vedecký článok, kniha)</li>
-            <li><strong>Kontrola autenticity</strong> — overenie existencie zdroja v databázach</li>
-            <li><strong>Konzistencia</strong> — porovnanie s nezávislými zdrojmi</li>
-            <li><strong>Aktuálnosť</strong> — overenie, či informácia nie je zastaraná</li>
-            <li><strong>Klasifikácia</strong> — zaradenie do kategórií: overené / kontroverzné / neoverené</li>
-        </ol>
-
-        <div class="svg-container">
-            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
-                <rect width="600" height="350" fill="#fff"/>
-                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Workflow overovania zdrojov</text>
-                <!-- Flow boxes -->
-                <rect x="30" y="60" width="100" height="50" rx="8" fill="#4a148c" opacity="0.9"/>
-                <text x="80" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Identifikácia</text>
-
-                <rect x="160" y="60" width="100" height="50" rx="8" fill="#512da8" opacity="0.9"/>
-                <text x="210" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Autenticita</text>
-
-                <rect x="290" y="60" width="100" height="50" rx="8" fill="#7b1fa2" opacity="0.9"/>
-                <text x="340" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Konzistencia</text>
-
-                <rect x="420" y="60" width="100" height="50" rx="8" fill="#4a148c" opacity="0.9"/>
-                <text x="470" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Klasifikácia</text>
-
-                <!-- Arrows -->
-                <line x1="130" y1="85" x2="155" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
-                <line x1="260" y1="85" x2="285" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
-                <line x1="390" y1="85" x2="415" y2="85" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
-
-                <!-- Sub-steps -->
-                <rect x="30" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="80" y="165" text-anchor="middle" font-size="10" fill="#333">Primárny zdroj</text>
-
-                <rect x="160" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="210" y="165" text-anchor="middle" font-size="10" fill="#333">Databáza</text>
-
-                <rect x="290" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="340" y="165" text-anchor="middle" font-size="10" fill="#333">3+ nezávislé</text>
-
-                <rect x="420" y="140" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="470" y="165" text-anchor="middle" font-size="10" fill="#333">Overené / ⚠️ / ❌</text>
-
-                <!-- Bottom row -->
-                <rect x="30" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="80" y="235" text-anchor="middle" font-size="10" fill="#333">Štandard</text>
-
-                <rect x="160" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="210" y="235" text-anchor="middle" font-size="10" fill="#333">Scopus/WoS</text>
-
-                <rect x="290" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="340" y="235" text-anchor="middle" font-size="10" fill="#333">Aktuálnosť</text>
-
-                <rect x="420" y="210" width="100" height="40" rx="6" fill="#f3e5f5" stroke="#4a148c" stroke-width="1"/>
-                <text x="470" y="235" text-anchor="middle" font-size="10" fill="#333">Dokument</text>
-
-                <!-- Connecting lines -->
-                <line x1="80" y1="110" x2="80" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="210" y1="110" x2="210" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="340" y1="110" x2="340" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="470" y1="110" x2="470" y2="135" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-
-                <line x1="80" y1="180" x2="80" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="210" y1="180" x2="210" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="340" y1="180" x2="340" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-                <line x1="470" y1="180" x2="470" y2="205" stroke="#4a148c" stroke-width="1" stroke-dasharray="3,3"/>
-
-                <!-- Arrow marker -->
-                <defs>
-                    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
-                    </marker>
-                </defs>
-            </svg>
-        </div>
-
-        <h3>1.2 Kritériá kvality</h3>
-        <table>
-            <thead>
-                <tr><th>Kritérium</th><th>Ako overujeme</th><th>Prijatelná úroveň</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><strong>Primárny zdroj</strong></td><td>Publikovaný v peer-reviewed časopise alebo oficiálny štandard</td><td>Povinné</td></tr>
-                <tr><td><strong>Citovateľnosť</strong></td><td>Dá sa nájsť v databáze (Scopus, Web of Science, ISO)</td><td>Povinné</td></tr>
-                <tr><td><strong>Konzistencia</strong></td><td>Minimálne 3 nezávislé zdroje potvrdzujúce</td><td>Odporúčané</td></tr>
-                <tr><td><strong>Aktuálnosť</strong></td><td>Publikované za posledných 10 rokov (alebo klasické dielo)</td><td>Odporúčané</td></tr>
-                <tr><td><strong>Reputácia vydavateľa</strong></td><td>Akademické vydavateľstvo alebo medzinárodná organizácia</td><td>Povinné</td></tr>
-            </tbody>
-        </table>
-
-        <h3>1.3 Klasifikácia spoľahlivosti</h3>
-        <table>
-            <thead>
-                <tr><th>Kategória</th><th>Označenie</th><th>Popis</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><span class="status-verified">Overené</span></td><td>✅</td><td>Potvrdené primárnym zdrojom, konzistentné medzi zdrojmi</td></tr>
-                <tr><td><span class="status-mixed">Prevažujúce</span></td><td>⚠️</td><td>Väčšina zdrojov súhlasí, existujú alternatívne názory</td></tr>
-                <tr><td><span class="status-controversial">Kontroverzné</span></td><td>❌</td><td>Zdroje sa navzájom rozchádzajú</td></tr>
-                <tr><td><span class="status-unverified">Neoverené</span></td><td>❓</td><td>Nedostatok spoľahlivých zdrojov</td></tr>
-            </tbody>
-        </table>
+<h2>1. Metodológia overovania</h2>
+<h3>1.1 Postup overovania</h3>
+<ol>
+<li><strong>Identifikácia zdroja</strong> — primárny zdroj (norma, vedecký článok, kniha, predpis)</li>
+<li><strong>Kontrola existencie</strong> — dohľadanie v databázach (PubMed, katalóg ISO, EUR-Lex)</li>
+<li><strong>Kontrola obsahu</strong> — zodpovedá tvrdenie tomu, čo zdroj skutočne uvádza?</li>
+<li><strong>Prepočet</strong> — všetky tabuľky kritických hodnôt, príklady a vzorce boli <strong>nezávisle prepočítané</strong> (Python: <code>scipy.stats</code>; psychometrické funkcie podľa Ennisa)</li>
+<li><strong>Klasifikácia</strong> — overené / prevažujúce / kontroverzné / neoverené</li>
+</ol>
+<h3>1.2 Kritériá kvality</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Kritérium</th>
+<th>Ako overujeme</th>
+<th>Prijateľná úroveň</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primárny zdroj</td>
+<td>Peer-reviewed článok, norma, právny predpis</td>
+<td>Povinné</td>
+</tr>
+<tr>
+<td>Dohľadateľnosť</td>
+<td>DOI, PMID, číslo normy/predpisu</td>
+<td>Povinné</td>
+</tr>
+<tr>
+<td>Zhoda obsahu</td>
+<td>Tvrdenie zodpovedá zdroju</td>
+<td>Povinné</td>
+</tr>
+<tr>
+<td>Reprodukovateľnosť výpočtu</td>
+<td>Prepočet dáva rovnaký výsledok</td>
+<td>Povinné</td>
+</tr>
+<tr>
+<td>Aktuálnosť</td>
+<td>Platné vydanie normy</td>
+<td>Odporúčané</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.3 Klasifikácia spoľahlivosti</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Kategória</th>
+<th>Označenie</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overené</td>
+<td>✅</td>
+<td>Potvrdené primárnym zdrojom alebo prepočtom</td>
+</tr>
+<tr>
+<td>Prevažujúce</td>
+<td>⚠️</td>
+<td>Väčšina zdrojov súhlasí, existujú alternatívne názory</td>
+</tr>
+<tr>
+<td>Kontroverzné</td>
+<td>❌</td>
+<td>Zdroje sa rozchádzajú</td>
+</tr>
+<tr>
+<td>Neoverené</td>
+<td>❓</td>
+<td>Zdroj sa nepodarilo nájsť alebo nepodporuje tvrdenie</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Upozornenie k predošlej verzii:</strong> Predošlá verzia tohto dokumentu tvrdila, že „každá informácia v repozitári prešla procesom overovania". Kontrola 09/2026 ukázala, že to neplatilo — repozitár obsahoval chybné tabuľky, neexistujúce normy a neoveriteľné citácie (pozri kapitolu 2). Dokument bol preto prepísaný.</p>
+</blockquote>
     </div>
-
-    <!-- SECTION 2: OVERENÉ ZDROJE -->
+    <div class="card" id="vysledky">
+<h2>2. Výsledky kontroly 09/2026</h2>
+<h3>2.1 Štatistické tabuľky a výpočty (prepočítané)</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Oblasť</th>
+<th>Chyba v predošlej verzii</th>
+<th>Oprava</th>
+<th>Súbory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kritické hodnoty trojuholníkového testu</td>
+<td>pre n ≥ 20 príliš nízke (napr. n = 60: 25 namiesto 27; n = 100: 33 namiesto 42) alebo naopak posunuté nahor</td>
+<td>presné binomické hodnoty (zhodné s ISO 4120:2021)</td>
+<td>iso_metody, metody (3×), claims, vzorce</td>
+</tr>
+<tr>
+<td>Kritické hodnoty duo-trio a párového testu</td>
+<td>výrazne nižšie ako správne (napr. n = 60: 33 namiesto 37)</td>
+<td>presné binomické hodnoty, jednostranné aj obojstranné</td>
+<td>iso_metody, metody</td>
+</tr>
+<tr>
+<td>Obojstranný párový test</td>
+<td>napr. n = 20: 6/14 namiesto 5/15</td>
+<td>prepočítané</td>
+<td>iso_metody, metody_senzoriky</td>
+</tr>
+<tr>
+<td>Test „A – nie A" a same-different</td>
+<td>vyhodnotené binomickým testom s p = 1/2</td>
+<td>χ² / McNemar na tabuľke 2 × 2 (ISO 8588), d′</td>
+<td>iso_metody, metody (2×)</td>
+</tr>
+<tr>
+<td>Príklad trojuholníkového testu (16/30)</td>
+<td>p ≈ 0.0089</td>
+<td>p ≈ 0.019</td>
+<td>diskriminacne_metody</td>
+</tr>
+<tr>
+<td>Príklad párového testu (38/60)</td>
+<td>p ≈ 0.014, „významný rozdiel"</td>
+<td>obojstranne p ≈ 0.052 → <strong>nevýznamný</strong></td>
+<td>diskriminacne_metody</td>
+</tr>
+<tr>
+<td>Príklad claimu (24/54, trojuholník)</td>
+<td>„24 &gt; 22, významný rozdiel"</td>
+<td>kritická hodnota je 25, p ≈ 0.058 → nevýznamný</td>
+<td>claims</td>
+</tr>
+<tr>
+<td>Replikácie v claims správe</td>
+<td>3 × 54 hodnotení sčítané ako 162 nezávislých pokusov</td>
+<td>príklad nahradený; upozornenie na beta-binomický model</td>
+<td>claims</td>
+</tr>
+<tr>
+<td>Počet hodnotiteľov</td>
+<td>obojstranné z, nesprávny tvar vzorca, vzorec pre CI namiesto sily testu</td>
+<td>jednostranný vzorec + presný binomický výpočet; porovnanie testov pri d′ = 1</td>
+<td>iso_metody, vzorce, claims</td>
+</tr>
+<tr>
+<td>Porovnanie citlivosti testov</td>
+<td>trojuholník „najcitlivejší", párový „nízka citlivosť"</td>
+<td>Thurstonovský výpočet: 2-AFC/3-AFC najsilnejšie, trojuholník a duo-trio najslabšie</td>
+<td>iso_metody, metody (2×)</td>
+</tr>
+<tr>
+<td>Waldova sekvenčná analýza</td>
+<td>chybný vzorec hraníc (ln(0.5/0.5) = 0, sklon 0.5)</td>
+<td>správne hranice SPRT: 4.00 + 0.415n / −2.25 + 0.415n</td>
+<td>skalovanie</td>
+</tr>
+<tr>
+<td>Penalty analýza (limonáda)</td>
+<td>zle označené kategórie, chybný menovateľ, záver o kyslosti</td>
+<td>opravené, doplnený vážený pokles a pravidlo 20 %</td>
+<td>skalovanie</td>
+</tr>
+<tr>
+<td>Tukeyho q hodnoty</td>
+<td>pre k ≥ 3 podhodnotené</td>
+<td>prepočítané (<code>studentized_range</code>)</td>
+<td>vzorce</td>
+</tr>
+<tr>
+<td>Weibull – interpretácia β</td>
+<td>β &lt; 1 a β &gt; 1 zamenené; t₅₀/η pri β = 0.5 = 4.81</td>
+<td>opravené; 0.480</td>
+<td>vzorce</td>
+</tr>
+<tr>
+<td>Weibull – príklad (vitamín C)</td>
+<td>η = 44.7, t₅₀ = 37.2 d (menej ako najkratší čas 45 d!)</td>
+<td>η ≈ 51.1, β ≈ 16.9, t₅₀ ≈ 50.0 d</td>
+<td>vzorce</td>
+</tr>
+<tr>
+<td>Weibull – príklady shelf-life</td>
+<td>parametre nezodpovedali dátam, aritmetické chyby</td>
+<td>nové fity (jogurt t₅₀ ≈ 28.6 d, chlieb ≈ 3.4 d)</td>
+<td>shelf_life</td>
+</tr>
+<tr>
+<td>Q10 / Ea</td>
+<td>chybné znamienko v exponente; nesprávny vzťah Q10–Ea</td>
+<td>ln Q10 = 10·Ea/(R·T·(T+10))</td>
+<td>shelf_life</td>
+</tr>
+<tr>
+<td>Interval spoľahlivosti (príklad)</td>
+<td>SS = 0.825 namiesto 0.950</td>
+<td>CI = [5.86; 6.24]</td>
+<td>vzorce</td>
+</tr>
+<tr>
+<td>Signifikancia TDS</td>
+<td>P₀ = 1/n (n = panelisti)</td>
+<td>P₀ = 1/k (k = atribúty), hranica Pineau et al. (2009)</td>
+<td>deskriptivne_profily</td>
+</tr>
+<tr>
+<td>CATA</td>
+<td>χ² test nezávislosti</td>
+<td>Cochranov Q test (závislé binárne dáta)</td>
+<td>deskriptivne, metody</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 Normy ISO</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie v predošlej verzii</th>
+<th>Skutočnosť</th>
+<th>Stav</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 16741:2015 – shelf-life</td>
+<td>Takáto senzorická norma neexistuje; správne <strong>ISO 16779:2015</strong></td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 16779:2015 – časovo-intenzitná analýza</td>
+<td>ISO 16779 je norma pre <strong>trvanlivosť</strong></td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 20784:2005 – rýchle profily</td>
+<td>Nenájdená v katalógu ISO</td>
+<td>❌ odstránené</td>
+</tr>
+<tr>
+<td>ISO 22308:2005 – káva</td>
+<td>Norma pre <strong>korkové zátky</strong>; nahradená ISO 22308-1:2021</td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 11037 – vnímanie textúry</td>
+<td>Norma pre <strong>farbu</strong> (aktuálne 2011)</td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 8586 – požiadavky na laboratórium (teplota, lux, dB…)</td>
+<td>Priestory rieši <strong>ISO 8589</strong>; ISO 8586 = hodnotitelia</td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 13299 ako zdroj kódovania vzoriek, kalibrácie váh</td>
+<td>Nepravdivé priradenie; kódovanie/poradie → ISO 6658</td>
+<td>❌ opravené</td>
+</tr>
+<tr>
+<td>ISO 4120:2004, ISO 8586:2012, ISO 10399:2004, ISO 11036:1994, ISO 6658:2005</td>
+<td>Neaktuálne vydania</td>
+<td>⚠️ aktualizované na 2021 / 2023 / 2017 / 2020 / 2017</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 Fakty z fyziológie a psychofyziky</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie v predošlej verzii</th>
+<th>Oprava</th>
+<th>Zdroj</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horkosť: receptory T1R1 + T1R3</td>
+<td>Horkosť = rodina <strong>T2R (TAS2R)</strong>; T1R1+T1R3 = umami</td>
+<td>Chandrashekar et al.; Li et al. 2002, PNAS 99, 4692</td>
+</tr>
+<tr>
+<td>Kapsaicín ako horká látka (4 miesta)</td>
+<td>Kapsaicín spôsobuje <strong>pálivosť</strong> (TRPV1), nie horkosť</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Kyslá chuť: PKD2L1</td>
+<td>Receptorom je <strong>OTOP1</strong>; PKD2L1 je marker buniek</td>
+<td>Zhang et al. 2019, <a href="https://doi.org/10.1016/j.cell.2019.08.031">DOI</a></td>
+</tr>
+<tr>
+<td>GNAT3 = gustín</td>
+<td>GNAT3 = <strong>α-gustducín</strong>; gustín = CA6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>PAV/PAV = supertaster</td>
+<td>Supertaster je fenotyp, genotyp TAS2R38 ho neurčuje</td>
+<td>Hayes et al. 2008, <a href="https://doi.org/10.1093/chemse/bjm084">DOI</a></td>
+</tr>
+<tr>
+<td>„80 % chuti je čuch"</td>
+<td>Nepodložené číslo</td>
+<td>Spence 2015, <em>Flavour</em> 4, 30</td>
+</tr>
+<tr>
+<td>WHO: &lt; 5 g <strong>sodíka</strong></td>
+<td>&lt; 5 g <strong>soli</strong> (≈ 2 g sodíka)</td>
+<td>WHO 2012</td>
+</tr>
+<tr>
+<td>Redukcia soli 10–15 % ročne bez detekcie</td>
+<td>Overené: 25 % v chlebe za 6 týždňov po 5 % krokoch</td>
+<td>Girgis et al. 2003, <a href="https://doi.org/10.1038/sj.ejcn.1601583">DOI</a></td>
+</tr>
+<tr>
+<td>Umami receptor identifikovaný 2000 (Li et al., Nature)</td>
+<td>mGluR4 variant: Chaudhari et al. 2000 (<em>Nat. Neurosci.</em>); T1R1+T1R3: Nelson et al. 2002 (<em>Nature</em>), Li et al. 2002 (<em>PNAS</em>)</td>
+<td>✅ opravené</td>
+</tr>
+<tr>
+<td>TDS zavedené v 90. rokoch</td>
+<td>TDS: Pineau et al. <strong>2009</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Texture Profile Method v 80. rokoch</td>
+<td><strong>1963</strong> (Brandt, Skinner &amp; Coleman)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Pangborn symposium každoročne</td>
+<td>Každé <strong>dva roky</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.4 Citácie, ktoré sa nepodarilo overiť (odstránené)</h3>
+<p>Kapitola <em>Literatúra o chuti</em> obsahovala ~40 citácií typu „Autor et al. (2021–2023)" bez názvu, časopisu a DOI. Náhodná vzorka bola overovaná v PubMed:</p>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Citácia</th>
+<th>Výsledok overenia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thanarajah et al. (2022) – obezita a dopamín</td>
+<td>❓ Neexistuje; existuje Thanarajah et al. <strong>2019</strong> (<em>Cell Metab.</em>) s iným obsahom</td>
+</tr>
+<tr>
+<td>Han et al. (2022) – antibiotiká a T1R3/T2R138 na jazyku</td>
+<td>❓ Nenájdené; najbližšia je Caremoli et al. <strong>2023</strong> (receptory v <strong>čreve</strong>)</td>
+</tr>
+<tr>
+<td>Lim &amp; Johnson (2020) – 80 % zážitku z čuchu</td>
+<td>❓ Nenájdené</td>
+</tr>
+<tr>
+<td>Boesveldt et al. (2021), Zhou et al. (2022), Risso et al. (2021) a ďalšie</td>
+<td>❓ Nenájdené s uvedeným obsahom</td>
+</tr>
+<tr>
+<td>Plassmann et al. (2020) – očakávanie</td>
+<td>⚠️ Chybný rok; overená práca je z <strong>2008</strong> (<em>PNAS</em>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Všetky neoverené citácie boli z textu odstránené a nahradené overenými zdrojmi s DOI. <strong>Odporúčanie:</strong> každú novú citáciu pridávať s DOI.</p>
+<h3>2.5 Právne a regulačné údaje (claims)</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie v predošlej verzii</th>
+<th>Oprava</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zákon č. 152/<strong>2005</strong> Z. z. o potravinách</td>
+<td>Zákon č. <strong>152/1995</strong> Z. z.</td>
+</tr>
+<tr>
+<td>Senzorické tvrdenia upravuje 1924/2006</td>
+<td>1924/2006 = výživové a zdravotné tvrdenia; senzorické → 1169/2011 čl. 7, smernice 2006/114/ES a 2005/29/ES; metodicky ASTM E1958</td>
+</tr>
+<tr>
+<td>„Nízky obsah soli" &lt; 150 mg Na/100 g</td>
+<td>≤ <strong>0,12 g</strong> sodíka/100 g</td>
+</tr>
+<tr>
+<td>Redukčný claim: ≥ 25 % „pre senzorickú detekovateľnosť" + povinný spotrebiteľský test</td>
+<td>Právne: ≥ 30 % (sodík/soľ ≥ 25 %), overenie analyticky</td>
+</tr>
+<tr>
+<td>„Bez trans tukov" &lt; 1 g/100 g tuku</td>
+<td>Nie je definované v 1924/2006; limit priemyselných trans-tukov 2 g/100 g tuku (2019/649)</td>
+</tr>
+<tr>
+<td>Čl. 7 1924/2006 = „registrácia tvrdení"</td>
+<td>Čl. 7 = nutričné označovanie; povolené zdravotné tvrdenia → čl. 10, 13, 14</td>
+</tr>
+<tr>
+<td>21 CFR 101.54 = tuk, 101.56 = sodík, 101.60 = vláknina</td>
+<td>101.62 = tuk, 101.61 = sodík, 101.60 = kalórie/cukor, 101.54 = „good source/high"</td>
+</tr>
+<tr>
+<td>„70–80 % nákupných rozhodnutí sa opiera o claims"</td>
+<td>Bez zdroja — odstránené</td>
+</tr>
+</tbody>
+</table></div>
+    </div>
     <div class="card" id="zdroje">
-        <h2>2. Overené zdroje</h2>
-
-        <h3>2.1 ISO štandardy</h3>
-        <table>
-            <thead>
-                <tr><th>ISO číslo</th><th>Názov</th><th>Rok</th><th>Overenie</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>ISO 4120</td><td>Sensory analysis — Methodology — Triangle test</td><td>2004</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 5495</td><td>Sensory analysis — Methodology — Paired comparison test</td><td>2005</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 11035</td><td>Identification and selection of descriptors</td><td>1994</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 13299</td><td>General guidance for establishing a sensory profile</td><td>2016</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 8586</td><td>General guidelines for assessors</td><td>2012</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 8589</td><td>General guidance for the design of test rooms</td><td>2007</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 11036</td><td>Methodology — Texture profile</td><td>1994</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ISO 11037</td><td>Assessment of the colour of foods</td><td>1999</td><td class="status-verified">✅ Overené</td></tr>
-            </tbody>
-        </table>
-
-        <div class="callout">
-            <div class="callout-title">Poznámka</div>
-            <p>ISO 4120:2004 nahrádza predchádzajúcu verziu ISO 4120:1983. Kritické hodnoty v našom repozitári sú aktuálne.</p>
-        </div>
-
-        <h3>2.2 Knižné zdroje</h3>
-        <table>
-            <thead>
-                <tr><th>Autor(i)</th><th>Názov</th><th>Vydavateľ</th><th>Rok</th><th>Overenie</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Lawless & Heymann</td><td>Sensory Evaluation of Food: Principles and Practices</td><td>Springer</td><td>2010 (2.)</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Stone & Sidel</td><td>Sensory Evaluation Practices</td><td>Academic Press</td><td>2004 (3.)</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Meilgaard et al.</td><td>Sensory Evaluation Techniques</td><td>CRC Press</td><td>2007 (4.)</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Kemp et al.</td><td>Sensory Evaluation: A Practical Handbook</td><td>Wiley-Blackwell</td><td>2011</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Piggott (ed.)</td><td>Alcoholic Beverages: Sensory Evaluation</td><td>Woodhead Publishing</td><td>2011</td><td class="status-verified">✅ Overené</td></tr>
-            </tbody>
-        </table>
-
-        <h3>2.3 Vedecké časopisy</h3>
-        <table>
-            <thead>
-                <tr><th>Časopis</th><th>Vydavateľ</th><th>Impakt faktor (2024)</th><th>Overenie</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Food Quality and Preference</td><td>Elsevier</td><td>~6.0</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Journal of Food Science</td><td>Wiley</td><td>~3.0</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Food Chemistry</td><td>Elsevier</td><td>~8.8</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Journal of Sensory Studies</td><td>Wiley</td><td>~2.5</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>LWT - Food Science and Technology</td><td>Elsevier</td><td>~6.0</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Appetite</td><td>Elsevier</td><td>~5.0</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Chemical Senses</td><td>Oxford University Press</td><td>~3.5</td><td class="status-verified">✅ Overené</td></tr>
-            </tbody>
-        </table>
-
-        <h3>2.4 Webové zdroje</h3>
-        <table>
-            <thead>
-                <tr><th>Zdroj</th><th>URL</th><th>Dátum prístupu</th><th>Overenie</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>ISO Online Browsing Platform</td><td>iso.org/obp</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>IFST</td><td>ifst.org</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>ASTM International</td><td>astm.org</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>PubMed (NIH)</td><td>pubmed.ncbi.nlm.nih.gov</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
-                <tr><td>Google Scholar</td><td>scholar.google.com</td><td>2026-09-15</td><td class="status-verified">✅ Overené</td></tr>
-            </tbody>
-        </table>
+<h2>3. Overené zdroje</h2>
+<h3>3.1 Normy (platné vydania k 09/2026)</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Norma</th>
+<th>Názov</th>
+<th>Stav</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 4120:2021</td>
+<td>Triangle test</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 5495:2005 (+Amd 1:2016)</td>
+<td>Paired comparison test</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 6658:2017</td>
+<td>General guidance (methodology)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 8586:2023</td>
+<td>Selection, training and monitoring of assessors</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 8588:2017</td>
+<td>"A" – "not A" test</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 8589:2007 (+Amd 1:2014)</td>
+<td>Design of test rooms</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 10399:2017</td>
+<td>Duo-trio test</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 11035:1994</td>
+<td>Identification and selection of descriptors</td>
+<td>⚠️ staršia norma, overiť platnosť</td>
+</tr>
+<tr>
+<td>ISO 11036:2020</td>
+<td>Texture profile</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 11037:2011</td>
+<td>Colour assessment</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 11132:2021</td>
+<td>Performance of a quantitative descriptive panel</td>
+<td>✅ (overené v katalógoch národných normalizačných orgánov)</td>
+</tr>
+<tr>
+<td>ISO 11136:2014</td>
+<td>Hedonic tests</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 13299:2016</td>
+<td>Establishing a sensory profile</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ISO 16779:2015</td>
+<td>Shelf life of foodstuffs</td>
+<td>✅ (overené v katalógoch národných normalizačných orgánov)</td>
+</tr>
+<tr>
+<td>ISO 22308-1:2021</td>
+<td>Cork bark – sensory evaluation (nahrádza ISO 22308:2005)</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 Knihy</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Autor(i)</th>
+<th>Názov</th>
+<th>Vydavateľ</th>
+<th>Rok</th>
+<th>Overenie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lawless, H.T. &amp; Heymann, H.</td>
+<td>Sensory Evaluation of Food: Principles and Practices (2nd ed.)</td>
+<td>Springer</td>
+<td>2010</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Stone, H. &amp; Sidel, J.L.</td>
+<td>Sensory Evaluation Practices (3rd ed.)</td>
+<td>Academic Press</td>
+<td>2004</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Meilgaard, M.C., Civille, G.V. &amp; Carr, B.T.</td>
+<td>Sensory Evaluation Techniques (5th ed.)</td>
+<td>CRC Press</td>
+<td>2016</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Kemp, S.E., Hollowood, T. &amp; Hort, J.</td>
+<td>Sensory Evaluation: A Practical Handbook</td>
+<td>Wiley-Blackwell</td>
+<td><strong>2009</strong></td>
+<td>✅ (predtým chybne 2011)</td>
+</tr>
+<tr>
+<td>Hough, G.</td>
+<td>Sensory Shelf Life Estimation of Food Products</td>
+<td>CRC Press</td>
+<td>2010</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Bi, J.</td>
+<td>Sensory Discrimination Tests and Measurements</td>
+<td>Blackwell</td>
+<td>2006</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Næs, T., Brockhoff, P.B. &amp; Tomic, O.</td>
+<td>Statistics for Sensory and Consumer Science</td>
+<td>Wiley</td>
+<td>2010</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.3 Články overené v PubMed (výber)</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Citácia</th>
+<th>DOI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kim et al. (2003). Positional cloning … PTC. <em>Science</em> 299, 1221–1225</td>
+<td><a href="https://doi.org/10.1126/science.1080190">10.1126/science.1080190</a></td>
+</tr>
+<tr>
+<td>Hayes et al. (2008). Supertasting and PROP bitterness depends on more than the TAS2R38 gene. <em>Chem. Senses</em> 33, 255–265</td>
+<td><a href="https://doi.org/10.1093/chemse/bjm084">10.1093/chemse/bjm084</a></td>
+</tr>
+<tr>
+<td>Garneau et al. (2014). Crowdsourcing taste research. <em>Front. Integr. Neurosci.</em> 8, 33</td>
+<td><a href="https://doi.org/10.3389/fnint.2014.00033">10.3389/fnint.2014.00033</a></td>
+</tr>
+<tr>
+<td>Small et al. (2005). Orthonasal vs. retronasal odorant perception. <em>Neuron</em> 47, 593–605</td>
+<td><a href="https://doi.org/10.1016/j.neuron.2005.07.022">10.1016/j.neuron.2005.07.022</a></td>
+</tr>
+<tr>
+<td>Thanarajah et al. (2019). Food intake recruits … dopaminergic circuits. <em>Cell Metab.</em> 29, 695–706</td>
+<td><a href="https://doi.org/10.1016/j.cmet.2018.12.006">10.1016/j.cmet.2018.12.006</a></td>
+</tr>
+<tr>
+<td>Plassmann et al. (2008). Marketing actions … experienced pleasantness. <em>PNAS</em> 105, 1050–1054</td>
+<td><a href="https://doi.org/10.1073/pnas.0706929105">10.1073/pnas.0706929105</a></td>
+</tr>
+<tr>
+<td>Zhang et al. (2019). Sour sensing from the tongue to the brain. <em>Cell</em> 179, 392–402</td>
+<td><a href="https://doi.org/10.1016/j.cell.2019.08.031">10.1016/j.cell.2019.08.031</a></td>
+</tr>
+<tr>
+<td>Running, Craig &amp; Mattes (2015). Oleogustus. <em>Chem. Senses</em> 40, 507–516</td>
+<td><a href="https://doi.org/10.1093/chemse/bjv036">10.1093/chemse/bjv036</a></td>
+</tr>
+<tr>
+<td>Tordoff et al. (2012). T1R3: a human calcium taste receptor. <em>Sci. Rep.</em> 2, 496</td>
+<td><a href="https://doi.org/10.1038/srep00496">10.1038/srep00496</a></td>
+</tr>
+<tr>
+<td>Girgis et al. (2003). A one-quarter reduction in the salt content of bread … <em>Eur. J. Clin. Nutr.</em> 57, 616–620</td>
+<td><a href="https://doi.org/10.1038/sj.ejcn.1601583">10.1038/sj.ejcn.1601583</a></td>
+</tr>
+<tr>
+<td>Hutchings, Low &amp; Keast (2019). Sugar reduction … <em>Crit. Rev. Food Sci. Nutr.</em> 59, 2287–2307</td>
+<td><a href="https://doi.org/10.1080/10408398.2018.1450214">10.1080/10408398.2018.1450214</a></td>
+</tr>
+<tr>
+<td>Stelick et al. (2018). Dynamic context sensory testing (VR). <em>J. Food Sci.</em> 83, 2047–2051</td>
+<td><a href="https://doi.org/10.1111/1750-3841.14275">10.1111/1750-3841.14275</a></td>
+</tr>
+<tr>
+<td>Caremoli et al. (2023). Microbiota-dependent upregulation of bitter taste receptor subtypes … <em>Nutrients</em> 15, 4145</td>
+<td><a href="https://doi.org/10.3390/nu15194145">10.3390/nu15194145</a></td>
+</tr>
+<tr>
+<td>Talavera et al. (2005). Heat activation of TRPM5 underlies thermal sensitivity of sweet taste. <em>Nature</em> 438, 1022–1025</td>
+<td>PMID 16355226</td>
+</tr>
+<tr>
+<td>Wolraich et al. (1995). The effect of sugar on behavior or cognition in children. <em>JAMA</em> 274, 1617–1621</td>
+<td>PMID 7474248</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.4 Webové zdroje</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Zdroj</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO – katalóg ISO/TC 34/SC 12</td>
+<td>https://www.iso.org/committee/47858/x/catalogue/</td>
+</tr>
+<tr>
+<td>EUR-Lex (predpisy EÚ)</td>
+<td>https://eur-lex.europa.eu/</td>
+</tr>
+<tr>
+<td>PubMed (NIH)</td>
+<td>https://pubmed.ncbi.nlm.nih.gov/</td>
+</tr>
+<tr>
+<td>SaIT – Senzometria v R</td>
+<td>https://github.com/senzorika/SaIT</td>
+</tr>
+</tbody>
+</table></div>
     </div>
-
-    <!-- SECTION 3: KONTROVERZNÉ TÉMY -->
-    <div class="card" id="kontroverzné">
-        <h2>3. Kontroverzné témy</h2>
-
-        <h3>3.1 "5 chutí" vs. viac chutí</h3>
-        <table>
-            <thead>
-                <tr><th>Téma</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Základných chutí je 5</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Sladká, slaná, kyslá, horká, umami — uznávané od roku 1908 (Ikeda)</td></tr>
-                <tr><td>Kakao ako šiesta chuť</td><td class="status-controversial">❌ Kontroverzné</td><td>Navrhované niektorými výskumníkmi, ale nie je široko prijaté</td></tr>
-                <tr><td>Kyslá chuť ako samostatná</td><td class="status-controversial">❌ Kontroverzné</td><td>Diskusia o tom, či je kyslosť samostatná chuť alebo kombinácia</td></tr>
-                <tr><td>Olejová/mastná chuť</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Navrhovaná, existujú receptory na mastné kyseliny</td></tr>
-                <tr><td>Chuť kalcia</td><td class="status-controversial">❌ Kontroverzné</td><td>Navrhované, ale dôkazy sú slabé</td></tr>
-            </tbody>
-        </table>
-
-        <div class="highlight-box">
-            <div class="hb-title">Aktuálny konsenzus (2026)</div>
-            <ul>
-                <li>Uznávaných je 5 základných chutí (sladká, slaná, kyslá, horká, umami)</li>
-                <li>Výskumníci navrhujú ďalšie (olejová, kyslá, kalcium, kokumi)</li>
-                <li>Výskum pokračuje, najmä v oblasti genetiky chutových receptorov</li>
-            </ul>
-        </div>
-
-        <h3>3.2 Supertasters</h3>
-        <table>
-            <thead>
-                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Supertasters existujú</td><td class="status-verified">✅ Overené</td><td>Potvrdené výskumom Bartoshuka a kol. (1994)</td></tr>
-                <tr><td>~25% populácie sú supertasters</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Pohybuje sa 15-35% podľa štúdie a etnického pozadia</td></tr>
-                <tr><td>Supertasters majú viac chutových pohárov</td><td class="status-verified">✅ Overené</td><td>Anatomický dôkaz</td></tr>
-                <tr><td>Supertasters vnímajú horkosť intenzívnejie</td><td class="status-verified">✅ Overené</td><td>Konzistentné dôkazy</td></tr>
-                <tr><td>Supertasters jedia menej zeleniny</td><td class="status-controversial">❌ Kontroverzné</td><td>Niektoré štúdie potvrdzujú, iné nie</td></tr>
-                <tr><td>Supertasters sú lepší senzorickí analytici</td><td class="status-controversial">❌ Kontroverzné</td><td>Nie je dôkaz, že by lepšie rozpoznávali zložky</td></tr>
-            </tbody>
-        </table>
-
-        <div class="callout">
-            <div class="callout-title">Záver</div>
-            <p>Existencia supertasterov je vedecky podložené. Mýty o ich "super schopnostiach" v senzorike alebo výžive sú často prehnané.</p>
-        </div>
-
-        <h3>3.3 Červená farba a sladkosť</h3>
-        <table>
-            <thead>
-                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Červená farba zvyšuje vnímanie sladkosti</td><td class="status-verified">✅ Overené</td><td>Viacero štúdii potvrdzuje (DuBose et al., 1980)</td></tr>
-                <tr><td>Modrá farba znižuje vnímanie sladkosti</td><td class="status-verified">✅ Overené</td><td>Potvrdzené v štúdiách</td></tr>
-                <tr><td>Zelená farba ovplyvňuje vnímanie kyslosti</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Niektoré dôkazy, ale menej konzistentné</td></tr>
-                <tr><td>Biela farba zvyšuje vnímanie intenzity</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Závisí od kontextu</td></tr>
-            </tbody>
-        </table>
-
-        <div class="callout">
-            <div class="callout-title">Mechanizmus</div>
-            <p>Kognitívna asociácia — červená = zralé ovocie = sladké. Toto je naučený, nie vrodený efekt.</p>
-        </div>
-
-        <h3>3.4 Glutamát a "Chinese restaurant syndrome"</h3>
-        <table>
-            <thead>
-                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Glutamát spôsobuje "Chinese restaurant syndrome"</td><td class="status-controversial">❌ Kontroverzné</td><td>Pôvodný článk (Schaumburg et al., 1969) bol metodologicky slabý</td></tr>
-                <tr><td>Glutamát je bezpečný pre väčšinu ľudí</td><td class="status-verified">✅ Overené</td><td>FDA, EFSA, JECFA ho uznávajú za bezpečný</td></tr>
-                <tr><td>Existujú jednotlivci citliví na glutamát</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Niektoré štúdie naznačujú, ale dôkazy sú limitované</td></tr>
-                <tr><td>Glutamát prirodne vyskytuje v potravách</td><td class="status-verified">✅ Overené</td><td>Rajčaty, syry, huby, mäso</td></tr>
-            </tbody>
-        </table>
-
-        <div class="highlight-box">
-            <div class="hb-title">Aktuálny konsenzus (2026)</div>
-            <ul>
-                <li>"Chinese restaurant syndrome" je vedený ako mýt</li>
-                <li>Glutamát je bezpečný pri bežných dávkach</li>
-                <li>Môže existovať malá skupina citlivých jedincov, ale prevalencia je nízka</li>
-                <li>Placebo kontrolované štúdie nepotvrdzujú systematickú reakciu</li>
-            </ul>
-        </div>
-
-        <h3>3.5 Cukor a hyperaktivita</h3>
-        <table>
-            <thead>
-                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Cukor spôsobuje hyperaktivitu u detí</td><td class="status-controversial">❌ Kontroverzné</td><td>Metaanalýzy nepotvrdzú kauzalitu</td></tr>
-                <tr><td>Cukor zvyšuje energiu</td><td class="status-verified">✅ Overené</td><td>Fyziologický efekt, ale nie hyperaktivita</td></tr>
-                <tr><td>Rodičia vnímajú hyperaktivitu po cukore</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Rodičia očakávajú efekt (placebo/nocebo efekt)</td></tr>
-                <tr><td>Cukor spôsobuje ADHD</td><td class="status-controversial">❌ Kontroverzné</td><td>Nie je vedecký dôkaz</td></tr>
-            </tbody>
-        </table>
-
-        <div class="callout">
-            <div class="callout-title">Kľúčové štúdie</div>
-            <ul>
-                <li>Wolraich et al. (1995) — metaanalýza, žiadny efekt</li>
-                <li>Benton, D. (2008) — prehľad, žiadny kauzálny vzťah</li>
-                <li>Farsad-Naeimi et al. (2020) — systematický prehľad, slabý efekt</li>
-            </ul>
-        </div>
-
-        <h3>3.6 Umami — je to skutočne samostatná chuť?</h3>
-        <table>
-            <thead>
-                <tr><th>Tvrdenie</th><th>Status</th><th>Podrobnosti</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Umami je samostatná chuť</td><td class="status-verified">✅ Overené</td><td>Existujú špecifické receptory (T1R1/T1R3)</td></tr>
-                <tr><td>Umami bol objavený v roku 1908</td><td class="status-verified">✅ Overené</td><td>Ikeda K., Tokio</td></tr>
-                <tr><td>Umami receptor bol identifikovaný v roku 2000</td><td class="status-verified">✅ Overené</td><td>Li et al., Nature 2000</td></tr>
-                <tr><td>Umami je univerzálne uznávané ako 5. chuť</td><td class="status-mixed">⚠️ Prevažujúce</td><td>Uznávané vo vede, ale nie všetky kultúry ho rozlišujú</td></tr>
-                <tr><td>Umami zvyšuje chuťový zážitok</td><td class="status-verified">✅ Overené</td><td>Synergia s ostatnými chutami</td></tr>
-            </tbody>
-        </table>
-
-        <div class="callout">
-            <div class="callout-title">Záver</div>
-            <p>Umami je vedecky podložená samostatná chuť s identifikovaným receptorom. Diskusia o jeho "univerzálnom uznaní" je skôr kultúrna než vedecká.</p>
-        </div>
-
-        <div class="svg-container">
-            <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
-                <rect width="600" height="350" fill="#fff"/>
-                <text x="300" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Hierarchia dôkazov — Evidence Hierarchy</text>
-                <!-- Pyramid levels -->
-                <polygon points="300,50 200,100 400,100" fill="#4a148c" opacity="0.9"/>
-                <text x="300" y="85" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Systematické prehľady</text>
-                <text x="300" y="98" text-anchor="middle" font-size="10" fill="#fff">Metaanalýzy</text>
-
-                <polygon points="220,110 380,110 420,160 180,160" fill="#512da8" opacity="0.9"/>
-                <text x="300" y="135" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">RCT štúdie</text>
-                <text x="300" y="148" text-anchor="middle" font-size="10" fill="#fff">Randomizované kontrolované</text>
-
-                <polygon points="180,170 420,170 460,220 140,220" fill="#7b1fa2" opacity="0.9"/>
-                <text x="300" y="195" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Kohortové štúdie</text>
-                <text x="300" y="208" text-anchor="middle" font-size="10" fill="#fff">Pozorovanie</text>
-
-                <polygon points="140,230 460,230 500,280 100,280" fill="#9c27b0" opacity="0.7"/>
-                <text x="300" y="255" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Prípadové štúdie</text>
-                <text x="300" y="268" text-anchor="middle" font-size="10" fill="#fff">Expertné názory</text>
-
-                <polygon points="100,290 500,290 540,330 60,330" fill="#ba68c8" opacity="0.5"/>
-                <text x="300" y="315" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">Anekdotické dôkazy</text>
-                <text x="300" y="328" text-anchor="middle" font-size="10" fill="#333">Tradičné poznatky</text>
-
-                <!-- Arrow -->
-                <line x1="560" y1="60" x2="560" y2="320" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
-                <text x="575" y="190" text-anchor="middle" font-size="10" fill="#333" transform="rotate(90, 575, 190)">Kvalita dôkazu</text>
-
-                <defs>
-                    <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
-                    </marker>
-                </defs>
-            </svg>
-        </div>
+    <div class="card" id="kontroverzne">
+<h2>4. Kontroverzné témy</h2>
+<h3>4.1 „5 chutí" vs. viac chutí</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Téma</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Základných chutí je 5</td>
+<td>✅ Overené</td>
+<td>Sladká, slaná, kyslá, horká, umami; umami opísal K. Ikeda (1908), receptory identifikované 2000–2002</td>
+</tr>
+<tr>
+<td>Kyslá chuť</td>
+<td>✅ Overené</td>
+<td>Samostatná základná chuť s vlastným receptorom (OTOP1) a vlastnou nervovou dráhou (Zhang et al., 2019)</td>
+</tr>
+<tr>
+<td>Chuť tuku (oleogustus)</td>
+<td>⚠️ Prevažujúce</td>
+<td>Navrhovaná, existujú receptory (CD36, GPR120) aj percepčné dôkazy (Running et al., 2015)</td>
+</tr>
+<tr>
+<td>Chuť vápnika</td>
+<td>❌ Kontroverzné</td>
+<td>Receptor T1R3 (Tordoff et al., 2012), ale u ľudí málo skúmané</td>
+</tr>
+<tr>
+<td>Kokumi</td>
+<td>❌ Kontroverzné</td>
+<td>Skôr modulátor (CaSR) než samostatná chuťová kvalita</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Predošlá verzia uvádzala „kakao ako šiestu chuť" a „kyslú chuť ako kontroverznú" — obe tvrdenia boli nesprávne.</p>
+</blockquote>
+<h3>4.2 Supertasteri</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supertasteri existujú (fenotyp)</td>
+<td>✅ Overené</td>
+<td>Bartoshuk et al. (1994)</td>
+</tr>
+<tr>
+<td>~25 % populácie sú supertasteri</td>
+<td>⚠️ Prevažujúce</td>
+<td>15–35 % podľa definície (rezu škály) a populácie</td>
+</tr>
+<tr>
+<td>Supertasteri majú viac hubovitých papíl</td>
+<td>❌ Kontroverzné</td>
+<td>Veľká štúdia nenašla vzťah (Garneau et al., 2014)</td>
+</tr>
+<tr>
+<td>Supertasteri vnímajú horkosť PROP intenzívnejšie</td>
+<td>✅ Overené</td>
+<td>Definícia fenotypu</td>
+</tr>
+<tr>
+<td>Supertaster = genotyp PAV/PAV</td>
+<td>❌ Nesprávne</td>
+<td>Hayes et al. (2008)</td>
+</tr>
+<tr>
+<td>Supertasteri jedia menej zeleniny</td>
+<td>❌ Kontroverzné</td>
+<td>Nekonzistentné výsledky</td>
+</tr>
+<tr>
+<td>Supertasteri sú lepší hodnotitelia</td>
+<td>❌ Kontroverzné</td>
+<td>Nie je dôkaz</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.3 Farba a vnímanie chuti</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Farba ovplyvňuje identifikáciu a intenzitu chuti</td>
+<td>✅ Overené</td>
+<td>Napr. DuBose, Cardello &amp; Maller (1980), <em>J. Food Sci.</em>; prehľad Spence et al. (2010), <em>Chemosensory Perception</em></td>
+</tr>
+<tr>
+<td>Červená farba zvyšuje vnímanú sladkosť</td>
+<td>⚠️ Prevažujúce</td>
+<td>Viaceré štúdie (napr. Johnson &amp; Clydesdale, 1982), ale efekt závisí od kontextu a nie je vždy replikovaný</td>
+</tr>
+<tr>
+<td>Modrá/zelená farba mení vnímanie sladkosti/kyslosti</td>
+<td>⚠️ Prevažujúce</td>
+<td>Menej konzistentné dôkazy</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mechanizmus:</strong> Prevažne naučené asociácie (zrelé ovocie ↔ sladké) — kultúrne podmienené.</p>
+<h3>4.4 Glutamát a „Chinese restaurant syndrome"</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glutamát spôsobuje „Chinese restaurant syndrome"</td>
+<td>❌ Nepotvrdené</td>
+<td>Pôvodne list Kwoka (1968, <em>NEJM</em>); dvojito zaslepené štúdie konzistentnú reakciu nepotvrdzujú</td>
+</tr>
+<tr>
+<td>Glutamát je bezpečný pri bežnom príjme</td>
+<td>✅ Overené</td>
+<td>JECFA, EFSA (EFSA 2017 stanovila skupinový ADI 30 mg/kg ž. h./deň pre glutamáty E 620–625)</td>
+</tr>
+<tr>
+<td>Glutamát sa prirodzene vyskytuje v potravinách</td>
+<td>✅ Overené</td>
+<td>Paradajky, zrejúce syry, huby, mäso</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.5 Cukor a hyperaktivita</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cukor spôsobuje hyperaktivitu u detí</td>
+<td>❌ Nepotvrdené</td>
+<td>Metaanalýza Wolraich et al. (1995), <em>JAMA</em></td>
+</tr>
+<tr>
+<td>Rodičia vnímajú hyperaktivitu po cukre</td>
+<td>⚠️ Prevažujúce</td>
+<td>Efekt očakávania</td>
+</tr>
+<tr>
+<td>Cukor spôsobuje ADHD</td>
+<td>❌ Nepotvrdené</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
     </div>
-
-    <!-- SECTION 4: AKTUALIZÁCIE -->
-    <div class="card" id="aktualizácie">
-        <h2>4. Aktualizácie a opravy</h2>
-
-        <h3>4.1 Zmeny v senzorike (2020-2026)</h3>
-        <table>
-            <thead>
-                <tr><th>Oblasť</th><th>Zmena</th><th>Zdroj</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>ISO 13299</td><td>Aktualizované v roku 2016 (nahradilo ISO 11035)</td><td>ISO</td></tr>
-                <tr><td>Temporálna senzorika</td><td>Rastúci zájem o TDS (Temporal Dominance of Sensations)</td><td>Castura et al.</td></tr>
-                <tr><td>AI v senzorike</td><td>Využitie strojového učenia na predikciu senzorických profilov</td><td>Viacero časopisov</td></tr>
-                <tr><td>Consumer neuroscience</td><td>Integrácia EEG, eye-trackingu do senzoriky</td><td>Viacero časopisov</td></tr>
-                <tr><td>Personalizácia</td><td>Výskum individuálnych rozdielov v senzorike</td><td>Viacero časopisov</td></tr>
-            </tbody>
-        </table>
-
-        <h3>4.2 Opravy v repozitári</h3>
-        <table>
-            <thead>
-                <tr><th>Dátum</th><th>Oprava</th><th>Dôvod</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>2026-09-15</td><td>Aktualizované kritické hodnoty ISO 4120</td><td>Overenie podľa ISO 4120:2004</td></tr>
-                <tr><td>2026-09-15</td><td>Pridaná poznámka k "Chinese restaurant syndrome"</td><td>Aktuálne vedecké poznatky</td></tr>
-                <tr><td>2026-09-15</td><td>Opravený popis supertasterov</td><td>Rozšírené o kontroverzné aspekty</td></tr>
-            </tbody>
-        </table>
+    <div class="card" id="sait-prepojenie">
+<h2>5. Prepojenie so SaIT</h2>
+<p>Štatistické postupy opísané v repozitári SAP je možné prakticky overiť v R pomocou cvičení v repozitári <strong><a href="https://github.com/senzorika/SaIT">senzorika/SaIT</a></strong> (Senzometria v R, SK/EN). Mapovanie kapitol SAP na cvičenia SaIT je v <a href="../README.md#prepojenie-so-sait--senzometria-v-r">README</a>. Kontrolné výpočty tejto revízie (kritické hodnoty, sila testov, Weibull) je možné reprodukovať napr. funkciami <code>binom.test()</code>, <code>sensR::discrim()</code>, <code>sensR::discrimSS()</code> a <code>survival::survreg()</code> — <a href="https://senzorika.github.io/SaIT/teoria/index.html">cvičenia 5a, 10, 13, 14</a>.</p>
     </div>
-
-    <!-- SECTION 5: ODPOREČANIA -->
-    <div class="card" id="odporúčania">
-        <h2>5. Odporúčania pre ďalší výskum</h2>
-
-        <h3>5.1 Kde hľadať spoľahlivé informácie</h3>
-        <table>
-            <thead>
-                <tr><th>Zdroj</th><th>Typ</th><th>Odporúčanie</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>ISO štandardy</td><td>Normy</td><td>Primárny zdroj pre metodológiu</td></tr>
-                <tr><td>PubMed</td><td>Databáza článkov</td><td>Pre vedecké dôkazy</td></tr>
-                <tr><td>Scopus</td><td>Databáza článkov</td><td>Pre citácie a impakt</td></tr>
-                <tr><td>Web of Science</td><td>Databáza článkov</td><td>Pre citácie a impakt</td></tr>
-                <tr><td>Google Scholar</td><td>Vyhľadávač</td><td>Pre široký prehľad</td></tr>
-                <tr><td>IFST</td><td>Profesionálna organizácia</td><td>Pre aktuálne trendy</td></tr>
-                <tr><td>IFT</td><td>Profesionálna organizácia</td><td>Pre odborné zdroje</td></tr>
-            </tbody>
-        </table>
-
-        <h3>5.2 Ako vyhodnocovať zdroje</h3>
-        <ol>
-            <li><strong>Skontrolujte vydavateľa</strong> — akademické vydavateľstvo alebo profesionálna organizácia</li>
-            <li><strong>Overte si rok publikovania</strong> — preferujte články za posledných 5 rokov</li>
-            <li><strong>Pozrite si citácie</strong> — vysoký počet citácií = väčšia dôveryhodnosť</li>
-            <li><strong>Skontrolujte metodológiu</strong> — randomizované kontrolované štúdie sú najlepšie</li>
-            <li><strong>Buďte opatrní s prezentáciami</strong> — konferenčné príspevky často neprešli peer review</li>
-        </ol>
-
-        <h3>5.3 Témy pre budúci výskum</h3>
-        <table>
-            <thead>
-                <tr><th>Téma</th><th>Prečo je dôležité</th><th>Aktuálna medzera</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Genetika chutových receptorov</td><td>Personalizácia senzoriky</td><td>Mapovanie polymorfizmov</td></tr>
-                <tr><td>Mikrobióm a chuť</td><td>Vplyv na individuálne rozdiely</td><td>Kauzálne vzťahy</td></tr>
-                <tr><td>AI predikcia senzorických profilov</td><td>Efektivita výskumu</td><td>Validácia modelov</td></tr>
-                <tr><td>Kultúrne rozdiely v chuti</td><td>Globalizácia potravín</td><td>Systémové štúdie</td></tr>
-                <tr><td>Udržateľnosť a senzorika</td><td>Alternatívne potraviny</td><td>Akceptácia spotrebiteľov</td></tr>
-            </tbody>
-        </table>
+    <div class="card" id="odporucania">
+<h2>6. Odporúčania pre ďalší výskum</h2>
+<h3>6.1 Kde hľadať spoľahlivé informácie</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Zdroj</th>
+<th>Typ</th>
+<th>Odporúčanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Katalóg ISO, ASTM</td>
+<td>Normy</td>
+<td>Primárny zdroj pre metodiku; vždy overiť aktuálne vydanie</td>
+</tr>
+<tr>
+<td>EUR-Lex</td>
+<td>Predpisy EÚ</td>
+<td>Konsolidované znenia nariadení</td>
+</tr>
+<tr>
+<td>PubMed, Scopus, Web of Science</td>
+<td>Databázy článkov</td>
+<td>Overiť existenciu a obsah (DOI)</td>
+</tr>
+<tr>
+<td>Učebnice (Lawless &amp; Heymann, Meilgaard, Næs et al.)</td>
+<td>Metodika a štatistika</td>
+<td>Pre výpočty a interpretáciu</td>
+</tr>
+</tbody>
+</table></div>
+<h3>6.2 Ako vyhodnocovať zdroje</h3>
+<ol>
+<li><strong>Citácia bez DOI/časopisu je podozrivá</strong> — dohľadajte ju skôr, než ju použijete</li>
+<li><strong>Prepočítajte tabuľky a príklady</strong> — kritické hodnoty sa dajú overiť jedným príkazom (<code>qbinom</code>, <code>binom.test</code>)</li>
+<li><strong>Overte, či zdroj skutočne tvrdí to, čo sa mu pripisuje</strong></li>
+<li><strong>Rozlišujte normatívne požiadavky a odporúčania z praxe</strong></li>
+<li><strong>Pozor na „populárne čísla"</strong> (80 % chuti je čuch, 70–80 % nákupov…) — často nemajú zdroj</li>
+</ol>
+<h3>6.3 Témy pre budúci výskum</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Téma</th>
+<th>Prečo je dôležité</th>
+<th>Aktuálna medzera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genetika chuťových receptorov</td>
+<td>Individuálne rozdiely</td>
+<td>Vzťah genotyp – fenotyp – strava</td>
+</tr>
+<tr>
+<td>Mikrobióm a chuť</td>
+<td>Individuálne rozdiely</td>
+<td>Kauzálne dôkazy u ľudí</td>
+</tr>
+<tr>
+<td>AI predikcia senzorických profilov</td>
+<td>Efektivita výskumu</td>
+<td>Validácia modelov</td>
+</tr>
+<tr>
+<td>Kultúrne rozdiely v chuti</td>
+<td>Globalizácia potravín</td>
+<td>Systematické štúdie</td>
+</tr>
+<tr>
+<td>Udržateľnosť a senzorika</td>
+<td>Alternatívne potraviny</td>
+<td>Akceptácia spotrebiteľov</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><strong>Posledná aktualizácia:</strong> September 2026 (úplná revízia faktov, výpočtov a citácií)</p>
+<p><em>Dokument vytvorený pre projekt SAP — Senzorická Analýza Potravín</em></p>
     </div>
-
-    <!-- SECTION 6: ZOZNAM ZDROJOV -->
-    <div class="card" id="zoznam">
-        <h2>6. Zoznam overených zdrojov</h2>
-
-        <h3>6.1 Štandardy</h3>
-        <table>
-            <thead>
-                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>ISO 4120:2004</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>2</td><td>ISO 5495:2005</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>3</td><td>ISO 11035:1994</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>4</td><td>ISO 13299:2016</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>5</td><td>ISO 8586:2012</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>6</td><td>ISO 8589:2007</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>7</td><td>ISO 11036:1994</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>8</td><td>ISO 11037:1999</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-            </tbody>
-        </table>
-
-        <h3>6.2 Knihy</h3>
-        <table>
-            <thead>
-                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Lawless & Heymann (2010)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>2</td><td>Stone & Sidel (2004)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>3</td><td>Meilgaard et al. (2007)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>4</td><td>Kemp et al. (2011)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>5</td><td>Piggott (2011)</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-            </tbody>
-        </table>
-
-        <h3>6.3 Vedecké časopisy</h3>
-        <table>
-            <thead>
-                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Food Quality and Preference</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>2</td><td>Journal of Food Science</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>3</td><td>Food Chemistry</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>4</td><td>Journal of Sensory Studies</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>5</td><td>LWT - Food Science and Technology</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>6</td><td>Appetite</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>7</td><td>Chemical Senses</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-            </tbody>
-        </table>
-
-        <h3>6.4 Webové zdroje</h3>
-        <table>
-            <thead>
-                <tr><th>#</th><th>Zdroj</th><th>Dátum overenia</th><th>Overené</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>ISO Online Browsing Platform</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>2</td><td>IFST</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>3</td><td>ASTM International</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>4</td><td>PubMed</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-                <tr><td>5</td><td>Google Scholar</td><td>2026-09-15</td><td class="status-verified">✅</td></tr>
-            </tbody>
-        </table>
-
-        <h3>6.5 Neoverené informácie</h3>
-        <table>
-            <thead>
-                <tr><th>#</th><th>Informácia</th><th>Dôvod neoverenia</th><th>Akcia</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Presná prevalencia supertasterov</td><td>Rozličné štúdie uvádzajú rôzne čísla</td><td>Potrebný systematický prehľad</td></tr>
-                <tr><td>2</td><td>Vplyv farby na chuť u detí</td><td>Málo štúdií na detských populáciách</td><td>Potrebný ďalší výskum</td></tr>
-                <tr><td>3</td><td>Dlhodobý vplyv glutamátu na zdravie</td><td>Limitované longitudinálne štúdie</td><td>Potrebné dlhodobé štúdie</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="card">
-        <h2>Záver</h2>
-        <p>Tento dokument je živý dokument, ktorý bude pravidelne aktualizovaný. Všetky informácie v repozitári SAP prešli procesom overovania opísaným v sekcii 1. Kontroverzné témy sú jasne označené a prezentujú objektívny pohľad na aktuálny vedecký konsenzus.</p>
-
-        <div class="highlight-box">
-            <div class="hb-title">Ďalšie aktualizácie</div>
-            <p><strong>Posledná aktualizácia:</strong> September 2026</p>
-            <p><strong>Ďalšia plánovaná aktualizácia:</strong> Marec 2027</p>
-        </div>
-    </div>
-
+    <p style="margin:16px 0;opacity:0.8"><strong>Posledná aktualizácia:</strong> September 2026 (úplná revízia faktov, výpočtov a citácií)</p>
 </div>
+
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kontrola kritických hodnôt (binom.test, qbinom)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05a.html">5a – Normalita a porovnanie dvoch vzoriek</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R"><code>cvicenie5a.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kontrola výpočtov trvanlivosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">10 – Analýza prežitia a senzorická trvanlivosť</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie10.R"><code>cvicenie10.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kontrola d′ a testov podobnosti</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Kontrola sily testov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+</table></div>
+
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="overenie.html">Overenie zdrojov</a>.</p>
+</section>
 
 <footer>
     <p>SAP — Senzorická Analýza Potravín | Overenie zdrojov | 2026</p>

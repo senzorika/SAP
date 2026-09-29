@@ -1,4 +1,4 @@
-# Diskriminačné metody v senzorikej analýze
+# Diskriminačné metody v senzorickej analýze
 
 ## 1. Úvod do diskriminačných metód
 
@@ -32,23 +32,25 @@ Diskriminačné metody
 └── n-AFC (n-Alternative Forced Choice)
 ```
 
+> 🧪 **Precvič v R ([SaIT](https://github.com/senzorika/SaIT)):** binomický test v rozlišovacích skúškach — [cvičenie 5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) · Thurstonov model, d′ a test podobnosti — [cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) · sila testu a počet hodnotiteľov — [cvičenie 14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) · prípadová štúdia „zmena dodávateľa" — [cvičenie 19](https://senzorika.github.io/SaIT/teoria/cvicenie19.html)
+
 ---
 
 ## 2. Trojuholníkový test (Triangle Test)
 
 ### 2.1 Princíp a história
 
-Trojuholníkový test je jednou z najstarších a najrozšírenejších diskriminačných metód. Bol popísaný v roku 1943 (Roessler et al.) a odvtedy sa stal štandardom v senzorickom priemysle.
+Trojuholníkový test je jednou z najstarších a najrozšírenejších diskriminačných metód. Vznikol v 40. rokoch 20. storočia (Bengtsson, 1943; Helm & Trolle, 1946 – pivovar Carlsberg) a dnes ho upravuje **ISO 4120:2021**.
 
 **Princíp:** Testovateľovi sa predložia **tri vzorky**, z ktorých sú **dve rovnaké** a **jedna odlišná**. Testovateľ má za úlohu identifikovať **odlišnú vzorku**. Vzorky sú prezentované v náhodnom poradí, pričom existuje 6 možných kombinácií poradia (AAB, ABA, BAA, BBA, BAB, ABB).
 
 ### 2.2 Kedy použiť
 
 - Keď existujú **dve vzorky** na porovnanie
-- Keď sa predpokladá, že rozdiel je **subtilný** (nie výrazný)
-- Keď je potrebná **vysoká citlivosť** pri minimálnom počte vzoriek
-- Keď testovateľia sú **cvičení** (trained panel)
+- Keď **nie je známy smer** (atribút) rozdielu
 - Keď sa testujú **homogénne** výrobky (napr. mlieko, olej, víno)
+- Hodnotitelia by mali byť vybraní a oboznámení s testom (ISO 4120 nevyžaduje expertný panel)
+- Pozor: pri **subtilných** rozdieloch má trojuholník nízku silu — zvážte tetrad alebo 2-AFC (pozri kapitolu 8.2)
 
 ### 2.3 Výpočet binomického rozdelenia
 
@@ -77,28 +79,30 @@ Kritická hodnota je minimálny počet správnych odpovedí potrebný na preuká
 |---|---|---|---|
 | 10 | 7 | 8 | 9 |
 | 15 | 9 | 10 | 12 |
-| 20 | 11 | 12 | 14 |
-| 25 | 13 | 14 | 16 |
-| 30 | 14 | 16 | 18 |
-| 35 | 16 | 17 | 19 |
-| 40 | 17 | 19 | 21 |
-| 45 | 19 | 20 | 22 |
-| 50 | 20 | 22 | 24 |
-| 60 | 23 | 25 | 27 |
-| 70 | 26 | 28 | 30 |
-| 80 | 28 | 30 | 32 |
-| 90 | 31 | 33 | 35 |
-| 100 | 33 | 35 | 37 |
+| 20 | 11 | 13 | 14 |
+| 25 | 13 | 15 | 17 |
+| 30 | 15 | 17 | 19 |
+| 35 | 17 | 19 | 22 |
+| 40 | 19 | 21 | 24 |
+| 45 | 21 | 24 | 26 |
+| 50 | 23 | 26 | 28 |
+| 60 | 27 | 30 | 33 |
+| 70 | 31 | 34 | 37 |
+| 80 | 35 | 38 | 41 |
+| 90 | 38 | 42 | 45 |
+| 100 | 42 | 46 | 49 |
+
+*Presné binomické hodnoty (jednostranný test), prepočítané. Predošlá verzia tabuľky mala pre n ≥ 20 hodnoty nižšie, než je správne (napr. n = 100: 33 namiesto 42), čo by viedlo k falošne pozitívnym záverom.*
 
 ### 2.5 Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |---|---|
 | Jednoduchý na pochopenie | Náročný na testovateľov (vysoká kognitívna záťaž) |
-| Vysoká citlivosť | Vyžaduje cvičený panel |
-| Štandardizovaný a široko akceptovaný | Môže spôsobiť únavu pri opakovaní |
-| Náhodné poradie eliminuje bias | Nekontroluje sa „guessing strategy" |
-| Vhodný pre väčšinu produktov | Menej vhodný pre výrazne odlišné vzorky |
+| Nevyžaduje poznať smer rozdielu | Pri danom d′ nízka sila — potrebuje veľa hodnotiteľov |
+| Štandardizovaný a široko akceptovaný (ISO 4120) | Môže spôsobiť únavu a adaptáciu (3 vzorky) |
+| Náhodné/vyvážené poradie znižuje bias | Nekvantifikuje veľkosť rozdielu (tú dá až d′) |
+| Vhodný pre väčšinu produktov | Nevhodný pre produkty so silnou dochuťou |
 
 ### 2.6 Praktický príklad s výpočtom
 
@@ -114,10 +118,12 @@ n = 30, k = 16, p = 1/3
 P(X ≥ 16) = Σ (30 choose i) × (1/3)^i × (2/3)^(30-i)
             pre i = 16 až 30
 
-P(X ≥ 16) ≈ 0.0089
+P(X ≥ 16) ≈ 0.019
 ```
 
-**Interpretácia:** Keďže p-hodnota (0.0089) < α (0.05), existuje **štatisticky významný rozdiel** medzi vzorkami. Zmena dodávateľa cukru má merateľný vplyv na senzorické vlastnosti koláča.
+**Interpretácia:** Keďže p-hodnota (0.019) < α (0.05), existuje **štatisticky významný rozdiel** medzi vzorkami. Zmena dodávateľa cukru má merateľný vplyv na senzorické vlastnosti koláča.
+
+> 💻 V R: `binom.test(16, 30, p = 1/3, alternative = "greater")` alebo `sensR::discrim(16, 30, method = "triangle")` (vráti aj d′). Podobnú úlohu rieši [SaIT cvičenie 19](https://senzorika.github.io/SaIT/teoria/cvicenie19.html).
 
 ---
 
@@ -138,9 +144,9 @@ Krok 2: X, Y (anonymné vzorky v náhodnom poradí)
 
 - Keď sú testovateľia **menej cvičení**
 - Keď je potrebná **nižšia kognitívna záťaž**
-- Pri testovaní **výrazne odlišných** vzoriek (kde by trojuholníkový test bol príliš jednoduchý)
-- Keď sa preferuje **referenčný rámec** (anchoring)
-- Pri **rýchlych screeningových** testoch
+- Keď existuje prirodzená **referencia** (napr. štandardná výroba)
+- Pri produktoch so silnou dochuťou, kde je menej porovnaní výhodou
+- Pri **rýchlych screeningových** testoch (pri väčších rozdieloch)
 
 ### 3.3 Výpočet
 
@@ -154,29 +160,31 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^i \cd
 
 | n | Kritická hodnota (α = 0.05) | Kritická hodnota (α = 0.01) |
 |---|---|---|
-| 10 | 8 | 9 |
-| 15 | 11 | 12 |
-| 20 | 14 | 15 |
-| 25 | 16 | 18 |
-| 30 | 19 | 20 |
-| 35 | 21 | 23 |
-| 40 | 23 | 25 |
-| 45 | 25 | 27 |
-| 50 | 27 | 29 |
-| 60 | 31 | 33 |
-| 70 | 34 | 37 |
-| 80 | 38 | 40 |
-| 90 | 41 | 44 |
-| 100 | 44 | 47 |
+| 10 | 9 | 10 |
+| 15 | 12 | 13 |
+| 20 | 15 | 16 |
+| 25 | 18 | 19 |
+| 30 | 20 | 22 |
+| 35 | 23 | 25 |
+| 40 | 26 | 28 |
+| 45 | 29 | 31 |
+| 50 | 32 | 34 |
+| 60 | 37 | 40 |
+| 70 | 43 | 46 |
+| 80 | 48 | 51 |
+| 90 | 54 | 57 |
+| 100 | 59 | 63 |
+
+*Presné binomické hodnoty (jednostranný test, p₀ = 1/2), prepočítané.*
 
 ### 3.5 Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |---|---|
-| Nižšia kognitívna záťaž | Nižšia citlivosť ako trojuholníkový test |
+| Nižšia kognitívna záťaž | Pri danom d′ najnižšia sila spomedzi bežných testov |
 | Vhodný pre menej cvičené panelisty | Vyžaduje viac testovateľov pre rovnakú silu testu |
-| Referenčná vzorka pomáha | Môže viesť k „bias" v preferencii |
-| Jednoduchý na organizácie | Menej vhodný pre produkty s výraznými rozdielmi |
+| Referenčná vzorka pomáha | Výsledok závisí od voľby referencie (konštantná vs. vyvážená) |
+| Jednoduchý na organizáciu | Nekvantifikuje veľkosť rozdielu |
 
 ---
 
@@ -202,34 +210,36 @@ Pravdepodobnosť správnej odpovede pri náhodnom hádaní je **p = 1/2**.
 
 $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^n$$
 
+Test je **jednostranný**, ak je smer rozdielu vopred známy (napr. „vzorka B má viac cukru — je sladšia?"), a **obojstranný**, ak nie je (napr. „ktorý z dvoch medov je sladší?").
+
 ### 4.4 Kritické hodnoty
 
-**Kritické hodnoty pre párový porovnávací test (α = 0.05):**
+**Kritické hodnoty pre párový porovnávací test** (minimálny počet hlasov pre častejšie zvolenú vzorku; presné binomické hodnoty):
 
-| n | Kritická hodnota (α = 0.05) | Kritická hodnota (α = 0.01) |
-|---|---|---|
-| 10 | 9 | 10 |
-| 15 | 12 | 13 |
-| 20 | 15 | 16 |
-| 25 | 18 | 19 |
-| 30 | 20 | 22 |
-| 35 | 23 | 24 |
-| 40 | 25 | 27 |
-| 45 | 27 | 29 |
-| 50 | 29 | 31 |
-| 60 | 33 | 35 |
-| 70 | 37 | 39 |
-| 80 | 41 | 43 |
-| 90 | 44 | 47 |
-| 100 | 47 | 50 |
+| n | jednostranný α = 0.05 | jednostranný α = 0.01 | obojstranný α = 0.05 | obojstranný α = 0.01 |
+|---|---|---|---|---|
+| 10 | 9 | 10 | 9 | 10 |
+| 15 | 12 | 13 | 12 | 13 |
+| 20 | 15 | 16 | 15 | 17 |
+| 25 | 18 | 19 | 18 | 20 |
+| 30 | 20 | 22 | 21 | 23 |
+| 35 | 23 | 25 | 24 | 26 |
+| 40 | 26 | 28 | 27 | 29 |
+| 45 | 29 | 31 | 30 | 32 |
+| 50 | 32 | 34 | 33 | 35 |
+| 60 | 37 | 40 | 39 | 41 |
+| 70 | 43 | 46 | 44 | 47 |
+| 80 | 48 | 51 | 50 | 52 |
+| 90 | 54 | 57 | 55 | 58 |
+| 100 | 59 | 63 | 61 | 64 |
 
 ### 4.5 Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |---|---|
-| Najjednoduchšia metóda | Známy smer rozdielu môže viesť k bias |
-| Vysoká rýchlosť testovania | Nedá sa použiť, ak smer rozdielu nie je známy |
-| Vhodný pre konzumentov | Nižšia citlivosť (vyžaduje viac testovateľov) |
+| Najjednoduchšia metóda | Hodnotitelia musia rovnako chápať atribút |
+| Vysoká rýchlosť testovania | Nedá sa použiť, ak atribút rozdielu nie je známy |
+| Pri známom atribúte **najvyššia sila** zo všetkých testov (2-AFC) | Pri zmene receptúry môžu vzniknúť aj iné, nesledované rozdiely |
 | Jednoduchá interpretácia | Testuje len jeden atribút naraz |
 
 ---
@@ -249,30 +259,37 @@ Fáza testovania: Náhodné vzorky A a B
 
 ### 5.2 Kedy použiť
 
-- Keď je potrebné testovať **rozpoznávanie** (nie len rozdiel)
-- Pri **rýchlych kontrolných** testoch (napr. na výrobe)
+- Keď vzorky **nemožno podať súčasne** (výrazná dochuť, rozdielny vzhľad, ktorý nemožno zamaskovať)
+- Pri **kontrolných** testoch (napr. na výrobe), keď je „A" štandardný produkt
 - Keď je dôležité **zapamätanie si referencie**
-- Pri testovaní **komplexných** produktov (kde je rozdiel subtilný)
-- Keď sa testuje **viacero atribútov** naraz
+- Pri testovaní **komplexných** produktov
 
-### 5.3 Výpočet
+### 5.3 Výpočet (ISO 8588:2017)
 
-Pravdepodobnosť správnej odpovede pri náhodnom hádaní je **p = 1/2**.
+Výsledky sa zapíšu do tabuľky 2 × 2:
 
-$$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^n$$
+| | odpoveď „A" | odpoveď „nie A" |
+|---|---|---|
+| podaná vzorka A | n₁₁ | n₁₂ |
+| podaná vzorka „nie A" | n₂₁ | n₂₂ |
+
+- **H₀:** podiel odpovedí „A" je rovnaký pre obe vzorky
+- rôzni hodnotitelia pre každú vzorku → **Pearsonov χ² test** (1 df) alebo Fisherov presný test
+- ten istý hodnotiteľ hodnotí obe vzorky → **McNemarov test**
+- veľkosť rozdielu: **d′ = z(H) − z(F)**, kde H = n₁₁/(n₁₁+n₁₂) a F = n₂₁/(n₂₁+n₂₂)
 
 ### 5.4 Kritické hodnoty
 
-Kritické hodnoty sú **rovnaké** ako pre duo-trio test (p = 1/2).
+Jednoduchá tabuľka kritických hodnôt s p = 1/2 **neexistuje** — pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa, preto sa porovnávajú dva podiely. (Predošlá verzia tu nesprávne odkazovala na tabuľku duo-trio testu.) Výpočet v R: `chisq.test()`, `mcnemar.test()` — [SaIT cvičenie 5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html); d′ a jeho neistota: `sensR::AnotA()`.
 
 ### 5.5 Výhody a nevýhody
 
 | Výhody | Nevýhody |
 |---|---|
-| Vysoká citlivosť pri tréningu | Vyžaduje intenzívny tréning |
-| Vhodný pre komplexné produkty | Pamäť môže byť kľúčovým faktorom |
-| Rýchly po tréningu | Môže viesť k „false positives" |
-| Vhodný pre kontrolu kvality | Nekontroluje sa úroveň tréningu |
+| Hodnotí sa jedna vzorka naraz | Vyžaduje oboznámenie sa so vzorkou „A" |
+| Vhodný pre komplexné produkty a silné dochute | Pamäť môže byť kľúčovým faktorom |
+| Rýchly po tréningu | Výsledok ovplyvňuje sklon hodnotiteľa odpovedať „A" (response bias) |
+| Vhodný pre kontrolu kvality | Nižšia sila ako pri 2-AFC |
 
 ---
 
@@ -280,7 +297,7 @@ Kritické hodnoty sú **rovnaké** ako pre duo-trio test (p = 1/2).
 
 ### 6.1 Princíp
 
-Testovateľ dostane **dve vzorky** a musí rozhodnúť, či sú **rovnaké** alebo **odlišné**. Na rozdiel od trojuholníkového testu, testovateľ **nevypisuje** ktorá je odlišná, len rozhoduje o rovnakosti/odlišnosti.
+Testovateľ dostane **dve vzorky** a musí rozhodnúť, či sú **rovnaké** alebo **odlišné**. Podávajú sa rovnaké páry (AA, BB) aj odlišné páry (AB, BA). Na rozdiel od trojuholníkového testu testovateľ **neurčuje**, ktorá vzorka je odlišná, len rozhoduje o rovnakosti/odlišnosti.
 
 **Prezentácia:**
 ```
@@ -291,17 +308,14 @@ Otázka: Sú tieto vzorky rovnaké alebo odlišné?
 
 ### 6.2 Kedy použiť
 
-- Keď sa testuje **celková podobnosť** (nie konkrétny atribút)
-- Pri **rýchlych screeningových** testoch
-- Keď testovateľia **nevypisú** ktorá vzorka je odlišná
+- Keď sa testuje **celková odlišnosť** (nie konkrétny atribút)
+- Pri produktoch so silnou dochuťou (len 2 vzorky na pokus)
 - Pri testovaní **viacerých atribútov** naraz
 - Keď je potrebná **nižšia kognitívna záťaž**
 
 ### 6.3 Výpočet
 
-Pravdepodobnosť správnej odpovede pri náhodnom hádaní je **p = 1/2**.
-
-$$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^n$$
+Porovnáva sa podiel odpovedí „odlišné" pri **odlišných** pároch s podielom pri **rovnakých** pároch (tabuľka 2 × 2, **χ² test**, Fisherov alebo McNemarov test). „Náhodná pravdepodobnosť 1/2" tu neexistuje — výsledok závisí od toho, ako prísne hodnotiteľ volí „odlišné". Thurstonov d′ pre tento test počíta napr. `sensR::samediff()`.
 
 ### 6.4 Výhody a nevýhody
 
@@ -318,7 +332,7 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^n$$
 
 ### 7.1 Princíp
 
-Tetrad test je **novšia metóda** (navrhnutá v roku 2001), ktorá kombinuje prvky trojuholníkového a duo-trio testu. Testovateľ dostane **štyri vzorky**, z ktorých sú **dve rovnaké** a **dve odlišné** (napr., AABB). Úlohou je **zoskupiť** vzorky do dvoch párov rovnakých vzoriek.
+Tetrad test (nešpecifikovaný tetrad) sa do senzorickej praxe dostal hlavne po prácach Ennisa a kol. (napr. Ennis & Jesionka, 2011, *J. Sensory Studies*), ktoré na Thurstonovom modeli ukázali jeho vyššiu silu oproti trojuholníku; normalizuje ho **ASTM E3009**. Testovateľ dostane **štyri vzorky** — **dve vzorky A a dve vzorky B** (napr. AABB v náhodnom poradí). Úlohou je **zoskupiť** vzorky do dvoch párov rovnakých vzoriek.
 
 **Prezentácia:**
 ```
@@ -328,10 +342,9 @@ Vzorky: A, A, B, B (v náhodnom poradí)
 
 ### 7.2 Kedy použiť
 
-- Keď je potrebná **vyššia citlivosť** ako pri trojuholníkovom teste
-- Pri testovaní **subtilných** rozdielov
-- Keď je dôležité **minimalizovať únavu** testovateľov
-- Pri **komplexných** produktoch s viacerými atribútmi
+- Keď je potrebná **vyššia sila** ako pri trojuholníkovom teste (smer rozdielu neznámy)
+- Pri testovaní **subtilných** rozdielov s obmedzeným počtom hodnotiteľov
+- Keď produkt **nespôsobuje** výraznú únavu či adaptáciu (4 vzorky na pokus)
 
 ### 7.3 Výpočet
 
@@ -343,10 +356,10 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{3}\right)^i \cd
 
 | Výhody | Nevýhody |
 |---|---|
-| Vyššia citlivosť ako trojuholníkový test | Menej známa metóda |
-| Nižšia kognitívna záťaž | Vyžaduje viac vzoriek na testovateľa |
-| Vhodný pre subtilné rozdiely | Menej štandardizovaná |
-| Menej únavný | Vyžaduje špeciálny tréning |
+| Vyššia sila ako trojuholníkový test (pri d′ = 1 cca 3× menej hodnotiteľov) | Menej známa metóda |
+| Nevyžaduje poznať smer rozdielu | Vyžaduje viac vzoriek na testovateľa (4) |
+| Vhodný pre subtilné rozdiely | Vyššie riziko únavy/adaptácie pri silných chutiach |
+| Rovnaké p₀ = 1/3 → rovnaké kritické hodnoty ako trojuholník | Normalizovaný len v ASTM (nie v ISO) |
 
 ---
 
@@ -356,23 +369,29 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{3}\right)^i \cd
 
 | Metóda | p (náhodný úspech) | Citlivosť | Náročnosť na testovateľa | Rýchlosť | Vhodnosť pre konzumentov |
 |---|---|---|---|---|---|
-| **Trojuholníkový** | 1/3 | Vysoká | Vysoká | Stredná | Nie |
-| **Duo-trio** | 1/2 | Stredná | Stredná | Stredná | Občas |
-| **Párový porovnávací** | 1/2 | Nízka | Nízka | Vysoká | Áno |
-| **"A" – "nie A"** | 1/2 | Stredná | Vysoká (tréning) | Vysoká (po tréningu) | Občas |
-| **Same-Different** | 1/2 | Stredná | Nízka | Vysoká | Áno |
-| **Tetrad** | 1/3 | Vysoká | Stredná | Stredná | Nie |
+| **Trojuholníkový** | 1/3 | Nízka (pri danom d′) | Vysoká | Stredná | Obmedzene |
+| **Duo-trio** | 1/2 | Nízka (pri danom d′) | Stredná | Stredná | Občas |
+| **Párový porovnávací (2-AFC)** | 1/2 | Vysoká (ak je atribút známy) | Nízka | Vysoká | Áno |
+| **3-AFC** | 1/3 | Vysoká (ak je atribút známy) | Stredná | Stredná | Občas |
+| **"A" – "nie A"** | — (χ²) | Stredná | Stredná | Vysoká (po oboznámení) | Občas |
+| **Same-Different** | — (χ²) | Nízka až stredná | Nízka | Vysoká | Áno |
+| **Tetrad** | 1/3 | Stredná (vyššia ako trojuholník) | Stredná | Stredná | Obmedzene |
+
+„Citlivosť" tu znamená štatistickú silu pri rovnakom senzorickom rozdiele (Thurstonov d′). Intuícia „nižšia pravdepodobnosť uhádnutia = citlivejší test" neplatí: trojuholník má p₀ = 1/3, a predsa je menej účinný ako 2-AFC s p₀ = 1/2 (Ennis, 1993; Bi, 2006).
 
 ### 8.2 Počet testovateľov pre rovnakú silu testu (α = 0.05, power = 0.80)
 
-| Metóda | Odhadovaný počet testovateľov |
-|---|---|
-| Trojuholníkový | 30–50 |
-| Duo-trio | 50–80 |
-| Párový porovnávací | 60–100 |
-| "A" – "nie A" | 50–80 |
-| Same-Different | 50–80 |
-| Tetrad | 25–40 |
+Presný binomický výpočet pre rovnaký senzorický rozdiel. Pre A – nie A a same-different závisí počet aj od kritéria hodnotiteľov, preto nie sú uvedené.
+
+| Metóda | p_c pri d′ = 1 | n pri d′ = 1 | n pri d′ = 1.5 |
+|---|---|---|---|
+| 2-AFC (párový smerový) | 0.760 | 26 | 13 |
+| 3-AFC | 0.634 | 22 | 9 |
+| Tetrad | 0.494 | 65 | 20 |
+| Trojuholníkový | 0.418 | 220 | 57 |
+| Duo-trio | 0.582 | 241 | 65 |
+
+*Vypočítané v Pythone (psychometrické funkcie podľa Ennisa, presný binomický test). V R: `sensR::d.primePwr()`, `sensR::discrimSS()` — pozri [SaIT cvičenie 14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html).*
 
 ---
 
@@ -409,14 +428,15 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{3}\right)^i \cd
 
 | Kritérium | Odporúčaná metóda |
 |---|---|
-| Známy smer rozdielu | Párový porovnávací test |
-| Subtilný rozdiel, cvičený panel | Trojuholníkový test |
-| Subtilný rozdiel, menej cvičený panel | Tetrad test |
+| Známy smer rozdielu | Párový porovnávací test (2-AFC) alebo 3-AFC |
+| Neznámy smer, subtilný rozdiel | Tetrad test (alebo trojuholník s dostatočným n) |
+| Neznámy smer, normalizovaný postup | Trojuholníkový test (ISO 4120) |
 | Rýchly screening | Párový porovnávací test |
 | Konzumentský test | Párový porovnávací test |
-| Komplexný produkt, viac atribútov | "A" – "nie A" test |
-| Kontrola kvality na výrobe | "A" – "nie A" test |
+| Vzorky nemožno podať súčasne | "A" – "nie A" test |
+| Kontrola kvality na výrobe | "A" – "nie A" test, duo-trio s konštantnou referenciou |
 | Minimálna kognitívna záťaž | Same-Different test |
+| Cieľom je preukázať **podobnosť** (napr. náhrada suroviny) | Ktorýkoľvek test v režime **testu podobnosti** (vopred zvolené p_d, malé β) — [SaIT cvičenie 13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) |
 
 ---
 
@@ -436,7 +456,7 @@ n = 40, k = 22, p = 1/3
 P(X ≥ 22) = Σ (40 choose i) × (1/3)^i × (2/3)^(40-i)
             pre i = 22 až 40
 
-P(X ≥ 22) ≈ 0.0032
+P(X ≥ 22) ≈ 0.0039
 ```
 
 **Záver:** p < 0.01 → **Významný rozdiel**. Zníženie cukru o 30% je senzoricky detekovateľné. Odporúča sa buď postupné znižovanie cukru alebo použitie sladidla.
@@ -466,28 +486,27 @@ P(X ≥ 32) ≈ 0.033
 
 ### Príklad 3: Párový porovnávací test – Sladkosť dvoch typov medu
 
-**Scénár:** Testuje sa, ktorý z dvoch typov medu (lipový vs. akáciový) je sladší. Používa sa 60 konzumentov.
+**Scénár:** Testuje sa, ktorý z dvoch typov medu (lipový vs. akáciový) je sladší. Smer rozdielu **nie je vopred známy** → obojstranný test. Používa sa 60 konzumentov.
 
 **Výsledky:** 38 konzumentov označilo lipový med ako sladší.
 
 **Výpočet:**
 
 ```
-n = 60, k = 38, p = 1/2
+n = 60, k = 38, p = 1/2, obojstranný test
 
-P(X ≥ 38) = Σ (60 choose i) × (1/2)^60
-            pre i = 38 až 60
-
-P(X ≥ 38) ≈ 0.014
+P(X ≥ 38) = Σ (60 choose i) × (1/2)^60   pre i = 38 až 60
+P(X ≥ 38) ≈ 0.026
+p (obojstranne) = 2 × 0.026 ≈ 0.052
 ```
 
-**Záver:** p < 0.05 → **Významný rozdiel**. Lipový med je štatisticky významne sladší ako akáciový med. Tento rozdiel je dôležité zohľadniť pri marketingových tvrdeniach.
+**Záver:** p ≈ 0.052 > 0.05 → rozdiel **nie je štatisticky významný** (obojstranná kritická hodnota pre n = 60 je 39). Tvrdenie „lipový med je sladší" z týchto dát **nemožno** použiť. Jednostranný test (p ≈ 0.026) by bol oprávnený iba vtedy, ak by hypotéza o smere bola stanovená **pred** zberom dát. (Predošlá verzia uvádzala p ≈ 0.014 a významný rozdiel — to bola chyba.)
 
 ---
 
 ## Záver
 
-Diskriminačné metody sú **nástrojmi prvej línie** v senzorikej analýze. Výber správnej metody závisí od:
+Diskriminačné metody sú **nástrojmi prvej línie** v senzorickej analýze. Výber správnej metody závisí od:
 - **Cieľa testu** (screening vs. potvrdenie)
 - **Úrovne panelu** (cvičený vs. konzument)
 - **Povahy rozdielu** (subtilný vs. výrazný)
@@ -497,4 +516,16 @@ Vždy je dôležité **kombinovať** diskriminačné metódy s deskriptívnymi p
 
 ---
 
-*Referencie: Lawless, H.T. & Heymann, H. (2010). Sensory Evaluation of Food: Principles and Practices. Springer. | Stone, H. & Sidel, J.L. (2004). Sensory Evaluation Practices. Elsevier.*
+## Prepojenie s praktickými cvičeniami v R (SaIT)
+
+| Téma | Cvičenie [SaIT](https://github.com/senzorika/SaIT) | Skript |
+|---|---|---|
+| Binomický test, χ², McNemar | [5a – Porovnanie dvoch vzoriek](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) | [`cvicenie5a.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie5a.R) |
+| Thurstonov d′, psychometrické funkcie, test podobnosti | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) | [`cvicenie13.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie13.R) |
+| Sila testu, počet hodnotiteľov | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) | [`cvicenie14.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie14.R) |
+| Prípadová štúdia: zmena dodávateľa | [19 – Kontrolné prípadové štúdie I](https://senzorika.github.io/SaIT/teoria/cvicenie19.html) | [`cvicenie19.R`](https://github.com/senzorika/SaIT/blob/master/cvicenie19.R) |
+| Prednáška | [Rozlišovacie testy a Thurstonov model (slajdy)](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html) | — |
+
+---
+
+*Referencie: Lawless, H.T. & Heymann, H. (2010). Sensory Evaluation of Food: Principles and Practices (2nd ed.). Springer. | Stone, H. & Sidel, J.L. (2004). Sensory Evaluation Practices (3rd ed.). Elsevier Academic Press. | Ennis, D.M. (1993). The power of sensory discrimination methods. J. Sensory Studies 8, 353–370. | Ennis, J.M. & Jesionka, V. (2011). The power of sensory discrimination methods revisited. J. Sensory Studies 26(5). | Bi, J. (2006). Sensory Discrimination Tests and Measurements. Blackwell. | ISO 4120:2021, ISO 10399:2017, ISO 5495:2005, ISO 8588:2017, ASTM E3009.*

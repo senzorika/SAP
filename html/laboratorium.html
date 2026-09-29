@@ -253,19 +253,21 @@ section { padding: 1.25rem; }
 <li><a href="#vzorky">Vzorky</a></li>
 <li><a href="#panelisti">Panelisti</a></li>
 <li><a href="#hygiena">Hygiena</a></li>
+<li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
 </div>
 </nav>
 <div class="container">
 <div class="hero">
 <h1>Podmienky senzorického laboratória</h1>
-<p>ISO 8586:2023 – Komplexný prehľad požiadaviek</p>
+<p>ISO 8589 (priestory) · ISO 8586:2023 (hodnotitelia) · ISO 11132 (výkonnosť panelu)</p>
 <div class="meta">Repozitár: SAP – Senzorická Analýza Potravín | Kategória: Laboratórna dokumentácia | Aktualizované: 2026</div>
 </div>
 <section id="navrh">
 <h2>1. Návrh laboratória</h2>
-<h3>1.1 Požiadavky ISO 8586</h3>
-<p>Podľa <strong>ISO 8586:2023</strong> musí senzorické laboratória spĺňať nasledovné požiadavky:</p>
+<h3>1.1 Požiadavky ISO 8589</h3>
+<p>Návrh senzorického laboratória upravuje <strong>ISO 8589:2007 (+Amd 1:2014)</strong>; <strong>ISO 8586:2023</strong> sa týka hodnotiteľov, nie priestorov. Senzorické laboratórium má spĺňať nasledovné požiadavky:</p>
+<div class="callout callout-warning"><strong>Poznámka k zdrojom (09/2026)</strong> Predošlá verzia pripisovala číselné parametre (teplota, lux, dB, počty, frekvencie) normám ISO 8586 alebo ISO 13299, ktoré ich neobsahujú. ISO 8589 dáva väčšinou kvalitatívne požiadavky; čísla nižšie sú odporúčania z praxe.</div>
 <ul>
 <li><strong>Oddelenie</strong> prípravnej (kuchyňskej) zóny od senzorického hodnotiaceho priestoru</li>
 <li><strong>Individuálne hodnotiace kabíny</strong> pre každého panelistu</li>
@@ -327,9 +329,9 @@ section { padding: 1.25rem; }
 <table>
 <thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Teplota vzduchu</td><td>20–22°C</td><td>±1°C</td><td>ISO 8586</td></tr>
+<tr><td>Teplota vzduchu</td><td>20–22°C</td><td>±1°C</td><td>Odporúčanie (ISO 8589: kontrolovaná)</td></tr>
 <tr><td>Teplota pracovných plôch</td><td>20–22°C</td><td>±1°C</td><td>Odporúčanie</td></tr>
-<tr><td>Teplota vzoriek pri podávaní</td><td>Špecifická pre produkt</td><td>±2°C</td><td>ISO 13299</td></tr>
+<tr><td>Teplota vzoriek pri podávaní</td><td>Špecifická pre produkt</td><td>±2°C</td><td>ISO 6658</td></tr>
 </tbody>
 </table>
 <div class="callout callout-warning">
@@ -340,7 +342,7 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Relatívna vlhkosť</td><td>40–60%</td><td>±5%</td><td>ISO 8586</td></tr>
+<tr><td>Relatívna vlhkosť</td><td>40–60%</td><td>±5%</td><td>Odporúčanie (ISO 8589: kontrolovaná)</td></tr>
 <tr><td>Absolútna vlhkosť</td><td>7–11 g/kg</td><td>—</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -374,8 +376,8 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Hodnota</th><th>Tolerancia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Osvetlenie na pracovnej ploche</td><td>500–1000 lux</td><td>±10%</td><td>ISO 8586</td></tr>
-<tr><td>Farba osvetlenia</td><td>Biele (D65)</td><td>CRI ≥ 90</td><td>ISO 11037</td></tr>
+<tr><td>Osvetlenie na pracovnej ploche</td><td>~300–1000 lux, rovnomerné, regulovateľné</td><td>—</td><td>Odporúčanie (ISO 8589)</td></tr>
+<tr><td>Farba osvetlenia</td><td>Denné svetlo D65 (~6500 K) pre hodnotenie farby</td><td>vysoké CRI</td><td>ISO 11037:2011, ISO 8589</td></tr>
 <tr><td>Rovnomernosť</td><td>≥ 0.7</td><td>—</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -383,7 +385,7 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Hodnota</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Výmena vzduchu</td><td>6–12 krát/hodinu</td><td>ISO 8586</td></tr>
+<tr><td>Výmena vzduchu</td><td>6–12 krát/hodinu (mierny pretlak v hodnotiacej zóne)</td><td>Odporúčanie (ISO 8589)</td></tr>
 <tr><td>Rýchlosť prúdenia vzduchu</td><td>&lt; 0.2 m/s</td><td>Odporúčanie</td></tr>
 <tr><td>Tlak</td><td>Neutrálny</td><td>Odporúčanie</td></tr>
 </tbody>
@@ -392,7 +394,7 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Hodnota</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Hladina hluku</td><td>&lt; 40 dB(A)</td><td>ISO 8586</td></tr>
+<tr><td>Hladina hluku</td><td>&lt; 40 dB(A)</td><td>Odporúčanie (ISO 8589: minimalizovať)</td></tr>
 <tr><td>Reverberačný čas</td><td>&lt; 0.5 s</td><td>Odporúčanie</td></tr>
 <tr><td>Izolácia od vonkajšieho hluku</td><td>≥ 30 dB</td><td>Odporúčanie</td></tr>
 </tbody>
@@ -432,13 +434,13 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Počet kabín</td><td>5–15 (podľa velikosti panelu)</td><td>ISO 8586</td></tr>
+<tr><td>Počet kabín</td><td>5–15 (podľa veľkosti panelu)</td><td>Odporúčanie</td></tr>
 <tr><td>Rozstup medzi kabínami</td><td>≥ 1.0 m</td><td>Odporúčanie</td></tr>
-<tr><td>Šírka kabíny</td><td>≥ 0.8 m</td><td>Odporúčanie</td></tr>
-<tr><td>Hĺbka kabíny</td><td>≥ 0.8 m</td><td>Odporúčanie</td></tr>
+<tr><td>Šírka kabíny</td><td>≥ 0.9 m</td><td>Odporúčanie</td></tr>
+<tr><td>Hĺbka pracovnej plochy</td><td>≥ 0.6 m</td><td>Odporúčanie</td></tr>
 <tr><td>Materiály</td><td>Nerdzavejúca oceľ, sklo, plast</td><td>Odporúčanie</td></tr>
 <tr><td>Povrch</td><td>Ľahko čistiteľný, odolný proti zápachom</td><td>Odporúčanie</td></tr>
-<tr><td>Osvetlenie</td><td>Individuálne kontrolované</td><td>ISO 8586</td></tr>
+<tr><td>Osvetlenie</td><td>Regulovateľné, možnosť farebného (maskovacieho) svetla</td><td>ISO 8589</td></tr>
 <tr><td>Komunikácia</td><td>Interkom alebo tablet</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -450,7 +452,7 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <tr><td>Výška pracovnej plochy</td><td>0.85–0.95 m</td><td>Ergonomia</td></tr>
 <tr><td>Umývačky</td><td>S nožným ovládaním</td><td>Hygiena</td></tr>
 <tr><td>Mýdlo</td><td>Bezvónne, antibakteriálne</td><td>Hygiena</td></tr>
-<tr><td>Rúškové vrecko</td><td>Jednorazové, bez prášku</td><td>Hygiena</td></tr>
+<tr><td>Rukavice</td><td>Jednorazové, bez púdru</td><td>Hygiena</td></tr>
 <tr><td>Papierové utierky</td><td>Jednorazové, bez vón</td><td>Hygiena</td></tr>
 </tbody>
 </table>
@@ -458,13 +460,13 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Vybavenie</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Kuchyňa</td><td>Samostatná, dobre vetraná</td><td>ISO 8586</td></tr>
+<tr><td>Kuchyňa</td><td>Samostatná, dobre vetraná</td><td>ISO 8589</td></tr>
 <tr><td>Chladnička</td><td>0–4°C</td><td>HACCP</td></tr>
 <tr><td>Mraznička</td><td>-18°C</td><td>HACCP</td></tr>
-<tr><td>Mikrovlnná rýchlovarná doska</td><td>Pre rýchle ohrev</td><td>Odporúčanie</td></tr>
-<tr><td>Váhy</td><td>Presnosť ±0.1 g</td><td>ISO 13299</td></tr>
+<tr><td>Mikrovlnná rúra, varná doska</td><td>Pre ohrev vzoriek</td><td>Odporúčanie</td></tr>
+<tr><td>Váhy</td><td>Presnosť ±0.1 g</td><td>Odporúčanie</td></tr>
 <tr><td>Meradlá</td><td>Pre objemové meranie</td><td>Odporúčanie</td></tr>
-<tr><td>Termometry</td><td>Presnosť ±0.5°C</td><td>ISO 13299</td></tr>
+<tr><td>Teplomery</td><td>Presnosť ±0.5°C</td><td>Odporúčanie</td></tr>
 <tr><td>Časovače</td><td>Pre časové limity</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -475,9 +477,9 @@ Teplota ovplyvňuje chuťovú citlivosť. Príliš nízka teplota znižuje citli
 <table>
 <thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Kódovanie</td><td>Náhodné trojciferné kódy</td><td>ISO 13299</td></tr>
+<tr><td>Kódovanie</td><td>Náhodné trojciferné kódy</td><td>ISO 6658</td></tr>
 <tr><td>Generovanie kódov</td><td>Náhodný generátor (RAND)</td><td>Odporúčanie</td></tr>
-<tr><td>Unikátnosť</td><td>Každá vzorka má jedinečný kód</td><td>ISO 13299</td></tr>
+<tr><td>Unikátnosť</td><td>Každá vzorka má jedinečný kód</td><td>ISO 6658</td></tr>
 <tr><td>Dvojité slepé kódovanie</td><td>Pre testy s kontrolou</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -489,10 +491,10 @@ Vzorka A: 382 | Vzorka B: 715 | Vzorka C: 249
 <table>
 <thead><tr><th>Parameter</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Veľkosť porcie</td><td>10–30 g (tekutiny: 10–30 ml)</td><td>ISO 13299</td></tr>
+<tr><td>Veľkosť porcie</td><td>10–30 g (tekutiny: 10–30 ml), rovnaká pre všetky vzorky</td><td>Odporúčanie</td></tr>
 <tr><td>Typ nádoby</td><td>Biele plastové poháre, sklenené poháre</td><td>Odporúčanie</td></tr>
-<tr><td>Farba nádoby</td><td>Biele alebo priehľadné</td><td>ISO 11037</td></tr>
-<tr><td>Teplota podávania</td><td>Špecifická pre produkt</td><td>ISO 13299</td></tr>
+<tr><td>Farba nádoby</td><td>Biele alebo priehľadné</td><td>Odporúčanie</td></tr>
+<tr><td>Teplota podávania</td><td>Špecifická pre produkt, rovnaká pre všetky vzorky</td><td>ISO 6658</td></tr>
 <tr><td>Pokrievanie</td><td>Štandardné, jednotné</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
@@ -511,15 +513,15 @@ Vzorka A: 382 | Vzorka B: 715 | Vzorka C: 249
 <table>
 <thead><tr><th>Typ testu</th><th>Maximálny počet vzoriek</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Deskriptívna analýza</td><td>4–6</td><td>ISO 13299</td></tr>
-<tr><td>Hedonický test</td><td>6–8</td><td>ISO 11136</td></tr>
-<tr><td>Test rozdielov</td><td>3–4</td><td>ISO 4120</td></tr>
-<tr><td>Časovo-intenzívna analýza</td><td>4–6</td><td>ISO 13299</td></tr>
+<tr><td>Deskriptívna analýza</td><td>4–6 na sedenie</td><td>Odporúčanie</td></tr>
+<tr><td>Hedonický test</td><td>4–6 (max. ~8)</td><td>Odporúčanie</td></tr>
+<tr><td>Test rozdielov</td><td>1–2 sady (napr. trojice) na sedenie</td><td>Odporúčanie</td></tr>
+<tr><td>Časovo-intenzívna analýza</td><td>3–4</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
 <div class="callout callout-warning">
 <strong>Dôležitosť</strong>
-Príliš veľa vzoriek spôsobuje únavu panelistov a znižuje kvalitu dát. Odporúča sa prestávka každé 45–60 minút.
+Príliš veľa vzoriek spôsobuje únavu a adaptáciu. Odporúča sa prestávka každé 45–60 minút. Pri veľkom počte vzoriek použite vyvážené neúplné bloky (ISO 29842) – <a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">SaIT cvičenie 5d</a>.
 </div>
 <h3>4.4 Poradie podávania – Williams design</h3>
 <table>
@@ -561,7 +563,7 @@ Príliš veľa vzoriek spôsobuje únavu panelistov a znižuje kvalitu dát. Odp
 <table>
 <thead><tr><th>Kritérium</th><th>Špecifikácia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Vek</td><td>18–60 rokov</td><td>ISO 8586</td></tr>
+<tr><td>Vek</td><td>Pevnú hranicu ISO 8586 nestanovuje</td><td>Odporúčanie</td></tr>
 <tr><td>Zdravie</td><td>Zdravý, bez alergií na testované produkty</td><td>ISO 8586</td></tr>
 <tr><td>Citlivosť</td><td>Priemerná alebo nadpriemerná</td><td>ISO 8586</td></tr>
 <tr><td>Dostupnosť</td><td>Pravidelná účasť</td><td>ISO 8586</td></tr>
@@ -572,30 +574,30 @@ Príliš veľa vzoriek spôsobuje únavu panelistov a znižuje kvalitu dát. Odp
 <table>
 <thead><tr><th>Typ testu</th><th>Počet panelistov</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Trénovaný panel (deskriptívna analýza)</td><td>8–12</td><td>ISO 13299</td></tr>
-<tr><td>Trénovaný panel (test rozdielov)</td><td>12–24</td><td>ISO 4120</td></tr>
-<tr><td>Spotrebiteľský test (hedonický)</td><td>100+</td><td>ISO 11136</td></tr>
-<tr><td>Spotrebiteľský test (preferencie)</td><td>150+</td><td>ISO 11136</td></tr>
-<tr><td>Expertný panel</td><td>3–5</td><td>ISO 8586</td></tr>
+<tr><td>Trénovaný panel (deskriptívna analýza)</td><td>8–12</td><td>Bežná prax</td></tr>
+<tr><td>Vybraní hodnotitelia (test rozdielov)</td><td>≥ 24; pri malých rozdieloch viac</td><td>ISO 4120 (výpočet sily testu)</td></tr>
+<tr><td>Spotrebiteľský test (hedonický)</td><td>≥ 60 na skupinu, bežne 100+</td><td>ISO 11136</td></tr>
+<tr><td>Spotrebiteľský test (preferencie)</td><td>100+ (podľa sily testu)</td><td>ISO 5495 / ASTM E2263</td></tr>
+<tr><td>Expertný panel</td><td>3–5</td><td>Odporúčanie</td></tr>
 </tbody>
 </table>
 <h3>5.3 Kalibrácia a monitorovanie výkonnosti</h3>
 <table>
 <thead><tr><th>Parameter</th><th>Frekvencia</th><th>Zdroj</th></tr></thead>
 <tbody>
-<tr><td>Test citlivosti</td><td>Každých 6 mesiacov</td><td>ISO 8586</td></tr>
-<tr><td>Test reprodukovateľnosti</td><td>Každých 3 mesiace</td><td>ISO 8586</td></tr>
-<tr><td>Test diskriminácie</td><td>Každých 6 mesiacov</td><td>ISO 8586</td></tr>
+<tr><td>Test citlivosti</td><td>Každých 6 mesiacov</td><td>Odporúčanie</td></tr>
+<tr><td>Test opakovateľnosti</td><td>Každé 3 mesiace</td><td>Odporúčanie (ISO 11132)</td></tr>
+<tr><td>Test diskriminácie</td><td>Každých 6 mesiacov</td><td>Odporúčanie (ISO 11132)</td></tr>
 <tr><td>Kalibrácia s referenčnými vzorkami</td><td>Každý mesiac</td><td>Odporúčanie</td></tr>
 <tr><td>Spätná väzba</td><td>Po každom teste</td><td>ISO 8586</td></tr>
 </tbody>
 </table>
 <table>
-<thead><tr><th>Kritérium</th><th>Priemer</th><th>Tolerancia</th></tr></thead>
+<thead><tr><th>Kritérium (ISO 11132)</th><th>Príklad interného cieľa (nie hodnota z ISO)</th></tr></thead>
 <tbody>
-<tr><td>Presnosť (diskriminácia)</td><td>≥ 80% správnych odpovedí</td><td>±10%</td></tr>
-<tr><td>Reprodukovateľnosť</td><td>ICC ≥ 0.7</td><td>±0.1</td></tr>
-<tr><td>Konzistencia</td><td>CV ≤ 15%</td><td>±5%</td></tr>
+<tr><td>Diskriminácia</td><td>p(F produkt) &lt; 0.05 pre hodnotiteľa pri kľúčových atribútoch</td></tr>
+<tr><td>Zhoda</td><td>nevýznamný príspevok k interakcii produkt × hodnotiteľ</td></tr>
+<tr><td>Opakovateľnosť</td><td>nízky reziduálny rozptyl (napr. ICC ≥ 0.7)</td></tr>
 </tbody>
 </table>
 </section>
@@ -637,6 +639,22 @@ Príliš veľa vzoriek spôsobuje únavu panelistov a znižuje kvalitu dát. Odp
 </table>
 </section>
 </div>
+<section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
+<h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
+<p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.95em">
+<tr><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Téma v SAP</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Cvičenie SaIT (teória)</th><th style="text-align:left;padding:6px 10px;border-bottom:2px solid #f9a825">Skript</th></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prostredie R pre spracovanie dát z laboratória</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie01.html">1 – R, RStudio a spolupráca</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie1.R"><code>cvicenie1.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Import dát zo senzorického softvéru</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05c.html">5c – Import dát z Excelu a postup analýzy</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5c.R"><code>cvicenie5c.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Veľa vzoriek – vyvážené neúplné bloky (ISO 29842)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie05d.html">5d – Durbinov test a neúplné bloky</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie5d.R"><code>cvicenie5d.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Počet hodnotiteľov</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie14.html">14 – Sila testu a veľkosť panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie14.R"><code>cvicenie14.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Monitorovanie výkonnosti panelu (ISO 11132)</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie15.html">15 – Výkonnosť senzorického panelu</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie15.R"><code>cvicenie15.R</code></a></td></tr>
+<tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Audit panelu a návrh experimentu</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie20.R"><code>cvicenie20.R</code></a></td></tr>
+</table></div>
+<p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html">Senzorický panel ako merací prístroj</a></p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="overenie.html">Overenie zdrojov</a>.</p>
+</section>
+
 <footer>
 <p>Dokument pripravený pre potreby SAP – Senzorická Analýza Potravín. Odporúčame pravidelnú revíziu s ohľadom na zmeny v štandardoch a technológiách.</p>
 </footer>
