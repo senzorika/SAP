@@ -258,6 +258,7 @@
     <div class="hero">
         <h1>Diskriminačné metódy v senzorickej analýze</h1>
         <p>Testy rozlíšenia – zistite, či existuje významný senzorický rozdiel medzi vzorkami</p>
+        <a class="sap-slides" href="../prezentacie/05_diskriminacne_metody.html">▶ Prednáška (slajdy)</a>
     </div>
 
     <div class="container">
@@ -424,7 +425,7 @@
                 <tr><td>90</td><td>38</td><td>42</td><td>45</td></tr>
                 <tr><td>100</td><td>42</td><td>46</td><td>49</td></tr>
             </table>
-            <p style="font-size:0.9em"><em>Presné binomické hodnoty (jednostranný test), prepočítané. Predošlá verzia tabuľky mala pre n ≥ 20 hodnoty nižšie, než je správne (napr. n = 100: 33 namiesto 42), čo by viedlo k falošne pozitívnym záverom.</em></p>
+            <p style="font-size:0.9em"><em>Presné binomické hodnoty (jednostranný test).</em></p>
         </div>
 
         <div class="card">
@@ -541,7 +542,7 @@
                 <tr><td>90</td><td>54</td><td>57</td></tr>
                 <tr><td>100</td><td>59</td><td>63</td></tr>
             </table>
-            <p style="font-size:0.9em"><em>Presné binomické hodnoty (jednostranný test, p₀ = 1/2), prepočítané.</em></p>
+            <p style="font-size:0.9em"><em>Presné binomické hodnoty (jednostranný test, p₀ = 1/2).</em></p>
         </div>
 
         <div class="card">
@@ -708,7 +709,7 @@
                 <div class="callout-title">Výpočet</div>
                 <div class="formula">H₀: podiel odpovedí "A" je rovnaký pre vzorku A aj "nie A"<br>Rôzni hodnotitelia pre každú vzorku → Pearsonov χ² test (1 df) / Fisherov presný test<br>Ten istý hodnotiteľ hodnotí obe vzorky → McNemarov test<br>Veľkosť rozdielu: d′ = z(H) − z(F), kde H = n₁₁/(n₁₁+n₁₂) a F = n₂₁/(n₂₁+n₂₂)</div>
             </div>
-            <p>⚠️ Predošlá verzia uvádzala binomický test s p = 1/2 a kritické hodnoty duo-trio testu — to je nesprávne, pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa.</p>
+            <p>⚠️ Binomický test s p = 1/2 ani kritické hodnoty duo-trio testu tu nemožno použiť — pravdepodobnosť odpovede „A" závisí od kritéria hodnotiteľa.</p>
         </div>
 
         <div class="card">
@@ -1065,7 +1066,7 @@
                 <div class="formula">n = 60, k = 38, p = 1/2<br><br>P(X ≥ 38) = Σ (60 choose i) × (1/2)^60<br>             pre i = 38 až 60<br><br>P(X ≥ 38) ≈ 0.026<br>p (obojstranne) = 2 × 0.026 ≈ 0.052</div>
             </div>
             <div class="highlight-box">
-                <p><strong>Záver:</strong> p ≈ 0.052 > 0.05 → rozdiel <strong>nie je štatisticky významný</strong> (obojstranná kritická hodnota pre n = 60 je 39). Tvrdenie „lipový med je sladší" z týchto dát <strong>nemožno</strong> použiť. Jednostranný test (p ≈ 0.026) by bol oprávnený iba vtedy, ak by hypotéza o smere bola stanovená <strong>pred</strong> zberom dát. (Predošlá verzia uvádzala p ≈ 0.014 a významný rozdiel.)</p>
+                <p><strong>Záver:</strong> p ≈ 0.052 > 0.05 → rozdiel <strong>nie je štatisticky významný</strong> (obojstranná kritická hodnota pre n = 60 je 39). Tvrdenie „lipový med je sladší" z týchto dát <strong>nemožno</strong> použiť. Jednostranný test (p ≈ 0.026) by bol oprávnený iba vtedy, ak by hypotéza o smere bola stanovená <strong>pred</strong> zberom dát.</p>
             </div>
         </div>
 
@@ -1112,7 +1113,6 @@
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prípadová štúdia: zmena dodávateľa</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie19.html">19 – Kontrolné prípadové štúdie I</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie19.R"><code>cvicenie19.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html">Rozlišovacie testy a Thurstonov model</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
     <footer>

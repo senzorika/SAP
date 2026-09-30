@@ -398,6 +398,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Testovanie hypotéz v senzorike](https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 06](../kapitoly/06_skalovanie.html)

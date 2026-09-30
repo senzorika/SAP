@@ -7,8 +7,6 @@
 **Začnite tu:** [`index.html`](index.html) — úvodná stránka s prehľadom a navigáciou medzi kapitolami.
 
 > 🔗 **Prepojené s [SaIT – Senzometria v R](https://github.com/senzorika/SaIT):** ku každej kapitole sú odkazy na praktické cvičenia v R (skripty SK/EN + [teória s grafmi](https://senzorika.github.io/SaIT/teoria/index.html)). Súhrnná mapa je [nižšie](#prepojenie-so-sait--senzometria-v-r).
->
-> ✅ **Revízia 09/2026:** obsah bol skontrolovaný — prepočítané tabuľky a príklady, opravené odkazy na normy ISO a predpisy, odstránené neoveriteľné citácie. Zoznam opráv: [Overenie zdrojov](kapitoly/priloha_overenie.html#vysledky).
 
 | # | Kapitola | Kalkulátor | Prezentácia |
 |---|---|---|---|
@@ -23,7 +21,7 @@
 | 09 | [Senzorické tvrdenia (claims)](kapitoly/09_claims.html) | [Párový preferenčný test – nadradenosť, parita](kapitoly/09_claims.html#kalkulator) | [slajdy](prezentacie/09_claims.html) |
 | 10 | [Senzorická trvanlivosť (shelf-life)](kapitoly/10_shelf_life.html) | [Q10, Ea, Arrheniusov odhad trvanlivosti](kapitoly/10_shelf_life.html#kalkulator) | [slajdy](prezentacie/10_shelf_life.html) |
 | 11 | [Vzorce a štatistické výpočty](kapitoly/11_vzorce.html) | [Popisná štatistika a t-test](kapitoly/11_vzorce.html#kalkulator) | [slajdy](prezentacie/11_vzorce.html) |
-| P | [Príloha: Overenie zdrojov](kapitoly/priloha_overenie.html) | — | — |
+| P | [Príloha: Zdroje a literatúra](kapitoly/priloha_zdroje.html) | — | — |
 
 Kapitoly sú zoradené v poradí prednášok: základy (01–04) → metódy (05–08) → aplikácie a výpočty (09–11). Každá kapitola má sekciu **🧮 Kalkulátor** s interaktívnou tabuľkou alebo výpočtom; ten istý kalkulátor je aj na slajde pred záverom prezentácie.
 
@@ -55,13 +53,12 @@ Kapitoly sú samostatné HTML súbory — otvoria sa priamo v prehliadači, netr
 | [Senzorické tvrdenia](kapitoly/09_claims.html) | [2](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) · [5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) · [13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) test podobnosti · [14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) | [Rozlišovacie testy](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html) |
 | [Shelf-life](kapitoly/10_shelf_life.html) | [10](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) Kaplan-Meier, cut-off · [20](https://senzorika.github.io/SaIT/teoria/cvicenie20.html) prípadová štúdia | [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html) |
 | [Vzorce a výpočty](kapitoly/11_vzorce.html) | [2](https://senzorika.github.io/SaIT/teoria/cvicenie02.html) · [5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html) · [5b](https://senzorika.github.io/SaIT/teoria/cvicenie05b.html) · [6](https://senzorika.github.io/SaIT/teoria/cvicenie06.html) · [10](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) · [13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) · [14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) · [16](https://senzorika.github.io/SaIT/teoria/cvicenie16.html) | — |
-| [Príloha: Overenie zdrojov](kapitoly/priloha_overenie.html) | kontrolné výpočty: [5a](https://senzorika.github.io/SaIT/teoria/cvicenie05a.html), [10](https://senzorika.github.io/SaIT/teoria/cvicenie10.html), [13](https://senzorika.github.io/SaIT/teoria/cvicenie13.html), [14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) | — |
 
 Ďalšie: [datasety](https://github.com/senzorika/SaIT/tree/master/datasety) · [Shiny aplikácie (PCA, TDS, TCATA, NPS, LDA)](https://github.com/senzorika/SaIT/tree/master/Senzometricke_appky) · [anglické verzie cvičení](https://senzorika.github.io/SaIT/theory_EN/index.html)
 
 ## O repozitári
 
-Študijné materiály o senzorickej analýze potravín: vnímanie chuti, senzorické laboratórium, prehľad metód a normy ISO, rozlišovacie, deskriptívne a spotrebiteľské metódy (vrátane QC a NPD), senzorické tvrdenia, trvanlivosť a vzorce — s kalkulátorom ku každej kapitole a prílohou so záznamom overenia zdrojov.
+Študijné materiály o senzorickej analýze potravín: vnímanie chuti, senzorické laboratórium, prehľad metód a normy ISO, rozlišovacie, deskriptívne a spotrebiteľské metódy (vrátane QC a NPD), senzorické tvrdenia, trvanlivosť a vzorce — s kalkulátorom a prednáškou ku každej kapitole a prílohou so zdrojmi a literatúrou.
 
 ---
 

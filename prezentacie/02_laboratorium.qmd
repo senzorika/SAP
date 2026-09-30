@@ -234,6 +234,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Senzorický panel ako merací prístroj](https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 02](../kapitoly/02_laboratorium.html)

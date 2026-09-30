@@ -21,11 +21,7 @@ format:
 - Premosťuje fyziologické reakcie a spotrebiteľské preferencie
 - Kľúčová pre NPD, kontrolu kvality, redukciu nákladov a marketing
 
-> **Cieľ prezentácie:** Prehľad overených poznatkov o vnímaní chutí
-
-::: {.callout-warning}
-Revízia 09/2026: neoveriteľné citácie z rokov 2020–2023 boli odstránené a nahradené overenými zdrojmi (PubMed, DOI).
-:::
+> **Cieľ prezentácie:** Prehľad poznatkov o vnímaní chutí
 
 ## História senzoriky
 
@@ -86,7 +82,7 @@ graph LR
 - „Chuť" jedla = **flavor**: chuť + retronazálny čuch + trigeminálne vnemy
 - Aromatické látky prúdia z úst cez nosohltan k čuchovému epitelu
 
-**Overené poznatky:**
+**Kľúčové poznatky:**
 
 - **Small et al. (2005)**, *Neuron* – orto- vs. retronazálna vôňa aktivuje čiastočne odlišné oblasti mozgu ([DOI](https://doi.org/10.1016/j.neuron.2005.07.022))
 - **Spence (2015)**, *Flavour* – populárne „80 % chuti je čuch" **nemá empirický základ**
@@ -111,7 +107,7 @@ graph LR
 - **T1R1/T1R3, T1R2** – citlivosť na umami a sladkosť
 - **GNAT3** – α-**gustducín** (gustín = karboanhydráza VI, *CA6*)
 
-## Mikrobióm a chuť ❓
+## Mikrobióm a chuť
 
 - Dôkazy u ľudí sú zatiaľ prevažne **asociačné**
 - Zvierací model: vysokotuková strava zvýšila expresiu Tas2r138/Tas2r116 v **hrubom čreve**, antibiotiká tomu zabránili (Caremoli et al., 2023, *Nutrients*, [DOI](https://doi.org/10.3390/nu15194145))
@@ -134,7 +130,7 @@ graph LR
 
 - **Očakávanie:** vyššia cena vína → vyššia príjemnosť aj aktivita mediálnej OFC (Plassmann et al., **2008**, *PNAS*, [DOI](https://doi.org/10.1073/pnas.0706929105))
 - **Kontext:** farba nádoby, hudba, osvetlenie ovplyvňujú hodnotenie (prehľady Ch. Spencea)
-- **Stres a nálada:** výsledky štúdií sú nejednotné ❓
+- **Stres a nálada:** výsledky štúdií sú nejednotné
 
 ## Metodologické inovácie
 
@@ -147,7 +143,7 @@ graph LR
 | Domáci kontext | Vyššia ekologická validita |
 | Tréning panelistov | Konzistentnosť tréningu |
 
-Overená štúdia: **Stelick et al. (2018)**, *J. Food Sci.* – syr hodnotený vo VR „maštali" bol vnímaný ako pikantnejší ([DOI](https://doi.org/10.1111/1750-3841.14275))
+Štúdia: **Stelick et al. (2018)**, *J. Food Sci.* – syr hodnotený vo VR „maštali" bol vnímaný ako pikantnejší ([DOI](https://doi.org/10.1111/1750-3841.14275))
 
 ### Umelá inteligencia
 
@@ -232,6 +228,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Úvod do senzometrie a R](https://senzorika.github.io/SaIT/prezentacie/sk/01_uvod.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 01](../kapitoly/01_uvod_vnimanie_chuti.html)

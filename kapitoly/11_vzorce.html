@@ -334,6 +334,7 @@
 <div class="hero">
     <h1>Vzorce a štatistické výpočty</h1>
     <p>Vzorce, štatistické parametre a riešené výpočty ku všetkým kapitolám</p>
+    <a class="sap-slides" href="../prezentacie/11_vzorce.html">▶ Prednáška (slajdy)</a>
 </div>
 
 <div class="container">
@@ -470,7 +471,7 @@ Pre trojuholníkový test: p = 1/3 (tri vzorky, z toho jedna odlišná — pravd
             </tbody>
         </table>
         <p>Minimálny počet správnych odpovedí pre štatistickú významnosť (presný jednostranný binomický test).</p>
-        <p><em>Prepočítané v Pythone (<code>scipy.stats.binom</code>); zhodné s tabuľkou v ISO 4120:2021. Predošlá verzia mala hodnoty posunuté o 1–2 nahor (príliš konzervatívne) a odkazovala na neaktuálne vydanie 2004.</em></p>
+        <p><em>Presné binomické hodnoty; zhodné s tabuľkou v ISO 4120:2021.</em></p>
 
         <h3>2.3 Výpočet počtu panelistov</h3>
         <div class="callout">
@@ -612,7 +613,7 @@ Kde:
                 <tr><td>6</td><td>4.91</td><td>4.45</td><td>4.30</td><td>4.16</td></tr>
             </tbody>
         </table>
-        <p><em>Kritické hodnoty q (α = 0.05). Prepočítané (<code>scipy.stats.studentized_range</code>); predošlá verzia mala pre k ≥ 3 hodnoty podhodnotené.</em></p>
+        <p><em>Kritické hodnoty q (α = 0.05).</em></p>
 
         <h3>3.3 Dunnettov test</h3>
         <p>Používa sa pri porovnaní viacerých experimentálnych skupín s jednou kontrolnou skupinou.</p>
@@ -816,7 +817,6 @@ Kde:
                 <tr><td>β &gt; 1</td><td>Rastúca intenzita poruchy (wear-out failures)</td></tr>
             </tbody>
         </table>
-        <p><em>Predošlá verzia mala interpretáciu β &lt; 1 a β &gt; 1 obrátenú.</em></p>
 
         <h3>5.4 Median survival time (t₅₀)</h3>
         <div class="callout">
@@ -1000,7 +1000,7 @@ Kde:
             <div class="hb-title">Výsledok: 95% CI = [5.86, 6.24]</div>
             <p>x̄ = 6.05 | SS = 0.950 | s = 0.294 | SE = 0.085 | t(0.025, 11) = 2.201</p>
             <p>CI = 6.05 ± 2.201 × 0.085 = 6.05 ± 0.187</p>
-            <p><strong>Interpretácia:</strong> Na 95 % hladine spoľahlivosti leží priemerná intenzita sladkosti produktu (v populácii hodnotení tohto panelu) medzi 5.86 a 6.24 na škále 0–10. (Predošlá verzia mala chybný súčet štvorcov 0.825.)</p>
+            <p><strong>Interpretácia:</strong> Na 95 % hladine spoľahlivosti leží priemerná intenzita sladkosti produktu (v populácii hodnotení tohto panelu) medzi 5.86 a 6.24 na škále 0–10.</p>
         </div>
 
         <h3>7.2 Výpočet Q10 pre produkt</h3>
@@ -1049,7 +1049,6 @@ Kde:
                 <tr><td>0.60</td><td>40 %</td><td>20</td><td>25</td></tr>
             </tbody>
         </table>
-        <p><em>Predošlá verzia používala obojstranné z = 1.96 a nesprávny tvar vzorca, preto boli počty nadhodnotené pri veľkých a podhodnotené pri malých rozdieloch.</em></p>
 
         <h3>7.4 Výpočet Weibullových parametrov</h3>
         <p><strong>Dáta:</strong> Doba do degradácie vitamínu C v ovocnej šťave (dni):</p>
@@ -1119,7 +1118,7 @@ Kde:
             <p>η = e^(66.5/16.9) = e^3.933 ≈ 51.1 dní (charakteristický čas; do η zlyhá 63.2 % vzoriek)</p>
             <p>β ≈ 16.9 — veľmi úzke rozdelenie, všetky časy sú medzi 45 a 55 dňami.</p>
             <p>t₅₀ = 51.1 × (0.693)^(1/16.9) = 51.1 × 0.978 ≈ 50.0 dní (medián dát 49.5 d)</p>
-            <p><em>Kontrola zmysluplnosti: medián dát je 49.5 dňa. Predošlá verzia uvádzala β ≈ 2.1, η = 44.7 a t₅₀ = 37.2 dňa — to je nemožné, keďže žiadna vzorka nezlyhala pred 45. dňom; chybné boli aj hodnoty v stĺpci ln(−ln(1−F)).</em></p>
+            <p><em>Kontrola zmysluplnosti: medián dát je 49.5 dňa.</em></p>
         </div>
     </div>
 
@@ -1162,7 +1161,6 @@ Kde:
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
 <footer>

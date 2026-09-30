@@ -15,7 +15,7 @@
     ['09_claims.html', 'Senzorické tvrdenia (claims)'],
     ['10_shelf_life.html', 'Senzorická trvanlivosť'],
     ['11_vzorce.html', 'Vzorce a štatistické výpočty'],
-    ['priloha_overenie.html', 'Overenie zdrojov', 'Príloha']
+    ['priloha_zdroje.html', 'Zdroje a literatúra', 'Príloha']
   ];
   var NUMBERED = CHAPTERS.filter(function (c) { return !c[2]; }).length;
 

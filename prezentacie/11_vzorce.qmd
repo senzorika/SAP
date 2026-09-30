@@ -118,7 +118,7 @@ $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
 | 50 | 23 |
 | 60 | 27 |
 
-*Presný binomický test (jednostranne), prepočítané; zhodné s ISO 4120:2021.*
+*Presný binomický test (jednostranne); zhodné s ISO 4120:2021.*
 
 ---
 
@@ -401,6 +401,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Testovanie hypotéz v senzorike](https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 11](../kapitoly/11_vzorce.html)

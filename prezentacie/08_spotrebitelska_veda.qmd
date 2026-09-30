@@ -365,6 +365,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 08](../kapitoly/08_spotrebitelska_veda.html)

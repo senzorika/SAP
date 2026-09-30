@@ -114,7 +114,7 @@ Panelista sa naučí referenčnú vzorku **"A"**, potom pri vzorkách A aj „ni
 - Tabuľka 2 × 2: podaná vzorka (A / nie A) × odpoveď („A" / „nie A")
 - **χ² test** (nezávislé hodnotenia) alebo **McNemarov test** (párové)
 - Veľkosť rozdielu: **d′ = z(H) − z(F)**
-- *Nie* binomický test s p = 1/2 — predošlá tabuľka kritických hodnôt bola nesprávna
+- *Nie* binomický test s p = 1/2 — odpoveď „A" závisí od kritéria hodnotiteľa
 
 ## Test rovnakosti (Same-Different)
 
@@ -199,7 +199,7 @@ Vážený pokles = pokles × podiel respondentov (interpretuj skupiny ≥ 20 %)
 
 ## Kritické hodnoty – Trojuholníkový test a tetrad
 
-*Presné binomické hodnoty (jednostranne), prepočítané 09/2026.*
+*Presné binomické hodnoty (jednostranne).*
 
 | n | α = 0.10 | α = 0.05 | α = 0.01 |
 |---|---|---|---|
@@ -274,6 +274,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Testovanie hypotéz v senzorike](https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html) · [Rozlišovacie testy a Thurstonov model](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 04](../kapitoly/04_iso_metody.html)

@@ -170,7 +170,7 @@ flowchart LR
 | 48 | 22 |
 | 60 | 27 |
 
-*Presný binomický test (jednostranne), prepočítané 09/2026.*
+*Presný binomický test (jednostranne).*
 
 ---
 
@@ -364,6 +364,4 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 
 Prednášky: [Rozlišovacie testy a Thurstonov model](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html)
 
-::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
-:::
+Text kapitoly: [kapitola 09](../kapitoly/09_claims.html)

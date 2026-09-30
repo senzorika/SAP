@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Príloha: Zdroje a literatúra – SAP</title>
+    <style>
+        :root {
+            --primary: #4a148c;
+            --primary-light: #7c43bd;
+            --primary-dark: #38006b;
+            --secondary: #512da8;
+            --accent: #7b1fa2;
+            --bg: #f8f5fc;
+            --bg-card: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #4a4a6a;
+            --border: #e0d4f0;
+            --success: #2e7d32;
+            --warning: #e65100;
+            --danger: #c62828;
+            --info: #1565c0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 32px;
+            white-space: nowrap;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            color: #fff;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .card p { margin-bottom: 12px; }
+
+        .callout {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 16px 0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p { margin-bottom: 4px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+
+        th {
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:nth-child(even) { background: #f8f5fc; }
+        tbody tr:hover { background: #f3e5f5; }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin: 24px 0;
+            padding: 16px;
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 16px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 1px solid #a5d6a7;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .highlight-box .hb-title {
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 1px solid #ffcc02;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .warning-box .wb-title {
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 8px 0 12px 24px;
+        }
+
+        li { margin-bottom: 4px; }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
+        .tag-red { background: #ffebee; color: #c62828; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-purple { background: #f3e5f5; color: #7b1fa2; }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .section-nav a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .status-verified { color: #2e7d32; font-weight: 600; }
+        .status-mixed { color: #e65100; font-weight: 600; }
+        .status-controversial { color: #c62828; font-weight: 600; }
+        .status-unverified { color: #757575; font-weight: 600; }
+
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 24px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            nav .nav-container { flex-direction: column; height: auto; padding: 12px; }
+            nav ul { justify-content: center; }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/sap.css">
+    <script src="../assets/sap.js" defer></script>
+</head>
+<body class="sap">
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">SAP Zdroje</div>
+        <ul>
+            <li><a href="#zdroje">Zdroje</a></li>
+            <li><a href="#kontroverzne">Kontroverzné</a></li>
+            <li><a href="#odporucania">Odporúčania</a></li>
+</ul>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Zdroje a literatúra</h1>
+    <p>Normy, knihy, články, časopisy a výskumné skupiny, kontroverzné témy a odporúčania pre ďalšie štúdium</p>
+</div>
+
+<div class="container">
+
+    <div class="card" id="zdroje">
+<h2>1. Zdroje a literatúra</h2>
+<h3>1.1 Normy</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Norma</th>
+<th>Názov</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 4120:2021</td>
+<td>Triangle test</td>
+</tr>
+<tr>
+<td>ISO 5495:2005 (+Amd 1:2016)</td>
+<td>Paired comparison test</td>
+</tr>
+<tr>
+<td>ISO 6658:2017</td>
+<td>General guidance (methodology)</td>
+</tr>
+<tr>
+<td>ISO 8586:2023</td>
+<td>Selection, training and monitoring of assessors</td>
+</tr>
+<tr>
+<td>ISO 8588:2017</td>
+<td>"A" – "not A" test</td>
+</tr>
+<tr>
+<td>ISO 8589:2007 (+Amd 1:2014)</td>
+<td>Design of test rooms</td>
+</tr>
+<tr>
+<td>ISO 10399:2017</td>
+<td>Duo-trio test</td>
+</tr>
+<tr>
+<td>ISO 11035:1994</td>
+<td>Identification and selection of descriptors</td>
+</tr>
+<tr>
+<td>ISO 11036:2020</td>
+<td>Texture profile</td>
+</tr>
+<tr>
+<td>ISO 11037:2011</td>
+<td>Colour assessment</td>
+</tr>
+<tr>
+<td>ISO 11132:2021</td>
+<td>Performance of a quantitative descriptive panel</td>
+</tr>
+<tr>
+<td>ISO 11136:2014</td>
+<td>Hedonic tests</td>
+</tr>
+<tr>
+<td>ISO 13299:2016</td>
+<td>Establishing a sensory profile</td>
+</tr>
+<tr>
+<td>ISO 16779:2015</td>
+<td>Shelf life of foodstuffs</td>
+</tr>
+<tr>
+<td>ISO 22308-1:2021</td>
+<td>Cork bark – sensory evaluation (nahrádza ISO 22308:2005)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.2 Knihy</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Autor(i)</th>
+<th>Názov</th>
+<th>Vydavateľ</th>
+<th>Rok</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lawless, H.T. &amp; Heymann, H.</td>
+<td>Sensory Evaluation of Food: Principles and Practices (2nd ed.)</td>
+<td>Springer</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>Stone, H. &amp; Sidel, J.L.</td>
+<td>Sensory Evaluation Practices (3rd ed.)</td>
+<td>Academic Press</td>
+<td>2004</td>
+</tr>
+<tr>
+<td>Meilgaard, M.C., Civille, G.V. &amp; Carr, B.T.</td>
+<td>Sensory Evaluation Techniques (5th ed.)</td>
+<td>CRC Press</td>
+<td>2016</td>
+</tr>
+<tr>
+<td>Kemp, S.E., Hollowood, T. &amp; Hort, J.</td>
+<td>Sensory Evaluation: A Practical Handbook</td>
+<td>Wiley-Blackwell</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>Hough, G.</td>
+<td>Sensory Shelf Life Estimation of Food Products</td>
+<td>CRC Press</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>Bi, J.</td>
+<td>Sensory Discrimination Tests and Measurements</td>
+<td>Blackwell</td>
+<td>2006</td>
+</tr>
+<tr>
+<td>Næs, T., Brockhoff, P.B. &amp; Tomic, O.</td>
+<td>Statistics for Sensory and Consumer Science</td>
+<td>Wiley</td>
+<td>2010</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.3 Vedecké články (výber)</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Citácia</th>
+<th>DOI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kim et al. (2003). Positional cloning … PTC. <em>Science</em> 299, 1221–1225</td>
+<td><a href="https://doi.org/10.1126/science.1080190">10.1126/science.1080190</a></td>
+</tr>
+<tr>
+<td>Hayes et al. (2008). Supertasting and PROP bitterness depends on more than the TAS2R38 gene. <em>Chem. Senses</em> 33, 255–265</td>
+<td><a href="https://doi.org/10.1093/chemse/bjm084">10.1093/chemse/bjm084</a></td>
+</tr>
+<tr>
+<td>Garneau et al. (2014). Crowdsourcing taste research. <em>Front. Integr. Neurosci.</em> 8, 33</td>
+<td><a href="https://doi.org/10.3389/fnint.2014.00033">10.3389/fnint.2014.00033</a></td>
+</tr>
+<tr>
+<td>Small et al. (2005). Orthonasal vs. retronasal odorant perception. <em>Neuron</em> 47, 593–605</td>
+<td><a href="https://doi.org/10.1016/j.neuron.2005.07.022">10.1016/j.neuron.2005.07.022</a></td>
+</tr>
+<tr>
+<td>Thanarajah et al. (2019). Food intake recruits … dopaminergic circuits. <em>Cell Metab.</em> 29, 695–706</td>
+<td><a href="https://doi.org/10.1016/j.cmet.2018.12.006">10.1016/j.cmet.2018.12.006</a></td>
+</tr>
+<tr>
+<td>Plassmann et al. (2008). Marketing actions … experienced pleasantness. <em>PNAS</em> 105, 1050–1054</td>
+<td><a href="https://doi.org/10.1073/pnas.0706929105">10.1073/pnas.0706929105</a></td>
+</tr>
+<tr>
+<td>Zhang et al. (2019). Sour sensing from the tongue to the brain. <em>Cell</em> 179, 392–402</td>
+<td><a href="https://doi.org/10.1016/j.cell.2019.08.031">10.1016/j.cell.2019.08.031</a></td>
+</tr>
+<tr>
+<td>Running, Craig &amp; Mattes (2015). Oleogustus. <em>Chem. Senses</em> 40, 507–516</td>
+<td><a href="https://doi.org/10.1093/chemse/bjv036">10.1093/chemse/bjv036</a></td>
+</tr>
+<tr>
+<td>Tordoff et al. (2012). T1R3: a human calcium taste receptor. <em>Sci. Rep.</em> 2, 496</td>
+<td><a href="https://doi.org/10.1038/srep00496">10.1038/srep00496</a></td>
+</tr>
+<tr>
+<td>Girgis et al. (2003). A one-quarter reduction in the salt content of bread … <em>Eur. J. Clin. Nutr.</em> 57, 616–620</td>
+<td><a href="https://doi.org/10.1038/sj.ejcn.1601583">10.1038/sj.ejcn.1601583</a></td>
+</tr>
+<tr>
+<td>Hutchings, Low &amp; Keast (2019). Sugar reduction … <em>Crit. Rev. Food Sci. Nutr.</em> 59, 2287–2307</td>
+<td><a href="https://doi.org/10.1080/10408398.2018.1450214">10.1080/10408398.2018.1450214</a></td>
+</tr>
+<tr>
+<td>Stelick et al. (2018). Dynamic context sensory testing (VR). <em>J. Food Sci.</em> 83, 2047–2051</td>
+<td><a href="https://doi.org/10.1111/1750-3841.14275">10.1111/1750-3841.14275</a></td>
+</tr>
+<tr>
+<td>Caremoli et al. (2023). Microbiota-dependent upregulation of bitter taste receptor subtypes … <em>Nutrients</em> 15, 4145</td>
+<td><a href="https://doi.org/10.3390/nu15194145">10.3390/nu15194145</a></td>
+</tr>
+<tr>
+<td>Talavera et al. (2005). Heat activation of TRPM5 underlies thermal sensitivity of sweet taste. <em>Nature</em> 438, 1022–1025</td>
+<td>PMID 16355226</td>
+</tr>
+<tr>
+<td>Wolraich et al. (1995). The effect of sugar on behavior or cognition in children. <em>JAMA</em> 274, 1617–1621</td>
+<td>PMID 7474248</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.4 Webové zdroje</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Zdroj</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO – katalóg ISO/TC 34/SC 12</td>
+<td>https://www.iso.org/committee/47858/x/catalogue/</td>
+</tr>
+<tr>
+<td>EUR-Lex (predpisy EÚ)</td>
+<td>https://eur-lex.europa.eu/</td>
+</tr>
+<tr>
+<td>PubMed (NIH)</td>
+<td>https://pubmed.ncbi.nlm.nih.gov/</td>
+</tr>
+<tr>
+<td>SaIT – Senzometria v R</td>
+<td>https://github.com/senzorika/SaIT</td>
+</tr>
+</tbody>
+</table></div>
+    <h3>1.5 Odborné časopisy</h3>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Časopis</th><th>Vydavateľ</th><th>Zameranie</th></tr></thead>
+<tbody>
+<tr><td><em>Food Quality and Preference</em></td><td>Elsevier</td><td>Senzorická a spotrebiteľská veda</td></tr>
+<tr><td><em>Journal of Sensory Studies</em></td><td>Wiley</td><td>Senzorická metodológia</td></tr>
+<tr><td><em>Chemical Senses</em></td><td>Oxford University Press</td><td>Chuť, čuch, mechanizmy</td></tr>
+<tr><td><em>Appetite</em></td><td>Elsevier</td><td>Stravovacie správanie, preferencie</td></tr>
+<tr><td><em>Journal of Food Science</em></td><td>Wiley (IFT)</td><td>Všetky oblasti potravinárstva</td></tr>
+<tr><td><em>LWT – Food Science and Technology</em></td><td>Elsevier</td><td>Potravinárska veda a technológia</td></tr>
+<tr><td><em>Food Chemistry</em></td><td>Elsevier</td><td>Chemické markery senzorických vlastností</td></tr>
+<tr><td><em>Flavour and Fragrance Journal</em></td><td>Wiley</td><td>Aromatické látky</td></tr>
+</tbody>
+</table></div>
+<p style="font-size:0.9em">Aktuálne impakt faktory: Journal Citation Reports (Clarivate).</p>
+<h3>1.6 Autori a výskumné skupiny</h3>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Autor/Inštitúcia</th><th>Zameranie</th><th>Kľúčové príspevky</th></tr></thead>
+<tbody>
+<tr><td><strong>Harry T. Lawless</strong> (Cornell University)</td><td>Senzorická metodológia, psychofyzika</td><td>Učebnica, škálovanie</td></tr>
+<tr><td><strong>Hildegarde Heymann</strong> (UC Davis)</td><td>Senzorická analýza, víno</td><td>Učebnica, deskriptívna analýza</td></tr>
+<tr><td><strong>Linda Bartoshuk</strong> (Yale, Univ. of Florida)</td><td>Psychofyzika chuti</td><td>Supertasteri, gLMS škála</td></tr>
+<tr><td><strong>John E. Hayes</strong> (Penn State)</td><td>Genetika a vnímanie chuti</td><td>TAS2R38, variabilita vnímania</td></tr>
+<tr><td><strong>Dana M. Small</strong> (Yale)</td><td>Neurovedy chuti a vône</td><td>Retronazálny čuch, odmena</td></tr>
+<tr><td><strong>Charles Spence</strong> (University of Oxford)</td><td>Crossmodálne vnímanie</td><td>Kontext, multisenzorické interakcie</td></tr>
+<tr><td><strong>Paula Varela</strong> (Nofima)</td><td>Spotrebiteľská veda, rýchle metódy</td><td>Plant-based, deti, textúra</td></tr>
+<tr><td><strong>Gastón Ares</strong> (Universidad de la República, Uruguaj)</td><td>Spotrebiteľská veda</td><td>CATA, TCATA</td></tr>
+<tr><td><strong>Daniel M. Ennis</strong> (Institute for Perception)</td><td>Senzometria</td><td>Thurstonovské modely, tetrad</td></tr>
+<tr><td><strong>Per B. Brockhoff</strong> (DTU)</td><td>Senzometria</td><td>R balíky sensR, lmerTest</td></tr>
+</tbody>
+</table></div>
+</div>
+    <div class="card" id="kontroverzne">
+<h2>2. Kontroverzné témy</h2>
+<h3>2.1 „5 chutí" vs. viac chutí</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Téma</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Základných chutí je 5</td>
+<td>✅ Potvrdené</td>
+<td>Sladká, slaná, kyslá, horká, umami; umami opísal K. Ikeda (1908), receptory identifikované 2000–2002</td>
+</tr>
+<tr>
+<td>Kyslá chuť</td>
+<td>✅ Potvrdené</td>
+<td>Samostatná základná chuť s vlastným receptorom (OTOP1) a vlastnou nervovou dráhou (Zhang et al., 2019)</td>
+</tr>
+<tr>
+<td>Chuť tuku (oleogustus)</td>
+<td>⚠️ Prevažujúce</td>
+<td>Navrhovaná, existujú receptory (CD36, GPR120) aj percepčné dôkazy (Running et al., 2015)</td>
+</tr>
+<tr>
+<td>Chuť vápnika</td>
+<td>❌ Kontroverzné</td>
+<td>Receptor T1R3 (Tordoff et al., 2012), ale u ľudí málo skúmané</td>
+</tr>
+<tr>
+<td>Kokumi</td>
+<td>❌ Kontroverzné</td>
+<td>Skôr modulátor (CaSR) než samostatná chuťová kvalita</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 Supertasteri</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supertasteri existujú (fenotyp)</td>
+<td>✅ Potvrdené</td>
+<td>Bartoshuk et al. (1994)</td>
+</tr>
+<tr>
+<td>~25 % populácie sú supertasteri</td>
+<td>⚠️ Prevažujúce</td>
+<td>15–35 % podľa definície (rezu škály) a populácie</td>
+</tr>
+<tr>
+<td>Supertasteri majú viac hubovitých papíl</td>
+<td>❌ Kontroverzné</td>
+<td>Veľká štúdia nenašla vzťah (Garneau et al., 2014)</td>
+</tr>
+<tr>
+<td>Supertasteri vnímajú horkosť PROP intenzívnejšie</td>
+<td>✅ Potvrdené</td>
+<td>Definícia fenotypu</td>
+</tr>
+<tr>
+<td>Supertaster = genotyp PAV/PAV</td>
+<td>❌ Nesprávne</td>
+<td>Hayes et al. (2008)</td>
+</tr>
+<tr>
+<td>Supertasteri jedia menej zeleniny</td>
+<td>❌ Kontroverzné</td>
+<td>Nekonzistentné výsledky</td>
+</tr>
+<tr>
+<td>Supertasteri sú lepší hodnotitelia</td>
+<td>❌ Kontroverzné</td>
+<td>Nie je dôkaz</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 Farba a vnímanie chuti</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Farba ovplyvňuje identifikáciu a intenzitu chuti</td>
+<td>✅ Potvrdené</td>
+<td>Napr. DuBose, Cardello &amp; Maller (1980), <em>J. Food Sci.</em>; prehľad Spence et al. (2010), <em>Chemosensory Perception</em></td>
+</tr>
+<tr>
+<td>Červená farba zvyšuje vnímanú sladkosť</td>
+<td>⚠️ Prevažujúce</td>
+<td>Viaceré štúdie (napr. Johnson &amp; Clydesdale, 1982), ale efekt závisí od kontextu a nie je vždy replikovaný</td>
+</tr>
+<tr>
+<td>Modrá/zelená farba mení vnímanie sladkosti/kyslosti</td>
+<td>⚠️ Prevažujúce</td>
+<td>Menej konzistentné dôkazy</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mechanizmus:</strong> Prevažne naučené asociácie (zrelé ovocie ↔ sladké) — kultúrne podmienené.</p>
+<h3>2.4 Glutamát a „Chinese restaurant syndrome"</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glutamát spôsobuje „Chinese restaurant syndrome"</td>
+<td>❌ Nepotvrdené</td>
+<td>Pôvodne list Kwoka (1968, <em>NEJM</em>); dvojito zaslepené štúdie konzistentnú reakciu nepotvrdzujú</td>
+</tr>
+<tr>
+<td>Glutamát je bezpečný pri bežnom príjme</td>
+<td>✅ Potvrdené</td>
+<td>JECFA, EFSA (EFSA 2017 stanovila skupinový ADI 30 mg/kg ž. h./deň pre glutamáty E 620–625)</td>
+</tr>
+<tr>
+<td>Glutamát sa prirodzene vyskytuje v potravinách</td>
+<td>✅ Potvrdené</td>
+<td>Paradajky, zrejúce syry, huby, mäso</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.5 Cukor a hyperaktivita</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Tvrdenie</th>
+<th>Status</th>
+<th>Podrobnosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cukor spôsobuje hyperaktivitu u detí</td>
+<td>❌ Nepotvrdené</td>
+<td>Metaanalýza Wolraich et al. (1995), <em>JAMA</em></td>
+</tr>
+<tr>
+<td>Rodičia vnímajú hyperaktivitu po cukre</td>
+<td>⚠️ Prevažujúce</td>
+<td>Efekt očakávania</td>
+</tr>
+<tr>
+<td>Cukor spôsobuje ADHD</td>
+<td>❌ Nepotvrdené</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+    </div>
+    <div class="card" id="odporucania">
+<h2>3. Odporúčania pre ďalší výskum</h2>
+<h3>3.1 Kde hľadať spoľahlivé informácie</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Zdroj</th>
+<th>Typ</th>
+<th>Odporúčanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Katalóg ISO, ASTM</td>
+<td>Normy</td>
+<td>Primárny zdroj pre metodiku; vždy overiť aktuálne vydanie</td>
+</tr>
+<tr>
+<td>EUR-Lex</td>
+<td>Predpisy EÚ</td>
+<td>Konsolidované znenia nariadení</td>
+</tr>
+<tr>
+<td>PubMed, Scopus, Web of Science</td>
+<td>Databázy článkov</td>
+<td>Overiť existenciu a obsah (DOI)</td>
+</tr>
+<tr>
+<td>Učebnice (Lawless &amp; Heymann, Meilgaard, Næs et al.)</td>
+<td>Metodika a štatistika</td>
+<td>Pre výpočty a interpretáciu</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 Ako vyhodnocovať zdroje</h3>
+<ol>
+<li><strong>Citácia bez DOI/časopisu je podozrivá</strong> — dohľadajte ju skôr, než ju použijete</li>
+<li><strong>Prepočítajte tabuľky a príklady</strong> — kritické hodnoty sa dajú overiť jedným príkazom (<code>qbinom</code>, <code>binom.test</code>)</li>
+<li><strong>Overte, či zdroj skutočne tvrdí to, čo sa mu pripisuje</strong></li>
+<li><strong>Rozlišujte normatívne požiadavky a odporúčania z praxe</strong></li>
+<li><strong>Pozor na „populárne čísla"</strong> (80 % chuti je čuch, 70–80 % nákupov…) — často nemajú zdroj</li>
+</ol>
+<h3>3.3 Témy pre budúci výskum</h3>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th>Téma</th>
+<th>Prečo je dôležité</th>
+<th>Aktuálna medzera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genetika chuťových receptorov</td>
+<td>Individuálne rozdiely</td>
+<td>Vzťah genotyp – fenotyp – strava</td>
+</tr>
+<tr>
+<td>Mikrobióm a chuť</td>
+<td>Individuálne rozdiely</td>
+<td>Kauzálne dôkazy u ľudí</td>
+</tr>
+<tr>
+<td>AI predikcia senzorických profilov</td>
+<td>Efektivita výskumu</td>
+<td>Validácia modelov</td>
+</tr>
+<tr>
+<td>Kultúrne rozdiely v chuti</td>
+<td>Globalizácia potravín</td>
+<td>Systematické štúdie</td>
+</tr>
+<tr>
+<td>Udržateľnosť a senzorika</td>
+<td>Alternatívne potraviny</td>
+<td>Akceptácia spotrebiteľov</td>
+</tr>
+</tbody>
+</table></div>
+    </div>
+</div>
+
+<footer>
+    <p>SAP — Senzorická Analýza Potravín | Zdroje a literatúra | 2026</p>
+</footer>
+
+</body>
+</html>

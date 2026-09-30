@@ -231,6 +231,8 @@ body.sap {
 }
 .sap .hero p, .sap .hero .subtitle { color: rgba(255, 255, 255, .86); font-size: clamp(1.02rem, .95rem + .3vw, 1.18rem); max-width: 62ch; margin: 0; opacity: 1; }
 .sap .hero .meta, .sap .hero .badge { display: inline-block; margin-top: 18px; font-size: .82rem; color: rgba(255, 255, 255, .72); background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16); border-radius: 999px; padding: 4px 12px; }
+.sap .hero .sap-slides { display: inline-block; margin-top: 18px; font-size: .88rem; font-weight: 600; color: #fff; background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .3); border-radius: 999px; padding: 6px 16px; text-decoration: none; }
+.sap .hero .sap-slides:hover { background: rgba(255, 255, 255, .22); }
 .sap-kicker { display: block; font: 600 .78rem/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: #f2c46d; margin-bottom: 14px; }
 
 /* ---------- Layout ---------- */

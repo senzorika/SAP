@@ -257,6 +257,7 @@
     <div class="hero">
         <h1>Škálovanie v senzorickej analýze</h1>
         <p>Priradenie číselných hodnôt senzorickým vlastnostiam – od hedonických škál po Thurstone d-prime</p>
+        <a class="sap-slides" href="../prezentacie/06_skalovanie.html">▶ Prednáška (slajdy)</a>
     </div>
 
     <div class="container">
@@ -689,7 +690,6 @@
             <div class="callout">
                 <div class="callout-title">Hranice pre trojuholníkový test (p₀ = 1/3, p₁ = 0.5, α = 0.05, β = 0.20)</div>
                 <div class="formula">D = ln(p₁/p₀) + ln((1−p₀)/(1−p₁)) = 0.405 + 0.288 = 0.693<br>s = ln((1−p₀)/(1−p₁)) / D = 0.288 / 0.693 = 0.415<br><br>a_n = ln((1−β)/α) / D + s·n = 2.773/0.693 + 0.415n ≈ 4.00 + 0.415n<br>b_n = −ln((1−α)/β) / D + s·n = −1.558/0.693 + 0.415n ≈ −2.25 + 0.415n<br><br>Príklad n = 20: H₁ sa prijme pri ≥ 12.3 → 13 správnych odpovediach, H₀ pri ≤ 6.05 → 6 správnych; medzi tým sa pokračuje (ISO 16820:2019)</div>
-                <p style="font-size:0.9em">⚠️ Predošlá verzia mala chybný vzorec (ln(0.5/0.5) = 0, sklon 0.5) a v grafe prehodené hranice.</p>
             </div>
 
             <div class="svg-container">
@@ -852,7 +852,7 @@
             <h3>5.6 Praktický príklad s výpočtom</h3>
             <div class="highlight-box">
                 <p><strong>Scénár:</strong> Testuje sa schopnosť panelu rozlíšiť dve vzorky kávy úlohou <strong>A – nie A</strong>. Panel má 20 testovateľov, každý vykoná 10 pokusov (5 × vzorka „nie A" = odlišná, 5 × vzorka A = štandard).</p>
-                <p>Poznámka: vzorec d′ = z(H) − z(F) platí pre úlohu A – nie A (yes/no). Pri teste <strong>same-different</strong> (páry rovnaké/odlišné) treba iný Thurstonov model (sensR::samediff) — preto bol pôvodný scenár upravený.</p>
+                <p>Poznámka: vzorec d′ = z(H) − z(F) platí pre úlohu A – nie A (yes/no). Pri teste <strong>same-different</strong> (páry rovnaké/odlišné) treba iný Thurstonov model (sensR::samediff).</p>
                 <p><strong>Výsledky:</strong> Pri vzorke „nie A": 85 odpovedí „nie A" zo 100 (hit rate). Pri vzorke A: 15 chybných odpovedí „nie A" zo 100 (false alarm).</p>
             </div>
             <div class="callout">
@@ -1111,7 +1111,7 @@
             </div>
 
             <div class="highlight-box">
-                <p><strong>Záver:</strong> Rozhodujúca je skupina „málo sladké" (37.5 % respondentov, pokles 2.27); skupina „príliš sladké" je pod hranicou 20 %. Odporúča sa <strong>mierne zvýšiť sladkosť</strong> a overiť ďalším testom. (Predošlá verzia mala zle označené kategórie, chybu v menovateli a nesprávny záver o znížení cukru a kyslosti — kyslosť sa v teste vôbec nemerala.)</p>
+                <p><strong>Záver:</strong> Rozhodujúca je skupina „málo sladké" (37.5 % respondentov, pokles 2.27); skupina „príliš sladké" je pod hranicou 20 %. Odporúča sa <strong>mierne zvýšiť sladkosť</strong> a overiť ďalším testom.</p>
             </div>
         </div>
 
@@ -1161,7 +1161,6 @@
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Thurstonov d′</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie13.html">13 – Thurstonov model a d′</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie13.R"><code>cvicenie13.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
     <footer>
