@@ -173,7 +173,7 @@ $$h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p)$$
 
 ## Dizajn štúdie
 
-```mermaid
+```{mermaid}
 flowchart TD
     A[Produkt] --> B[Časové body]
     A --> C[Počet vzoriek]
@@ -259,12 +259,12 @@ $$E_a = -R \times \frac{\ln(k_2/k_1)}{1/T_2 - 1/T_1}$$
 
 ## Výpočet shelf-life
 
-```mermaid
+```{mermaid}
 flowchart LR
     A[Zber dát] --> B[Prežívacia funkcia]
     B --> C[Weibull fit]
-    C --> D[t₅₀ = η × ln2^(1/β)]
-    C --> E[t₂₅ = η × 0.288^(1/β)]
+    C --> D["t₅₀ = η × ln2^(1/β)"]
+    C --> E["t₂₅ = η × 0.288^(1/β)"]
     D --> F[Bezpečnostný faktor]
     E --> F
     F --> G[Best before dátum]

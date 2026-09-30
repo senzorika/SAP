@@ -57,7 +57,7 @@ Každý claim musí byť pravdivý a doložiteľný. Senzorické tvrdenia sa ove
 
 ## Typy claims
 
-```mermaid
+```{mermaid}
 graph TD
     A[Senzorické Claims] --> B[Porovnávacie]
     A --> C[Absolútne]
@@ -131,7 +131,7 @@ Tvrdenia o **znížení obsahu živiny** sú výživové tvrdenia (1924/2006).
 
 ## Metódy overenia
 
-```mermaid
+```{mermaid}
 flowchart LR
     A[Claim] --> B{Typ claimu}
     B -->|Porovnávacie| C[2-AFC / trojuholník / tetrad]
@@ -223,7 +223,7 @@ flowchart LR
 
 ## Právne požiadavky
 
-```mermaid
+```{mermaid}
 graph TD
     A[Právne rámce] --> B[EU]
     A --> C[USA]

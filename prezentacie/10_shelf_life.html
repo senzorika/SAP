@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="sk"><head>
+<script src="libs/clipboard/clipboard.min.js"></script>
+<script src="libs/quarto-html/tabby.min.js"></script>
+<script src="libs/quarto-html/popper.min.js"></script>
+<script src="libs/quarto-html/tippy.umd.min.js"></script>
+<link href="libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="libs/quarto-html/quarto-syntax-highlighting-261f789220898115d1f0b2d66d52cc9d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="SAP — Senzorická Analýza Potravín">
+  <meta name="dcterms.date" content="2026-09-01">
+  <title>Senzorická trvanlivosť (shelf-life)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="custom.css">
+  <link href="libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Senzorická trvanlivosť (shelf-life)</h1>
+  <p class="subtitle">Metódy, výpočty a dizajn senzorických shelf-life štúdií</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+SAP — Senzorická Analýza Potravín
+</div>
+</div>
+</div>
+
+  <p class="date">2026-09-01</p>
+</section>
+<section id="úvod" class="slide level2">
+<h2>Úvod</h2>
+<h3 id="čo-je-sensory-shelf-life">Čo je sensory shelf-life?</h3>
+<p>Sensory shelf-life je <strong>časový interval</strong>, počas ktorého potravinársky produkt udržuje svoje senzorické vlastnosti na úrovni akceptovateľnej pre spotrebiteľa za daných podmienok skladovania.</p>
+<aside class="notes">
+<p>Sensory shelf-life predstavuje senzorickú trvanlivosť produktu. Podľa Hougha (2010) závisí aj od spotrebiteľa: kľúčová otázka je, aká časť spotrebiteľov produkt skladovaný čas t odmietne. Norma: ISO 16779:2015.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="prečo-je-shelf-life-dôležité" class="slide level2">
+<h2>Prečo je shelf-life dôležité?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspekt</th>
+<th>Význam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Kvalita produktu</strong></td>
+<td>Zaisťuje udržanie charakteristiky počas celej trvanlivosti</td>
+</tr>
+<tr class="even">
+<td><strong>Spokojnosť spotrebiteľa</strong></td>
+<td>Minimalizuje reklamácie a návraty</td>
+</tr>
+<tr class="odd">
+<td><strong>Konkurencieschopnosť</strong></td>
+<td>Dlhšia shelf-life = väčšia flexibilita v distribúcii</td>
+</tr>
+<tr class="even">
+<td><strong>Straty</strong></td>
+<td>Predlženie shelf-life = zníženie vyradených produktov</td>
+</tr>
+<tr class="odd">
+<td><strong>Bezpečnosť</strong></td>
+<td>Senzorická degradácia môže indikovať mikrobiologické problémy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ol type="1">
+<li>Kaplan-Meierov odhad</li>
+<li>Weibullova distribúcia</li>
+<li>ASLT a Q10 model</li>
+<li>Arrheniusov model</li>
+<li>Survival analysis</li>
+<li>Cut-off point metóda</li>
+<li>Dizajn shelf-life štúdie</li>
+<li>Praktické príklady</li>
+</ol>
+</section>
+<section id="typy-produktov-a-degradácia" class="slide level2">
+<h2>Typy produktov a degradácia</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Kategória</th>
+<th>Typická degradácia</th>
+<th>Typická shelf-life</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mliečne výrobky</strong></td>
+<td>Kyslosť, oxidácia, textúra</td>
+<td>14–30 dní</td>
+</tr>
+<tr class="even">
+<td><strong>Chlieb a pečivo</strong></td>
+<td>Stárnutie (staling), plesnivý</td>
+<td>3–7 dní</td>
+</tr>
+<tr class="odd">
+<td><strong>Nápoje</strong></td>
+<td>Oxidácia, strata účinnosti</td>
+<td>6–12 mesiacov</td>
+</tr>
+<tr class="even">
+<td><strong>Mäso</strong></td>
+<td>Oxidácia tuku, mikrobiologický rast</td>
+<td>7–14 dní</td>
+</tr>
+<tr class="odd">
+<td><strong>Ovocie a zelenina</strong></td>
+<td>Vädnutie, hniloba, strata chuti</td>
+<td>3–14 dní</td>
+</tr>
+<tr class="even">
+<td><strong>Konzervy</strong></td>
+<td>Korózia, strata textúry</td>
+<td>12–36 mesiacov</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kaplan-meierov-odhad" class="slide level2">
+<h2>Kaplan-Meierov odhad</h2>
+<p><strong>Princíp:</strong> Neparametrický odhad S(t) = pravdepodobnosti, že spotrebiteľ produkt skladovaný čas t akceptuje (udalosť = odmietnutie). Dáta sú v praxi intervalovo cenzurované → Hough odporúča parametrický model. <a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">SaIT cvičenie 10</a></p>
+<p><span class="math display">\[S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Čas (dni)</th>
+<th>V riziku (nᵢ)</th>
+<th>Prvé odmietnutia (dᵢ)</th>
+<th>S(t)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>50</td>
+<td>0</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>50</td>
+<td>2</td>
+<td>0.96</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>48</td>
+<td>5</td>
+<td>0.86</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>43</td>
+<td>8</td>
+<td>0.70</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>35</td>
+<td>10</td>
+<td>0.50</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>25</td>
+<td>12</td>
+<td>0.26</td>
+</tr>
+<tr class="odd">
+<td>42</td>
+<td>13</td>
+<td>8</td>
+<td>0.10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mediánová shelf-life:</strong> 28 dní (S(t) = 0.50 → 50 % spotrebiteľov odmieta)</p>
+</section>
+<section id="weibullova-distribúcia" class="slide level2">
+<h2>Weibullova distribúcia</h2>
+<p><strong>Princíp:</strong> Flexibilná parametrická distribúcia modelujúca degradáciu produktu v čase.</p>
+<p><span class="math display">\[F(t) = 1 - \exp\left(-\left(\frac{t}{\eta}\right)^\beta\right)\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Význam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>η (eta)</strong></td>
+<td>Charakteristická životnosť (scale)</td>
+</tr>
+<tr class="even">
+<td><strong>β (beta)</strong></td>
+<td>Tvarový parameter (shape)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpretácia-β">Interpretácia β</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>β</th>
+<th>Hazard odmietnutí</th>
+<th>Význam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>β &lt; 1</strong></td>
+<td>Klesajúci</td>
+<td>Časť spotrebiteľov odmieta hneď od začiatku</td>
+</tr>
+<tr class="even">
+<td><strong>β = 1</strong></td>
+<td>Konštantný</td>
+<td>Odmietnutia rovnomerne v čase</td>
+</tr>
+<tr class="odd">
+<td><strong>β &gt; 1</strong></td>
+<td>Rastúci</td>
+<td>Typické – odmietnutí pribúda so starnutím</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aslt-accelerated-shelf-life-testing" class="slide level2">
+<h2>ASLT — Accelerated Shelf-Life Testing</h2>
+<p><strong>Princíp:</strong> Urýchlenie degradácie zvýšením teploty a extrapolácia na normálne podmienky.</p>
+<h3 id="q10-model">Q10 Model</h3>
+<p><span class="math display">\[Q_{10} = \frac{\text{Shelf-life pri } T_1}{\text{Shelf-life pri } T_2}\]</span></p>
+<p>Kde <span class="math inline">\(T_2 = T_1 + 10°C\)</span></p>
+<h3 id="vzťah">Vzťah</h3>
+<p><span class="math display">\[\text{Shelf-life}(T_2) = \frac{\text{Shelf-life}(T_1)}{Q_{10}^{(T_2-T_1)/10}}\]</span></p>
+<p>⚠️ Starnutie chleba (retrogradácia) nie je arrheniovské – v chladničke je rýchlejšie.</p>
+</section>
+<section id="arrheniusov-model" class="slide level2">
+<h2>Arrheniusov model</h2>
+<p><span class="math display">\[k = A \cdot \exp\left(-\frac{E_a}{R \cdot T}\right)\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Význam</th>
+<th>Jednotka</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>k</strong></td>
+<td>Rýchlostná konštanta degradácie</td>
+<td>deň⁻¹</td>
+</tr>
+<tr class="even">
+<td><strong>A</strong></td>
+<td>Preexponenciálny faktor</td>
+<td>deň⁻¹</td>
+</tr>
+<tr class="odd">
+<td><strong>Ea</strong></td>
+<td>Energia aktivácie</td>
+<td>J/mol</td>
+</tr>
+<tr class="even">
+<td><strong>R</strong></td>
+<td>Univerzálna plynová konštanta (8.314)</td>
+<td>J/(mol·K)</td>
+</tr>
+<tr class="odd">
+<td><strong>T</strong></td>
+<td>Absolútna teplota</td>
+<td>K</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vzťah-medzi-q10-a-ea">Vzťah medzi Q10 a Ea</h3>
+<p><span class="math display">\[\ln Q_{10} = \frac{10\,E_a}{R\,T\,(T+10)} \approx \frac{10\,E_a}{R\,T^2}\]</span></p>
+</section>
+<section id="survival-analysis" class="slide level2">
+<h2>Survival Analysis</h2>
+<p><strong>Princíp:</strong> Štatistická metóda na analýzu časových dát, kde “udalosť” je zamietnutie produktu.</p>
+<h3 id="prežívacia-funkcia">Prežívacia funkcia</h3>
+<p><span class="math display">\[S(t) = P(T &gt; t) = 1 - F(t)\]</span></p>
+<h3 id="hazard-funkcia">Hazard funkcia</h3>
+<p><span class="math display">\[h(t) = \frac{f(t)}{S(t)} = -\frac{d}{dt}[\ln S(t)]\]</span></p>
+<h3 id="cox-proportional-hazards-model">Cox Proportional Hazards Model</h3>
+<p><span class="math display">\[h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p)\]</span></p>
+</section>
+<section id="cut-off-point-metóda" class="slide level2">
+<h2>Cut-off Point Metóda</h2>
+<p><strong>Princíp:</strong> Definuje konkrétny bod, pri ktorom produkt prestáva byť akceptovateľný.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 44%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typ</th>
+<th>Definícia</th>
+<th>Použitie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Senzorický cut-off</strong></td>
+<td>Hodnota atribútu, pri ktorej produkt prestáva byť akceptovateľný</td>
+<td>Deskriptívna analýza</td>
+</tr>
+<tr class="even">
+<td><strong>Spotrebiteľský cut-off</strong></td>
+<td>Prípustný % odmietnutí (napr. 25 % alebo 50 %) – rozhodnutie výrobcu</td>
+<td>Spotrebiteľský test</td>
+</tr>
+<tr class="odd">
+<td><strong>Kombinovaný cut-off</strong></td>
+<td>Kombinácia oboch prístupov</td>
+<td>Komplexné hodnotenie</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dizajn-štúdie" class="slide level2">
+<h2>Dizajn štúdie</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Produkt] --&gt; B[Časové body]
+    A --&gt; C[Počet vzoriek]
+    A --&gt; D[Podmienky skladovania]
+    A --&gt; E[Panelisti]
+    
+    B --&gt; F[Min. 5 časových bodov]
+    C --&gt; G[3-10 vzoriek na bod]
+    D --&gt; H[Normálne + Akcelerované]
+    E --&gt; I[~50+ spotrebiteľov + trénovaný panel]
+    
+    F --&gt; J[Štatistická analýza]
+    G --&gt; J
+    H --&gt; J
+    I --&gt; J
+    
+    J --&gt; K[Kaplan-Meier]
+    J --&gt; L[Weibull model]
+    J --&gt; M[Arrhenius extrapolácia]
+    
+    K --&gt; N[Shelf-life]
+    L --&gt; N
+    M --&gt; N
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="časové-body" class="slide level2">
+<h2>Časové body</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Typ produktu</th>
+<th>Časové body (dni)</th>
+<th>Počet bodov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Krátkodobá</strong> (&lt; 30 dní)</td>
+<td>0, 3, 7, 10, 14, 21, 28</td>
+<td>5–7</td>
+</tr>
+<tr class="even">
+<td><strong>Stredná</strong> (30–180 dní)</td>
+<td>0, 14, 30, 60, 90, 120, 180</td>
+<td>5–7</td>
+</tr>
+<tr class="odd">
+<td><strong>Dlhá</strong> (&gt; 180 dní)</td>
+<td>0, 30, 60, 90, 120, 180, 240, 360</td>
+<td>6–8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pravidlá">Pravidlá</h3>
+<ol type="1">
+<li><strong>Hustejšie body okolo očakávaného konca trvanlivosti</strong> – tam je informácia pre odhad najcennejšia</li>
+<li><strong>Aj body za očakávaným koncom</strong> – krivka má dosiahnuť ~50 % odmietnutí</li>
+<li><strong>Minimálne 5–6 časových bodov</strong></li>
+<li><strong>Reverzný dizajn</strong> – vzorky rôzneho veku hodnotené v jeden deň</li>
+</ol>
+</section>
+<section id="podmienky-skladovania" class="slide level2">
+<h2>Podmienky skladovania</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Typické podmienky</th>
+<th>Akcelerované podmienky</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Teplota</strong></td>
+<td>4°C, 20°C, 25°C</td>
+<td>30°C, 35°C, 40°C</td>
+</tr>
+<tr class="even">
+<td><strong>Vlhkosť</strong></td>
+<td>50% RH, 60% RH</td>
+<td>75% RH, 85% RH</td>
+</tr>
+<tr class="odd">
+<td><strong>Svetlo</strong></td>
+<td>Tmavé, normálne</td>
+<td>UV, intenzívne</td>
+</tr>
+<tr class="even">
+<td><strong>Atmosféra</strong></td>
+<td>Vzduch, vákum</td>
+<td>N₂, CO₂, modifikovaná</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="q10-koeficient" class="slide level2">
+<h2>Q10 Koeficient</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Kategória produktu</th>
+<th>Typické Q10</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mliečne výrobky</strong></td>
+<td>2–4</td>
+<td>Závisí od obsahu tuku</td>
+</tr>
+<tr class="even">
+<td><strong>Chlieb a pečivo</strong></td>
+<td>—</td>
+<td>Retrogradácia nie je arrheniovská</td>
+</tr>
+<tr class="odd">
+<td><strong>Nápoje</strong></td>
+<td>2–3</td>
+<td>Oxidácia</td>
+</tr>
+<tr class="even">
+<td><strong>Mäso</strong></td>
+<td>2–4</td>
+<td>Oxidácia tuku</td>
+</tr>
+<tr class="odd">
+<td><strong>Ovocie a zelenina</strong></td>
+<td>2–3</td>
+<td>Enzymatická degradácia</td>
+</tr>
+<tr class="even">
+<td><strong>Konzervy</strong></td>
+<td>1.5–2.5</td>
+<td>Korózia, textúra</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="energia-aktivácie-ea" class="slide level2">
+<h2>Energia aktivácie (Ea)</h2>
+<p><span class="math display">\[E_a = -R \times \frac{\ln(k_2/k_1)}{1/T_2 - 1/T_1}\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Typ reakcie</th>
+<th>Ea (kJ/mol)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Oxidácia lipidov</strong></td>
+<td>40–100</td>
+</tr>
+<tr class="even">
+<td><strong>Enzymatické reakcie</strong></td>
+<td>40–130</td>
+</tr>
+<tr class="odd">
+<td><strong>Rast mikroorganizmov</strong></td>
+<td>80–120</td>
+</tr>
+<tr class="even">
+<td><strong>Maillardovo hnednutie</strong></td>
+<td>100–200</td>
+</tr>
+<tr class="odd">
+<td><strong>Degradácia vitamínov</strong></td>
+<td>40–130</td>
+</tr>
+<tr class="even">
+<td><strong>Starnutie chleba</strong></td>
+<td>nie je arrheniovské</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="výpočet-shelf-life" class="slide level2">
+<h2>Výpočet shelf-life</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[Zber dát] --&gt; B[Prežívacia funkcia]
+    B --&gt; C[Weibull fit]
+    C --&gt; D["t₅₀ = η × ln2^(1/β)"]
+    C --&gt; E["t₂₅ = η × 0.288^(1/β)"]
+    D --&gt; F[Bezpečnostný faktor]
+    E --&gt; F
+    F --&gt; G[Best before dátum]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<h3 id="weibullove-parametre">Weibullove parametre</h3>
+<p><span class="math display">\[t_{50} = \eta \times (\ln 2)^{1/\beta}\]</span></p>
+<p><span class="math display">\[t_{25} = \eta \times (-\ln 0.75)^{1/\beta} = \eta \times 0.288^{1/\beta}\]</span></p>
+</section>
+<section id="praktický-príklad-jogurt" class="slide level2">
+<h2>Praktický príklad: Jogurt</h2>
+<p><strong>Produkt:</strong> Jogurt s jahodami, skladovaný pri 4°C</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Čas (dni)</th>
+<th>Chuť</th>
+<th>Vôňa</th>
+<th>Textúra</th>
+<th>Akceptujúci spotrebitelia (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>8.5</td>
+<td>8.2</td>
+<td>8.0</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>8.0</td>
+<td>7.8</td>
+<td>7.5</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>7.2</td>
+<td>7.0</td>
+<td>6.8</td>
+<td>85</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>6.5</td>
+<td>6.2</td>
+<td>6.0</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>5.8</td>
+<td>5.5</td>
+<td>5.2</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>5.0</td>
+<td>4.8</td>
+<td>4.5</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td>42</td>
+<td>4.2</td>
+<td>4.0</td>
+<td>3.8</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weibull fit:</strong> β = 2.29, η = 33.6 dní → t₅₀ = 28.6 d, t₂₅ = 19.5 d</p>
+<p><strong>Záver:</strong> Mediánová trvanlivosť ≈ 29 dní; pri 25 % odmietnutí ≈ 19–20 dní</p>
+</section>
+<section id="praktický-príklad-chlieb" class="slide level2">
+<h2>Praktický príklad: Chlieb</h2>
+<p><strong>Produkt:</strong> Chlieb, skladovaný pri 20°C</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Čas (dni)</th>
+<th>Staling</th>
+<th>Chuť</th>
+<th>Textúra</th>
+<th>Akceptabilita (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1.0</td>
+<td>8.5</td>
+<td>8.0</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2.5</td>
+<td>7.8</td>
+<td>7.2</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>4.0</td>
+<td>7.0</td>
+<td>6.5</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>5.5</td>
+<td>6.2</td>
+<td>5.8</td>
+<td>55</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>7.0</td>
+<td>5.0</td>
+<td>4.5</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>3.5</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>9.0</td>
+<td>3.0</td>
+<td>2.5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weibull fit:</strong> β = 1.60, η = 4.27 dní → t₅₀ = 3.4 d, t₂₅ = 2.0 d</p>
+<p><strong>Záver:</strong> Mediánová trvanlivosť ≈ 3 dni; pri 25 % odmietnutí ≈ 2 dni</p>
+</section>
+<section id="best-before-dátum" class="slide level2">
+<h2>Best Before Dátum</h2>
+<p>„Spotrebujte do” určuje mikrobiologická bezpečnosť; senzorika je podkladom pre „spotrebujte najlepšie do” (1169/2011, čl. 24). Priamo: zvoliť prípustný podiel odmietnutí (napr. 25 %) → t₂₅. Alternatívna firemná prax (nie norma):</p>
+<ol type="1">
+<li>Vypočítajte mediánovú shelf-life (t₅₀)</li>
+<li>Aplikujte bezpečnostný faktor (0.7–0.9)</li>
+<li>Zaokrúhlite nadol na celé dni</li>
+</ol>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Typ produktu</th>
+<th>Odporúčaný faktor</th>
+<th>Dôvod</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Citlivé potraviny</strong></td>
+<td>0.7</td>
+<td>Vyššie riziko reklamácií</td>
+</tr>
+<tr class="even">
+<td><strong>Bežné potraviny</strong></td>
+<td>0.8</td>
+<td>Štandardná ochrana</td>
+</tr>
+<tr class="odd">
+<td><strong>Konzervy</strong></td>
+<td>0.9</td>
+<td>Nízke riziko</td>
+</tr>
+<tr class="even">
+<td><strong>Mrazené výrobky</strong></td>
+<td>0.75</td>
+<td>Závisí od chladiaceho reťazca</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kalkulátor" class="slide level2 scrollable">
+<h2>Kalkulátor</h2>
+<div data-sap-calc="aslt"></div>
+<script src="../assets/sap-calc.js"></script>
+<p><span style="font-size:0.5em">Ten istý kalkulátor je aj <a href="../kapitoly/10_shelf_life.html#kalkulator">v kapitole</a>.</span></p>
+</section>
+<section id="záver" class="slide level2">
+<h2>Záver</h2>
+<p>Sensory shelf-life testing je <strong>komplexný proces</strong>, ktorý kombinuje:</p>
+<ul>
+<li>Senzorickú analýzu</li>
+<li>Štatistické modelovanie</li>
+<li>Techniky urýchleného starnutia</li>
+</ul>
+<h3 id="kľúčové-princípy">Kľúčové princípy</h3>
+<ol type="1">
+<li><strong>Správny dizajn</strong> – dostatočný počet časových bodov, vzoriek a panelistov</li>
+<li><strong>Vhodná štatistická analýza</strong> – Kaplan-Meier, Weibull, Arrhenius</li>
+<li><strong>Bezpečnostný faktor</strong> – konzervatívny prístup k “best before”</li>
+<li><strong>Kompletná dokumentácia</strong> – všetky dáta zdokumentované</li>
+</ol>
+</section>
+<section id="ďakujem-za-pozornosť" class="slide level2">
+<h2>Ďakujem za pozornosť</h2>
+<p><strong>Otázky?</strong></p>
+<p><em>SAP — Senzorická Analýza Potravín</em></p>
+</section>
+<section id="precvič-v-r-sait" class="slide level2 smaller">
+<h2>Precvič v R – SaIT</h2>
+<p>Praktické cvičenia k tejto téme v repozitári <a href="https://github.com/senzorika/SaIT">SaIT – Senzometria v R</a>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Téma</th>
+<th>Cvičenie SaIT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kaplan-Meierov odhad, cut-off bod</td>
+<td><a href="https://senzorika.github.io/SaIT/teoria/cvicenie10.html">10 – Analýza prežitia a senzorická trvanlivosť</a></td>
+</tr>
+<tr class="even">
+<td>Regresia senzorických dát v čase</td>
+<td><a href="https://senzorika.github.io/SaIT/teoria/cvicenie06.html">6 – Korelácia a lineárna regresia</a></td>
+</tr>
+<tr class="odd">
+<td>Prípadová štúdia senzorickej trvanlivosti</td>
+<td><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td>
+</tr>
+</tbody>
+</table>
+<p>Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html">Spotrebiteľský výskum</a></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Poznámka</strong></p>
+</div>
+<div class="callout-content">
+<p>Obsah bol v 09/2026 overený a opravený — pozri <a href="../kapitoly/priloha_overenie.html">Overenie zdrojov</a>.</p>
+</div>
+</div>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="libs/revealjs/plugin/search/search.js"></script>
+  <script src="libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Skopírované!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Skopírované!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

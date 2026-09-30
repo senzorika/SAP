@@ -22,7 +22,7 @@ Návrh laboratória upravuje **ISO 8589:2007 (+Amd 1:2014)**; ISO 8586:2023 sa t
 
 ## Layout laboratória
 
-```mermaid
+```{mermaid}
 graph TD
     A[VSTUPNÁ ZÓNA<br/>registrácia, úloženie oblečenia] --> B[PRÍPRAVNÁ ZÓNA<br/>kuchyňa, skladovanie, chladničky]
     B --> C[SENZORICKÁ HODNOTIACA ZÓNA<br/>Kabín 1-5+]
@@ -124,7 +124,7 @@ graph TD
 
 ### Výber a tréning (ISO 8586)
 
-```mermaid
+```{mermaid}
 graph LR
     A[Rekrutácia] --> B[Screening]
     B --> C[Tréning]

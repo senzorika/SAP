@@ -79,7 +79,7 @@ Disciplína, ktorá skúma vzťah medzi **senzorickými vlastnosťami produktov*
 
 Technika, ktorá kombinuje **senzorické dáta** (z trénovaných panelov) s **hedonickými dátami** (od spotrebiteľov) na vytvorenie mapy preferencií.
 
-```mermaid
+```{mermaid}
 graph TD
     A[Senzorické dáta - trénovaný panel] --> C[Preference Mapping]
     B[Hedonické dáta - spotrebiteľi] --> C
@@ -106,7 +106,7 @@ graph TD
 
 Metóda, ktorá odhaľuje, ako spotrebiteľi kombinujú rôzne **atribúty a úrovne** produktu do celkovej preferencie.
 
-```mermaid
+```{mermaid}
 graph LR
     A[Atribút 1: úroveň] --> C[Celkový užitek]
     B[Atribút 2: úroveň] --> C
@@ -146,7 +146,7 @@ Optimum = kombinácia s max. Reach; pri zhode rozhoduje Frequency (priemerný po
 
 JAR (Just About Right) škála meria, či je intenzita atribútu **príliš vysoká, príliš nízka, alebo práve správna**.
 
-```mermaid
+```{mermaid}
 graph TD
     A[Atribút hodnotený] --> B{Práve správny?}
     B -->|Áno| C[JAR - žiadny penalty]
@@ -249,7 +249,7 @@ Kde:
 
 ## Výber správnej metódy
 
-```mermaid
+```{mermaid}
 graph TD
     A[Aký je cieľ štúdie?] --> B[Prijatie produktu]
     A --> C[Optimalizácia]

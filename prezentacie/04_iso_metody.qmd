@@ -34,7 +34,7 @@ format:
 
 Panelista dostane **tri vzorky** – dve rovnaké, jedna odlišná. Úlohou je identifikovat odlišnú vzorku.
 
-```mermaid
+```{mermaid}
 graph LR
     A[Vzorka 1] --> D[Panelista]
     B[Vzorka 2] --> D
@@ -66,7 +66,7 @@ graph LR
 
 Panelista dostane **referenčnú vzorku** a dve neznáme – jedna rovná referencii, jedna odlišná. Úlohou je určiť vzorku **zhodnú s referenciou**.
 
-```mermaid
+```{mermaid}
 graph LR
     R[Referenčná vzorka R] --> P[Panelista]
     A[Vzorka A] --> P

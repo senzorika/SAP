@@ -42,7 +42,7 @@ Matematické vzorce a štatistické parametre sú **základný nástroj** senzor
 
 ## Základné štatistické vzorce
 
-```mermaid
+```{mermaid}
 graph TD
     A[Štatistika] --> B[Priemer]
     A --> C[Štandardná odchýlka]
@@ -50,7 +50,7 @@ graph TD
     A --> E[Variabilita CV]
     
     B --> B1[x̄ = Σxᵢ / n]
-    C --> C1[s = √(Σ(xᵢ-x̄)²/(n-1))]
+    C --> C1["s = √(Σ(xᵢ-x̄)²/(n-1))"]
     D --> D1[x̄ ± t × s/√n]
     E --> E1[CV = s/x̄ × 100%]
 ```
@@ -213,17 +213,17 @@ $$R^2 = 1 - \frac{SS_{residual}}{SS_{total}}$$
 
 ## Shelf-life vzorce
 
-```mermaid
+```{mermaid}
 graph LR
     A[Shelf-life] --> B[Q10 model]
     A --> C[Arrhenius]
     A --> D[Weibull]
     
     B --> B1[Q10 = k_T+10 / k_T]
-    C --> C1[k = A × e^(-Ea/RT)]
-    D --> D1[F(t) = 1 - e^-(t/η)^β]
+    C --> C1["k = A × e^(-Ea/RT)"]
+    D --> D1["F(t) = 1 - e^-(t/η)^β"]
     
-    B1 --> E[t₅₀ = η × ln2^(1/β)]
+    B1 --> E["t₅₀ = η × ln2^(1/β)"]
     C1 --> E
     D1 --> E
 ```

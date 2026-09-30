@@ -55,7 +55,7 @@ Revízia 09/2026: neoveriteľné citácie z rokov 2020–2023 boli odstránené 
 
 ### Prenos signálu
 
-```mermaid
+```{mermaid}
 graph LR
     A[Chuťové receptory] --> B[Nervus facialis CN VII]
     A --> C[Nervus glossopharyngeus CN IX]
@@ -169,7 +169,7 @@ Overená štúdia: **Stelick et al. (2018)**, *J. Food Sci.* – syr hodnotený 
 
 ### Redukcia soli, cukru a tuku
 
-```mermaid
+```{mermaid}
 graph LR
     A[Redukcia soli - WHO: menej ako 5 g soli/deň] --> A1[Postupne po 5 % - až 25 % bez postrehnutia]
     A --> A2[Umami, náhrady solí]

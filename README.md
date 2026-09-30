@@ -12,17 +12,17 @@
 
 | # | Kapitola | Kalkulátor | Prezentácia |
 |---|---|---|---|
-| 01 | [Úvod do senzoriky a vnímanie chuti](kapitoly/01_uvod_vnimanie_chuti.html) | [Prah citlivosti (BET, 3-AFC)](kapitoly/01_uvod_vnimanie_chuti.html#kalkulator) | [slajdy](prezentacie/01_uvod_vnimanie_chuti.qmd) |
-| 02 | [Senzorické laboratórium a panel](kapitoly/02_laboratorium.html) | [Trojciferné kódy a Williamsov dizajn poradia](kapitoly/02_laboratorium.html#kalkulator) | [slajdy](prezentacie/02_laboratorium.qmd) |
-| 03 | [Prehľad senzorických metód](kapitoly/03_prehlad_metod.html) | [Poradový test – Friedman (ISO 8587)](kapitoly/03_prehlad_metod.html#kalkulator) | [slajdy](prezentacie/03_prehlad_metod.qmd) |
-| 04 | [Normy ISO a štandardné testy](kapitoly/04_iso_metody.html) | [Vyhodnotenie rozlišovacieho testu (rozdiel, podobnosť)](kapitoly/04_iso_metody.html#kalkulator) | [slajdy](prezentacie/04_iso_metody.qmd) |
-| 05 | [Diskriminačné metódy](kapitoly/05_diskriminacne_metody.html) | [Počet hodnotiteľov a sila testu (p_d, d′)](kapitoly/05_diskriminacne_metody.html#kalkulator) | [slajdy](prezentacie/05_diskriminacne_metody.qmd) |
-| 06 | [Škálovanie](kapitoly/06_skalovanie.html) | [Hedonická škála – priemer, IS, prijatie](kapitoly/06_skalovanie.html#kalkulator) | [slajdy](prezentacie/06_skalovanie.qmd) |
-| 07 | [Deskriptívne profily](kapitoly/07_deskriptivne_profily.html) | [ANOVA hodnotiteľ × vzorka, LSD](kapitoly/07_deskriptivne_profily.html#kalkulator) | [slajdy](prezentacie/07_deskriptivne_profily.qmd) |
-| 08 | [Spotrebiteľská senzorická veda](kapitoly/08_spotrebitelska_veda.html) | [Penalty analýza (JAR)](kapitoly/08_spotrebitelska_veda.html#kalkulator) | [slajdy](prezentacie/08_spotrebitelska_veda.qmd) |
-| 09 | [Senzorické tvrdenia (claims)](kapitoly/09_claims.html) | [Párový preferenčný test – nadradenosť, parita](kapitoly/09_claims.html#kalkulator) | [slajdy](prezentacie/09_claims.qmd) |
-| 10 | [Senzorická trvanlivosť (shelf-life)](kapitoly/10_shelf_life.html) | [Q10, Ea, Arrheniusov odhad trvanlivosti](kapitoly/10_shelf_life.html#kalkulator) | [slajdy](prezentacie/10_shelf_life.qmd) |
-| 11 | [Vzorce a štatistické výpočty](kapitoly/11_vzorce.html) | [Popisná štatistika a t-test](kapitoly/11_vzorce.html#kalkulator) | [slajdy](prezentacie/11_vzorce.qmd) |
+| 01 | [Úvod do senzoriky a vnímanie chuti](kapitoly/01_uvod_vnimanie_chuti.html) | [Prah citlivosti (BET, 3-AFC)](kapitoly/01_uvod_vnimanie_chuti.html#kalkulator) | [slajdy](prezentacie/01_uvod_vnimanie_chuti.html) |
+| 02 | [Senzorické laboratórium a panel](kapitoly/02_laboratorium.html) | [Trojciferné kódy a Williamsov dizajn poradia](kapitoly/02_laboratorium.html#kalkulator) | [slajdy](prezentacie/02_laboratorium.html) |
+| 03 | [Prehľad senzorických metód](kapitoly/03_prehlad_metod.html) | [Poradový test – Friedman (ISO 8587)](kapitoly/03_prehlad_metod.html#kalkulator) | [slajdy](prezentacie/03_prehlad_metod.html) |
+| 04 | [Normy ISO a štandardné testy](kapitoly/04_iso_metody.html) | [Vyhodnotenie rozlišovacieho testu (rozdiel, podobnosť)](kapitoly/04_iso_metody.html#kalkulator) | [slajdy](prezentacie/04_iso_metody.html) |
+| 05 | [Diskriminačné metódy](kapitoly/05_diskriminacne_metody.html) | [Počet hodnotiteľov a sila testu (p_d, d′)](kapitoly/05_diskriminacne_metody.html#kalkulator) | [slajdy](prezentacie/05_diskriminacne_metody.html) |
+| 06 | [Škálovanie](kapitoly/06_skalovanie.html) | [Hedonická škála – priemer, IS, prijatie](kapitoly/06_skalovanie.html#kalkulator) | [slajdy](prezentacie/06_skalovanie.html) |
+| 07 | [Deskriptívne profily](kapitoly/07_deskriptivne_profily.html) | [ANOVA hodnotiteľ × vzorka, LSD](kapitoly/07_deskriptivne_profily.html#kalkulator) | [slajdy](prezentacie/07_deskriptivne_profily.html) |
+| 08 | [Spotrebiteľská senzorická veda](kapitoly/08_spotrebitelska_veda.html) | [Penalty analýza (JAR)](kapitoly/08_spotrebitelska_veda.html#kalkulator) | [slajdy](prezentacie/08_spotrebitelska_veda.html) |
+| 09 | [Senzorické tvrdenia (claims)](kapitoly/09_claims.html) | [Párový preferenčný test – nadradenosť, parita](kapitoly/09_claims.html#kalkulator) | [slajdy](prezentacie/09_claims.html) |
+| 10 | [Senzorická trvanlivosť (shelf-life)](kapitoly/10_shelf_life.html) | [Q10, Ea, Arrheniusov odhad trvanlivosti](kapitoly/10_shelf_life.html#kalkulator) | [slajdy](prezentacie/10_shelf_life.html) |
+| 11 | [Vzorce a štatistické výpočty](kapitoly/11_vzorce.html) | [Popisná štatistika a t-test](kapitoly/11_vzorce.html#kalkulator) | [slajdy](prezentacie/11_vzorce.html) |
 | P | [Príloha: Overenie zdrojov](kapitoly/priloha_overenie.html) | — | — |
 
 Kapitoly sú zoradené v poradí prednášok: základy (01–04) → metódy (05–08) → aplikácie a výpočty (09–11). Každá kapitola má sekciu **🧮 Kalkulátor** s interaktívnou tabuľkou alebo výpočtom; ten istý kalkulátor je aj na slajde pred záverom prezentácie.
@@ -33,10 +33,10 @@ Kapitoly sú zoradené v poradí prednášok: základy (01–04) → metódy (05
 index.html          úvodná stránka
 kapitoly/           11 kapitol + príloha (HTML so SVG diagramami) — jediný zdroj obsahu
 assets/             spoločný dizajn (sap.css), navigácia (sap.js) a kalkulátory (sap-calc.js)
-prezentacie/        Quarto (reveal.js) slajdy ku kapitolám + ich CSS
+prezentacie/        Quarto (reveal.js) slajdy ku kapitolám: zdroj .qmd + vyrenderované .html, spoločné knižnice v libs/
 ```
 
-Kapitoly sú samostatné HTML súbory — otvoria sa priamo v prehliadači, netreba nič kompilovať. Slajdy vygenerujete príkazom `quarto render prezentacie/<súbor>.qmd`. Kalkulátor na slajde načítava `../assets/sap-calc.js`, preto vyrenderované slajdy nechajte v priečinku `prezentacie/` (alebo renderujte s `embed-resources: true`).
+Kapitoly sú samostatné HTML súbory — otvoria sa priamo v prehliadači, netreba nič kompilovať. Slajdy sú v repozitári už vyrenderované (`prezentacie/*.html`) a dajú sa púšťať priamo odtiaľ. Po úprave `.qmd` ich pregenerujete príkazom `quarto render prezentacie` a výsledné `.html` (prípadne aj `libs/`) commitnete spolu so zdrojom. Slajdy načítavajú `libs/`, `styles.css` a `../assets/sap-calc.js` relatívne, preto ich nechajte v priečinku `prezentacie/`.
 
 ## Prepojenie so SaIT – Senzometria v R
 

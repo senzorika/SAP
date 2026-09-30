@@ -33,12 +33,12 @@ format:
 
 ## Typy diskriminačných metód
 
-```mermaid
+```{mermaid}
 graph TD
     A[Diskriminačné metódy] --> B[Trojuholníkový test]
     A --> C[Duo-trio test]
     A --> D[Párový porovnávací test]
-    A --> E["A" – "nie A" test]
+    A --> E["„A“ – „nie A“ test"]
     A --> F[Test rovnakosti]
     A --> G[Tetrad test]
     A --> H[2-out-of-5 test]
@@ -52,7 +52,7 @@ graph TD
 
 Testovateľovi sa predložia **tri vzorky**, z ktorých sú **dve rovnaké** a **jedna odlišná**. Úlohou je identifikovať **odlišnú vzorku**.
 
-```mermaid
+```{mermaid}
 graph LR
     A[Vzorka 1] --> D{Rozpoznáš odlišnú?}
     B[Vzorka 2] --> D
@@ -112,7 +112,7 @@ $$P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{3}\right)^i \cd
 
 Testovateľ najprv dostane **referenčnú vzorku** (R), potom dve anonymné vzorky. Úlohou je identifikovať, ktorá z anonymných vzoriek je **rovnaká** ako referenčná.
 
-```mermaid
+```{mermaid}
 graph TD
     A[Krok 1: R - referenčná vzorka] --> B[Krok 2: X, Y - anonymné vzorky]
     B --> C{Úloha: Ktorá z X, Y je rovnaká ako R?}
@@ -192,7 +192,7 @@ Testovateľ sa oboznámi so vzorkou „A". Potom dostáva sériu vzoriek A aj �
 
 **Vyhodnotenie:** tabuľka 2 × 2 → χ² test (nezávislé hodnotenia) alebo McNemarov test (párové); d′ = z(H) − z(F). *Nie* binomický test s p = 1/2.
 
-```mermaid
+```{mermaid}
 graph TD
     A[Fáza tréningu: Opakovaná prezentácia vzorky A] --> B[Fáza testovania: Náhodné vzorky A a B]
     B --> C{Je táto vzorka A alebo nie A?}
@@ -215,7 +215,7 @@ Testovateľ dostane **dve vzorky** a musí rozhodnúť, či sú **rovnaké** ale
 
 **Vyhodnotenie:** porovnanie podielu odpovedí „odlišné" pri odlišných a rovnakých pároch (χ² test); d′ podľa modelu same-different.
 
-```mermaid
+```{mermaid}
 graph LR
     A[Vzorka 1: X] --> C{Sú rovnaké alebo odlišné?}
     B[Vzorka 2: Y] --> C
@@ -236,7 +236,7 @@ graph LR
 
 Testovateľ dostane **štyri vzorky** — **dve vzorky A a dve vzorky B** (napr. AABB v náhodnom poradí); normalizuje ho ASTM E3009. Úlohou je **zoskupiť** vzorky do dvoch párov rovnakých vzoriek.
 
-```mermaid
+```{mermaid}
 graph TD
     A[Vzorky: A, A, B, B v náhodnom poradí] --> B[Úloha: Zoskupte do dvoch párov]
     B --> C[Pár 1: A + A]
@@ -276,7 +276,7 @@ V R: `sensR::discrimSS()` — [SaIT cvičenie 14](https://senzorika.github.io/Sa
 
 ## Výber správnej metódy
 
-```mermaid
+```{mermaid}
 graph TD
     A[Je smer rozdielu známy?] -->|Áno| B[Párový porovnávací test]
     A -->|Nie| C[Je rozdiel subtilný?]

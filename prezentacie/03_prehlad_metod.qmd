@@ -12,7 +12,7 @@ format:
 
 ## Klasifikácia senzorických metód
 
-```mermaid
+```{mermaid}
 graph TD
     A[Senzorické metódy] --> B[Rozlišovacie testy]
     A --> C[Deskriptívne metódy]

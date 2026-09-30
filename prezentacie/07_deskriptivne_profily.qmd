@@ -53,7 +53,7 @@ QDA vyvinuli **Herbert Stone** a kolegovia (1974). Trénovaní panelisti nezávi
 
 ## QDA – Generovanie deskriptorov
 
-```mermaid
+```{mermaid}
 graph TD
     A[1. Brainstorming - generovanie atribútov] --> B[2. Konsenzus - konsolidácia zoznamu]
     B --> C[3. Definícia - jasná definícia + referenčný štandard]
@@ -188,7 +188,7 @@ Párovo McNemarov test; mapa produktov: korešpondenčná analýza ([SaIT 17](ht
 
 **Dynamická metóda** – sleduje dominantné senzorické vjemy v čase počas spotreby produktu.
 
-```mermaid
+```{mermaid}
 graph LR
     A[Začiatok spotreby] --> B[0-10s: sladkosť]
     B --> C[10-25s: horkosť]
@@ -238,7 +238,7 @@ Kde $k$ = počet atribútov, $n$ = počet hodnotení (Pineau et al., 2009).
 
 ## Výber správnej metódy
 
-```mermaid
+```{mermaid}
 graph TD
     A[Aký je cieľ štúdie?] --> B[Vývoj produktu]
     A --> C[Screening]
