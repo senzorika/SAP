@@ -1,20 +1,23 @@
 (function () {
   'use strict';
 
+  // A third element marks an appendix: it keeps its place in the menu and
+  // pager but is not counted as a numbered chapter.
   var CHAPTERS = [
-    ['01_literatura_chut.html', 'Literatúra o chuti'],
-    ['02_laboratorium.html', 'Podmienky laboratória'],
-    ['03_iso_metody.html', 'ISO metódy'],
-    ['04_metody_senzoriky.html', 'Senzorické metódy'],
+    ['01_uvod_vnimanie_chuti.html', 'Úvod do senzoriky a vnímanie chuti'],
+    ['02_laboratorium.html', 'Senzorické laboratórium a panel'],
+    ['03_prehlad_metod.html', 'Prehľad senzorických metód'],
+    ['04_iso_metody.html', 'Normy ISO a štandardné testy'],
     ['05_diskriminacne_metody.html', 'Diskriminačné metódy'],
-    ['06_deskriptivne_profily.html', 'Deskriptívne profily'],
-    ['07_skalovanie.html', 'Škálovanie'],
+    ['06_skalovanie.html', 'Škálovanie'],
+    ['07_deskriptivne_profily.html', 'Deskriptívne profily'],
     ['08_spotrebitelska_veda.html', 'Spotrebiteľská senzorická veda'],
-    ['09_claims.html', 'Senzorické claims'],
+    ['09_claims.html', 'Senzorické tvrdenia (claims)'],
     ['10_shelf_life.html', 'Senzorická trvanlivosť'],
-    ['11_vzorce.html', 'Vzorce a parametre'],
-    ['12_overenie.html', 'Overenie zdrojov']
+    ['11_vzorce.html', 'Vzorce a štatistické výpočty'],
+    ['priloha_overenie.html', 'Overenie zdrojov', 'Príloha']
   ];
+  var NUMBERED = CHAPTERS.filter(function (c) { return !c[2]; }).length;
 
   var body = document.body;
   body.classList.add('sap');
@@ -24,6 +27,7 @@
   CHAPTERS.forEach(function (c, i) { if (c[0] === file) idx = i; });
   var toChapters = idx >= 0 ? '' : 'kapitoly/';
   var toRoot = idx >= 0 ? '../' : '';
+  var kicker = idx < 0 ? '' : CHAPTERS[idx][2] || 'Kapitola ' + (idx + 1);
 
   function el(tag, attrs, html) {
     var e = document.createElement(tag);
@@ -37,12 +41,13 @@
   top.appendChild(el('a', { class: 'sap-brand', href: toRoot + 'index.html' },
     '<span class="sap-brand-mark">SAP</span><span>Senzorická analýza <small>potravín</small></span>'));
   var menu = el('details', { class: 'sap-chapters' });
-  menu.appendChild(el('summary', {}, idx >= 0 ? 'Kapitola ' + (idx + 1) + ' / ' + CHAPTERS.length : 'Kapitoly'));
+  menu.appendChild(el('summary', {}, idx < 0 ? 'Kapitoly' : CHAPTERS[idx][2] || kicker + ' / ' + NUMBERED));
   var list = el('ol');
   CHAPTERS.forEach(function (c, i) {
     var a = el('a', { href: toChapters + c[0] }, c[1]);
     if (i === idx) a.setAttribute('aria-current', 'page');
     var li = el('li'); li.appendChild(a); list.appendChild(li);
+    if (c[2]) li.className = 'sap-appendix';
   });
   menu.appendChild(list);
   top.appendChild(menu);
@@ -60,7 +65,7 @@
   // Horizontal scroll wrapper so wide tables never break the page on phones.
   Array.prototype.forEach.call(document.querySelectorAll('table'), function (t) {
     var p = t.parentElement;
-    if (p.classList.contains('sap-table-wrap') || t.closest('#sait') || t.closest('svg')) return;
+    if (p.classList.contains('sap-table-wrap') || t.closest('#sait') || t.closest('.sap-calc') || t.closest('svg')) return;
     if (p.style && p.style.overflowX === 'auto') { p.classList.add('sap-table-wrap'); return; }
     var w = el('div', { class: 'sap-table-wrap' });
     p.insertBefore(w, t);
@@ -72,7 +77,7 @@
     var box = hero && hero.closest('.container');
     if (box) box.parentNode.insertBefore(hero, box);
     if (hero && !hero.querySelector('.sap-kicker')) {
-      hero.insertBefore(el('span', { class: 'sap-kicker' }, 'Kapitola ' + (idx + 1)), hero.firstChild);
+      hero.insertBefore(el('span', { class: 'sap-kicker' }, kicker), hero.firstChild);
     }
   }
 

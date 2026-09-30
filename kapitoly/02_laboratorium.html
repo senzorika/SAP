@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Podmienky senzorického laboratória – SAP</title>
+<title>Senzorické laboratórium a panel – SAP</title>
 <style>
 :root {
 --teal-900: #0d3b3b;
@@ -243,6 +243,7 @@ section { padding: 1.25rem; }
 </style>
     <link rel="stylesheet" href="../assets/sap.css">
     <script src="../assets/sap.js" defer></script>
+    <script src="../assets/sap-calc.js" defer></script>
 </head>
 <body class="sap">
 <nav>
@@ -256,13 +257,14 @@ section { padding: 1.25rem; }
 <li><a href="#panelisti">Panelisti</a></li>
 <li><a href="#hygiena">Hygiena</a></li>
 <li><a href="#dokumentacia">Dokumentácia</a></li>
+<li><a href="#kalkulator">🧮 Kalkulátor</a></li>
 <li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
 </div>
 </nav>
 <div class="container">
 <div class="hero">
-<h1>Podmienky senzorického laboratória</h1>
+<h1>Senzorické laboratórium a panel</h1>
 <p>ISO 8589 (priestory) · ISO 8586:2023 (hodnotitelia) · ISO 11132 (výkonnosť panelu)</p>
 <div class="meta">Repozitár: SAP – Senzorická Analýza Potravín | Kategória: Laboratórna dokumentácia | Aktualizované: 2026</div>
 </div>
@@ -750,6 +752,13 @@ Všetky vzorky musia byť jasne označené s informáciami o alergénoch. Paneli
 <p>Tento dokument poskytuje prehľad požiadaviek na senzorické laboratórium vychádzajúci z ISO 8589 (priestory), ISO 8586 (hodnotitelia), ISO 6658 (všeobecná metodika) a ISO 11132 (výkonnosť panelu), doplnený o odporúčania z praxe. Dodržiavanie týchto podmienok je nevyhnutné pre získanie spoľahlivých, reprodukovateľných a validných senzorických dát.</p>
 </section>
 </div>
+<section id="kalkulator">
+<h2>🧮 Kalkulátor</h2>
+<p>Náhodné trojciferné kódy (časť 4.1) a vyvážené poradie podávania (časť 4.4) pre vaše vzorky a hodnotiteľov.</p>
+<div data-sap-calc="poradie"></div>
+<noscript><p>Kalkulátor vyžaduje zapnutý JavaScript.</p></noscript>
+</section>
+
 <section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
 <h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
 <p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
@@ -763,7 +772,7 @@ Všetky vzorky musia byť jasne označené s informáciami o alergénoch. Paneli
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Audit panelu a návrh experimentu</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie20.R"><code>cvicenie20.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html">Senzorický panel ako merací prístroj</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
 <footer>

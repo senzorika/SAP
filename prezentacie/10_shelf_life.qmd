@@ -1,5 +1,5 @@
 ---
-title: "Sensory Shelf-Life Testing"
+title: "Senzorická trvanlivosť (shelf-life)"
 subtitle: "Metódy, výpočty a dizajn senzorických shelf-life štúdií"
 author: "SAP — Senzorická Analýza Potravín"
 date: "September 2026"
@@ -335,6 +335,15 @@ $$t_{25} = \eta \times (-\ln 0.75)^{1/\beta} = \eta \times 0.288^{1/\beta}$$
 
 ---
 
+## Kalkulátor {.scrollable}
+
+```{=html}
+<div data-sap-calc="aslt"></div>
+<script src="../assets/sap-calc.js"></script>
+```
+
+[Ten istý kalkulátor je aj [v kapitole](../kapitoly/10_shelf_life.html#kalkulator).]{style="font-size:0.5em"}
+
 ## Záver
 
 Sensory shelf-life testing je **komplexný proces**, ktorý kombinuje:
@@ -371,5 +380,5 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 Prednášky: [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html)
 
 ::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
 :::

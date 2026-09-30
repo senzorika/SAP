@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senzorická analýza potravín – SAP</title>
-    <meta name="description" content="Študijné kapitoly o senzorickej analýze potravín: fyziológia chuti, laboratórium, ISO metódy, diskriminačné a deskriptívne testy, spotrebiteľská veda, claims, trvanlivosť a vzorce.">
+    <meta name="description" content="Študijné kapitoly o senzorickej analýze potravín s kalkulátormi: vnímanie chuti, laboratórium, prehľad metód, normy ISO, diskriminačné testy, škálovanie, deskriptívne profily, spotrebiteľská veda, tvrdenia, trvanlivosť a vzorce.">
     <link rel="stylesheet" href="assets/sap.css">
     <script src="assets/sap.js" defer></script>
     <style>
@@ -25,6 +25,7 @@
         .chapters .num { font: 500 .75rem var(--font-mono); color: var(--saffron); letter-spacing: .06em; }
         .chapters h3 { font-family: var(--font-head); font-size: 1.22rem; color: var(--brand-strong); margin: 6px 0 8px; }
         .chapters p { font-size: .92rem; color: var(--ink-soft); margin: 0 0 14px; flex: 1; }
+        .chapters .calc { font-size: .82rem; color: var(--ink-soft); margin: -6px 0 12px; }
         .chapters .go { font-size: .84rem; font-weight: 600; color: var(--brand); }
         .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
         .links > div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
@@ -38,7 +39,7 @@
 <div class="hero">
     <span class="sap-kicker">Študijný materiál</span>
     <h1>Senzorická analýza potravín</h1>
-    <p>Dvanásť kapitol od fyziológie chuti a podmienok laboratória cez ISO metódy, diskriminačné a deskriptívne testy až po spotrebiteľskú vedu, senzorické tvrdenia, trvanlivosť a štatistické vzorce.</p>
+    <p>Jedenásť kapitol v poradí prednášok – od vnímania chuti a laboratória cez prehľad metód, rozlišovacie testy, škály a deskriptívne profily až po spotrebiteľskú vedu, senzorické tvrdenia a trvanlivosť. Každá má vlastný kalkulátor.</p>
     <span class="meta">Revízia obsahu 09/2026 · prepojené so SaIT – Senzometria v R</span>
 </div>
 
@@ -47,36 +48,36 @@
     <section class="part">
         <div class="part-head"><span>I</span><h2>Základy</h2></div>
         <ul class="chapters">
-            <li><a href="kapitoly/01_literatura_chut.html"><span class="num">01</span><h3>Literatúra o chuti</h3><p>Fyziológia vnímania chutí, receptory, interakcie a prehľad súčasného výskumu.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/02_laboratorium.html"><span class="num">02</span><h3>Podmienky laboratória</h3><p>Priestory podľa ISO 8589, výber a tréning hodnotiteľov (ISO 8586), výkonnosť panelu (ISO 11132).</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/03_iso_metody.html"><span class="num">03</span><h3>ISO metódy</h3><p>Prehľad noriem a štandardizovaných testov senzorickej analýzy.</p><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/01_uvod_vnimanie_chuti.html"><span class="num">01</span><h3>Úvod do senzoriky a vnímanie chuti</h3><p>Čo je senzorická analýza, fyziológia chuti, receptory, genetika a kontext vnímania.</p><span class="calc">🧮 Prah citlivosti (BET)</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/02_laboratorium.html"><span class="num">02</span><h3>Senzorické laboratórium a panel</h3><p>Priestory podľa ISO 8589, príprava vzoriek, výber a tréning hodnotiteľov (ISO 8586), výkonnosť panelu.</p><span class="calc">🧮 Kódy a poradie podávania</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/03_prehlad_metod.html"><span class="num">03</span><h3>Prehľad senzorických metód</h3><p>Mapa všetkých skupín metód – rozlišovacie, deskriptívne, časové, spotrebiteľské, QC, NPD a rýchle metódy.</p><span class="calc">🧮 Poradový test (Friedman)</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/04_iso_metody.html"><span class="num">04</span><h3>Normy ISO a štandardné testy</h3><p>Ktorá norma platí pre ktorý test, postup a vyhodnotenie štandardizovaných testov.</p><span class="calc">🧮 Vyhodnotenie rozlišovacieho testu</span><span class="go">Otvoriť kapitolu →</span></a></li>
         </ul>
     </section>
 
     <section class="part">
         <div class="part-head"><span>II</span><h2>Metódy</h2></div>
         <ul class="chapters">
-            <li><a href="kapitoly/04_metody_senzoriky.html"><span class="num">04</span><h3>Senzorické metódy</h3><p>Sprievodca všetkými skupinami metód – od rozlišovacích testov po QC, NPD a rýchle metódy.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/05_diskriminacne_metody.html"><span class="num">05</span><h3>Diskriminačné metódy</h3><p>Trojuholník, duo-trio, párové a A–nie A testy, kritické hodnoty a sila testu.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/06_deskriptivne_profily.html"><span class="num">06</span><h3>Deskriptívne profily</h3><p>Kvantitatívny popis produktov – QDA, Spectrum, CATA a dynamické metódy TDS a TCATA.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/07_skalovanie.html"><span class="num">07</span><h3>Škálovanie</h3><p>Hedonické, intenzitné a JAR škály, Waldova sekvenčná analýza a Thurstonov d′.</p><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/05_diskriminacne_metody.html"><span class="num">05</span><h3>Diskriminačné metódy</h3><p>Trojuholník, duo-trio, párový test, A – nie A, tetrad; porovnanie citlivosti metód.</p><span class="calc">🧮 Počet hodnotiteľov a sila testu</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/06_skalovanie.html"><span class="num">06</span><h3>Škálovanie</h3><p>Hedonické, intenzitné a JAR škály, Waldova sekvenčná analýza a Thurstonov d′.</p><span class="calc">🧮 Hedonická škála</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/07_deskriptivne_profily.html"><span class="num">07</span><h3>Deskriptívne profily</h3><p>Kvantitatívny popis produktov – QDA, Spectrum, CATA a dynamické metódy TDS a TCATA.</p><span class="calc">🧮 ANOVA deskriptora</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/08_spotrebitelska_veda.html"><span class="num">08</span><h3>Spotrebiteľská senzorická veda</h3><p>Hedonické testy, preferenčné mapovanie, conjoint, segmentácia spotrebiteľov.</p><span class="calc">🧮 Penalty analýza (JAR)</span><span class="go">Otvoriť kapitolu →</span></a></li>
         </ul>
     </section>
 
     <section class="part">
-        <div class="part-head"><span>III</span><h2>Aplikácie</h2></div>
+        <div class="part-head"><span>III</span><h2>Aplikácie a výpočty</h2></div>
         <ul class="chapters">
-            <li><a href="kapitoly/08_spotrebitelska_veda.html"><span class="num">08</span><h3>Spotrebiteľská senzorická veda</h3><p>Vzťah medzi senzorickými vlastnosťami produktu a reakciami spotrebiteľov.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/09_claims.html"><span class="num">09</span><h3>Senzorické claims</h3><p>Overovanie senzorických tvrdení, štatistika a právne požiadavky.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/10_shelf_life.html"><span class="num">10</span><h3>Senzorická trvanlivosť</h3><p>Návrh a vyhodnotenie senzorických testov trvanlivosti potravín.</p><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/09_claims.html"><span class="num">09</span><h3>Senzorické tvrdenia (claims)</h3><p>Overovanie senzorických tvrdení, štatistika a právne požiadavky.</p><span class="calc">🧮 Preferenčný test pre tvrdenie</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/10_shelf_life.html"><span class="num">10</span><h3>Senzorická trvanlivosť</h3><p>Návrh a vyhodnotenie senzorických testov trvanlivosti potravín.</p><span class="calc">🧮 Q10 a Arrheniusov model</span><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/11_vzorce.html"><span class="num">11</span><h3>Vzorce a štatistické výpočty</h3><p>Vzorce, štatistické parametre a riešené výpočty ku všetkým kapitolám.</p><span class="calc">🧮 Popisná štatistika a t-test</span><span class="go">Otvoriť kapitolu →</span></a></li>
         </ul>
     </section>
 
     <section class="part">
-        <div class="part-head"><span>IV</span><h2>Nástroje a overenie</h2></div>
+        <div class="part-head"><span>P</span><h2>Príloha</h2></div>
         <ul class="chapters">
-            <li><a href="kapitoly/11_vzorce.html"><span class="num">11</span><h3>Vzorce a parametre</h3><p>Matematické vzorce, štatistické parametre a riešené výpočty.</p><span class="go">Otvoriť kapitolu →</span></a></li>
-            <li><a href="kapitoly/12_overenie.html"><span class="num">12</span><h3>Overenie zdrojov</h3><p>Záznam overenia faktov, výpočtov a citácií a zoznam opráv z revízie 09/2026.</p><span class="go">Otvoriť kapitolu →</span></a></li>
+            <li><a href="kapitoly/priloha_overenie.html"><span class="num">P</span><h3>Overenie zdrojov</h3><p>Záznam overenia faktov, výpočtov a citácií, zoznam opráv z revízie 09/2026, časopisy a výskumné skupiny.</p><span class="go">Otvoriť kapitolu →</span></a></li>
         </ul>
     </section>
 
@@ -87,7 +88,7 @@
         </div>
         <div>
             <h3>Prezentácie</h3>
-            <p>Ku každej kapitole sú v priečinku <code>prezentacie/</code> Quarto slajdy na prednášky (<code>quarto render prezentacie/01_literatura_chut.qmd</code>).</p>
+            <p>Ku každej kapitole sú v priečinku <code>prezentacie/</code> Quarto slajdy na prednášky (<code>quarto render prezentacie/01_uvod_vnimanie_chuti.qmd</code>). Kalkulátor kapitoly je aj na slajde pred záverom.</p>
         </div>
     </section>
 

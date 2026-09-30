@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotrebiteľská senzorická veda</title>
+    <title>Spotrebiteľská senzorická veda – SAP</title>
     <style>
         :root{--primary:#1B5E7B;--primary-dark:#0D3B4F;--primary-light:#3A8CA8;--secondary:#C73E6F;--accent:#F4A261;--bg:#F5F8FA;--text:#1A2E3A;--text-light:#4A6572;--border:#D4E5EC;--success:#2A9D5C;--warning:#D4752A;--shadow:0 4px 20px rgba(27,94,123,0.08);--radius:12px;--radius-sm:8px}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -90,6 +90,7 @@
     </style>
     <link rel="stylesheet" href="../assets/sap.css">
     <script src="../assets/sap.js" defer></script>
+    <script src="../assets/sap-calc.js" defer></script>
 </head>
 <body class="sap">
     <nav>
@@ -105,6 +106,7 @@
                 <li><a href="#conjoint">Conjoint</a></li>
                 <li><a href="#segmenty">Segmenty</a></li>
                 <li><a href="#príklady">Príklady</a></li>
+            <li><a href="#kalkulator">🧮 Kalkulátor</a></li>
             <li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
         </div>
@@ -483,6 +485,13 @@
         </section>
         <p style="font-size:0.85rem;color:var(--text-light)"><em>Referencie: Peryam, D.R. &amp; Pilgrim, F.J. (1957). Food Technology 11(9), 9–14. | Green, P.E. &amp; Rao, V.R. (1971). Conjoint measurement for quantifying judgmental data. J. Marketing Research 8, 355–363. | Carroll, J.D. (1972). Individual differences and multidimensional scaling. In: Shepard, Romney &amp; Nerlove (Eds.), Multidimensional Scaling, Vol. 1. Seminar Press. | Rothman, L. &amp; Parker, M.J. (2009). ASTM MNL 63. | ISO 11136:2014.</em></p>
     </div>
+<section id="kalkulator">
+<h2>🧮 Kalkulátor</h2>
+<p>Ktorý atribút treba upraviť a ktorým smerom? Penalty analýza dát zo škály JAR a celkovej obľúbenosti.</p>
+<div data-sap-calc="penalty"></div>
+<noscript><p>Kalkulátor vyžaduje zapnutý JavaScript.</p></noscript>
+</section>
+
 <section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
 <h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
 <p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
@@ -499,7 +508,7 @@
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prípadová štúdia: preferencie a JAR</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie20.html">20 – Kontrolné prípadové štúdie II</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie20.R"><code>cvicenie20.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html">Spotrebiteľský výskum</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
     <footer>

@@ -160,6 +160,8 @@ body.sap {
   color: var(--ink); font-size: .93rem; line-height: 1.35;
 }
 .sap-chapters ol a::before { content: counter(ch, decimal-leading-zero); font: 500 .75rem var(--font-mono); color: var(--ink-soft); }
+.sap-chapters li.sap-appendix { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 6px; }
+.sap-chapters li.sap-appendix a::before { content: 'P'; min-width: 2ch; }
 .sap-chapters ol a:hover { background: var(--brand-soft); }
 .sap-chapters ol a[aria-current="page"] { background: var(--brand); color: #fff; }
 .sap-chapters ol a[aria-current="page"]::before { color: rgba(255, 255, 255, .75); }
@@ -364,6 +366,21 @@ body.sap {
 .sap #sait th { background: var(--saffron-soft) !important; border-bottom: 1px solid #ecd9a8 !important; }
 .sap #sait td { border-bottom: 1px solid var(--line) !important; }
 
+/* ---------- Calculator block (widget itself is styled by sap-calc.js) ---------- */
+.sap #kalkulator {
+  width: min(1152px, calc(100% - 48px));
+  max-width: none;
+  margin: 8px auto 28px;
+  padding: clamp(20px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brand);
+  border-radius: 14px;
+  box-shadow: var(--sap-shadow);
+}
+.sap #kalkulator > h2 { border-bottom: 0; padding-bottom: 0; margin: 0 0 8px; }
+.sap #kalkulator > p { color: var(--ink-soft); max-width: 78ch; margin-bottom: 20px; }
+
 /* ---------- Prev / next + footer ---------- */
 .sap-pager { max-width: 1152px; margin: 0 auto 40px; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .sap-pager a {
@@ -411,6 +428,7 @@ body.sap {
   .sap-pager { grid-template-columns: 1fr; padding: 0 16px; }
   .sap-pager .next { grid-column: 1; }
   .sap #sait { margin: 8px 16px 32px !important; padding: 20px !important; }
+  .sap #kalkulator { width: calc(100% - 32px); }
 }
 
 /* ---------- Print ---------- */
@@ -419,7 +437,7 @@ body.sap {
   body.sap { background: #fff; font-size: 11pt; }
   .sap .hero { background: none !important; color: #000; padding: 0 0 12pt; border-bottom: 2pt solid #000; }
   .sap .hero h1, .sap .hero p { color: #000; }
-  .sap .card, .sap .svg-container, .sap-table-wrap, .sap #sait { box-shadow: none; break-inside: avoid; }
+  .sap .card, .sap .svg-container, .sap-table-wrap, .sap #sait, .sap #kalkulator { box-shadow: none; break-inside: avoid; }
   .sap h2, .sap h3 { break-after: avoid; }
   .sap a { color: #000; }
   .sap footer { background: none; color: #555; }

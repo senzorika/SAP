@@ -1,5 +1,5 @@
 ---
-title: "Podmienky senzorického laboratória"
+title: "Senzorické laboratórium a panel"
 author: "SAP – Senzorická Analýza Potravín"
 date: "2026"
 format:
@@ -199,6 +199,15 @@ graph LR
 | Chladničky/mrazničky | Každý mesiac |
 | Osvetlenie | Každých 12 mesiacov |
 
+## Kalkulátor {.scrollable}
+
+```{=html}
+<div data-sap-calc="poradie"></div>
+<script src="../assets/sap-calc.js"></script>
+```
+
+[Ten istý kalkulátor je aj [v kapitole](../kapitoly/02_laboratorium.html#kalkulator).]{style="font-size:0.5em"}
+
 ## Záver
 
 Dodržiavanie podmienok ISO 8589 (priestory), ISO 8586 (hodnotitelia), ISO 6658 a ISO 11132 je **nevyhnutné** pre:
@@ -226,5 +235,5 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 Prednášky: [Senzorický panel ako merací prístroj](https://senzorika.github.io/SaIT/prezentacie/sk/04_panel.html)
 
 ::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
 :::

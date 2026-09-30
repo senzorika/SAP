@@ -1,5 +1,5 @@
 ---
-title: "Diskriminačné metody v senzorickej analýze"
+title: "Diskriminačné metódy"
 author: "Senzorická analýza potravín"
 format:
   revealjs:
@@ -13,7 +13,7 @@ format:
 ## Úvod
 
 ::: {style="text-align: center;"}
-### Čo sú diskriminačné metody?
+### Čo sú diskriminačné metódy?
 
 **Testy rozlíšenia** (difference tests) — skupina senzorických techník, ktorých cieľom je zistiť, či existuje **významný senzorický rozdiel** medzi dvoma alebo viacerými vzorkami.
 
@@ -22,20 +22,20 @@ format:
 
 ## Na čo sa používajú?
 
-| Oblast aplikácie | Príklad použitia |
+| Oblasť aplikácie | Príklad použitia |
 |---|---|
 | **Kontrola kvality** | Zmena suroviny, nový dodávateľ |
 | **Vývoj produktu** | Optimalizácia receptúry, zníženie cukru/tuku |
 | **Stabilita produktu** | Overenie trvanlivosti, porovnanie s referenciou |
 | **Výrobný proces** | Zmena parametrov výroby (teplota, čas) |
-| **Konzumentské testy** | Porovnanie s konkurenciou, testovanie „me-too" produktu |
-| **Výber panelistov** | Skríning tréning senzorového panelu |
+| **Spotrebiteľské testy** | Porovnanie s konkurenciou, testovanie „me-too" produktu |
+| **Výber panelistov** | Skríning a tréning senzorického panelu |
 
 ## Typy diskriminačných metód
 
 ```mermaid
 graph TD
-    A[Diskriminačné metody] --> B[Trojuholníkový test]
+    A[Diskriminačné metódy] --> B[Trojuholníkový test]
     A --> C[Duo-trio test]
     A --> D[Párový porovnávací test]
     A --> E["A" – "nie A" test]
@@ -274,7 +274,7 @@ graph TD
 
 V R: `sensR::discrimSS()` — [SaIT cvičenie 14](https://senzorika.github.io/SaIT/teoria/cvicenie14.html)
 
-## Výber správnej metody
+## Výber správnej metódy
 
 ```mermaid
 graph TD
@@ -284,7 +284,7 @@ graph TD
     C -->|Nie| E[Duo-trio alebo Same-Different]
 ```
 
-## Kritériá výbera
+## Kritériá výberu
 
 | Kritérium | Odporúčaná metóda |
 |---|---|
@@ -328,11 +328,20 @@ $$P(X \geq 38) = \sum_{i=38}^{60} \binom{60}{i} \cdot \left(\frac{1}{2}\right)^{
 
 **Záver:** p ≈ 0.052 > 0.05 → rozdiel **nie je** štatisticky významný (obojstranná kritická hodnota pre n = 60 je 39).
 
+## Kalkulátor {.scrollable}
+
+```{=html}
+<div data-sap-calc="sila"></div>
+<script src="../assets/sap-calc.js"></script>
+```
+
+[Ten istý kalkulátor je aj [v kapitole](../kapitoly/05_diskriminacne_metody.html#kalkulator).]{style="font-size:0.5em"}
+
 ## Záver
 
-Diskriminačné metody sú **nástrojmi prvej línie** v senzorickej analýze.
+Diskriminačné metódy sú **nástrojmi prvej línie** v senzorickej analýze.
 
-Výber správnej metody závisí od:
+Výber správnej metódy závisí od:
 
 - **Cieľa testu** (screening vs. potvrdenie)
 - **Úrovne panelu** (cvičený vs. konzument)
@@ -363,5 +372,5 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 Prednášky: [Rozlišovacie testy a Thurstonov model](https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html)
 
 ::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
 :::

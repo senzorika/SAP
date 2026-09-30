@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diskriminačné metódy | SAP</title>
+    <title>Diskriminačné metódy – SAP</title>
     <style>
         :root {
             --primary: #0d7377;
@@ -237,6 +237,7 @@
     </style>
     <link rel="stylesheet" href="../assets/sap.css">
     <script src="../assets/sap.js" defer></script>
+    <script src="../assets/sap-calc.js" defer></script>
 </head>
 <body class="sap">
     <nav>
@@ -249,6 +250,7 @@
             <li><a href="#rovnakosti">Rovnakosti</a></li>
             <li><a href="#tetrad">Tetrad</a></li>
             <li><a href="#porovnanie">Porovnanie</a></li>
+        <li><a href="#kalkulator">🧮 Kalkulátor</a></li>
         <li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
     </nav>
@@ -283,13 +285,13 @@
         <div class="card">
             <h3>1.2 Na čo sa používajú?</h3>
             <table>
-                <tr><th>Oblast aplikácie</th><th>Príklad použitia</th></tr>
+                <tr><th>Oblasť aplikácie</th><th>Príklad použitia</th></tr>
                 <tr><td><strong>Kontrola kvality</strong></td><td>Zmena suroviny, nový dodávateľ</td></tr>
                 <tr><td><strong>Vývoj produktu</strong></td><td>Optimalizácia receptúry, zníženie cukru/tuku</td></tr>
                 <tr><td><strong>Stabilita produktu</strong></td><td>Overenie trvanlivosti, porovnanie s referenciou</td></tr>
                 <tr><td><strong>Výrobný proces</strong></td><td>Zmena parametrov výroby (teplota, čas)</td></tr>
-                <tr><td><strong>Konzumentské testy</strong></td><td>Porovnanie s konkurenciou, testovanie "me-too" produktu</td></tr>
-                <tr><td><strong>Výber panelistov</strong></td><td>Skríning tréning senzorového panelu</td></tr>
+                <tr><td><strong>Spotrebiteľské testy</strong></td><td>Porovnanie s konkurenciou, testovanie "me-too" produktu</td></tr>
+                <tr><td><strong>Výber panelistov</strong></td><td>Skríning a tréning senzorického panelu</td></tr>
             </table>
         </div>
 
@@ -958,7 +960,7 @@
             </svg>
         </div>
 
-        <h2>9. Výber správnej metody</h2>
+        <h2>9. Výber správnej metódy</h2>
 
         <div class="card">
             <h3>9.1 Rozhodovací diagram</h3>
@@ -993,7 +995,7 @@
                     <text x="450" y="187" text-anchor="middle" fill="white" font-size="10">Duo-trio/Same-Diff</text>
 
                     <rect x="150" y="230" width="200" height="35" rx="6" fill="#e0f2f1" stroke="#0d7377"/>
-                    <text x="250" y="252" text-anchor="middle" fill="#0d7377" font-size="10">Kritérium výbera</text>
+                    <text x="250" y="252" text-anchor="middle" fill="#0d7377" font-size="10">Kritérium výberu</text>
 
                     <line x1="250" y1="265" x2="250" y2="290" stroke="#0d7377" stroke-width="1" stroke-dasharray="3,3"/>
 
@@ -1005,7 +1007,7 @@
         </div>
 
         <div class="card">
-            <h3>9.2 Kritériá výbera</h3>
+            <h3>9.2 Kritériá výberu</h3>
             <table>
                 <tr><th>Kritérium</th><th>Odporúčaná metóda</th></tr>
                 <tr><td>Známy smer rozdielu</td><td>Párový porovnávací test (2-AFC) alebo 3-AFC</td></tr>
@@ -1069,7 +1071,7 @@
 
         <h2>Záver</h2>
         <div class="highlight-box">
-            <p>Diskriminačné metódy sú <strong>nástrojmi prvej línie</strong> v senzorickej analýze. Výber správnej metody závisí od:</p>
+            <p>Diskriminačné metódy sú <strong>nástrojmi prvej línie</strong> v senzorickej analýze. Výber správnej metódy závisí od:</p>
             <ul style="margin-left: 20px; margin-top: 10px;">
                 <li><strong>Cieľa testu</strong> (screening vs. potvrdenie)</li>
                 <li><strong>Úrovne panelu</strong> (cvičený vs. konzument)</li>
@@ -1092,6 +1094,13 @@
         </div>
     </div>
 
+<section id="kalkulator">
+<h2>🧮 Kalkulátor</h2>
+<p>Koľko hodnotiteľov potrebuje ktorá metóda na odhalenie rovnakého rozdielu? Výpočet k tabuľke 8.2 pre ľubovoľné α, silu a veľkosť rozdielu.</p>
+<div data-sap-calc="sila"></div>
+<noscript><p>Kalkulátor vyžaduje zapnutý JavaScript.</p></noscript>
+</section>
+
 <section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
 <h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
 <p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
@@ -1103,7 +1112,7 @@
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Prípadová štúdia: zmena dodávateľa</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie19.html">19 – Kontrolné prípadové štúdie I</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie19.R"><code>cvicenie19.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html">Rozlišovacie testy a Thurstonov model</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
     <footer>

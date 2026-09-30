@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senzorické claims – Senzorická analýza potravín</title>
+    <title>Senzorické tvrdenia (claims) – SAP</title>
     <style>
         :root{--primary:#2C5F7C;--primary-dark:#1A3D52;--primary-light:#4A8BA8;--accent:#D4752A;--accent-light:#F4A261;--secondary:#6B4C9A;--secondary-light:#9B7FC4;--bg:#F5F8FA;--text:#1A2E3A;--text-light:#4A6572;--border:#D4E5EC;--success:#2A9D5C;--warning:#D4752A;--danger:#C73E6F;--shadow:0 4px 20px rgba(44,95,124,0.08);--radius:12px;--radius-sm:8px}
         *{margin:0;padding:0;box-sizing:border-box}
@@ -89,6 +89,7 @@
     </style>
     <link rel="stylesheet" href="../assets/sap.css">
     <script src="../assets/sap.js" defer></script>
+    <script src="../assets/sap-calc.js" defer></script>
 </head>
 <body class="sap">
     <nav>
@@ -105,13 +106,14 @@
                 <li><a href="#pravo">Právo</a></li>
                 <li><a href="#príklady">Príklady</a></li>
                 <li><a href="#zaver">Záver</a></li>
+            <li><a href="#kalkulator">🧮 Kalkulátor</a></li>
             <li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
         </div>
     </nav>
     <div class="hero">
-        <h1>Senzorické claims</h1>
-        <p>Komplexný sprievodca overením a právnymi požiadavkami na senzorické tvrdenia potravinárskych produktov</p>
+        <h1>Senzorické tvrdenia <span style="opacity:.7">(claims)</span></h1>
+        <p>Overenie a právne požiadavky na senzorické tvrdenia potravinárskych produktov</p>
     </div>
     <div class="container">
         <section id="uvod">
@@ -640,6 +642,13 @@
             </div>
         </section>
     </div>
+<section id="kalkulator">
+<h2>🧮 Kalkulátor</h2>
+<p>Overí, či výsledok párového preferenčného testu štatisticky podloží tvrdenie o nadradenosti alebo parite.</p>
+<div data-sap-calc="claim"></div>
+<noscript><p>Kalkulátor vyžaduje zapnutý JavaScript.</p></noscript>
+</section>
+
 <section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
 <h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
 <p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
@@ -653,7 +662,7 @@
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely pre opakované hodnotenia</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/03_rozlisovacie_testy.html">Rozlišovacie testy a Thurstonov model</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
     <footer>

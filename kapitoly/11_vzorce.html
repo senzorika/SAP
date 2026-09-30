@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vzorce a parametre v senzorickej analýze</title>
+    <title>Vzorce a štatistické výpočty – SAP</title>
     <style>
         :root {
             --primary: #00695c;
@@ -310,6 +310,7 @@
     </style>
     <link rel="stylesheet" href="../assets/sap.css">
     <script src="../assets/sap.js" defer></script>
+    <script src="../assets/sap-calc.js" defer></script>
 </head>
 <body class="sap">
 
@@ -324,14 +325,15 @@
             <li><a href="#shelf-life">Shelf-life</a></li>
             <li><a href="#parametre">Parametre</a></li>
             <li><a href="#vypocty">Výpočty</a></li>
+        <li><a href="#kalkulator">🧮 Kalkulátor</a></li>
         <li><a href="#sait">🧪 SaIT (R)</a></li>
 </ul>
     </div>
 </nav>
 
 <div class="hero">
-    <h1>Vzorce a parametre v senzorickej analýze</h1>
-    <p>Komplexný sprievodca matematickými vzorcami, štatistickými parametrami a praktickými výpočtami</p>
+    <h1>Vzorce a štatistické výpočty</h1>
+    <p>Vzorce, štatistické parametre a riešené výpočty ku všetkým kapitolám</p>
 </div>
 
 <div class="container">
@@ -1138,6 +1140,13 @@ Kde:
 
 </div>
 
+<section id="kalkulator">
+<h2>🧮 Kalkulátor</h2>
+<p>Priemer, smerodajná odchýlka, interval spoľahlivosti a porovnanie dvoch vzoriek z vašich vlastných dát.</p>
+<div data-sap-calc="statistika"></div>
+<noscript><p>Kalkulátor vyžaduje zapnutý JavaScript.</p></noscript>
+</section>
+
 <section id="sait" style="max-width:1100px;margin:40px auto;padding:24px 28px;background:#fffdf5;border:1px solid #f3e0a8;border-left:6px solid #f9a825;border-radius:12px;line-height:1.6">
 <h2 style="margin-top:0">🧪 Precvič v R – SaIT</h2>
 <p>Štatistické vyhodnotenie metód z tejto kapitoly si môžete vyskúšať v repozitári <a href="https://github.com/senzorika/SaIT"><strong>SaIT – Senzometria v R</strong></a> (R skripty SK/EN, <a href="https://senzorika.github.io/SaIT/teoria/index.html">teória s grafmi</a>).</p>
@@ -1153,7 +1162,7 @@ Kde:
 <tr><td style="padding:6px 10px;border-bottom:1px solid #eee">Zmiešané modely</td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">16 – Zmiešané modely</a></td><td style="padding:6px 10px;border-bottom:1px solid #eee"><a href="https://github.com/senzorika/SaIT/blob/master/cvicenie16.R"><code>cvicenie16.R</code></a></td></tr>
 </table></div>
 <p style="margin:12px 0 0">🎓 Prednášky: <a href="https://senzorika.github.io/SaIT/prezentacie/sk/02_testovanie_hypotez.html">Testovanie hypotéz v senzorike</a></p>
-<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="12_overenie.html">Overenie zdrojov</a>.</p>
+<p style="margin:12px 0 0;font-size:0.9em;opacity:0.85">✅ Obsah kapitoly bol v 09/2026 overený a opravený — zoznam opráv: <a href="priloha_overenie.html">Overenie zdrojov</a>.</p>
 </section>
 
 <footer>

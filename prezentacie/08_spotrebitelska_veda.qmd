@@ -247,7 +247,7 @@ Kde:
 | Segmentácia | Indirektny | 300+ | 30 min | Segmentácia | Marketing |
 | Online testy | Priama | 300+ | 15–20 min | Rýchly screening | Exploratórna fáza |
 
-## Výber správnej metody
+## Výber správnej metódy
 
 ```mermaid
 graph TD
@@ -319,6 +319,15 @@ graph TD
 
 **Záver:** Tri odlišné segmenty s rôznymi preferenciami, odporúča sa cielená marketingová stratégia.
 
+## Kalkulátor {.scrollable}
+
+```{=html}
+<div data-sap-calc="penalty"></div>
+<script src="../assets/sap-calc.js"></script>
+```
+
+[Ten istý kalkulátor je aj [v kapitole](../kapitoly/08_spotrebitelska_veda.html#kalkulator).]{style="font-size:0.5em"}
+
 ## Záver
 
 Spotrebiteľská senzorická veda poskytuje **komplexný nástrojár** pre pochopenie spotrebiteľov.
@@ -357,5 +366,5 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 Prednášky: [Spotrebiteľský výskum](https://senzorika.github.io/SaIT/prezentacie/sk/06_spotrebitelsky_vyskum.html)
 
 ::: {.callout-note}
-Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/12_overenie.html).
+Obsah bol v 09/2026 overený a opravený — pozri [Overenie zdrojov](../kapitoly/priloha_overenie.html).
 :::
