@@ -130,6 +130,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -247,6 +254,9 @@ Senzorická analýza potravín
 </div>
 </div>
 <p><strong>6 možných kombinácií poradia:</strong> AAB, ABA, BAA, BBA, BAB, ABB</p>
+</section>
+<section id="trojuholníkový-test-1" class="slide level2">
+<h2>Trojuholníkový test</h2>
 <h3 id="kedy-použiť">Kedy použiť</h3>
 <ul>
 <li>Keď existujú <strong>dve vzorky</strong> na porovnanie</li>
@@ -260,6 +270,9 @@ Senzorická analýza potravín
 <h3 id="binomické-rozdelenie">Binomické rozdelenie</h3>
 <p><span class="math display">\[P(X = k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}\]</span></p>
 <p>Kde: - <strong>n</strong> = počet testovateľov - <strong>k</strong> = počet správnych odpovedí - <strong>p</strong> = 1/3 (pravdepodobnosť úspechu pri náhodnom hádaní)</p>
+</section>
+<section id="trojuholníkový-test-výpočet-2" class="slide level2">
+<h2>Trojuholníkový test – Výpočet</h2>
 <h3 id="kumulatívna-pravdepodobnosť">Kumulatívna pravdepodobnosť</h3>
 <p><span class="math display">\[P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{3}\right)^i \cdot \left(\frac{2}{3}\right)^{n-i}\]</span></p>
 </section>
@@ -383,6 +396,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="duo-trio-test-3" class="slide level2">
+<h2>Duo-trio test</h2>
 <h3 id="výpočet">Výpočet</h3>
 <p><span class="math display">\[P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^i \cdot \left(\frac{1}{2}\right)^{n-i}\]</span></p>
 <p><strong>p = 1/2</strong> (pravdepodobnosť správnej odpovede pri náhodnom hádaní)</p>
@@ -478,6 +494,9 @@ Senzorická analýza potravín
 <blockquote>
 <p><strong>Dôležité:</strong> Testovateľ musí poznať <strong>smer rozdielu</strong> (napr. sladkosť, horkosť, kyslosť).</p>
 </blockquote>
+</section>
+<section id="párový-porovnávací-test-4" class="slide level2">
+<h2>Párový porovnávací test</h2>
 <h3 id="kedy-použiť-1">Kedy použiť</h3>
 <ul>
 <li>Keď je známy <strong>konkrétny atribút</strong> rozdielu</li>
@@ -486,6 +505,9 @@ Senzorická analýza potravín
 <li>Pri <strong>konzumentských</strong> testoch</li>
 <li>Keď je potrebná <strong>maximálna jednoduchosť</strong></li>
 </ul>
+</section>
+<section id="párový-porovnávací-test-5" class="slide level2">
+<h2>Párový porovnávací test</h2>
 <h3 id="výpočet-1">Výpočet</h3>
 <p><span class="math display">\[P(X \geq k) = \sum_{i=k}^{n} \binom{n}{i} \cdot \left(\frac{1}{2}\right)^n\]</span></p>
 </section>
@@ -631,6 +653,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="a-nie-a-test-6" class="slide level2">
+<h2>“A” – “nie A” test</h2>
 <h3 id="kedy-použiť-2">Kedy použiť</h3>
 <ul>
 <li>Keď vzorky <strong>nemožno podať súčasne</strong> (silná dochuť, nemaskovateľný vzhľad)</li>
@@ -660,6 +685,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="test-rovnakosti-same-different-7" class="slide level2">
+<h2>Test rovnakosti (Same-Different)</h2>
 <h3 id="kedy-použiť-3">Kedy použiť</h3>
 <ul>
 <li>Keď sa testuje <strong>celková odlišnosť</strong> (nie konkrétny atribút)</li>
@@ -687,6 +715,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="tetrad-test-8" class="slide level2">
+<h2>Tetrad test</h2>
 <h3 id="kedy-použiť-4">Kedy použiť</h3>
 <ul>
 <li>Keď je potrebná <strong>vyššia sila</strong> ako pri trojuholníkovom teste (smer rozdielu neznámy)</li>
@@ -1153,9 +1184,9 @@ Senzorická analýza potravín
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -1186,6 +1217,77 @@ Senzorická analýza potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

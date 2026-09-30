@@ -37,6 +37,7 @@
     }
   </style>
   <link rel="stylesheet" href="libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -129,6 +130,13 @@
       margin-left: auto;
       margin-right: 0; 
     }
+  </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
   </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
@@ -253,6 +261,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="rozlišovacie-testy-1" class="slide level2">
+<h2>Rozlišovacie testy</h2>
 <h3 id="kedy-použiť-ktorý-test">Kedy použiť ktorý test</h3>
 <table class="caption-top" style="width:100%;">
 <colgroup>
@@ -334,6 +345,9 @@ SAP – Senzorická Analýza Potravín
 <li><strong>Škála:</strong> nestrukturovaná lineárna (~15 cm)</li>
 <li><strong>Analýza:</strong> ANOVA (hodnotiteľ = náhodný efekt), PCA</li>
 </ul>
+</section>
+<section id="deskriptívne-metódy-2" class="slide level2">
+<h2>Deskriptívne metódy</h2>
 <h3 id="porovnanie-deskriptívnych-metód">Porovnanie deskriptívnych metód</h3>
 <table class="caption-top">
 <colgroup>
@@ -413,6 +427,9 @@ SAP – Senzorická Analýza Potravín
 <li><strong>Parametre:</strong> I_max, T_max, T_total, AUC</li>
 <li><strong>Panelisti:</strong> 10–15, tréning 20–30 hodín</li>
 </ul>
+</section>
+<section id="časovo-intenzívne-metódy-3" class="slide level2">
+<h2>Časovo intenzívne metódy</h2>
 <h3 id="temporal-dominance-of-sensations-tds">Temporal Dominance of Sensations (TDS)</h3>
 <ul>
 <li>Sleduje <strong>dominantný atribút</strong> v čase</li>
@@ -420,6 +437,9 @@ SAP – Senzorická Analýza Potravín
 <li><strong>Atribúty:</strong> 5–10</li>
 <li><strong>Signifikantnosť:</strong> % &gt; P_s = 1/m + 1.645 × √((1/m)(1-1/m)/n), m = počet atribútov (Pineau et al., 2009)</li>
 </ul>
+</section>
+<section id="časovo-intenzívne-metódy-4" class="slide level2">
+<h2>Časovo intenzívne metódy</h2>
 <h3 id="tcata">TCATA</h3>
 <ul>
 <li>Sleduje <strong>všetky aktívne atribúty</strong> v čase (Castura et al., 2016)</li>
@@ -435,18 +455,27 @@ SAP – Senzorická Analýza Potravín
 <li><strong>% Prijatie</strong> = (odpovede ≥ 6) / n × 100</li>
 <li><strong>% Odmietnutie</strong> = (odpovede ≤ 4) / n × 100</li>
 </ul>
+</section>
+<section id="spotrebiteľské-metódy-5" class="slide level2">
+<h2>Spotrebiteľské metódy</h2>
 <h3 id="preference-mapping">Preference Mapping</h3>
 <ul>
 <li>Kombinuje hedonické dáta s deskriptívnymi dátami (interná / externá mapa)</li>
 <li>Vytvára preferenčné mapy (PCA, PLS)</li>
 <li>Umožňuje segmentáciu spotrebiteľov</li>
 </ul>
+</section>
+<section id="spotrebiteľské-metódy-6" class="slide level2">
+<h2>Spotrebiteľské metódy</h2>
 <h3 id="conjoint-analysis">Conjoint Analysis</h3>
 <ul>
 <li>Identifikuje dôležité atribúty</li>
 <li>Simuluje trhové správanie</li>
 <li>Part-worth utilities</li>
 </ul>
+</section>
+<section id="spotrebiteľské-metódy-7" class="slide level2">
+<h2>Spotrebiteľské metódy</h2>
 <h3 id="jar-škála">JAR škála</h3>
 <ul>
 <li>5-bodová škála (príliš nízka → práve správna → príliš vysoká)</li>
@@ -463,6 +492,9 @@ SAP – Senzorická Analýza Potravín
 <li><strong>Frekvencia:</strong> Každá dávka</li>
 <li>Rýchly a jednoduchý</li>
 </ul>
+</section>
+<section id="qc-senzorika-8" class="slide level2">
+<h2>QC senzorika</h2>
 <h3 id="senzorická-špecifikácia">Senzorická špecifikácia</h3>
 <table class="caption-top">
 <thead>
@@ -494,6 +526,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="qc-senzorika-9" class="slide level2">
+<h2>QC senzorika</h2>
 <h3 id="monitorovanie-kvality">Monitorovanie kvality</h3>
 <table class="caption-top">
 <thead>
@@ -556,6 +591,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="npd-senzorika-10" class="slide level2">
+<h2>NPD senzorika</h2>
 <h3 id="ďalšie-npd-metódy">Ďalšie NPD metódy</h3>
 <ul>
 <li><strong>Benchmarking</strong> – porovnanie s konkurenciou</li>
@@ -610,6 +648,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="rýchle-metódy-11" class="slide level2">
+<h2>Rýchle metódy</h2>
 <h3 id="kedy-použiť-rýchle-metódy">Kedy použiť rýchle metódy</h3>
 <table class="caption-top">
 <thead>
@@ -706,6 +747,19 @@ SAP – Senzorická Analýza Potravín
 <td>TURF, preferenčná mapa</td>
 <td><a href="https://senzorika.github.io/SaIT/teoria/cvicenie11a.html">11a – TURF analýza a mapa preferencií</a></td>
 </tr>
+</tbody>
+</table>
+</section>
+<section id="precvič-v-r-sait-pokračovanie" class="slide level2 smaller">
+<h2>Precvič v R – SaIT (pokračovanie)</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Téma</th>
+<th>Cvičenie SaIT</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>JAR a penalty analýza</td>
 <td><a href="https://senzorika.github.io/SaIT/teoria/cvicenie12.html">12 – JAR škála a radarový graf</a></td>
@@ -923,9 +977,9 @@ SAP – Senzorická Analýza Potravín
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -956,6 +1010,77 @@ SAP – Senzorická Analýza Potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

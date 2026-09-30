@@ -130,6 +130,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -209,6 +216,9 @@ Senzorická analýza potravín
 <h2>Quantitative Descriptive Analysis (QDA)</h2>
 <h3 id="princíp">Princíp</h3>
 <p>QDA vyvinuli <strong>Herbert Stone</strong> a kolegovia (1974). Trénovaní panelisti nezávisle kvantifikujú <strong>relatívne rozdiely</strong> v intenzite atribútov; rozdiely v používaní škály rieši ANOVA.</p>
+</section>
+<section id="quantitative-descriptive-analysis-qda-1" class="slide level2">
+<h2>Quantitative Descriptive Analysis (QDA)</h2>
 <h3 id="počet-panelistov-a-tréning">Počet panelistov a tréning</h3>
 <ul>
 <li><strong>Počet panelistov:</strong> 8–12 trénovaných panelistov</li>
@@ -235,6 +245,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="qda-generovanie-deskriptorov-2" class="slide level2">
+<h2>QDA – Generovanie deskriptorov</h2>
 <h3 id="škálovanie">Škálovanie</h3>
 <p>QDA používa <strong>nestrukturovanú lineárnu škálu</strong> (~15 cm, kotvy ~1,25 cm od okrajov):</p>
 <pre><code>0 = neprítomné                    15 = extrémne intenzívne
@@ -299,6 +312,9 @@ Senzorická analýza potravín
 </tbody>
 </table>
 <p><em>Panelista = náhodný efekt → F_P = MS_P / MS_PS (zmiešaný model; <a href="https://senzorika.github.io/SaIT/teoria/cvicenie16.html">SaIT cvičenie 16</a>).</em></p>
+</section>
+<section id="qda-analýza-dát-3" class="slide level2">
+<h2>QDA – Analýza dát</h2>
 <h3 id="pca-analýza-hlavných-zložiek">PCA (Analýza hlavných zložiek)</h3>
 <ul>
 <li>Redukcia dimenzionality</li>
@@ -311,6 +327,9 @@ Senzorická analýza potravín
 <h2>Spectrum Method</h2>
 <h3 id="princíp-1">Princíp</h3>
 <p>Metóda vyvinutá <strong>Gail Vance Civille</strong>, ktorá používa <strong>štandardizované lexikóny</strong> a <strong>univerzálnu škálu 0–15</strong> ukotvenú referenčnými vzorkami.</p>
+</section>
+<section id="spectrum-method-4" class="slide level2">
+<h2>Spectrum Method</h2>
 <h3 id="štandardizované-slovníky">Štandardizované slovníky</h3>
 <table class="caption-top">
 <colgroup>
@@ -353,6 +372,9 @@ Senzorická analýza potravín
 <h2>Flavor Profile Method</h2>
 <h3 id="princíp-2">Princíp</h3>
 <p>Metóda vyvinutá koncom 40. rokov v spoločnosti <strong>Arthur D. Little</strong>. Malý panel expertov (4–6) dospeje ku <strong>konsenzuálnemu profilu</strong> vône a chuti.</p>
+</section>
+<section id="flavor-profile-method-5" class="slide level2">
+<h2>Flavor Profile Method</h2>
 <h3 id="škála-intenzity">Škála intenzity</h3>
 <table class="caption-top">
 <thead>
@@ -389,6 +411,9 @@ Senzorická analýza potravín
 <h2>Texture Profile Method</h2>
 <h3 id="princíp-3">Princíp</h3>
 <p>Metóda z General Foods (<strong>Brandt, Skinner &amp; Coleman, 1963</strong>; ISO 11036:2020) – hodnotí mechanické, geometrické a ďalšie (vlhkosť, tuk) vlastnosti <strong>v poradí, ako sa objavujú</strong>: prvé zahryznutie → žuvanie → reziduum. (Nezamieňať s inštrumentálnou TPA – dvojitou kompresiou.)</p>
+</section>
+<section id="texture-profile-method-6" class="slide level2">
+<h2>Texture Profile Method</h2>
 <h3 id="atribúty-textúry">Atribúty textúry</h3>
 <table class="caption-top">
 <colgroup>
@@ -426,6 +451,9 @@ Senzorická analýza potravín
 <h2>Free Choice Profiling</h2>
 <h3 id="princíp-4">Princíp</h3>
 <p>Panelisti používajú <strong>vlastné deskriptory</strong> namiesto predpísaného zoznamu. Každý panelista vypracuje slovník podľa vlastného vnímania.</p>
+</section>
+<section id="free-choice-profiling-7" class="slide level2">
+<h2>Free Choice Profiling</h2>
 <h3 id="gpa-analýza">GPA analýza</h3>
 <p><strong>Generalized Procrustes Analysis:</strong></p>
 <ul>
@@ -438,6 +466,9 @@ Senzorická analýza potravín
 <h2>Flash Profile</h2>
 <h3 id="princíp-5">Princíp</h3>
 <p><strong>Rýchla deskriptívna metóda</strong> (Dairou &amp; Sieffermann, 2002) – panelisti dostanú všetky produkty naraz, vytvoria vlastné deskriptory a podľa každého produkty <strong>zoradia</strong>; analýza GPA/MFA.</p>
+</section>
+<section id="flash-profile-8" class="slide level2">
+<h2>Flash Profile</h2>
 <h3 id="kedy-použiť">Kedy použiť</h3>
 <ul>
 <li>Screening veľkého počtu produktov</li>
@@ -450,8 +481,14 @@ Senzorická analýza potravín
 <h2>Check-All-That-Apply (CATA)</h2>
 <h3 id="princíp-6">Princíp</h3>
 <p>Spotrebitelia (nie trénovaní panelisti) označia všetky deskriptory, ktoré podľa nich charakterizujú produkt. Výsledkom je <strong>binárna matica (0/1)</strong> → frekvencie.</p>
+</section>
+<section id="check-all-that-apply-cata-9" class="slide level2">
+<h2>Check-All-That-Apply (CATA)</h2>
 <h3 id="výpočet-frekvencií">Výpočet frekvencií</h3>
 <p><span class="math display">\[\text{Frekvencia (\%)} = \frac{\text{Počet označení}}{\text{Počet respondentov}} \times 100\]</span></p>
+</section>
+<section id="check-all-that-apply-cata-10" class="slide level2">
+<h2>Check-All-That-Apply (CATA)</h2>
 <h3 id="cochranov-q-test">Cochranov Q test</h3>
 <p>Každý respondent hodnotí všetky produkty → závislé binárne dáta:</p>
 <p><span class="math display">\[Q = \frac{(k-1)\left[k\sum_j C_j^2 - N^2\right]}{kN - \sum_i R_i^2} \sim \chi^2(k-1)\]</span></p>
@@ -477,12 +514,18 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="temporal-dominance-of-sensations-tds-11" class="slide level2">
+<h2>Temporal Dominance of Sensations (TDS)</h2>
 <h3 id="tds-krivky">TDS krivky</h3>
 <ul>
 <li><strong>Os X:</strong> Čas (s)</li>
 <li><strong>Os Y:</strong> Pravdepodobnosť, že je atribút dominantný</li>
 <li><strong>Každá krivka:</strong> Jeden atribút</li>
 </ul>
+</section>
+<section id="temporal-dominance-of-sensations-tds-12" class="slide level2">
+<h2>Temporal Dominance of Sensations (TDS)</h2>
 <h3 id="signifikantnosť">Signifikantnosť</h3>
 <p><span class="math display">\[P_s = P_0 + 1.645\sqrt{\frac{P_0(1-P_0)}{n}}, \quad P_0 = \frac{1}{k}\]</span></p>
 <p>Kde <span class="math inline">\(k\)</span> = počet atribútov, <span class="math inline">\(n\)</span> = počet hodnotení (Pineau et al., 2009).</p>
@@ -491,6 +534,9 @@ Senzorická analýza potravín
 <h2>Temporal Check-All-That-Apply (TCATA)</h2>
 <h3 id="princíp-8">Princíp</h3>
 <p><strong>Dynamická verzia CATA</strong> (Castura et al., 2016) – hodnotitelia počas konzumácie označujú a odznačujú všetky atribúty, ktoré v danom okamihu vnímajú (nie len dominantné).</p>
+</section>
+<section id="temporal-check-all-that-apply-tcata-13" class="slide level2">
+<h2>Temporal Check-All-That-Apply (TCATA)</h2>
 <h3 id="výhody-a-nevýhody">Výhody a nevýhody</h3>
 <table class="caption-top">
 <colgroup>
@@ -1040,9 +1086,9 @@ Senzorická analýza potravín
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -1073,6 +1119,77 @@ Senzorická analýza potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

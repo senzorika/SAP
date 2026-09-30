@@ -37,6 +37,7 @@
     }
   </style>
   <link rel="stylesheet" href="libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -130,6 +131,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -180,6 +188,9 @@ SAP – Senzorická Analýza Potravín
 </div>
 </div>
 </div>
+</section>
+<section id="layout-laboratória-1" class="slide level2">
+<h2>Layout laboratória</h2>
 <h3 id="oddelenie-prípravnej-a-hodnotiacej-zóny">Oddelenie prípravnej a hodnotiacej zóny</h3>
 <table class="caption-top">
 <thead>
@@ -247,6 +258,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="podmienky-prostredia-2" class="slide level2">
+<h2>Podmienky prostredia</h2>
 <h3 id="vlhkosť">Vlhkosť</h3>
 <table class="caption-top">
 <thead>
@@ -269,6 +283,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="podmienky-prostredia-3" class="slide level2">
+<h2>Podmienky prostredia</h2>
 <h3 id="osvetlenie">Osvetlenie</h3>
 <table class="caption-top">
 <colgroup>
@@ -296,6 +313,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="podmienky-prostredia-4" class="slide level2">
+<h2>Podmienky prostredia</h2>
 <h3 id="vzduchová-výmena-a-akustika">Vzduchová výmena a akustika</h3>
 <table class="caption-top">
 <thead>
@@ -398,6 +418,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="príprava-vzoriek-5" class="slide level2">
+<h2>Príprava vzoriek</h2>
 <h3 id="porcie-a-podávanie">Porcie a podávanie</h3>
 <table class="caption-top">
 <thead>
@@ -433,6 +456,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="príprava-vzoriek-6" class="slide level2">
+<h2>Príprava vzoriek</h2>
 <h3 id="počet-vzoriek-na-panelistu">Počet vzoriek na panelistu</h3>
 <table class="caption-top">
 <thead>
@@ -482,6 +508,9 @@ SAP – Senzorická Analýza Potravín
 </div>
 </div>
 </div>
+</section>
+<section id="panelisti-7" class="slide level2">
+<h2>Panelisti</h2>
 <h3 id="počet-panelistov">Počet panelistov</h3>
 <table class="caption-top">
 <colgroup>
@@ -517,6 +546,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="panelisti-8" class="slide level2">
+<h2>Panelisti</h2>
 <h3 id="kalibrácia-a-monitorovanie">Kalibrácia a monitorovanie</h3>
 <table class="caption-top">
 <thead>
@@ -561,6 +593,9 @@ SAP – Senzorická Analýza Potravín
 <li>Verifikácia</li>
 <li>Dokumentácia</li>
 </ol>
+</section>
+<section id="hygiena-a-bezpečnosť-9" class="slide level2">
+<h2>Hygiena a bezpečnosť</h2>
 <h3 id="alergény">Alergény</h3>
 <table class="caption-top">
 <thead>
@@ -640,6 +675,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="dokumentácia-10" class="slide level2">
+<h2>Dokumentácia</h2>
 <h3 id="kalibrácia-zariadení">Kalibrácia zariadení</h3>
 <table class="caption-top">
 <thead>
@@ -910,9 +948,9 @@ SAP – Senzorická Analýza Potravín
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -943,6 +981,77 @@ SAP – Senzorická Analýza Potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

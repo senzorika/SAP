@@ -8,6 +8,7 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: true
+    css: styles.css
 ---
 
 ## Klasifikácia senzorických metód
@@ -237,6 +238,11 @@ Praktické cvičenia k tejto téme v repozitári [SaIT – Senzometria v R](http
 | Korešpondenčná analýza (CATA) | [9 – Korešpondenčná analýza](https://senzorika.github.io/SaIT/teoria/cvicenie09.html) |
 | Shelf-life – analýza prežitia | [10 – Analýza prežitia a senzorická trvanlivosť](https://senzorika.github.io/SaIT/teoria/cvicenie10.html) |
 | TURF, preferenčná mapa | [11a – TURF analýza a mapa preferencií](https://senzorika.github.io/SaIT/teoria/cvicenie11a.html) |
+
+## Precvič v R – SaIT (pokračovanie) {.smaller}
+
+| Téma | Cvičenie SaIT |
+|---|---|
 | JAR a penalty analýza | [12 – JAR škála a radarový graf](https://senzorika.github.io/SaIT/teoria/cvicenie12.html) |
 | Thurstonov d′, test podobnosti | [13 – Thurstonov model a d′](https://senzorika.github.io/SaIT/teoria/cvicenie13.html) |
 | Sila testu | [14 – Sila testu a veľkosť panelu](https://senzorika.github.io/SaIT/teoria/cvicenie14.html) |

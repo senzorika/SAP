@@ -129,6 +129,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -345,6 +352,9 @@ SAP — Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="weibullova-distribúcia-1" class="slide level2">
+<h2>Weibullova distribúcia</h2>
 <h3 id="interpretácia-β">Interpretácia β</h3>
 <table class="caption-top">
 <thead>
@@ -379,6 +389,9 @@ SAP — Senzorická Analýza Potravín
 <h3 id="q10-model">Q10 Model</h3>
 <p><span class="math display">\[Q_{10} = \frac{\text{Shelf-life pri } T_1}{\text{Shelf-life pri } T_2}\]</span></p>
 <p>Kde <span class="math inline">\(T_2 = T_1 + 10°C\)</span></p>
+</section>
+<section id="aslt-accelerated-shelf-life-testing-2" class="slide level2">
+<h2>ASLT — Accelerated Shelf-Life Testing</h2>
 <h3 id="vzťah">Vzťah</h3>
 <p><span class="math display">\[\text{Shelf-life}(T_2) = \frac{\text{Shelf-life}(T_1)}{Q_{10}^{(T_2-T_1)/10}}\]</span></p>
 <p>⚠️ Starnutie chleba (retrogradácia) nie je arrheniovské – v chladničke je rýchlejšie.</p>
@@ -422,6 +435,9 @@ SAP — Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="arrheniusov-model-3" class="slide level2">
+<h2>Arrheniusov model</h2>
 <h3 id="vzťah-medzi-q10-a-ea">Vzťah medzi Q10 a Ea</h3>
 <p><span class="math display">\[\ln Q_{10} = \frac{10\,E_a}{R\,T\,(T+10)} \approx \frac{10\,E_a}{R\,T^2}\]</span></p>
 </section>
@@ -430,8 +446,14 @@ SAP — Senzorická Analýza Potravín
 <p><strong>Princíp:</strong> Štatistická metóda na analýzu časových dát, kde “udalosť” je zamietnutie produktu.</p>
 <h3 id="prežívacia-funkcia">Prežívacia funkcia</h3>
 <p><span class="math display">\[S(t) = P(T &gt; t) = 1 - F(t)\]</span></p>
+</section>
+<section id="survival-analysis-4" class="slide level2">
+<h2>Survival Analysis</h2>
 <h3 id="hazard-funkcia">Hazard funkcia</h3>
 <p><span class="math display">\[h(t) = \frac{f(t)}{S(t)} = -\frac{d}{dt}[\ln S(t)]\]</span></p>
+</section>
+<section id="survival-analysis-5" class="slide level2">
+<h2>Survival Analysis</h2>
 <h3 id="cox-proportional-hazards-model">Cox Proportional Hazards Model</h3>
 <p><span class="math display">\[h(t|X) = h_0(t) \times \exp(\beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p)\]</span></p>
 </section>
@@ -535,6 +557,9 @@ SAP — Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="časové-body-6" class="slide level2">
+<h2>Časové body</h2>
 <h3 id="pravidlá">Pravidlá</h3>
 <ol type="1">
 <li><strong>Hustejšie body okolo očakávaného konca trvanlivosti</strong> – tam je informácia pre odhad najcennejšia</li>
@@ -680,6 +705,9 @@ SAP — Senzorická Analýza Potravín
 </div>
 </div>
 </div>
+</section>
+<section id="výpočet-shelf-life-7" class="slide level2">
+<h2>Výpočet shelf-life</h2>
 <h3 id="weibullove-parametre">Weibullove parametre</h3>
 <p><span class="math display">\[t_{50} = \eta \times (\ln 2)^{1/\beta}\]</span></p>
 <p><span class="math display">\[t_{25} = \eta \times (-\ln 0.75)^{1/\beta} = \eta \times 0.288^{1/\beta}\]</span></p>
@@ -874,6 +902,9 @@ SAP — Senzorická Analýza Potravín
 <li>Štatistické modelovanie</li>
 <li>Techniky urýchleného starnutia</li>
 </ul>
+</section>
+<section id="záver-8" class="slide level2">
+<h2>Záver</h2>
 <h3 id="kľúčové-princípy">Kľúčové princípy</h3>
 <ol type="1">
 <li><strong>Správny dizajn</strong> – dostatočný počet časových bodov, vzoriek a panelistov</li>
@@ -1130,6 +1161,77 @@ SAP — Senzorická Analýza Potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

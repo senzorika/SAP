@@ -37,6 +37,7 @@
     }
   </style>
   <link rel="stylesheet" href="libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -129,6 +130,13 @@
       margin-left: auto;
       margin-right: 0; 
     }
+  </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
   </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
@@ -255,11 +263,17 @@ SAP – Senzorická Analýza Potravín
 </div>
 </div>
 </div>
+</section>
+<section id="trojuholníkový-test-iso-4120-1" class="slide level2">
+<h2>Trojuholníkový test (ISO 4120)</h2>
 <h3 id="štatistika">Štatistika</h3>
 <ul>
 <li><strong>H₀:</strong> p = 1/3 (náhodná voľba)</li>
 <li><strong>H₁:</strong> p &gt; 1/3 (schopnosť rozlišovať)</li>
 </ul>
+</section>
+<section id="trojuholníkový-test-iso-4120-2" class="slide level2">
+<h2>Trojuholníkový test (ISO 4120)</h2>
 <h3 id="kritické-hodnoty-α-0.05">Kritické hodnoty (α = 0.05)</h3>
 <table class="caption-top">
 <thead>
@@ -324,6 +338,9 @@ SAP – Senzorická Analýza Potravín
 </div>
 </div>
 </div>
+</section>
+<section id="duo-trio-test-iso-10399-3" class="slide level2">
+<h2>Duo-trio test (ISO 10399)</h2>
 <h3 id="kritické-hodnoty-α-0.05-1">Kritické hodnoty (α = 0.05)</h3>
 <table class="caption-top">
 <thead>
@@ -372,6 +389,9 @@ SAP – Senzorická Analýza Potravín
 <h2>Párový porovnávací test (ISO 5495)</h2>
 <h3 id="princíp-2">Princíp</h3>
 <p>Panelista dostane <strong>dve vzorky</strong> a vyberie tú s vyššou intenzitou zvoleného atribútu.</p>
+</section>
+<section id="párový-porovnávací-test-iso-5495-4" class="slide level2">
+<h2>Párový porovnávací test (ISO 5495)</h2>
 <h3 id="kritické-hodnoty-obojstranný-test-α-0.05">Kritické hodnoty (obojstranný test, α = 0.05)</h3>
 <table class="caption-top">
 <thead>
@@ -414,6 +434,9 @@ SAP – Senzorická Analýza Potravín
 <h2>“A” – “nie A” Test</h2>
 <h3 id="princíp-3">Princíp</h3>
 <p>Panelista sa naučí referenčnú vzorku <strong>“A”</strong>, potom pri vzorkách A aj „nie A” rozhoduje, či ide o “A” alebo nie (ISO 8588:2017).</p>
+</section>
+<section id="a-nie-a-test-5" class="slide level2">
+<h2>“A” – “nie A” Test</h2>
 <h3 id="vyhodnotenie">Vyhodnotenie</h3>
 <ul>
 <li>Tabuľka 2 × 2: podaná vzorka (A / nie A) × odpoveď („A” / „nie A”)</li>
@@ -426,6 +449,9 @@ SAP – Senzorická Analýza Potravín
 <h2>Test rovnakosti (Same-Different)</h2>
 <h3 id="princíp-4">Princíp</h3>
 <p>Panelista dostane <strong>dve vzorky</strong> (rovnaký alebo odlišný pár) a rozhodne, či sú rovnaké alebo odlišné.</p>
+</section>
+<section id="test-rovnakosti-same-different-6" class="slide level2">
+<h2>Test rovnakosti (Same-Different)</h2>
 <h3 id="vyhodnotenie-1">Vyhodnotenie</h3>
 <ul>
 <li>Porovnanie podielu odpovedí „odlišné” pri odlišných a rovnakých pároch (<strong>χ² test</strong>)</li>
@@ -437,6 +463,9 @@ SAP – Senzorická Analýza Potravín
 <h2>Tetrad test</h2>
 <h3 id="princíp-5">Princíp</h3>
 <p>Panelista dostane <strong>štyri vzorky</strong> – dve vzorky A a dve vzorky B. Úlohou je rozdeliť ich do dvoch skupín rovnakých vzoriek (ASTM E3009). Pri rovnakom d′ potrebuje ~3× menej hodnotiteľov ako trojuholník.</p>
+</section>
+<section id="tetrad-test-7" class="slide level2">
+<h2>Tetrad test</h2>
 <h3 id="kritické-hodnoty-α-0.05-2">Kritické hodnoty (α = 0.05)</h3>
 <table class="caption-top">
 <thead>
@@ -499,6 +528,9 @@ SAP – Senzorická Analýza Potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="škála-intenzity-iso-4121-8" class="slide level2">
+<h2>Škála intenzity (ISO 4121)</h2>
 <h3 id="výpočet">Výpočet</h3>
 <pre><code>Priemer: x̄ = Σxi / n
 Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
@@ -538,6 +570,9 @@ Smerodajná odchýlka: s = √(Σ(xi - x̄)² / (n-1))
 </tr>
 </tbody>
 </table>
+</section>
+<section id="jar-škála-just-about-right-9" class="slide level2">
+<h2>JAR škála (Just-About-Right)</h2>
 <h3 id="penalizácia-penalty-analysis">Penalizácia (Penalty Analysis)</h3>
 <pre><code>Pokles = Priemer liking "JAR" − Priemer liking "Príliš nízka"
 Vážený pokles = pokles × podiel respondentov (interpretuj skupiny ≥ 20 %)</code></pre>
@@ -1007,9 +1042,9 @@ Vážený pokles = pokles × podiel respondentov (interpretuj skupiny ≥ 20 %)<
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -1040,6 +1075,77 @@ Vážený pokles = pokles × podiel respondentov (interpretuj skupiny ≥ 20 %)<
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

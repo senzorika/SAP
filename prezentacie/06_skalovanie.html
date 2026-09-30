@@ -130,6 +130,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -327,6 +334,9 @@ Senzorická analýza potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="bodová-a-5-bodová-hedonická-škála-1" class="slide level2">
+<h2>7-bodová a 5-bodová hedonická škála</h2>
 <h3 id="bodová-škála-1">5-bodová škála</h3>
 <table class="caption-top">
 <thead>
@@ -363,10 +373,19 @@ Senzorická analýza potravín
 <h2>Výpočet prijatia a odmietnutia</h2>
 <h3 id="priemerné-skóre">Priemerné skóre</h3>
 <p><span class="math display">\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\]</span></p>
+</section>
+<section id="výpočet-prijatia-a-odmietnutia-2" class="slide level2">
+<h2>Výpočet prijatia a odmietnutia</h2>
 <h3 id="percento-prijatia">Percento prijatia</h3>
 <p><span class="math display">\[\% \text{ Prijatia} = \frac{\text{Počet testovateľov so skóre} \geq 6}{n} \times 100\]</span></p>
+</section>
+<section id="výpočet-prijatia-a-odmietnutia-3" class="slide level2">
+<h2>Výpočet prijatia a odmietnutia</h2>
 <h3 id="percento-odmietnutia">Percento odmietnutia</h3>
 <p><span class="math display">\[\% \text{ Odmietnutia} = \frac{\text{Počet testovateľov so skóre} \leq 4}{n} \times 100\]</span></p>
+</section>
+<section id="výpočet-prijatia-a-odmietnutia-4" class="slide level2">
+<h2>Výpočet prijatia a odmietnutia</h2>
 <h3 id="index-prijatia">Index prijatia</h3>
 <p><span class="math display">\[AI = \frac{\bar{x} - 1}{8} \times 100\]</span></p>
 </section>
@@ -477,8 +496,14 @@ Prírodné    ←──┼──┼──┼──┼──┼──→  Umelé
 <h2>Výpočet priemerov a CI</h2>
 <h3 id="priemerné-skóre-1">Priemerné skóre</h3>
 <p><span class="math display">\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\]</span></p>
+</section>
+<section id="výpočet-priemerov-a-ci-5" class="slide level2">
+<h2>Výpočet priemerov a CI</h2>
 <h3 id="smerodajná-odchýlka">Smerodajná odchýlka</h3>
 <p><span class="math display">\[s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}\]</span></p>
+</section>
+<section id="výpočet-priemerov-a-ci-6" class="slide level2">
+<h2>Výpočet priemerov a CI</h2>
 <h3 id="interval-spoľahlivosti">95% Interval spoľahlivosti</h3>
 <p><span class="math display">\[CI = \bar{x} \pm t_{0.025, n-1} \times \frac{s}{\sqrt{n}}\]</span></p>
 </section>
@@ -505,6 +530,9 @@ Prírodné    ←──┼──┼──┼──┼──┼──→  Umelé
 </div>
 </div>
 </div>
+</section>
+<section id="waldova-sekvenčná-analýza-7" class="slide level2">
+<h2>Waldova sekvenčná analýza</h2>
 <h3 id="výpočet-hraníc">Výpočet hraníc</h3>
 <p><span class="math display">\[D = \ln\frac{p_1}{p_0} + \ln\frac{1-p_0}{1-p_1}, \qquad s = \frac{1}{D}\ln\frac{1-p_0}{1-p_1}\]</span></p>
 <p><span class="math display">\[a_n = \frac{1}{D}\ln\frac{1-\beta}{\alpha} + s\,n, \qquad b_n = -\frac{1}{D}\ln\frac{1-\alpha}{\beta} + s\,n\]</span></p>
@@ -529,6 +557,9 @@ Prírodné    ←──┼──┼──┼──┼──┼──→  Umelé
 </div>
 </div>
 </div>
+</section>
+<section id="thurstone-d-prime-d-8" class="slide level2">
+<h2>Thurstone d-prime (d’)</h2>
 <h3 id="výpočet">Výpočet</h3>
 <p><span class="math display">\[d' = z(\text{Hit Rate}) - z(\text{False Alarm Rate})\]</span></p>
 <p>Kde: - úloha <strong>A – nie A</strong> (yes/no): <strong>H</strong> = podiel „nie A” pri vzorke „nie A”, <strong>F</strong> = podiel „nie A” pri vzorke A - pre same-different, trojuholník, duo-trio platia iné psychometrické funkcie (sensR)</p>
@@ -590,6 +621,9 @@ Prírodné    ←──┼──┼──┼──┼──┼──→  Umelé
 │────────│────────│────────│────────│
 Príliš   Trochu   Práve    Trochu   Príliš
 slabé    slabé    správne  silné    silné</code></pre>
+</section>
+<section id="jar-škála-just-about-right-9" class="slide level2">
+<h2>JAR škála (Just-About-Right)</h2>
 <h3 id="penalty-analysis">Penalty analysis</h3>
 <p><span class="math display">\[\text{Penalty} = \bar{x}_{JAR} - \bar{x}_{non-JAR}\]</span></p>
 <p>Vážený pokles = penalty × podiel skupiny; interpretovať skupiny ≥ 20 %. Hranice nižšie sú konvencia:</p>
@@ -1088,9 +1122,9 @@ slabé    slabé    správne  silné    silné</code></pre>
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -1121,6 +1155,77 @@ slabé    slabé    správne  silné    silné</code></pre>
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

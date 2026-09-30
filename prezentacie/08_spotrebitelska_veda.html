@@ -130,6 +130,13 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+  /* Diagram labels are measured before the slide is laid out and come out a
+     little wider than their boxes; a slightly smaller label keeps them inside. */
+  .reveal svg[id^="mermaid"] { display: block; margin: 0 auto; }
+  .reveal svg[id^="mermaid"] foreignObject { overflow: visible; }
+  .reveal svg[id^="mermaid"] .nodeLabel, .reveal svg[id^="mermaid"] .edgeLabel { font-size: 13.5px !important; }
+  </style>
   <script src="libs/quarto-diagram/mermaid.min.js"></script>
   <script src="libs/quarto-diagram/mermaid-init.js"></script>
   <link href="libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -271,6 +278,9 @@ Senzorická analýza potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="hedonické-testy-1" class="slide level2">
+<h2>Hedonické testy</h2>
 <h3 id="počet-spotrebiteľov">Počet spotrebiteľov</h3>
 <table class="caption-top">
 <thead>
@@ -336,12 +346,18 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="preference-mapping-2" class="slide level2">
+<h2>Preference Mapping</h2>
 <h3 id="pca-analýza-hlavných-zložiek">PCA (Analýza hlavných zložiek)</h3>
 <ul>
 <li>Redukcia dimenzionality senzorických dát</li>
 <li>Identifikácia hlavných osi variability</li>
 <li>Vizualizácia produktov v priestore</li>
 </ul>
+</section>
+<section id="preference-mapping-3" class="slide level2">
+<h2>Preference Mapping</h2>
 <h3 id="pls-parciálne-najmenšie-štvorce">PLS (Parciálne najmenšie štvorce)</h3>
 <ul>
 <li>Modelovanie vzťahu medzi senzorickými a hedonickými dátami</li>
@@ -369,6 +385,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="conjoint-analysis-4" class="slide level2">
+<h2>Conjoint Analysis</h2>
 <h3 id="part-worth-utilities">Part-worth utilities</h3>
 <p><span class="math display">\[U(x) = \sum \beta_j \times x_j\]</span></p>
 <p>Kde: - U(x) = celkový užitek profilu x - β_j = part-worth utility atribútu j - x_j = hodnota atribútu j (0 alebo 1)</p>
@@ -377,11 +396,17 @@ Senzorická analýza potravín
 <h2>TURF Analysis</h2>
 <h3 id="princíp-2">Princíp</h3>
 <p><strong>Total Unduplicated Reach and Frequency</strong> – optimalizačná technika, ktorá identifikuje kombináciu produktov s <strong>maximálnym dosahom</strong> a minimálnou redundanciou.</p>
+</section>
+<section id="turf-analysis-5" class="slide level2">
+<h2>TURF Analysis</h2>
 <h3 id="reach-a-frequency">Reach a frequency</h3>
 <ul>
 <li><strong>Reach:</strong> Percento spotrebiteľov, ktorí aspoň jeden produkt z kombinácie preferujú</li>
 <li><strong>Frequency:</strong> Priemerný počet produktov z kombinácie, ktoré spotrebiteľ preferuje</li>
 </ul>
+</section>
+<section id="turf-analysis-6" class="slide level2">
+<h2>TURF Analysis</h2>
 <h3 id="výpočet">Výpočet</h3>
 <p><span class="math display">\[\text{Reach}(S) = \frac{\#\{\text{spotrebitelia, ktorí akceptujú} \geq 1 \text{ položku z } S\}}{n}\]</span></p>
 <p>Optimum = kombinácia s max. Reach; pri zhode rozhoduje Frequency (priemerný počet akceptovaných položiek).</p>
@@ -406,6 +431,9 @@ Senzorická analýza potravín
 </div>
 </div>
 </div>
+</section>
+<section id="jar-škála-a-penalty-analysis-7" class="slide level2">
+<h2>JAR škála a Penalty Analysis</h2>
 <h3 id="výpočet-penalty">Výpočet penalty</h3>
 <p><span class="math display">\[\text{Penalty} = \text{Priemer(JAR)} - \text{Priemer(nie JAR)}\]</span></p>
 <table class="caption-top">
@@ -444,6 +472,9 @@ Senzorická analýza potravín
 <h2>Purchase Intent</h2>
 <h3 id="princíp-4">Princíp</h3>
 <p>Meria pravdepodobnosť, že spotrebiteľ <strong>kúpi produkt</strong> po jeho vnímaní. Je to proxy metrika pre predikciu tržieb.</p>
+</section>
+<section id="purchase-intent-8" class="slide level2">
+<h2>Purchase Intent</h2>
 <h3 id="bodová-škála">5-bodová škála</h3>
 <table class="caption-top">
 <thead>
@@ -475,6 +506,9 @@ Senzorická analýza potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="purchase-intent-9" class="slide level2">
+<h2>Purchase Intent</h2>
 <h3 id="výpočet-1">Výpočet</h3>
 <p><span class="math display">\[\text{Purchase Intent (\%)} = \frac{\text{Počet 4 + 5}}{\text{Celkový počet}} \times 100\]</span></p>
 </section>
@@ -484,6 +518,9 @@ Senzorická analýza potravín
 <p>Rozdeľuje spotrebiteľov do <strong>k klastrov</strong> na základe podobnosti ich preferencií:</p>
 <p><span class="math display">\[\text{Minimizova}_t \sum \sum ||x_i - \mu_j||^2\]</span></p>
 <p>Kde: - x_i = hodnotenie i-teho spotrebiteľa - μ_j = stred j-teho klastra</p>
+</section>
+<section id="segmentácia-spotrebiteľov-10" class="slide level2">
+<h2>Segmentácia spotrebiteľov</h2>
 <h3 id="latent-class-analysis">Latent class analysis</h3>
 <ul>
 <li>Identifikuje latentné (skryté) triedy spotrebiteľov</li>
@@ -524,6 +561,9 @@ Senzorická analýza potravín
 </tr>
 </tbody>
 </table>
+</section>
+<section id="online-spotrebiteľské-testy-11" class="slide level2">
+<h2>Online spotrebiteľské testy</h2>
 <h3 id="porovnanie-s-laboratóriom">Porovnanie s laboratóriom</h3>
 <table class="caption-top">
 <thead>
@@ -1099,9 +1139,9 @@ Senzorická analýza potravín
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -1132,6 +1172,77 @@ Senzorická analýza potravín
           RevealZoom
         ]
       });
+    </script>
+    <script>
+    // Shrinks the text and diagrams of a slide until the whole slide fits the
+    // screen; a slide that still does not fit at the smallest size becomes
+    // scrollable.
+    (function () {
+      var MIN_TEXT = 55, MIN_DIAGRAM = 0.4;
+
+      function diagrams(slide) {
+        return Array.prototype.filter.call(slide.querySelectorAll('svg[id^="mermaid"]'), function (svg) {
+          if (!svg.dataset.fitW) {
+            var box = svg.getBoundingClientRect(), scale = Reveal.getScale() || 1;
+            if (!box.width || !box.height) return false;
+            svg.dataset.fitW = box.width / scale;
+            svg.dataset.fitH = box.height / scale;
+          }
+          return true;
+        });
+      }
+
+      // Bottom edge of the slide content; scrollHeight is no use here because it
+      // never drops below the height of the slide itself.
+      function contentHeight(slide) {
+        var bottom = 0;
+        Array.prototype.forEach.call(slide.children, function (child) {
+          if (child.offsetParent === slide) bottom = Math.max(bottom, child.offsetTop + child.offsetHeight);
+        });
+        return bottom;
+      }
+
+      function fit(slide) {
+        if (!slide || slide.classList.contains('scrollable') || slide.classList.contains('stack')) return;
+        // Keep a margin for the slide number and menu at the bottom edge.
+        var height = Reveal.getConfig().height - 28;
+        var display = slide.style.display;
+        slide.style.display = 'block';
+        slide.style.fontSize = '';
+        slide.style.maxHeight = '';
+        slide.style.overflowY = '';
+        var svgs = diagrams(slide);
+        var text = 100, diagram = 1;
+        function apply() {
+          slide.style.fontSize = text < 100 ? text + '%' : '';
+          svgs.forEach(function (svg) {
+            svg.style.maxWidth = 'none';
+            svg.style.width = svg.dataset.fitW * diagram + 'px';
+            svg.style.height = svg.dataset.fitH * diagram + 'px';
+          });
+        }
+        apply();
+        while (contentHeight(slide) > height && (text > MIN_TEXT || (svgs.length && diagram > MIN_DIAGRAM))) {
+          if (text > MIN_TEXT) text -= 3;
+          if (svgs.length && diagram > MIN_DIAGRAM) diagram *= 0.93;
+          apply();
+        }
+        if (contentHeight(slide) > height) {
+          slide.style.maxHeight = height + 'px';
+          slide.style.overflowY = 'auto';
+        }
+        slide.style.display = display;
+      }
+
+      function fitAll() { Reveal.getSlides().forEach(fit); }
+      function start() {
+        fitAll();
+        // Diagrams and calculators finish rendering after the deck is ready.
+        setTimeout(fitAll, 1500);
+        Reveal.on('slidechanged', function (e) { fit(e.currentSlide); });
+      }
+      if (Reveal.isReady()) start(); else Reveal.on('ready', start);
+    })();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

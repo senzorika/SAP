@@ -2,3 +2,13 @@ project:
   lib-dir: libs
 
 lang: sk
+
+format:
+  revealjs:
+    width: 1280
+    height: 720
+    include-in-header: _slides-head.html
+    include-after-body: _fit-slides.html
+
+filters:
+  - _split-subsections.lua
